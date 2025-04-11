@@ -30,6 +30,52 @@ $(function() {
 		$('#menu-group-arrow').attr('name', 'keyboard_arrow_down')
 	});
 
+	$('#menu-formular').click(function() {
+		console.log('#menu-formular clicked');
+		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('#content-formular').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active');
+		$('#menu-formular').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
+	$('#menu-help-artikelbenamning').click(function() {
+		console.log('#menu-help-artikelbenamning clicked');
+		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('#content-help-artikelbenamning').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
+		$('#menu-help-artikelbenamning').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
+	$('#menu-help-plockomraden').click(function() {
+		console.log('#menu-help-plockomraden clicked');
+		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('#content-help-plockomraden').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
+		$('#menu-help-plockomraden').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
+	$('#menu-help-liggplats').click(function() {
+		console.log('#menu-help-liggplats clicked');
+		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('#content-help-liggplats').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
+		$('#menu-help-liggplats').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
+	$('#menu-help-outlook').click(function() {
+		console.log('#menu-help-outlook clicked');
+		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('#content-help-outlook').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
+		$('#menu-help-outlook').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
+
 	/* Toggle theme */
 	$('#button-toggle-theme').click(function() {
 		console.log('#button-toggle-theme clicked');
@@ -134,22 +180,6 @@ $(function() {
 
 		$('#dialog').attr('open', true);
 	});
-
-	$('#button-help-outlook').click(function() {
-		console.log('#button-help-outlook clicked');
-		$('#navigation-drawer').removeAttr('open');
-		$('#dialog-outlook').attr('open', true);
-	})
-
-	$('#button-help-plockomraden').click(function() {
-		console.log('#button-help-plockomraden clicked');
-		$('#dialog-plockomraden').attr('open', true);
-	})
-
-	$('#button-help-liggplats').click(function() {
-		console.log('#button-help-liggplats clicked');
-		$('#dialog-liggplats').attr('open', true);
-	})
 
 	$('#button-send-email').click(function() {
 		console.log('#button-send-email clicked');

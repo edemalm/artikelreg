@@ -27,7 +27,7 @@
 	-->
 
 	<link rel="stylesheet" href="css/mdui-override.css">
-	<link rel="stylesheet" href="css/color-theme-ced5f8.css">
+	<!-- link rel="stylesheet" href="css/color-theme-ced5f8.css" -->
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/app.css">
 	<!-- link rel="stylesheet" href="css/debug.css" -->
@@ -65,7 +65,22 @@
 		</div>
 
 		<mdui-list>
+			<mdui-list-item id="menu-formular" rounded active>Formulär</mdui-list-item>
+		</mdui-list>
+
+		<mdui-list>
 			<mdui-collapse accordion>
+
+				<mdui-collapse-item class="menu-collapse-item">
+					<mdui-list-item slot="header" icon="help_center" rounded>Hjälp<mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
+					<div style="margin-left: 2.5rem">
+						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
+						<mdui-list-item id="menu-help-plockomraden" rounded>Plockområden</mdui-list-item>
+						<mdui-list-item id="menu-help-liggplats" rounded>Liggplats</mdui-list-item>
+						<mdui-list-item id="menu-help-outlook" rounded>Instruktion Outlook</mdui-list-item>
+					</div>
+				</mdui-collapse-item>
+
 				<mdui-collapse-item class="menu-collapse-item">
 					<mdui-list-item slot="header" icon="link" rounded>Externa länkar<mdui-icon id="menu-group-arrow" slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
 					<div style="margin-left: 2.5rem">
@@ -74,11 +89,8 @@
 						<mdui-list-item href="https://websesam.ltdalarna.se/" rel="external" target="_blank" end-icon="open_in_new" rounded>Gamla webSesam</mdui-list-item>
 					</div>
 				</mdui-collapse-item>
-			</mdui-collapse>
-		</mdui-list>
 
-		<mdui-list>
-			<mdui-list-item id="button-help-outlook" rounded>Instruktion Outlook</mdui-list-item>
+			</mdui-collapse>
 		</mdui-list>
 
 		<div class="divider"></div>
@@ -96,7 +108,7 @@
 
 <mdui-layout-main class="mdui-prose">
 
-<div class="content-wrapper">
+<div id="content-formular" class="content-wrapper">
 <form id="form-artikeldata">
 
 	<div class="row contained">
@@ -250,7 +262,7 @@
 					</mdui-select>
 				</div><!-- .col -->
 
-				<div class="col s8">
+				<div class="col s6">
 					<!-- PLOCKOMRÅDE -->
 					<mdui-select id="select-plockomrade" name="select-plockomrade" variant="filled" label="Plockområde" end-icon="arrow_drop_down" required>
 						<mdui-menu-item value="1">Plockområde 1</mdui-menu-item>
@@ -263,17 +275,11 @@
 						<mdui-menu-item value="11">Plockområde 11</mdui-menu-item>
 						<mdui-menu-item value="0">Jag vet inte!</mdui-menu-item>
 					</mdui-select>
-				</div><!-- .col -->
-				<div class="col s4">
-					<mdui-button id="button-help-plockomraden" variant="text" icon="help">Visa hjälp</mdui-button>
-				</div><!-- .col -->
 
-				<div class="col s8">
-					<!-- LIGGPLATS -->
-					<mdui-text-field id="text-liggplats" name="liggplats" variant="filled" label="Liggplats" required></mdui-text-field>
 				</div><!-- .col -->
-				<div class="col s4">
-					<mdui-button id="button-help-liggplats" variant="text" icon="help">Visa hjälp</mdui-button>
+				<div class="col s6">
+					<!-- LIGGPLATS -->
+					<mdui-text-field id="text-liggplats" name="liggplats" variant="filled" label="Liggplats" helper="Hjälptext för liggplater finns i menyn" helper-on-focus required></mdui-text-field>
 				</div><!-- .col -->
 
 
@@ -338,6 +344,25 @@
 
 </div><!-- .content-wrapper -->
 
+<div id="content-help-artikelbenamning" class="content-wrapper hidden">
+	<h1>#content-help-artikelbenamning</h1>
+</div><!-- .content-wrapper -->
+
+<div id="content-help-plockomraden" class="content-wrapper hidden">
+	<h1>#content-help-plockomraden</h1>
+	<include src="include/plockomraden.html">Laddar innehåll... fungerar ej från lokalt filsystem (G:)</include>
+</div><!-- .content-wrapper -->
+
+<div id="content-help-liggplats" class="content-wrapper hidden">
+	<h1>#content-help-liggplats</h1>
+	<include src="include/liggplats.html">Laddar innehåll... fungerar ej från lokalt filsystem (G:)</include>
+</div><!-- .content-wrapper -->
+
+<div id="content-help-outlook" class="content-wrapper hidden">
+	<h1>#content-help-outlook</h1>
+	<include src="include/outlook.html">Laddar innehåll... fungerar ej från lokalt filsystem (G:)</include>
+</div><!-- .content-wrapper -->
+
 </mdui-layout-main>
 
 </mdui-layout>
@@ -353,44 +378,6 @@
 		<mdui-button id="button-send-email" href="mailto:inkopspersonalinternt.hjalpmedelscenter@regiondalarna.se" target="_blank" variant="filled" icon="send" slot="action">Skapa epost</mdui-button>
 	</div>
 </mdui-dialog>
-
-<mdui-dialog id="dialog-outlook" fullscreen>
-	<div class="content-wrapper">
-		<h4>Instruktion för ändring av teckensnitt med fast bredd i Outlook</h4>
-		<p>För att inklistrad artikeldata ska visas korrekt i Outlook måste ett teckensnitt med fast bredd användas när meddelanden med oformaterad text skickas.</p>
-		<p>Följ dessa enkla steg:</p>
-		<ol>
-			<li><p>Välj <strong>Arkiv</strong> i Outlook och klicka sedan på <strong>Alternativ</strong></p><p><img src="img/outlook-alternativ.png"></p></li>
-			<li><p>Välj <strong>E-post</strong> i vänsterkanten, sedan <strong>Mallar och teckensnitt</strong></p><p><img src="img/outlook-epost.png"></p></li>
-			<li><p>Klicka på <strong>Teckensnitt</strong> för meddelanden med oformaterad text</p><p><img src="img/outlook-teckensnitt.png"></p></li>
-			<li><p>Välj teckensnittet <strong>Consolas</strong> och klicka på <strong>OK</strong></p><p><img src="img/outlook-consolas.png"></p></li>
-			<li><p>Nu är det klart. När du skickar artikeldata till inköp ska du välja <strong>Oformaterad text</strong></p><p><img src="img/outlook-oformaterad-text.png"></p></li>
-		</ol>
-	</div>
-	<div class="content-wrapper right-aligned" slot="action">
-		<mdui-button class="button-close-dialog" variant="text" icon="close">Stäng</mdui-button>
-	</div>
-</mdui-dialog>
-
-<mdui-dialog id="dialog-plockomraden" fullscreen>
-	<div class="content-wrapper">
-		<include src="dialogs/plockomraden.html">Laddar innehåll... fungerar ej från lokalt filsystem (G:)</include>
-	</div>
-	<div class="content-wrapper right-aligned" slot="action">
-		<mdui-button class="button-close-dialog" variant="text" icon="close">Stäng</mdui-button>
-	</div>
-</mdui-dialog>
-
-<mdui-dialog id="dialog-liggplats" fullscreen>
-	<div class="content-wrapper">
-		<include src="dialogs/liggplats.html">Laddar innehåll... fungerar ej från lokalt filsystem (G:)</include>
-	</div>
-	<div class="content-wrapper right-aligned" slot="action">
-		<mdui-button class="button-close-dialog" variant="text" icon="close">Stäng</mdui-button>
-	</div>
-</mdui-dialog>
-
-
 
 </body>
 <script src="js/functions.js"></script>
