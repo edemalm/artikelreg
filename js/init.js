@@ -18,6 +18,18 @@ $(function() {
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode');
 	}
 
+	// Catch the "open" event of <mdui-collapse-item>
+	$('.menu-collapse-item').on('open', function() {
+		console.log('The open event fired on .menu-collapse-item');
+		$('#menu-group-arrow').attr('name', 'keyboard_arrow_up')
+	});
+
+	// Catch the "close" event of <mdui-collapse-item>
+	$('.menu-collapse-item').on('close', function() {
+		console.log('The close event fired on .menu-collapse-item');
+		$('#menu-group-arrow').attr('name', 'keyboard_arrow_down')
+	});
+
 	/* Toggle theme */
 	$('#button-toggle-theme').click(function() {
 		console.log('#button-toggle-theme clicked');
