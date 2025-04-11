@@ -7,7 +7,9 @@ body {
 .row {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	/* gap: var(--gap-size); */
+}
+
+.row:not(:first-child) {
 	column-gap: var(--gap-size);
 }
 
