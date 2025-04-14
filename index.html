@@ -57,12 +57,16 @@
 	
 		<mdui-button-icon id="button-close-menu" icon="close"></mdui-button-icon>
 
+		<!--
 		<div id="logo-container">
 			<div class="flipper">
 				<div class="front"></div>
 				<div class="back"></div>
 			</div>
 		</div>
+		-->
+
+		<div id="dhc-logo"></div>
 
 		<mdui-list>
 			<mdui-list-item id="menu-formular" icon="edit" rounded active>Formulär</mdui-list-item>
@@ -102,13 +106,13 @@
 	<mdui-button-icon id="button-open-menu" icon="menu"></mdui-button-icon>
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
-	<mdui-button id="button-open-dialog" variant="filled" icon="send">Artikeldata</mdui-button>
 	<mdui-button-icon id="button-toggle-theme" variant="tonal" icon="brightness_auto"></mdui-button-icon>
 </mdui-top-app-bar>
 
 <mdui-layout-main class="mdui-prose">
 
 <div id="content-formular" class="content-wrapper">
+
 <form id="form-artikeldata">
 
 	<div class="row contained">
@@ -320,25 +324,18 @@
 					<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" helper-on-focus autosize></mdui-text-field>
 				</div><!-- .col -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				</div><!-- .col -->
 			</div><!-- .row -->
 
 		</div><!-- .col -->
 	</div><!-- .row -->
+
+	<div class="row contained">
+		<div class="col s12 right-aligned">
+			<mdui-button id="button-open-dialog" variant="filled" icon="send">Skicka artikeldata</mdui-button>
+		</div><!-- .col -->
+	</div><!-- .row -->
+
+
 
 </form>
 

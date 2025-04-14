@@ -197,13 +197,6 @@ $(function() {
 
 	});
 
-
-	$('#list-item-help').click(function() {
-		console.log('#list-item-help clicked');
-		$('#navigation-drawer').removeAttr('open');
-		$('#dialog2').attr('open', true);
-	});
-
 	$('.button-close-dialog').click(function(){
 		console.log('Button #close-dialog clicked');
 		// $('#dialog').removeAttr('open');
