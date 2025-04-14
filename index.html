@@ -52,19 +52,14 @@
 
 <mdui-layout>
 
+<!-- ----------------------------------------------------------------------- -->
+<!-- MENU                                                                    -->
+<!-- ----------------------------------------------------------------------- -->
+
 <mdui-navigation-drawer id="navigation-drawer" modal close-on-esc close-on-overlay-click>
 	<div style="padding: 0.75rem 0.5rem">
 	
 		<mdui-button-icon id="button-close-menu" icon="close"></mdui-button-icon>
-
-		<!--
-		<div id="logo-container">
-			<div class="flipper">
-				<div class="front"></div>
-				<div class="back"></div>
-			</div>
-		</div>
-		-->
 
 		<div id="dhc-logo"></div>
 
@@ -102,18 +97,25 @@
 	</div>
 </mdui-navigation-drawer>
 
+<!-- ----------------------------------------------------------------------- -->
+<!-- TOP BAR                                                                 -->
+<!-- ----------------------------------------------------------------------- -->
+
 <mdui-top-app-bar id="top-app-bar" variant="center-aligned" scroll-behavior="elevate">
 	<mdui-button-icon id="button-open-menu" icon="menu"></mdui-button-icon>
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
-	<mdui-button-icon id="button-toggle-theme" variant="tonal" icon="brightness_auto"></mdui-button-icon>
+	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto"></mdui-button-icon>
 </mdui-top-app-bar>
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- PAGE CONTENT                                                            -->
+<!-- ----------------------------------------------------------------------- -->
 
 <mdui-layout-main class="mdui-prose">
 
 <div id="content-formular" class="content-wrapper">
-
-<form id="form-artikeldata">
+	<form id="form-artikeldata">
 
 	<div class="row contained">
 
@@ -157,20 +159,21 @@
 
 			<div class="row contained">
 
-				<div class="s12">
+				<div class="col s12">
 					<h4><mdui-icon name="factory"></mdui-icon>Leverantör</h4>
 				</div>
-				<div class="col s12 m6 l12 xl6">
-					<mdui-text-field name="leverantor" variant="filled" label="Leverantör" clearable required></mdui-text-field>
 
+				<!-- div class="col s12 m6 l12 xl6" -->
+				<div class="col s12 m6">
+					<mdui-text-field name="leverantor" variant="filled" label="Leverantör" clearable required></mdui-text-field>
 				</div><!-- .col -->
 
-				<div class="col s12 m6 l12 xl6">
+				<div class="col s12 m6">
 					<mdui-text-field id="levartnr" name="levartnr" variant="filled" label="Leverantörens art.nr." clearable required></mdui-text-field>
 				</div><!-- .col -->
 
-				<div class="col s12 m6 l12 xl6"><mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox></div>
-				<div class="col s12 m6 l12 xl6"><mdui-checkbox id="checkbox-ht" name="checkbox-ht">Finns i Hjälpmedelstjänsten</mdui-checkbox></div>
+				<div class="col s12 m6"><mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox></div>
+				<div class="col s12 m6"><mdui-checkbox id="checkbox-ht" name="checkbox-ht">Finns i Hjälpmedelstjänsten</mdui-checkbox></div>
 
 
 
@@ -335,10 +338,7 @@
 		</div><!-- .col -->
 	</div><!-- .row -->
 
-
-
-</form>
-
+	</form>
 </div><!-- .content-wrapper -->
 
 <div id="content-help-artikelbenamning" class="content-wrapper hidden">
