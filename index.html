@@ -106,6 +106,7 @@
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
 	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto"></mdui-button-icon>
+	<mdui-button-icon id="button-help" icon="help"></mdui-button-icon>
 </mdui-top-app-bar>
 
 <!-- ----------------------------------------------------------------------- -->
@@ -363,6 +364,19 @@
 </mdui-layout-main>
 
 </mdui-layout>
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- DIALOGS                                                                 -->
+<!-- ----------------------------------------------------------------------- -->
+
+<mdui-dialog id="dialog-help" close-on-overlay-click headline="Välkommen till DHCs artikelregistreringsunderlag">
+	<p>Detta formulär används som underlag för nyregistring av artiklar i Sesam.</p>
+	<p>Uppgifterna kopieras och skickas med mejl till inköpspersonalen.</p>
+	<p>Under menyn hittar du fler hjälpfunktioner.</p>
+	<mdui-button id="button-close-dialog-help" slot="action" variant="text">Stäng</mdui-button>
+</mdui-dialog>
+
+
 
 <mdui-dialog id="dialog" fullscreen close-on-esc>
 	<div class="content-wrapper">
