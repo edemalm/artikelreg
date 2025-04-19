@@ -57,8 +57,8 @@ $(function() {
 		$('#menu-group-arrow').attr('name', 'keyboard_arrow_down')
 	});
 
-	$('#menu-formular').click(function() {
-		console.log('#menu-formular clicked');
+	$('#menu-formular, .button-back-to-form').click(function() {
+		console.log('#menu-formular or .button-back-to-form clicked');
 		$('.content-wrapper').addClass('hidden'); /* hide all content */
 		$('#content-formular').removeClass('hidden');
 		$('mdui-list-item').removeAttr('active');
@@ -74,6 +74,16 @@ $(function() {
 		$('#menu-help-artikelbenamning').attr('active','');
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
+
+	$('#menu-help-produktnamn').click(function() {
+		console.log('#menu-help-produktnamn clicked');
+		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('#content-help-produktnamn').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
+		$('#menu-help-produktnamn').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
 
 	$('#menu-help-plockomraden').click(function() {
 		console.log('#menu-help-plockomraden clicked');
@@ -137,14 +147,6 @@ $(function() {
 		$('#content-artikeldata').removeClass('hidden');
 
 	});
-
-	$('#button-back-to-form').click(function(){
-		console.log('Button #back-to-form clicked');
-		/* Change page */
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
-		$('#content-formular').removeClass('hidden');
-	});
-
 
 	$('#button-submit-form').click(function() {
 		console.log('Button #button-submit-form clicked');

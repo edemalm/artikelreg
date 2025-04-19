@@ -71,9 +71,10 @@
 			<mdui-collapse accordion>
 
 				<mdui-collapse-item class="menu-collapse-item">
-					<mdui-list-item slot="header" icon="help_center" rounded>Hjälp<mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
+					<mdui-list-item slot="header" icon="help" rounded>Hjälpavsnitt<mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
 					<div style="margin-left: 2.5rem">
 						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
+						<mdui-list-item id="menu-help-produktnamn" rounded>Produktnamn</mdui-list-item>
 						<mdui-list-item id="menu-help-plockomraden" rounded>Plockområden</mdui-list-item>
 						<mdui-list-item id="menu-help-liggplats" rounded>Liggplats</mdui-list-item>
 						<mdui-list-item id="menu-help-outlook" rounded>Instruktion Outlook</mdui-list-item>
@@ -359,7 +360,7 @@
 	Artikelbenämning: <span id="artikeldata-artikelbenamning"></span>
 	</pre>
 
-	<mdui-button id="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
+	<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
 	<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
 	<mdui-button id="button-send-email" href="mailto:inkopspersonalinternt.hjalpmedelscenter@regiondalarna.se" target="_blank" variant="filled" icon="send" slot="action">Skapa epost</mdui-button>
 </div><!-- .content-wrapper -->
@@ -368,6 +369,14 @@
 
 <div id="content-help-artikelbenamning" class="content-wrapper hidden">
 	<h1>#content-help-artikelbenamning</h1>
+</div><!-- .content-wrapper -->
+
+<!-- Hjälp produktnamn -->
+
+<div id="content-help-produktnamn" class="content-wrapper hidden">
+	<h4>#content-help-produktnamn</h4>
+	<p>Produktnamn är ...</p>
+	<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
 </div><!-- .content-wrapper -->
 
 <div id="content-help-plockomraden" class="content-wrapper hidden">
