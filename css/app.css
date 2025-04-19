@@ -75,3 +75,7 @@ mdui-dialog .contained {
 .centered-vertically {
 	line-height: 40px; /* match switch height */
 }
+
+.x-small {
+	font-size: .75rem; /* copyright small print */
+}

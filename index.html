@@ -106,7 +106,7 @@
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
 	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto"></mdui-button-icon>
-	<mdui-button-icon id="button-help" icon="help"></mdui-button-icon>
+	<mdui-button-icon id="button-help" icon="info"></mdui-button-icon>
 </mdui-top-app-bar>
 
 <!-- ----------------------------------------------------------------------- -->
@@ -114,6 +114,8 @@
 <!-- ----------------------------------------------------------------------- -->
 
 <mdui-layout-main class="mdui-prose">
+
+<!-- Formulär -->
 
 <div id="content-formular" class="content-wrapper">
 	<form id="form-artikeldata">
@@ -335,12 +337,34 @@
 
 	<div class="row contained">
 		<div class="col s12 right-aligned">
+			<!--
 			<mdui-button id="button-open-dialog" variant="filled" icon="send">Skicka artikeldata</mdui-button>
+			-->
+			<mdui-button id="button-submit-form" variant="filled" icon="send">Skicka artikeldata</mdui-button>
 		</div><!-- .col -->
 	</div><!-- .row -->
 
 	</form>
 </div><!-- .content-wrapper -->
+
+
+<!-- Artikeldata -->
+
+<div id="content-artikeldata" class="content-wrapper hidden">
+	<h4>Artikeldata</h4>
+	<!--
+	<mdui-text-field id="textarea-artikeldata" variant="filled" readonly autosize></mdui-text-field>
+	-->
+	<pre>
+	Artikelbenämning: <span id="artikeldata-artikelbenamning"></span>
+	</pre>
+
+	<mdui-button id="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
+	<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
+	<mdui-button id="button-send-email" href="mailto:inkopspersonalinternt.hjalpmedelscenter@regiondalarna.se" target="_blank" variant="filled" icon="send" slot="action">Skapa epost</mdui-button>
+</div><!-- .content-wrapper -->
+
+<!-- Hjälp artikelbenämning -->
 
 <div id="content-help-artikelbenamning" class="content-wrapper hidden">
 	<h1>#content-help-artikelbenamning</h1>
@@ -369,26 +393,17 @@
 <!-- DIALOGS                                                                 -->
 <!-- ----------------------------------------------------------------------- -->
 
-<mdui-dialog id="dialog-help" close-on-overlay-click headline="Välkommen till DHCs artikelregistreringsunderlag">
-	<p>Detta formulär används som underlag för nyregistring av artiklar i Sesam.</p>
-	<p>Uppgifterna kopieras och skickas med mejl till inköpspersonalen.</p>
-	<p>Under menyn hittar du fler hjälpfunktioner.</p>
-	<mdui-button id="button-close-dialog-help" slot="action" variant="text">Stäng</mdui-button>
+<mdui-dialog id="dialog-info" close-on-overlay-click headline="Allmän information">
+	<p>Detta formulär används för att generera ett underlag för nyregistring av artiklar i Sesam. Syftet med formuläret är att säkerställa en god kvalitet på artikelregistret och underlätta arbetet för all involverad personal.</p>
+	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad så fort du stänger fönstret. Ingen data skickas eller sparas hos extern part.</p>
+	<p>En utförligt instruktion finns under menyn till vänster.</p>
+	<mdui-divider></mdui-divider>
+	<p class="x-small">Version 2025-04-19</p>
+	<p class="x-small">Copyright &copy; 2025 Markus Edemalm. Licensierad under <a href="LICENSE.html" target="_blank">MIT License</a>.</p> 
+	<mdui-button id="button-close-dialog-info" slot="action" variant="text">Stäng</mdui-button>
 </mdui-dialog>
 
 
-
-<mdui-dialog id="dialog" fullscreen close-on-esc>
-	<div class="content-wrapper">
-		<h4>Artikeldata</h4>
-		<mdui-text-field id="textarea-artikeldata" variant="filled" readonly autosize></mdui-text-field>
-	</div>
-	<div class="content-wrapper right-aligned" slot="action">
-		<mdui-button class="button-close-dialog" variant="text" icon="close">Stäng</mdui-button>
-		<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
-		<mdui-button id="button-send-email" href="mailto:inkopspersonalinternt.hjalpmedelscenter@regiondalarna.se" target="_blank" variant="filled" icon="send" slot="action">Skapa epost</mdui-button>
-	</div>
-</mdui-dialog>
 
 </body>
 <script src="js/functions.js"></script>
