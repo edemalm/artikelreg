@@ -1,3 +1,4 @@
+
 // Reset and disable #switch-individmarkt
 function disableIndividmarkt() {
 	console.log('disableIndividmarkt() executed');

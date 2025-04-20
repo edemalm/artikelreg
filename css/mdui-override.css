@@ -6,6 +6,11 @@ mdui-text-field,
 mdui-select {
 	margin-bottom: 2rem !important;
 }
+
+mdui-divider {
+	margin: 2rem 0 !important;
+}
+
 #top-app-bar,
 #navigation-drawer {
 	position: fixed !important;

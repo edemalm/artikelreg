@@ -27,7 +27,7 @@
 	-->
 
 	<link rel="stylesheet" href="css/mdui-override.css">
-	<link rel="stylesheet" href="css/color-theme-ced5f8.css">
+	<!-- link rel="stylesheet" href="css/color-theme-ced5f8.css" -->
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/app.css">
 	<!-- link rel="stylesheet" href="css/debug.css" -->
@@ -59,9 +59,11 @@
 <mdui-navigation-drawer id="navigation-drawer" modal close-on-esc close-on-overlay-click>
 	<div style="padding: 0.75rem 0.5rem">
 	
-		<mdui-button-icon id="button-close-menu" icon="close"></mdui-button-icon>
+		<mdui-button-icon id="button-close-menu" icon="menu_open"></mdui-button-icon>
 
 		<div id="dhc-logo"></div>
+
+		<mdui-divider></mdui-divider>
 
 		<mdui-list>
 			<mdui-list-item id="menu-formular" icon="edit" rounded active>Formulär</mdui-list-item>
@@ -106,8 +108,8 @@
 	<mdui-button-icon id="button-open-menu" icon="menu"></mdui-button-icon>
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
-	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto"></mdui-button-icon>
-	<mdui-button-icon id="button-help" icon="info"></mdui-button-icon>
+	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto--outlined"></mdui-button-icon>
+	<mdui-button-icon id="button-help" icon="info--outlined"></mdui-button-icon>
 </mdui-top-app-bar>
 
 <!-- ----------------------------------------------------------------------- -->
@@ -195,7 +197,7 @@
 				<div class="col s12 m6">
 
 					<!-- ARTIKELANSVAR -->
-					<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="filled" label="Artikelansvar" end-icon="arrow_drop_down" required>
+					<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="filled" label="Artikelansvar" end-icon="arrow_drop_down">
 						<mdui-menu-item value="L">Region och kommun</mdui-menu-item>
 						<mdui-menu-item value="R">Retursortiment</mdui-menu-item>
 						<mdui-menu-item value="E">Egenansvar</mdui-menu-item>
@@ -206,7 +208,7 @@
 				<div class="col s12 m6">
 
 					<!-- ARTIKELTYP -->
-					<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="filled" label="Artikeltyp" end-icon="arrow_drop_down" required>
+					<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="filled" label="Artikeltyp" end-icon="arrow_drop_down">
 						<mdui-menu-item value="H">Huvudhjälpmedel</mdui-menu-item>
 						<mdui-menu-item value="T">Tillbehör</mdui-menu-item>
 						<mdui-menu-item value="R">Reservdel</mdui-menu-item>
@@ -247,7 +249,7 @@
 
 					<!-- TEAM -->
 					<h4><mdui-icon name="people"></mdui-icon>Ansvarigt team</h4>
-					<mdui-select id="select-team" name="select-team" variant="filled" label="Team" end-icon="arrow_drop_down" required>
+					<mdui-select id="select-team" name="select-team" variant="filled" label="Team" end-icon="arrow_drop_down">
 						<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
 						<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
 						<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
@@ -266,7 +268,7 @@
 				<div class="col s12"><h4><mdui-icon name="warehouse"></mdui-icon>Lager och liggplats</h4></div>
 				<div class="col s12">
 					<!-- HUVUDLAGER -->
-					<mdui-select id="select-huvudlager" name="select-huvudlager" variant="filled" label="Huvudlager" end-icon="arrow_drop_down" required>
+					<mdui-select id="select-huvudlager" name="select-huvudlager" variant="filled" label="Huvudlager" end-icon="arrow_drop_down">
 						<mdui-menu-item value="200">200 - Huvudlager Västermalmsvägen Falun</mdui-menu-item>
 						<mdui-menu-item value="400">400 - Huvudlager Skomakargatan Syncentralen</mdui-menu-item>
 						<mdui-menu-item value="688">688 - Huvudlager LOGFAB Taklyftar</mdui-menu-item>
@@ -275,7 +277,7 @@
 
 				<div class="col s6">
 					<!-- PLOCKOMRÅDE -->
-					<mdui-select id="select-plockomrade" name="select-plockomrade" variant="filled" label="Plockområde" end-icon="arrow_drop_down" required>
+					<mdui-select id="select-plockomrade" name="select-plockomrade" variant="filled" label="Plockområde" end-icon="arrow_drop_down">
 						<mdui-menu-item value="1">Plockområde 1</mdui-menu-item>
 						<mdui-menu-item value="2">Plockområde 2</mdui-menu-item>
 						<mdui-menu-item value="3">Plockområde 3</mdui-menu-item>
@@ -290,7 +292,7 @@
 				</div><!-- .col -->
 				<div class="col s6">
 					<!-- LIGGPLATS -->
-					<mdui-text-field id="text-liggplats" name="liggplats" variant="filled" label="Liggplats" helper="Hjälptext för liggplater finns i menyn" helper-on-focus required></mdui-text-field>
+					<mdui-text-field id="text-liggplats" name="liggplats" variant="filled" label="Liggplats" helper="Hjälptext för liggplater finns i menyn" helper-on-focus></mdui-text-field>
 				</div><!-- .col -->
 
 
@@ -336,14 +338,11 @@
 		</div><!-- .col -->
 	</div><!-- .row -->
 
-	<div class="row contained">
-		<div class="col s12 right-aligned">
-			<!--
-			<mdui-button id="button-open-dialog" variant="filled" icon="send">Skicka artikeldata</mdui-button>
-			-->
-			<mdui-button id="button-submit-form" variant="filled" icon="send">Skicka artikeldata</mdui-button>
-		</div><!-- .col -->
-	</div><!-- .row -->
+	<mdui-divider></mdui-divider>
+
+	<div class="float-right">
+		<mdui-button id="button-submit-form" variant="filled" icon="send">Kopiera eller skicka artikeldata</mdui-button>
+	</div>
 
 	</form>
 </div><!-- .content-wrapper -->
@@ -356,19 +355,32 @@
 	<!--
 	<mdui-text-field id="textarea-artikeldata" variant="filled" readonly autosize></mdui-text-field>
 	-->
-	<pre>
-	Artikelbenämning: <span id="artikeldata-artikelbenamning"></span>
+	<div id="artikeldata">
+	<pre id="copy-content">
+ Artikelbenämning:  <span id="artikeldata-artikelbenamning"></span>
+ Huvudproduktnamn:  <span id="artikeldata-produktnamn"></span>
+Extra produktnamn:  <span id="artikeldata-produktnamn2"></span>
+Extra produktnamn:  <span id="artikeldata-produktnamn3"></span>
+Extra produktnamn:  <span id="artikeldata-produktnamn4"></span>
 	</pre>
-
-	<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
-	<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
-	<mdui-button id="button-send-email" href="mailto:inkopspersonalinternt.hjalpmedelscenter@regiondalarna.se" target="_blank" variant="filled" icon="send" slot="action">Skapa epost</mdui-button>
+	</div>
+	<mdui-divider></mdui-divider>
+	<div class="float-left">
+		<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
+	</div>
+	<div class="float-right">
+		<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
+		<mdui-button id="button-send-email" href="" target="_blank" variant="filled" icon="send" slot="action">Skapa epost</mdui-button>
+	</div>
 </div><!-- .content-wrapper -->
 
 <!-- Hjälp artikelbenämning -->
 
 <div id="content-help-artikelbenamning" class="content-wrapper hidden">
-	<h1>#content-help-artikelbenamning</h1>
+	<h4>#content-help-artikelbenämning</h4>
+	<p>Bla bla bla ...</p>
+	<mdui-divider></mdui-divider>
+	<mdui-button class="button-back-to-form" variant="tonal" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
 </div><!-- .content-wrapper -->
 
 <!-- Hjälp produktnamn -->
@@ -376,7 +388,8 @@
 <div id="content-help-produktnamn" class="content-wrapper hidden">
 	<h4>#content-help-produktnamn</h4>
 	<p>Produktnamn är ...</p>
-	<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
+	<mdui-divider></mdui-divider>
+	<mdui-button class="button-back-to-form" variant="tonal" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
 </div><!-- .content-wrapper -->
 
 <div id="content-help-plockomraden" class="content-wrapper hidden">
@@ -403,13 +416,14 @@
 <!-- ----------------------------------------------------------------------- -->
 
 <mdui-dialog id="dialog-info" close-on-overlay-click headline="Allmän information">
-	<p>Detta formulär används för att generera ett underlag för nyregistring av artiklar i Sesam. Syftet med formuläret är att säkerställa en god kvalitet på artikelregistret och underlätta arbetet för all involverad personal.</p>
+	<p>Detta formulär används för att generera ett underlag för nyregistring av artiklar i Sesam.</p>
+	<p>Syftet med formuläret är att säkerställa en god kvalitet på artikelregistret och underlätta arbetet för all involverad personal.</p>
 	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad så fort du stänger fönstret. Ingen data skickas eller sparas hos extern part.</p>
 	<p>En utförligt instruktion finns under menyn till vänster.</p>
 	<mdui-divider></mdui-divider>
 	<p class="x-small">Version 2025-04-19</p>
 	<p class="x-small">Copyright &copy; 2025 Markus Edemalm. Licensierad under <a href="LICENSE.html" target="_blank">MIT License</a>.</p> 
-	<mdui-button id="button-close-dialog-info" slot="action" variant="text">Stäng</mdui-button>
+	<mdui-button id="button-close-dialog-info" icon="close" slot="action" variant="tonal">Stäng</mdui-button>
 </mdui-dialog>
 
 
@@ -417,6 +431,7 @@
 </body>
 <script src="js/functions.js"></script>
 <script src="js/init.js"></script>
+<script src="js/artikeldata.js"></script>
 <script>
 /* Load external HTML content from files - not allowed from local file system! */
 (() => {
