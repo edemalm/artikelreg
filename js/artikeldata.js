@@ -35,6 +35,46 @@ $(document).ready(function() {
 		if ( $('#text-produktnamn3').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn3').val() + "\n";
 		if ( $('#text-produktnamn4').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn4').val() + "\n";
 
+		// Leverantör
+		artikeldata += "\n";
+		artikeldata += '       Leverantör:  ' + $('#text-leverantor').val() + "\n";
+
+		// Leverantörens artikelnummer
+		artikeldata += '     Lev. art.nr.:  ' + $('#text-levartnr').val() + "\n";
+
+		// Upphandlad
+		artikeldata += "\n";
+		artikeldata += '       Upphandlad:  ' + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
+
+		// Hjälpmedelstjänsten
+		artikeldata += '       Finns i HT:  ' + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
+
+		// Artikelansvar
+		artikeldata += "\n";
+		artikeldata += '    Artikelansvar:  ' + $('#select-artikelansvar').val() + ' ';
+		switch ($('#select-artikelansvar').val()) {
+			case 'L':
+				artikeldata += '(Region och kommun)'; break;
+			case 'R':
+				artikeldata += '(Retursortiment)'; break;
+			case 'E':
+				artikeldata += '(Egenansvar)'; break;
+			case 'S':
+				artikeldata += '(Syncentralen)'; break;
+		}
+
+		// Artikeltyp
+		artikeldata += "\n";
+		artikeldata += '       Artikeltyp:  ';
+		switch ($('#select-artikeltyp').val()) {
+			case 'H':
+				artikeldata += 'Huvudhjälpmedel'; break;
+			case 'T':
+				artikeldata += 'Tillbehör'; break;
+			case 'R':
+				artikeldata += 'Reservdel'; break;
+		}
+
 		// Add artikeldata to <pre id="copy-content">
 		$('#copy-content').html( artikeldata );
 
@@ -67,39 +107,6 @@ $(document).ready(function() {
 
 		// ---- stop ---
 
-
-
-		// Upphandlad
-		artikeldata += '       Upphandlad:' + nbsp + nbsp + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
-
-		// Hjälpmedelstjänsten
-		artikeldata += '       Finns i HT:' + nbsp + nbsp + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
-
-		// Artikelansvar
-		artikeldata += '    Artikelansvar:' + nbsp + nbsp + $('#select-artikelansvar').val() + " ";
-		switch ($('#select-artikelansvar').val()) {
-			case 'L':
-				artikeldata += '(Region och kommun)'; break;
-			case 'R':
-				artikeldata += '(Retursortiment)'; break;
-			case 'E':
-				artikeldata += '(Egenansvar)'; break;
-			case 'S':
-				artikeldata += '(Syncentralen)'; break;
-		}
-		artikeldata += "\n";
-
-		// Artikeltyp
-		artikeldata += '       Artikeltyp:' + nbsp + nbsp;
-		switch ($('#select-artikeltyp').val()) {
-			case 'H':
-				artikeldata += 'Huvudhjälpmedel'; break;
-			case 'T':
-				artikeldata += 'Tillbehör'; break;
-			case 'R':
-				artikeldata += 'Reservdel'; break;
-		}
-		artikeldata += "\n";
 
 
 		console.log('artikeldata = ' + artikeldata );
