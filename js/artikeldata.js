@@ -27,31 +27,31 @@ $(document).ready(function() {
 		// Populate 'artikeldata' variable
 
 		// Artikelbenämning
-		artikeldata = ' Artikelbenämning:  ' + $('#text-artikelbenamning').val() + "\n";
+		artikeldata  = 'Artikelbenämning:  ' + $('#text-artikelbenamning').val() + "\n";
 
 		// Produktnamn
-		artikeldata += ' Huvudproduktnamn:  ' + $('#text-produktnamn').val() + "\n";
+		artikeldata += 'Huvudproduktnamn:  ' + $('#text-produktnamn').val() + "\n";
 		if ( $('#text-produktnamn2').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn2').val() + "\n";
 		if ( $('#text-produktnamn3').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn3').val() + "\n";
 		if ( $('#text-produktnamn4').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn4').val() + "\n";
 
 		// Leverantör
 		artikeldata += "\n";
-		artikeldata += '       Leverantör:  ' + $('#text-leverantor').val() + "\n";
+		artikeldata += '      Leverantör:  ' + $('#text-leverantor').val() + "\n";
 
 		// Leverantörens artikelnummer
-		artikeldata += '     Lev. art.nr.:  ' + $('#text-levartnr').val() + "\n";
+		artikeldata += '    Lev. art.nr.:  ' + $('#text-levartnr').val() + "\n";
 
 		// Upphandlad
 		artikeldata += "\n";
-		artikeldata += '       Upphandlad:  ' + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
+		artikeldata += '      Upphandlad:  ' + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
 
 		// Hjälpmedelstjänsten
-		artikeldata += '       Finns i HT:  ' + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
+		artikeldata += '      Finns i HT:  ' + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
 
 		// Artikelansvar
 		artikeldata += "\n";
-		artikeldata += '    Artikelansvar:  ' + $('#select-artikelansvar').val() + ' ';
+		artikeldata += '   Artikelansvar:  ' + $('#select-artikelansvar').val() + ' ';
 		switch ($('#select-artikelansvar').val()) {
 			case 'L':
 				artikeldata += '(Region och kommun)'; break;
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
 		// Artikeltyp
 		artikeldata += "\n";
-		artikeldata += '       Artikeltyp:  ';
+		artikeldata += '      Artikeltyp:  ';
 		switch ($('#select-artikeltyp').val()) {
 			case 'H':
 				artikeldata += 'Huvudhjälpmedel'; break;

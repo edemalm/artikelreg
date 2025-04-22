@@ -1,7 +1,12 @@
 @charset "UTF-8";
 
 body {
+	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	margin: 2rem .5rem;
+}
+
+code, kbd, pre, samp, tt {
+	font-family: "Roboto Mono", monospace !important;
 }
 
 .content-wrapper {
@@ -55,7 +60,7 @@ mdui-dialog .contained {
 
 .divider-waves { position: relative; width: calc(100% - 1rem); height: 8px; margin: 2rem auto; }
 .divider-waves svg { position: absolute; top: 0; }
-.divider-waves svg path { stroke: rgb(var(--mdui-color-surface-variant)); }
+.divider-waves svg path { stroke: rgb(var(--mdui-color-surface-variant)); stroke-width: 2px; }
 
 #button-fler-produktnamn,
 #button-help-plockomraden,
