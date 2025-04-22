@@ -57,10 +57,6 @@ mdui-dialog .contained {
 .divider-waves svg { position: absolute; top: 0; }
 .divider-waves svg path { stroke: rgb(var(--mdui-color-surface-variant)); }
 
-#levartnr input {
-	font-family: monospace !important;
-}
-
 #button-fler-produktnamn,
 #button-help-plockomraden,
 #button-help-liggplats {

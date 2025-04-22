@@ -95,8 +95,6 @@
 			</mdui-collapse>
 		</mdui-list>
 
-		<div class="divider"></div>
-
 	</div>
 </mdui-navigation-drawer>
 
@@ -169,7 +167,6 @@
 					<h4><mdui-icon name="factory"></mdui-icon>Leverantör</h4>
 				</div>
 
-				<!-- div class="col s12 m6 l12 xl6" -->
 				<div class="col s12 m6">
 					<mdui-text-field id="text-leverantor" name="leverantor" variant="filled" label="Leverantör" clearable required></mdui-text-field>
 				</div><!-- .col -->
@@ -355,15 +352,7 @@
 	<!--
 	<mdui-text-field id="textarea-artikeldata" variant="filled" readonly autosize></mdui-text-field>
 	-->
-	<div id="artikeldata">
-	<pre id="copy-content">
- Artikelbenämning:  <span id="artikeldata-artikelbenamning"></span>
- Huvudproduktnamn:  <span id="artikeldata-produktnamn"></span>
-Extra produktnamn:  <span id="artikeldata-produktnamn2"></span>
-Extra produktnamn:  <span id="artikeldata-produktnamn3"></span>
-Extra produktnamn:  <span id="artikeldata-produktnamn4"></span>
-	</pre>
-	</div>
+	<div id="artikeldata"><pre id="copy-content"></pre></div>
 	<mdui-divider></mdui-divider>
 	<div class="float-left">
 		<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
@@ -420,13 +409,11 @@ Extra produktnamn:  <span id="artikeldata-produktnamn4"></span>
 	<p>Syftet med formuläret är att säkerställa en god kvalitet på artikelregistret och underlätta arbetet för all involverad personal.</p>
 	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad så fort du stänger fönstret. Ingen data skickas eller sparas hos extern part.</p>
 	<p>En utförligt instruktion finns under menyn till vänster.</p>
-	<mdui-divider></mdui-divider>
+	<div class="divider"></div>
 	<p class="x-small">Version 2025-04-19</p>
 	<p class="x-small">Copyright &copy; 2025 Markus Edemalm. Licensierad under <a href="LICENSE.html" target="_blank">MIT License</a>.</p> 
 	<mdui-button id="button-close-dialog-info" icon="close" slot="action" variant="tonal">Stäng</mdui-button>
 </mdui-dialog>
-
-
 
 </body>
 <script src="js/functions.js"></script>
