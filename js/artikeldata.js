@@ -76,7 +76,10 @@ $(document).ready(function() {
 		}
 
 		// Add artikeldata to <pre id="copy-content">
-		$('#copy-content').html( artikeldata );
+		//$('#copy-content').html( artikeldata );
+
+		// Add artikeldata to #textarea-artikeldata
+		$('#textarea-artikeldata').html( artikeldata );
 
 		// Prepare encoded email body
 		var encodedArtikeldata = encodeURIComponent(introtext + artikeldata);
@@ -125,7 +128,8 @@ $(document).ready(function() {
 
 	$('#button-copy-artikeldata').click(function() {
 		console.log('#button-copy-artikeldata clicked');
-		$('#copy-content').selectText();
+		// $('#copy-content').selectText();
+		$('#textarea-artikeldata').selectText();
 		document.execCommand('copy');
 		mdui.snackbar({ message: 'Artikeldata har kopierats och kan klistras in med CTRL+V' });
 	});

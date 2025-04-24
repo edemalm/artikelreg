@@ -346,7 +346,10 @@
 <div id="content-artikeldata" class="content-wrapper hidden">
 	<h4>Artikeluppgifter</h4>
 	<p>Vänligen skicka nedanstående uppgifter till inköpspersonalen. Du kan antingen kopiera uppgifterna manuellt eller låta webbläsaren öppna Outlook och förbereda ett ifyllt epostmeddelande.</p>
-	<div id="artikeldata"><pre id="copy-content"></pre></div>
+	<!-- <div id="artikeldata"><pre id="copy-content"></pre></div> -->
+	<mdui-card id="card-artikeldata" variant="elevated">
+		<textarea id="textarea-artikeldata" readonly></textarea>
+	</mdui-card>
 	<div class="float-left">
 		<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
 	</div>

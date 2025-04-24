@@ -17,29 +17,17 @@ code, kbd, pre, samp, tt {
 }
 
 .contained {
-	--mdui-color-background: var(--mdui-color-surface-container);
-    background-color: rgba(var(--mdui-color-background),.5);
+	background-color: rgb(var(--mdui-color-surface-container-low)); /* emulate elevated card */
 	box-shadow: var(--mdui-elevation-level1);
 	border-radius: var(--mdui-shape-corner-medium);
-	margin: 0 0 .75rem 0 !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
-	padding: .75rem var(--mdui-shape-corner-small);
+	margin: 0 0 var(--mdui-shape-corner-large) 0 !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
+	padding: var(--mdui-shape-corner-small);
 }
 @media only screen and (min-width : 601px) {
 	.contained {
-		margin: 0 0 1.5rem 0 !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
+		margin: 0 0 var(--mdui-shape-corner-extra-large) 0 !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
 		padding: var(--mdui-shape-corner-large);
 	}
-}
-@media only screen and (min-width : 1441px) {
-	.contained {
-		padding: var(--mdui-shape-corner-extra-large);
-	}
-}
-
-
-mdui-dialog .contained {
-	--mdui-color-background: var(--mdui-color-surface-container-highest);
-    background-color: rgb(var(--mdui-color-background));
 }
 
 #dhc-logo {
@@ -68,11 +56,23 @@ mdui-dialog .contained {
 	margin: .5rem 0; /* align with input fields */
 }
 
-#artikeldata {
-    margin: 2rem 0;
-    border: .0625rem solid rgb(var(--mdui-color-surface-variant));
-    border-radius: var(--mdui-shape-corner-medium);
+#card-artikeldata {
+	margin: 1.5rem 0;
 	padding: 1.5rem;
+	width: 100%;
+}
+
+#textarea-artikeldata {
+	background-color: transparent;
+	border-width: 0;
+	field-sizing: content;
+	font-family: "Roboto Mono", monospace;
+	font-size: 1rem;
+	margin: 0;
+	outline-width: 0;
+	padding: 0;
+	resize: none;
+	width: 100%;
 }
 
 .center-aligned { text-align: center; }
