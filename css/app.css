@@ -1,8 +1,70 @@
 @charset "UTF-8";
 
+:root {
+	--app-space-xs: 0.75rem;
+	--app-space-s: 1rem;
+	--app-space-m: 1.25rem;
+	--app-space-l: 1.5rem;
+	--app-space-xl: 1.75rem;
+	--app-space: var(--app-space-xs);
+}
+
+@media only screen and (min-width: 601px) {
+	:root { --app-space: var(--app-space-s) }
+}
+@media only screen and (min-width: 841px) {
+	:root { --app-space: var(--app-space-m) }
+}
+@media only screen and (min-width: 1081px) {
+	:root { --app-space: var(--app-space-l) }
+}
+@media only screen and (min-width: 1441px) {
+	:root { --app-space: var(--app-space-xl) }
+}
+
+.m-xs { margin: var(--app-space-xs) !important }
+.m-s  { margin: var(--app-space-s) !important }
+.m-m  { margin: var(--app-space-m) !important }
+.m-l  { margin: var(--app-space-l) !important }
+.m-xl { margin: var(--app-space-xl) !important }
+.m-a  { margin: var(--app-space) !important }
+
+.mt-xs { margin-top: var(--app-space-xs) !important }
+.mt-s  { margin-top: var(--app-space-s) !important }
+.mt-m  { margin-top: var(--app-space-m) !important }
+.mt-l  { margin-top: var(--app-space-l) !important }
+.mt-xl { margin-top: var(--app-space-xl) !important }
+.mt-a  { margin-top: var(--app-space) !important }
+
+.mr-xs { margin-right: var(--app-space-xs) !important }
+.mr-s  { margin-right: var(--app-space-s) !important }
+.mr-m  { margin-right: var(--app-space-m) !important }
+.mr-l  { margin-right: var(--app-space-l) !important }
+.mr-xl { margin-right: var(--app-space-xl) !important }
+.mr-a  { margin-right: var(--app-space) !important }
+
+.mb-xs { margin-bottom: var(--app-space-xs) !important }
+.mb-s  { margin-bottom: var(--app-space-s) !important }
+.mb-m  { margin-bottom: var(--app-space-m) !important }
+.mb-l  { margin-bottom: var(--app-space-l) !important }
+.mb-xl { margin-bottom: var(--app-space-xl) !important }
+.mb-a  { margin-bottom: var(--app-space) !important }
+
+.ml-xs { margin-left: var(--app-space-xs) !important }
+.ml-s  { margin-left: var(--app-space-s) !important }
+.ml-m  { margin-left: var(--app-space-m) !important }
+.ml-l  { margin-left: var(--app-space-l) !important }
+.ml-xl { margin-left: var(--app-space-xl) !important }
+.ml-a  { margin-left: var(--app-space) !important }
+
+
+
+
+
+
+
 body {
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-	margin: 2rem .5rem;
 }
 
 code, kbd, pre, samp, tt {
@@ -12,22 +74,17 @@ code, kbd, pre, samp, tt {
 .content-wrapper {
 	margin: 0 auto;
 	max-width: 1280px;
-	overflow-x: hidden;
+	overflow: visible; /* show box-shadow */
 	width: 100%;
 }
 
-.contained {
-	background-color: rgb(var(--mdui-color-surface-container-low)); /* emulate elevated card */
+.elevated {
+	background-color: rgba(var(--mdui-color-surface-container),0.5);
 	box-shadow: var(--mdui-elevation-level1);
-	border-radius: var(--mdui-shape-corner-medium);
-	margin: 0 0 var(--mdui-shape-corner-large) 0 !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
-	padding: var(--mdui-shape-corner-small);
-}
-@media only screen and (min-width : 601px) {
-	.contained {
-		margin: 0 0 var(--mdui-shape-corner-extra-large) 0 !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
-		padding: var(--mdui-shape-corner-large);
-	}
+	border-radius: calc(var(--app-space)/2);
+	margin-bottom: var(--app-space) !important; /* otherwise overridden by .mdui-prose:last-child in mdui.css */
+	padding: var(--app-space);
+	width: calc(100% - (var(--app-space)*2)); /* make room for box-shadow */
 }
 
 #dhc-logo {

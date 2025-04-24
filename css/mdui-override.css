@@ -1,5 +1,5 @@
+/*
 :root {
-	/* Light */
 	--mdui-color-primary-light: 76,92,146;
 	--mdui-color-surface-tint-color-light: 76,92,146;
 	--mdui-color-on-primary-light: 255,255,255;
@@ -37,7 +37,7 @@
 	--mdui-color-surface-container-light: 238,237,244;
 	--mdui-color-surface-container-high-light: 233,231,239;
 	--mdui-color-surface-container-highest-light: 227,225,233;
-	/* Dark */
+
 	--mdui-color-primary-dark: 182,196,255;
 	--mdui-color-surface-tint-color-dark: 182,196,255;
 	--mdui-color-on-primary-dark: 29,45,97;
@@ -76,6 +76,14 @@
 	--mdui-color-surface-container-high-dark: 41,42,47;
 	--mdui-color-surface-container-highest-dark: 52,52,58;
 }
+*/
+
+/*
+#top-app-bar[scrolling] {
+    background-color: rgb(var(--mdui-color-surface-container-high));
+    box-shadow: var(--mdui-elevation-level3);
+}
+*/
 
 .mdui-table {
 	--mdui-color-surface-variant: var(--mdui-color-outline);
@@ -83,11 +91,7 @@
 
 mdui-text-field,
 mdui-select {
-	margin-bottom: 2rem !important;
-}
-
-mdui-divider {
-	margin: 2rem 0 !important;
+	margin-bottom: 1rem !important;
 }
 
 #top-app-bar,

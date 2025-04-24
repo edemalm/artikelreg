@@ -5,7 +5,7 @@ $(document).ready(function() {
 	console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	var update = '2025-04-22';
+	var update = '2025-04-25';
 	var artikeldata;
 
 	// Set date in version

@@ -1,7 +1,19 @@
 @charset "UTF-8";
 
 body {
-	--gap-size: 1.5rem;
+	--gap-size: 0.75rem;
+}
+@media only screen and (min-width: 601px) {
+	body { --gap-size: 1rem }
+}
+@media only screen and (min-width: 841px) {
+	body { --gap-size: 1.25rem }
+}
+@media only screen and (min-width: 1081px) {
+	body { --gap-size: 1.5rem }
+}
+@media only screen and (min-width: 1441px) {
+	body { --gap-size: 1.75rem }
 }
 
 .row {

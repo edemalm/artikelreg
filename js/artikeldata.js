@@ -96,6 +96,14 @@ $(document).ready(function() {
 
 	});
 
+	$('#button-copy-artikeldata').click(function() {
+		console.log('#button-copy-artikeldata clicked');
+		// $('#textarea-artikeldata').selectText();
+		// document.execCommand('copy');
+		navigator.clipboard.writeText(artikeldata);
+		mdui.snackbar({ message: 'Artikeluppgifter har kopierats och kan klistras in med CTRL+V' });
+	});
+
 	$('#button-submit-form').click(function() {
 		console.log('Button #button-submit-form clicked');
 
@@ -126,13 +134,6 @@ $(document).ready(function() {
 		$('#dialog').attr('open', true);
 	});
 
-	$('#button-copy-artikeldata').click(function() {
-		console.log('#button-copy-artikeldata clicked');
-		// $('#copy-content').selectText();
-		$('#textarea-artikeldata').selectText();
-		document.execCommand('copy');
-		mdui.snackbar({ message: 'Artikeldata har kopierats och kan klistras in med CTRL+V' });
-	});
 
 /*
 	$('#button-send-email').click(function() {

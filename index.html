@@ -46,7 +46,7 @@
 
 	<title>Artikelregistreringsunderlag</title>
 </head>
-<body>
+<body class="m-a">
 
 <mdui-layout>
 
@@ -57,21 +57,17 @@
 <mdui-navigation-drawer id="navigation-drawer" modal close-on-esc close-on-overlay-click>
 	<div style="padding: 0.75rem 0.5rem">
 	
-		<mdui-button-icon id="button-close-menu" icon="menu_open--oulined"></mdui-button-icon>
-
+		<mdui-button-icon id="button-close-menu" icon="menu_open"></mdui-button-icon>
 		<div id="dhc-logo"></div>
-
-		<mdui-divider></mdui-divider>
-
 		<mdui-list>
-			<mdui-list-item id="menu-formular" icon="edit--outlined" rounded active>Formulär</mdui-list-item>
+			<mdui-list-item id="menu-formular" icon="edit" rounded active>Formulär</mdui-list-item>
 		</mdui-list>
 
 		<mdui-list>
 			<mdui-collapse accordion>
 
 				<mdui-collapse-item class="menu-collapse-item">
-					<mdui-list-item slot="header" icon="help--outlined" rounded>Hjälpavsnitt<mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
+					<mdui-list-item slot="header" icon="help" rounded>Hjälpavsnitt<mdui-icon slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
 					<div style="margin-left: 2.5rem">
 						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
 						<mdui-list-item id="menu-help-produktnamn" rounded>Produktnamn</mdui-list-item>
@@ -100,7 +96,7 @@
 <!-- TOP BAR                                                                 -->
 <!-- ----------------------------------------------------------------------- -->
 
-<mdui-top-app-bar id="top-app-bar" variant="center-aligned" scroll-behavior="elevate">
+<mdui-top-app-bar id="top-app-bar" variant="small" scroll-behavior="elevate">
 	<mdui-button-icon id="button-open-menu" icon="menu--oulined"></mdui-button-icon>
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
@@ -119,10 +115,10 @@
 <div id="content-formular" class="content-wrapper">
 	<form id="form-artikeldata">
 
-	<div class="row contained nogap">
+	<div class="row elevated nogap">
 
 		<div class="col s12">
-			<h4><mdui-icon name="edit--outlined"></mdui-icon>Artikelbenämning och produktnamn</h4>
+			<h4><mdui-icon name="edit"></mdui-icon>Artikelbenämning och produktnamn</h4>
 		</div><!-- .col -->
 
 		<div class="col s12">
@@ -159,10 +155,10 @@
 
 		<div class="col s12 l6">
 
-			<div class="row contained">
+			<div class="row elevated">
 
 				<div class="col s12">
-					<h4><mdui-icon name="factory--oulined"></mdui-icon>Leverantör</h4>
+					<h4><mdui-icon name="factory"></mdui-icon>Leverantör</h4>
 				</div>
 
 				<div class="col s12 m6">
@@ -184,7 +180,7 @@
 
 			</div><!-- .row -->
 
-			<div class="row contained">
+			<div class="row elevated">
 
 				<div class="s12">
 					<h4><mdui-icon name="monetization_on--outlined"></mdui-icon>Om artikeln</h4>
@@ -238,7 +234,7 @@
 		</div><!-- .col -->
 		<div class="col s12 l6">
 
-			<div class="row contained">
+			<div class="row elevated">
 
 				<div class="col s12">
 
@@ -259,7 +255,7 @@
 				</div><!-- .col -->
 			</div><!-- .row -->
 
-			<div class="row contained">
+			<div class="row elevated">
 				<div class="col s12"><h4><mdui-icon name="warehouse--outlined"></mdui-icon>Lager och liggplats</h4></div>
 				<div class="col s12">
 					<!-- HUVUDLAGER -->
@@ -292,7 +288,7 @@
 
 
 			</div><!-- .row -->
-			<div class="row contained">
+			<div class="row elevated">
 
 				<div class="s12">
 					<h4><mdui-icon name="shopping_cart--outlined"></mdui-icon>Inställningar för webSesam</h4>
@@ -334,7 +330,7 @@
 	</div><!-- .row -->
 
 	<div class="float-right">
-		<mdui-button id="button-submit-form" variant="filled" icon="send--outlined">Kopiera eller skicka artikeluppgifter</mdui-button>
+		<mdui-button id="button-submit-form" class="mt-a mb-a ml-a" variant="filled" icon="send">Kopiera eller skicka artikeluppgifter</mdui-button>
 	</div>
 
 	</form>
@@ -347,15 +343,15 @@
 	<h4>Artikeluppgifter</h4>
 	<p>Vänligen skicka nedanstående uppgifter till inköpspersonalen. Du kan antingen kopiera uppgifterna manuellt eller låta webbläsaren öppna Outlook och förbereda ett ifyllt epostmeddelande.</p>
 	<!-- <div id="artikeldata"><pre id="copy-content"></pre></div> -->
-	<mdui-card id="card-artikeldata" variant="elevated">
+	<div class="elevated">
 		<textarea id="textarea-artikeldata" readonly></textarea>
-	</mdui-card>
+	</div>
 	<div class="float-left">
-		<mdui-button class="button-back-to-form" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
+		<mdui-button class="button-back-to-form" class="mt-a mr-a mb-a" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
 	</div>
 	<div class="float-right">
-		<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy--outlined" slot="action">Kopiera artikeldata</mdui-button>
-		<mdui-button id="button-send-email" href="" target="_blank" variant="filled" icon="email--outlined" slot="action">Skapa epost</mdui-button>
+		<mdui-button id="button-copy-artikeldata" class="m-a" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
+		<mdui-button id="button-send-email" class="mt-a mb-a ml-a" href="" target="_blank" variant="filled" icon="email" slot="action">Skapa epost</mdui-button>
 	</div>
 </div><!-- .content-wrapper -->
 
@@ -408,7 +404,7 @@
 	<mdui-divider></mdui-divider>
 	<p class="x-small center-aligned"><span id="version"></span> | Källkod på <a href="https://github.com/edemalm/artikelreg" target="_blank">GitHub</a></p>
 	<p class="x-small center-aligned">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="LICENSE.html" target="_blank">MIT License</a></p>
-	<mdui-button id="button-close-dialog-info" icon="close" slot="action" variant="tonal">Stäng</mdui-button>
+	<mdui-button id="button-close-dialog-info" icon="close" slot="action" variant="text">Stäng</mdui-button>
 </mdui-dialog>
 
 </body>
