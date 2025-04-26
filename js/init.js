@@ -134,8 +134,8 @@ $(document).ready(function() {
 	});
 
 	$('#button-fler-produktnamn').click(function(){
+		$('#text-produktnamn').attr('label', 'Huvudproduktnamn');
 		$('#div-fler-produktnamn').hide();
-		// $('#div-produktnamn').removeClass('m6').addClass('m3');
 		$('.extra-produkt').removeClass('hidden');
 	});
 

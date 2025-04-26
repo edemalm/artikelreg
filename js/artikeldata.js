@@ -101,37 +101,41 @@ $(document).ready(function() {
 		// $('#textarea-artikeldata').selectText();
 		// document.execCommand('copy');
 		navigator.clipboard.writeText(artikeldata);
-		mdui.snackbar({ message: 'Artikeluppgifter har kopierats och kan klistras in med CTRL+V' });
+		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
 	});
+
+	$('#button-reset-form-warning').click(function() {
+		console.log('Button #button-reset-form-warning clicked');
+		$('#dialog-reset-warning').attr('open', true);
+	});
+
+	$('#button-reset-form').click(function() {
+		console.log('Button #button-reset-form clicked');
+		mdui.snackbar({ message: 'Formuläret är rensat' });
+	});
+
+	$('.button-close-dialog').click(function() {
+		console.log('.button-close-dialog clicked');
+		$('mdui-dialog').removeAttr('open');
+	});
+
+
+
+
+
 
 	$('#button-submit-form').click(function() {
 		console.log('Button #button-submit-form clicked');
 
 		for (const el of document.getElementById('form-artikeldata').querySelectorAll("[required]")) {
 			if (!el.reportValidity()) {
+				mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
 				return;
 			}
 		}
 		$('#form-artikeldata').submit();
 
 		return;
-
-		// ---- stop ---
-
-
-
-		console.log('artikeldata = ' + artikeldata );
-
-
-		// $('#data-artikelansvar').text($('#select-artikelansvar').val());
-		// $('#data-artikeltyp').text($('#select-artikeltyp').val());
-		// $('#data-debitering').text($('#select-debitering').val());
-		// $('#data-individ').text($('#select-individ').val());
-		// $('#data-inventarie').text($('#select-inventarie').val());
-		// $('#data-avskriv').text($('#select-avskriv').val());
-
-
-		$('#dialog').attr('open', true);
 	});
 
 

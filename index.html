@@ -123,12 +123,12 @@
 
 		<div class="col s12">
 			<!-- ARTIKELBENÄMNING -->
-			<mdui-text-field id="text-artikelbenamning" maxlength="250" counter name="artikelbenamning" variant="filled" label="Artikelbenämning" autocapitalize="sentences" clearable required></mdui-text-field>
+			<mdui-text-field id="text-artikelbenamning" maxlength="250" counter name="artikelbenamning" variant="outlined" label="Artikelbenämning" autocapitalize="sentences" clearable required></mdui-text-field>
 		</div><!-- .col -->
 
 		<div id="div-produktnamn" class="col s12 m12 l6 xl6">
 			<!-- PRODUKTNAMN -->
-			<mdui-text-field id="text-produktnamn" name="produktnamn" variant="filled" label="Produktnamn" clearable required></mdui-text-field>
+			<mdui-text-field id="text-produktnamn" name="produktnamn" variant="outlined" label="Produktnamn" clearable required></mdui-text-field>
 		</div><!-- .col -->
 
 		<div id="div-fler-produktnamn" class="col s12 m12 l6 xl6">
@@ -137,17 +137,17 @@
 
 		<div class="col s12 m12 l6 xl6">
 			<!-- PRODUKTNAMN 2 -->
-			<mdui-text-field id="text-produktnamn2" class="hidden extra-produkt" name="produktnamn2" variant="filled" label="Extra produktnamn" clearable></mdui-text-field>
+			<mdui-text-field id="text-produktnamn2" class="hidden extra-produkt" name="produktnamn2" variant="outlined" label="Extra produktnamn" clearable></mdui-text-field>
 		</div><!-- .col -->
 
 		<div class="col s12 m12 l6 xl6">
 			<!-- PRODUKTNAMN 3 -->
-			<mdui-text-field id="text-produktnamn3" class="hidden extra-produkt" name="produktnamn3" variant="filled" label="Extra produktnamn" clearable></mdui-text-field>
+			<mdui-text-field id="text-produktnamn3" class="hidden extra-produkt" name="produktnamn3" variant="outlined" label="Extra produktnamn" clearable></mdui-text-field>
 		</div><!-- .col -->
 
 		<div class="col s12 m12 l6 xl6">
 			<!-- PRODUKTNAMN 4 -->
-			<mdui-text-field id="text-produktnamn4" class="hidden extra-produkt" name="produktnamn4" variant="filled" label="Extra produktnamn" clearable></mdui-text-field>
+			<mdui-text-field id="text-produktnamn4" class="hidden extra-produkt" name="produktnamn4" variant="outlined" label="Extra produktnamn" clearable></mdui-text-field>
 		</div><!-- .col -->
 
 	</div><!-- .row -->
@@ -162,21 +162,15 @@
 				</div>
 
 				<div class="col s12 m6">
-					<mdui-text-field id="text-leverantor" name="leverantor" variant="filled" label="Leverantör" clearable required></mdui-text-field>
+					<mdui-text-field id="text-leverantor" name="leverantor" variant="outlined" label="Leverantör" clearable required></mdui-text-field>
 				</div><!-- .col -->
 
 				<div class="col s12 m6">
-					<mdui-text-field id="text-levartnr" name="levartnr" variant="filled" label="Leverantörens art.nr." clearable required></mdui-text-field>
+					<mdui-text-field id="text-levartnr" name="levartnr" variant="outlined" label="Leverantörens art.nr." clearable required></mdui-text-field>
 				</div><!-- .col -->
 
 				<div class="col s12 m6"><mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox></div>
 				<div class="col s12 m6"><mdui-checkbox id="checkbox-ht" name="checkbox-ht">Finns i Hjälpmedelstjänsten</mdui-checkbox></div>
-
-
-
-
-
-
 
 			</div><!-- .row -->
 
@@ -188,21 +182,21 @@
 				<div class="col s12 m6">
 
 					<!-- ARTIKELANSVAR -->
-					<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="filled" label="Artikelansvar" end-icon="arrow_drop_down">
-						<mdui-menu-item value="L">Region och kommun</mdui-menu-item>
-						<mdui-menu-item value="R">Retursortiment</mdui-menu-item>
-						<mdui-menu-item value="E">Egenansvar</mdui-menu-item>
-						<mdui-menu-item value="S">Syncentralen</mdui-menu-item>
+					<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="outlined" label="Artikelansvar" end-icon="arrow_drop_down">
+						<mdui-menu-item value="L"><mdui-icon slot="icon" name="local_hospital"></mdui-icon>Region och kommun</mdui-menu-item>
+						<mdui-menu-item value="R"><mdui-icon slot="icon" name="recycling"></mdui-icon>Retursortiment</mdui-menu-item>
+						<mdui-menu-item value="E"><mdui-icon slot="icon" name="payment"></mdui-icon>Egenansvar</mdui-menu-item>
+						<mdui-menu-item value="S"><mdui-icon slot="icon" name="remove_red_eye--outlined"></mdui-icon>Syncentralen</mdui-menu-item>
 					</mdui-select>
 
 				</div><!-- .col -->
 				<div class="col s12 m6">
 
 					<!-- ARTIKELTYP -->
-					<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="filled" label="Artikeltyp" end-icon="arrow_drop_down">
-						<mdui-menu-item value="H">Huvudhjälpmedel</mdui-menu-item>
-						<mdui-menu-item value="T">Tillbehör</mdui-menu-item>
-						<mdui-menu-item value="R">Reservdel</mdui-menu-item>
+					<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp" end-icon="arrow_drop_down">
+						<mdui-menu-item value="H"><mdui-icon slot="icon" name="accessible"></mdui-icon>Huvudhjälpmedel</mdui-menu-item>
+						<mdui-menu-item value="T"><mdui-icon slot="icon" name="add_circle_outline"></mdui-icon>Tillbehör</mdui-menu-item>
+						<mdui-menu-item value="R"><mdui-icon slot="icon" name="build"></mdui-icon>Reservdel</mdui-menu-item>
 					</mdui-select>
 
 				</div><!-- .col -->
@@ -240,7 +234,7 @@
 
 					<!-- TEAM -->
 					<h4><mdui-icon name="people--oulined"></mdui-icon>Ansvarigt team</h4>
-					<mdui-select id="select-team" name="select-team" variant="filled" label="Team" end-icon="arrow_drop_down">
+					<mdui-select id="select-team" name="select-team" variant="outlined" label="Team" end-icon="arrow_drop_down">
 						<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
 						<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
 						<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
@@ -256,19 +250,39 @@
 			</div><!-- .row -->
 
 			<div class="row elevated">
-				<div class="col s12"><h4><mdui-icon name="warehouse--outlined"></mdui-icon>Lager och liggplats</h4></div>
+				<div class="col s12"><h4><mdui-icon name="warehouse"></mdui-icon>Lagerhållning</h4></div>
 				<div class="col s12">
+
 					<!-- HUVUDLAGER -->
-					<mdui-select id="select-huvudlager" name="select-huvudlager" variant="filled" label="Huvudlager" end-icon="arrow_drop_down">
+					<mdui-select id="select-huvudlager" name="select-huvudlager" variant="outlined" label="Huvudlager" end-icon="arrow_drop_down">
 						<mdui-menu-item value="200">200 - Huvudlager Västermalmsvägen Falun</mdui-menu-item>
 						<mdui-menu-item value="400">400 - Huvudlager Skomakargatan Syncentralen</mdui-menu-item>
 						<mdui-menu-item value="688">688 - Huvudlager LOGFAB Taklyftar</mdui-menu-item>
 					</mdui-select>
-				</div><!-- .col -->
 
+				</div><!-- .col -->
+				<div class="col s8">
+
+					<!-- INKÖPSHANTERING -->
+					<mdui-select id="select-inkopshantering" name="select-inkopshantering" variant="outlined"
+						label="Inköpshantering på huvudlager" end-icon="arrow_drop_down">
+						<mdui-menu-item value="Kundorder">Kundorder</mdui-menu-item>
+						<mdui-menu-item value="Nettobehov">Nettobehov</mdui-menu-item>
+					</mdui-select>
+
+				</div><!-- .col -->
+				<div class="col s4">
+
+					<!-- LIGGPLATS -->
+					<mdui-text-field id="text-liggplats" name="liggplats" variant="outlined" label="Liggplats"
+						helper="Ange en liggplats om den är känd" helper-on-focus></mdui-text-field>
+
+				</div><!-- .col -->
+				<!--
 				<div class="col s6">
-					<!-- PLOCKOMRÅDE -->
-					<mdui-select id="select-plockomrade" name="select-plockomrade" variant="filled" label="Plockområde" end-icon="arrow_drop_down">
+
+					<mdui-select id="select-plockomrade" name="select-plockomrade" variant="outlined" label="Plockområde" end-icon="arrow_drop_down"
+						helper="Ange om det är känt">
 						<mdui-menu-item value="1">Plockområde 1</mdui-menu-item>
 						<mdui-menu-item value="2">Plockområde 2</mdui-menu-item>
 						<mdui-menu-item value="3">Plockområde 3</mdui-menu-item>
@@ -280,13 +294,15 @@
 						<mdui-menu-item value="0">Jag vet inte!</mdui-menu-item>
 					</mdui-select>
 
-				</div><!-- .col -->
-				<div class="col s6">
-					<!-- LIGGPLATS -->
-					<mdui-text-field id="text-liggplats" name="liggplats" variant="filled" label="Liggplats" helper="Hjälptext för liggplater finns i menyn" helper-on-focus></mdui-text-field>
-				</div><!-- .col -->
+				</div>
+				-->
+				<div class="col s12">
 
+					<!-- BUFFERTLAGER -->
+					<mdui-text-field id="textarea-bufferlager" name="textarea-buffertlager" variant="outlined" rows="1" label="Eventuella buffertlager"
+						helper="Ange buffertlager, säkerhetlager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad." helper-on-focus autosize></mdui-text-field>
 
+				</div><!-- .col -->
 			</div><!-- .row -->
 			<div class="row elevated">
 
@@ -321,17 +337,19 @@
 
 				<div class="col s12">
 					<!-- ARTIKELINFO WEBSESAM -->
-					<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" helper-on-focus autosize></mdui-text-field>
+					<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" helper-on-focus autosize></mdui-text-field>
 				</div><!-- .col -->
 
 			</div><!-- .row -->
 
 		</div><!-- .col -->
 	</div><!-- .row -->
-
-	<div class="float-right">
-		<mdui-button id="button-submit-form" class="mt-a mb-a ml-a" variant="filled" icon="send">Kopiera eller skicka artikeluppgifter</mdui-button>
-	</div>
+	<div class="row">
+		<div class="col s12 right-aligned">
+			<mdui-button id="button-reset-form-warning" variant="text" icon="clear">Rensa allt</mdui-button>
+			<mdui-button id="button-submit-form" variant="filled" icon="send">Skicka artikeluppgifter</mdui-button>
+		</div><!-- .col -->
+	</div><!-- .row -->
 
 	</form>
 </div><!-- .content-wrapper -->
@@ -340,19 +358,26 @@
 <!-- Artikeldata -->
 
 <div id="content-artikeldata" class="content-wrapper hidden">
-	<h4>Artikeluppgifter</h4>
-	<p>Vänligen skicka nedanstående uppgifter till inköpspersonalen. Du kan antingen kopiera uppgifterna manuellt eller låta webbläsaren öppna Outlook och förbereda ett ifyllt epostmeddelande.</p>
-	<!-- <div id="artikeldata"><pre id="copy-content"></pre></div> -->
-	<div class="elevated">
-		<textarea id="textarea-artikeldata" readonly></textarea>
-	</div>
-	<div class="float-left">
-		<mdui-button class="button-back-to-form" class="mt-a mr-a mb-a" variant="text" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
-	</div>
-	<div class="float-right">
-		<mdui-button id="button-copy-artikeldata" class="m-a" variant="tonal" icon="content_copy" slot="action">Kopiera artikeldata</mdui-button>
-		<mdui-button id="button-send-email" class="mt-a mb-a ml-a" href="" target="_blank" variant="filled" icon="email" slot="action">Skapa epost</mdui-button>
-	</div>
+	<div class="row mb-a">
+		<div class="col s12">
+			<h4><mdui-icon name="assignment"></mdui-icon>Artikeluppgifter</h4>
+			<p>Vänligen skicka nedanstående uppgifter till inköpspersonalen. Du kan antingen kopiera uppgifterna manuellt eller låta webbläsaren öppna Outlook och förbereda ett ifyllt epostmeddelande.</p>
+		</div><!-- .col -->
+	</div><!-- .row -->
+	<div class="row elevated">
+		<div class="col s12">
+			<textarea id="textarea-artikeldata" readonly></textarea>
+		</div><!-- .col -->
+	</div><!-- .row -->
+	<div class="row mb-a">
+		<div class="col s4">
+			<mdui-button class="button-back-to-form" variant="text" icon="arrow_back">Tillbaka till formulär</mdui-button>
+		</div><!-- .col -->
+		<div class="col s8 right-aligned">
+			<mdui-button id="button-copy-artikeldata" variant="tonal" icon="content_copy">Kopiera artikeluppgifter</mdui-button>
+			<mdui-button id="button-send-email" class="ml-s" variant="filled" icon="email">Skapa epost</mdui-button>
+		</div><!-- .col -->
+	</div><!-- .row -->
 </div><!-- .content-wrapper -->
 
 <!-- Hjälp artikelbenämning -->
@@ -404,8 +429,14 @@
 	<mdui-divider></mdui-divider>
 	<p class="x-small center-aligned"><span id="version"></span> | Källkod på <a href="https://github.com/edemalm/artikelreg" target="_blank">GitHub</a></p>
 	<p class="x-small center-aligned">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="LICENSE.html" target="_blank">MIT License</a></p>
-	<mdui-button id="button-close-dialog-info" icon="close" slot="action" variant="text">Stäng</mdui-button>
+	<mdui-button class="button-close-dialog" icon="close" slot="action" variant="text">Stäng</mdui-button>
 </mdui-dialog>
+
+<mdui-dialog id="dialog-reset-warning" close-on-overlay-click icon="warning" headline="Rensa formuläret?">
+	<mdui-button class="button-close-dialog" slot="action" variant="text">Avbryt</mdui-button>
+	<mdui-button id="button-reset-form" class="button-close-dialog" type="reset" form="form-artikeldata" slot="action" variant="tonal">Rensa</mdui-button>
+</mdui-dialog>
+
 
 </body>
 <script src="js/functions.js"></script>

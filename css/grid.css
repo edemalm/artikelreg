@@ -20,6 +20,8 @@ body {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	column-gap: var(--gap-size);
+	row-gap: var(--gap-size);
+
 }
 
 .row .s1 {
