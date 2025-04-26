@@ -60,6 +60,8 @@
 
 body {
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+	-webkit-tap-highlight-color: red;
+	tap-highlight-color: green;
 }
 
 code, kbd, pre, samp, tt {
