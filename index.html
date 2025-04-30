@@ -46,7 +46,9 @@
 
 	<title>Artikelregistreringsunderlag</title>
 </head>
-<body class="m-a">
+<body>
+
+<div id="shade"></div>
 
 <mdui-layout>
 
@@ -339,15 +341,47 @@
 					<!-- ARTIKELINFO WEBSESAM -->
 					<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" helper-on-focus autosize></mdui-text-field>
 				</div><!-- .col -->
+			</div><!-- .row -->
+			<div class="row elevated">
+				<div class="s12">
 
+					<h4><mdui-icon name="build"></mdui-icon>Service och underhåll</h4>
+
+					<!-- SERVICEGRAD -->
+					<mdui-select id="select-servicegrad" name="select-servicegrad" variant="outlined" label="Servicegrad" end-icon="arrow_drop_down">
+						<mdui-menu-item value="1">Alternativ 1</mdui-menu-item>
+						<mdui-menu-item value="2">Alternativ 2</mdui-menu-item>
+						<mdui-menu-item value="3">Alternativ 3</mdui-menu-item>
+						<mdui-menu-item value="4">...</mdui-menu-item>
+					</mdui-select>
+
+				</div><!-- .col -->
+				<div class="col s6">
+
+					<!-- BESIKTNINGSINTERVALL -->
+					<mdui-select id="select-besiktningsintervall" name="select-besiktningsintervall" variant="outlined"
+						label="Besiktningsintervall (dagar)" end-icon="arrow_drop_down">
+						<mdui-menu-item value="1">Alternativ 1</mdui-menu-item>
+						<mdui-menu-item value="2">Alternativ 2</mdui-menu-item>
+						<mdui-menu-item value="3">Alternativ 3</mdui-menu-item>
+						<mdui-menu-item value="4">...</mdui-menu-item>
+					</mdui-select>
+
+				</div><!-- .col -->
+				<div class="col s6">
+
+					<!-- DRIFTTIDSMÄTARE -->
+					<mdui-checkbox id="checkbox-drifttidsmatare" name="checkbox-drifttidsmatare">Drifttidsmätare</mdui-checkbox>
+
+				</div><!-- .col -->
 			</div><!-- .row -->
 
 		</div><!-- .col -->
 	</div><!-- .row -->
 	<div class="row">
 		<div class="col s12 right-aligned">
-			<mdui-button id="button-reset-form-warning" variant="text" icon="clear">Rensa allt</mdui-button>
-			<mdui-button id="button-submit-form" variant="filled" icon="send">Skicka artikeluppgifter</mdui-button>
+			<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
+			<mdui-button id="button-submit-form" class="ml-a" variant="filled">Skicka artikeluppgifter</mdui-button>
 		</div><!-- .col -->
 	</div><!-- .row -->
 
@@ -439,6 +473,7 @@
 
 
 </body>
+<script src="js/jquery.inactivity.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/init.js"></script>
 <script src="js/artikeldata.js"></script>
