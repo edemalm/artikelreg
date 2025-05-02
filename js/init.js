@@ -4,9 +4,43 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 	console.log('window.location.protocol: ' + window.location.protocol);
 
+	const d = new Date();
+	let month = d.getMonth();
+
+	if ( month == 0 || month == 1 || month == 2 ) {
+		console.log("I believe it's winter");
+		const bgclasses = ['winter-0','winter-1','winter-2','winter-3','winter-4','winter-5','winter-6','winter-7','winter-8'];
+		const random = Math.floor(Math.random() * bgclasses.length);
+		$('body').addClass(bgclasses[random]);
+	}
+	if ( month == 3 || month == 4 ) {
+		console.log("I believe it's spring");
+		const bgclasses = ['spring-0','spring-1','spring-2','spring-3','spring-4','spring-5','spring-6', 'spring-7'];
+		const random = Math.floor(Math.random() * bgclasses.length);
+		$('body').addClass(bgclasses[random]);
+	}
+	if ( month == 5 || month == 6 || month == 7 ) {
+		console.log("I believe it's summer");
+		const bgclasses = ['summer-0','summer-1','summer-2','summer-3','summer-4','summer-5','summer-6','summer-7','summer-8','summer-9','summer-10','summer-11','summer-12','summer-13','summer-14','summer-15','summer-16'];
+		const random = Math.floor(Math.random() * bgclasses.length);
+		$('body').addClass(bgclasses[random]);
+	}
+	if ( month == 8 || month == 9 || month == 10 ) {
+		console.log("I believe it's fall");
+		const bgclasses = ['fall-0','fall-1','fall-2','fall-3','fall-4','fall-5','fall-6','fall-7','fall-8','fall-9','fall-10','fall-11','fall-12','fall-13','fall-14','fall-15','fall-16','fall-17','fall-18','fall-19','fall-20','fall-21'];
+		const random = Math.floor(Math.random() * bgclasses.length);
+		$('body').addClass(bgclasses[random]);
+	}
+	if ( month == 11 ) {
+		console.log("I believe it's christmas");
+		const bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
+		const random = Math.floor(Math.random() * bgclasses.length);
+		$('body').addClass(bgclasses[random]);
+	}
+
 	// https://github.com/kaparelos/jquery.inactivity
 	$(document).inactivity( {
-		timeout: 3000, // the timeout until the inactivity event fire [default: 3000]
+		timeout: 10000, // the timeout until the inactivity event fire [default: 3000]
 		mouse: true, // listen for mouse inactivity [default: true]
 		keyboard: true, // listen for keyboard inactivity [default: true]
 		touch: true, // listen for touch inactivity [default: true]
@@ -14,16 +48,16 @@ $(document).ready(function() {
 		triggerAll: true, // if set to false only the first "activity" event will be fired [default: false]
 	});
 	$(document).on("activity", function() {
-		$('.content-wrapper').removeClass('inactive')
+		$('#filter-layer, #content-container').removeClass('inactive')
 	});
 
 	$(document).on("inactivity", function() {
 		console.log('function that fires on inactivity');
-		$('.content-wrapper').addClass('inactive')
+		$('#filter-layer, #content-container').addClass('inactive')
 	});
 
 	// Global variables
-	var update = '2025-04-25';
+	var update = '2025-04-30';
 	var artikeldata;
 
 	// Set date in version

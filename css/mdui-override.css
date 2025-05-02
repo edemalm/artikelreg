@@ -76,29 +76,31 @@
 	--mdui-color-surface-container-highest-dark: 52,52,58;
 }
 
-/*
-#top-app-bar[scrolling] {
-    background-color: rgb(var(--mdui-color-surface-container-high));
-    box-shadow: var(--mdui-elevation-level3);
-}
-*/
-
-.mdui-table {
-	--mdui-color-surface-variant: var(--mdui-color-outline);
-}
-
-/*
-mdui-text-field,
-mdui-select {
-	margin-bottom: 1rem !important;
-}
-*/
-
-#top-app-bar,
-#navigation-drawer {
+mdui-navigation-drawer,
+mdui-top-app-bar {
 	position: fixed !important;
 }
-
+/*
+mdui-navigation-drawer::part(panel) {
+	backdrop-filter: blur(1rem);
+    background-color: rgba(var(--mdui-color-surface-container-low),0.75);
+}
+mdui-navigation-drawer::part(overlay) {
+	background-color: rgba(var(--mdui-color-scrim),.5);
+}
+mdui-top-app-bar {
+	backdrop-filter: blur(1rem);
+	background-color: rgba(var(--mdui-color-surface),0.75);
+}
+mdui-top-app-bar[scrolling] {
+	background-color: rgba(var(--mdui-color-surface-container),0.75);
+}
+mdui-text-field[focused]::part(label) {
+	background-color: transparent;
+	background: linear-gradient(180deg, transparent 48%, rgb(var(--mdui-color-background)) 50%, rgb(var(--mdui-color-background)) 63%, transparent 65%);
+	text-shadow: 0px 0px 2px rgb(var(--mdui-color-background));
+}
+*/
 @media only screen and (min-width: 993px)  {
 	#text-artikelbenamning {
 		--mdui-typescale-body-large-size: 2rem !important;
@@ -125,8 +127,4 @@ h4 mdui-icon {
 .elevated mdui-text-field,
 .elevated mdui-select {
 	--mdui-color-background: var(--mdui-color-surface-container-low);
-}
-
-:host([variant=outlined]) ::part(label) {
-	background-color: red !important;
 }
