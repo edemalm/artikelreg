@@ -1,0 +1,6 @@
+/*
+	X-Robots-Tag: noindex
+	Cache-Control: public, max-age=600
+
+/img/*
+	Cache-Control: public, max-age=3600

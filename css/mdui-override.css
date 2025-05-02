@@ -114,9 +114,11 @@ mdui-text-field[focused]::part(label) {
 }
 */
 
+/*
 .mdui-prose h4 {
 	margin-bottom: .875em !important;
 }
+*/
 
 h4 mdui-icon {
 	margin-right: 1rem;

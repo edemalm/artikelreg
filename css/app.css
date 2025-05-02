@@ -168,7 +168,7 @@ code, kbd, pre, samp, tt {
 	transition: all 0.5s;
 	margin: var(--app-space) auto;
 	max-width: 1280px;
-	padding: var(--app-space) 0;
+	padding: var(--app-space);
 }
 @media only screen and (max-width: 1280px) {
 	#content-container {
@@ -183,7 +183,9 @@ code, kbd, pre, samp, tt {
 }
 
 .content-wrapper {
+	min-height: 50vh;
 	margin: var(--app-space);
+	margin: 0;
 }
 
 .elevated {
