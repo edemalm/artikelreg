@@ -1,27 +1,5 @@
 @charset "UTF-8";
 
-:root {
-	--app-space-xs: 0.75rem;
-	--app-space-s: 1rem;
-	--app-space-m: 1.25rem;
-	--app-space-l: 1.5rem;
-	--app-space-xl: 1.75rem;
-	--app-space: var(--app-space-xs);
-}
-
-@media only screen and (min-width: 601px) {
-	:root { --app-space: var(--app-space-s) }
-}
-@media only screen and (min-width: 841px) {
-	:root { --app-space: var(--app-space-m) }
-}
-@media only screen and (min-width: 1081px) {
-	:root { --app-space: var(--app-space-l) }
-}
-@media only screen and (min-width: 1441px) {
-	:root { --app-space: var(--app-space-xl) }
-}
-
 .m-xs { margin: var(--app-space-xs) !important }
 .m-s  { margin: var(--app-space-s) !important }
 .m-m  { margin: var(--app-space-m) !important }
@@ -57,7 +35,6 @@
 .ml-xl { margin-left: var(--app-space-xl) !important }
 .ml-a  { margin-left: var(--app-space) !important }
 
-
 body {
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
@@ -67,7 +44,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin: 0;
-	padding: 0;
+	padding: var(--app-space);
 	min-height: 100vh;
 }
 
@@ -166,16 +143,18 @@ code, kbd, pre, samp, tt {
 	border-radius: calc(var(--app-space));
 	box-shadow: var(--mdui-elevation-level1);
 	transition: all 0.5s;
-	margin: var(--app-space) auto;
+	margin: 0 auto;
 	max-width: 1280px;
 	padding: var(--app-space);
 }
-@media only screen and (max-width: 1280px) {
+/*
+@media only screen and (max-width: 1080px) {
 	#content-container {
 		border-radius: 0;
 		margin: 0;
 	}
 }
+*/
 
 #content-container.inactive {
 	opacity: 0%;
@@ -243,6 +222,17 @@ code, kbd, pre, samp, tt {
 	padding: 0;
 	resize: none;
 	width: 100%;
+}
+
+/*
+.mdui-prose h4 {
+	margin-bottom: calc(var(--app-space)/2) !important;
+}
+*/
+h4 mdui-icon {
+	margin-right: 1rem;
+	position: relative;
+	top: .25rem;
 }
 
 .center-aligned { text-align: center; }

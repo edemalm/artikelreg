@@ -114,17 +114,6 @@ mdui-text-field[focused]::part(label) {
 }
 */
 
-/*
-.mdui-prose h4 {
-	margin-bottom: .875em !important;
-}
-*/
-
-h4 mdui-icon {
-	margin-right: 1rem;
-	position: relative;
-	top: .25rem;
-}
 
 .elevated mdui-text-field,
 .elevated mdui-select {

@@ -115,22 +115,23 @@
 				<!-- ARTIKELBENÄMNING -->
 				<mdui-text-field id="text-artikelbenamning" maxlength="250" counter name="artikelbenamning" variant="outlined" label="Artikelbenämning" autocapitalize="sentences" clearable required></mdui-text-field>
 			</div>
-			<div id="div-produktnamn" class="s12 m12 l6 xl6">
+			<div id="div-produktnamn" class="s12 m6 xl6">
 				<!-- PRODUKTNAMN -->
 				<mdui-text-field id="text-produktnamn" name="produktnamn" variant="outlined" label="Produktnamn" clearable required></mdui-text-field>
 			</div>
-			<div id="div-fler-produktnamn" class="s12 m12 l6 xl6">
+				<!-- FLER PRODUKTNAMN -->
+			<div id="div-fler-produktnamn" class="s12 m6 xl6">
 				<mdui-button id="button-fler-produktnamn" variant="text" icon="add">Fler produktnamn</mdui-button>
 			</div>
-			<div class="s12 m12 l6 xl6 hidden extra-produkt">
+			<div class="s12 m6 xl6 hidden extra-produkt">
 				<!-- PRODUKTNAMN 2 -->
 				<mdui-text-field id="text-produktnamn2" name="produktnamn2" variant="outlined" label="Extra produktnamn" clearable></mdui-text-field>
 			</div>
-			<div class="s12 m12 l6 xl6 hidden extra-produkt">
+			<div class="s12 m6 xl6 hidden extra-produkt">
 				<!-- PRODUKTNAMN 3 -->
 				<mdui-text-field id="text-produktnamn3" name="produktnamn3" variant="outlined" label="Extra produktnamn" clearable></mdui-text-field>
 			</div>
-			<div class="col s12 m12 l6 xl6 hidden extra-produkt">
+			<div class="s12 m6 xl6 hidden extra-produkt">
 				<!-- PRODUKTNAMN 4 -->
 				<mdui-text-field id="text-produktnamn4" name="produktnamn4" variant="outlined" label="Extra produktnamn" clearable></mdui-text-field>
 			</div>
@@ -193,11 +194,23 @@
 						</mdui-radio-group>
 
 					</div>
-					<div class="col s6 right-aligned"><span class="centered-vertically">Individmärkt:</span></div>
-					<div class="col s6"><mdui-switch id="switch-individmarkt" name="switch-individmarkt"></mdui-switch></div>
 
-					<div class="col s6 right-aligned"><span class="centered-vertically">Inventarie:</span></div>
-					<div class="col s6"><mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch></div>
+					<div class="s6">
+
+						<span class="centered-vertically"><label for="switch-individmarkt">Individmärkt:</label></span>
+						<div style="float: right">
+							<mdui-switch id="switch-individmarkt" name="switch-individmarkt"></mdui-switch>
+						</div>
+						<br style="clear: both;">
+						<span class="centered-vertically">Inventarie:</span>
+						<div style="float: right">
+							<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
+						</div>
+
+					</div>
+
+
+
 
 					<div class="col s6 right-aligned"><span class="centered-vertically">Avskrivningstid:</span></div>
 					<div class="col s6">
@@ -361,6 +374,18 @@
 					</div><!-- .col -->
 					<div class="col s6">
 
+						<!-- FU-INTERVALL -->
+						<mdui-select id="select-fu-intervall" name="select-fu-intervall" variant="outlined"
+							label="FU-intervall (dagar)" end-icon="arrow_drop_down">
+							<mdui-menu-item value="1">Alternativ 1</mdui-menu-item>
+							<mdui-menu-item value="2">Alternativ 2</mdui-menu-item>
+							<mdui-menu-item value="3">Alternativ 3</mdui-menu-item>
+							<mdui-menu-item value="4">...</mdui-menu-item>
+						</mdui-select>
+
+					</div><!-- .col -->
+					<div class="col s6">
+
 						<!-- DRIFTTIDSMÄTARE -->
 						<mdui-checkbox id="checkbox-drifttidsmatare" name="checkbox-drifttidsmatare">Drifttidsmätare</mdui-checkbox>
 
@@ -465,12 +490,11 @@
 
 <mdui-dialog id="dialog-info" close-on-overlay-click icon="info--outlined" headline="Allmän information">
 	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
-	<p>Syftet med formuläret är att säkerställa en god kvalitet på artikelregistret och underlätta arbetet för all berörd personal.</p>
-	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
-	<p>En utförligt instruktion finns under menyn till vänster.</p>
+	<p>Ingen data skickas till extern part. All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret.</p>
 	<mdui-divider></mdui-divider>
 	<p class="x-small center-aligned"><span id="version"></span> | Källkod på <a href="https://github.com/edemalm/artikelreg" target="_blank">GitHub</a></p>
-	<p class="x-small center-aligned">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="LICENSE.html" target="_blank">MIT License</a></p>
+	<p class="x-small center-aligned">Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
+	<p class="x-small center-aligned">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
 	<mdui-button class="button-close-dialog" icon="close" slot="action" variant="text">Stäng</mdui-button>
 </mdui-dialog>
 

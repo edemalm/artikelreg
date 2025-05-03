@@ -4,6 +4,10 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 	console.log('window.location.protocol: ' + window.location.protocol);
 
+	// Global variables
+	var update = '2025-05-03';
+	var artikeldata;
+
 	const d = new Date();
 	let month = d.getMonth();
 
@@ -39,26 +43,14 @@ $(document).ready(function() {
 	}
 
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( {
-		timeout: 10000, // the timeout until the inactivity event fire [default: 3000]
-		mouse: true, // listen for mouse inactivity [default: true]
-		keyboard: true, // listen for keyboard inactivity [default: true]
-		touch: true, // listen for touch inactivity [default: true]
-		customEvents: "customEventName", // listen for custom events [default: ""]
-		triggerAll: true, // if set to false only the first "activity" event will be fired [default: false]
-	});
+	$(document).inactivity( { timeout: 60000 });
 	$(document).on("activity", function() {
 		$('#filter-layer, #content-container').removeClass('inactive')
 	});
-
 	$(document).on("inactivity", function() {
 		console.log('function that fires on inactivity');
 		$('#filter-layer, #content-container').addClass('inactive')
 	});
-
-	// Global variables
-	var update = '2025-04-30';
-	var artikeldata;
 
 	// Set date in version
 	$('#version').html( 'Version ' + update );
