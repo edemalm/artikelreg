@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+.m-xxs { margin: var(--app-space-xxs) !important }
 .m-xs { margin: var(--app-space-xs) !important }
 .m-s  { margin: var(--app-space-s) !important }
 .m-m  { margin: var(--app-space-m) !important }
@@ -7,6 +8,7 @@
 .m-xl { margin: var(--app-space-xl) !important }
 .m-a  { margin: var(--app-space) !important }
 
+.mt-xxs { margin-top: var(--app-space-xxs) !important }
 .mt-xs { margin-top: var(--app-space-xs) !important }
 .mt-s  { margin-top: var(--app-space-s) !important }
 .mt-m  { margin-top: var(--app-space-m) !important }
@@ -14,6 +16,7 @@
 .mt-xl { margin-top: var(--app-space-xl) !important }
 .mt-a  { margin-top: var(--app-space) !important }
 
+.mr-xxs { margin-right: var(--app-space-xxs) !important }
 .mr-xs { margin-right: var(--app-space-xs) !important }
 .mr-s  { margin-right: var(--app-space-s) !important }
 .mr-m  { margin-right: var(--app-space-m) !important }
@@ -21,6 +24,7 @@
 .mr-xl { margin-right: var(--app-space-xl) !important }
 .mr-a  { margin-right: var(--app-space) !important }
 
+.mb-xxs { margin-bottom: var(--app-space-xxs) !important }
 .mb-xs { margin-bottom: var(--app-space-xs) !important }
 .mb-s  { margin-bottom: var(--app-space-s) !important }
 .mb-m  { margin-bottom: var(--app-space-m) !important }
@@ -28,12 +32,57 @@
 .mb-xl { margin-bottom: var(--app-space-xl) !important }
 .mb-a  { margin-bottom: var(--app-space) !important }
 
+.ml-xxs { margin-left: var(--app-space-xxs) !important }
 .ml-xs { margin-left: var(--app-space-xs) !important }
 .ml-s  { margin-left: var(--app-space-s) !important }
 .ml-m  { margin-left: var(--app-space-m) !important }
 .ml-l  { margin-left: var(--app-space-l) !important }
 .ml-xl { margin-left: var(--app-space-xl) !important }
 .ml-a  { margin-left: var(--app-space) !important }
+
+.p-xxs { padding: var(--app-space-xxs) !important }
+.p-xs { padding: var(--app-space-xs) !important }
+.p-s  { padding: var(--app-space-s) !important }
+.p-m  { padding: var(--app-space-m) !important }
+.p-l  { padding: var(--app-space-l) !important }
+.p-xl { padding: var(--app-space-xl) !important }
+.p-a  { padding: var(--app-space) !important }
+
+.pt-xxs { padding-top: var(--app-space-xxs) !important }
+.pt-xs { padding-top: var(--app-space-xs) !important }
+.pt-s  { padding-top: var(--app-space-s) !important }
+.pt-m  { padding-top: var(--app-space-m) !important }
+.pt-l  { padding-top: var(--app-space-l) !important }
+.pt-xl { padding-top: var(--app-space-xl) !important }
+.pt-a  { padding-top: var(--app-space) !important }
+
+.pr-xxs { padding-right: var(--app-space-xxs) !important }
+.pr-xs { padding-right: var(--app-space-xs) !important }
+.pr-s  { padding-right: var(--app-space-s) !important }
+.pr-m  { padding-right: var(--app-space-m) !important }
+.pr-l  { padding-right: var(--app-space-l) !important }
+.pr-xl { padding-right: var(--app-space-xl) !important }
+.pr-a  { padding-right: var(--app-space) !important }
+
+.pb-xxs { padding-bottom: var(--app-space-xxs) !important }
+.pb-xs { padding-bottom: var(--app-space-xs) !important }
+.pb-s  { padding-bottom: var(--app-space-s) !important }
+.pb-m  { padding-bottom: var(--app-space-m) !important }
+.pb-l  { padding-bottom: var(--app-space-l) !important }
+.pb-xl { padding-bottom: var(--app-space-xl) !important }
+.pb-a  { padding-bottom: var(--app-space) !important }
+
+.pl-xxs { padding-left: var(--app-space-xxs) !important }
+.pl-xs { padding-left: var(--app-space-xs) !important }
+.pl-s  { padding-left: var(--app-space-s) !important }
+.pl-m  { padding-left: var(--app-space-m) !important }
+.pl-l  { padding-left: var(--app-space-l) !important }
+.pl-xl { padding-left: var(--app-space-xl) !important }
+.pl-a  { padding-left: var(--app-space) !important }
+
+
+
+
 
 body {
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -241,8 +290,8 @@ h4 mdui-icon {
 .float-left { float: left; }
 .float-right { float: right; }
 
-.centered-vertically {
-	line-height: 40px; /* match switch height */
+.align-with-mdui-switch {
+	line-height: 2.5; /* align with mdui-switch vertically */
 }
 
 .x-small {

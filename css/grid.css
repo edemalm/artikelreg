@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 :root {
+	--app-space-xxs: 0.5rem;
 	--app-space-xs: 0.75rem;
 	--app-space-s: 1rem;
 	--app-space-m: 1.25rem;

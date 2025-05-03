@@ -159,63 +159,54 @@
 				</div><!-- .row -->
 				<div class="row elevated">
 					<div class="s12">
-
-						<h4><mdui-icon name="monetization_on--outlined"></mdui-icon>Om artikeln</h4>
-
+						<h4><mdui-icon name="monetization_on"></mdui-icon>Om artikeln</h4>
 					</div>
 					<div class="col s12 m6">
-
 						<!-- ARTIKELANSVAR -->
 						<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="outlined" label="Artikelansvar" end-icon="arrow_drop_down">
-							<mdui-menu-item value="L"><mdui-icon slot="icon" name="local_hospital"></mdui-icon>Region och kommun</mdui-menu-item>
-							<mdui-menu-item value="R"><mdui-icon slot="icon" name="recycling"></mdui-icon>Retursortiment</mdui-menu-item>
-							<mdui-menu-item value="E"><mdui-icon slot="icon" name="payment"></mdui-icon>Egenansvar</mdui-menu-item>
-							<mdui-menu-item value="S"><mdui-icon slot="icon" name="remove_red_eye--outlined"></mdui-icon>Syncentralen</mdui-menu-item>
+							<mdui-menu-item value="L" icon="local_hospital">Region och kommun</mdui-menu-item>
+							<mdui-menu-item value="R" icon="local_hospital" end-icon="recycling">Retursortiment</mdui-menu-item>
+							<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
+							<mdui-menu-item value="S" icon="remove_red_eye">Syncentralen</mdui-menu-item>
 						</mdui-select>
 
 					</div><!-- .col -->
 					<div class="col s12 m6">
-
 						<!-- ARTIKELTYP -->
 						<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp" end-icon="arrow_drop_down">
-							<mdui-menu-item value="H"><mdui-icon slot="icon" name="accessible"></mdui-icon>Huvudhjälpmedel</mdui-menu-item>
-							<mdui-menu-item value="T"><mdui-icon slot="icon" name="add_circle_outline"></mdui-icon>Tillbehör</mdui-menu-item>
-							<mdui-menu-item value="R"><mdui-icon slot="icon" name="build"></mdui-icon>Reservdel</mdui-menu-item>
+							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
+							<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
+							<mdui-menu-item value="R" icon="build">Reservdel</mdui-menu-item>
 						</mdui-select>
 
 					</div><!-- .col -->
-					<div class="s12">
-						<div>
-							<!-- DEBITERINGSFORM -->
-							<span class="centered-vertically"><label for="radio-debiteringsform">Debiteringsform:</label></span>
-							<div style="float: right; background-color: red; width: 60%;">
-								<mdui-radio-group id="radio-debiteringsform" name="radio-debiteringsform" value="">
-									<mdui-radio value="Hyra">Månadshyra</mdui-radio>
-									<mdui-radio value="Köp">Köp</mdui-radio>
-								</mdui-radio-group>
-							</div>
-						</div>
-						<div style="clear: both;">
-							<span class="centered-vertically"><label for="switch-individmarkt">Individmärkt:</label></span>
-							<div style="float: right; background-color: red; width: 60%;">
+					<div class="s12 m6 pt-xxs">
+						<!-- INDIVIDMÄRKT -->
+						<label class="align-with-mdui-switch" for="switch-individmarkt">Individmärkt:</label>
+						<div style="float: right;">
 								<mdui-switch id="switch-individmarkt" name="switch-individmarkt"></mdui-switch>
-							</div>
 						</div>
-						<div style="clear: both;">
-							<span class="centered-vertically"><label for="switch-individmarkt">Inventarie:</label></span>
-							<div style="float: right; background-color: red; width: 60%;">
-								<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
-							</div>
+					</div>
+					<div class="s12 m6">
+						<!-- DEBITERINGSFORM -->
+						<mdui-select id="select-debiteringsform" name="select-debiteringsform" variant="outlined" label="Debiteringsform" end-icon="arrow_drop_down">
+							<mdui-menu-item value="Månadshyra">Månadshyra</mdui-menu-item>
+							<mdui-menu-item value="Köp">Köp</mdui-menu-item>
+						</mdui-select>
+					</div>
+					<div class="s12 m6 pt-xxs">
+						<!-- INVENTARIE -->
+						<label class="align-with-mdui-switch" for="switch-individmarkt">Inventarie:</label>
+						<div style="float: right;">
+							<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
 						</div>
-						<div style="clear: both;">
-							<span class="centered-vertically">Avskrivningstid:</span>
-							<div style="float: right; background-color: red; width: 60%;">
-								<mdui-radio-group id="radio-avskrivningstid" name="radio-avskrivningstid" value="">
-									<mdui-radio value="3 år">3 år</mdui-radio>
-									<mdui-radio value="5 år">5 år</mdui-radio>
-								</mdui-radio-group>
-							</div>
-						</div>
+					</div>
+					<div class="s12 m6">
+						<!-- AVSKRIVNINGSTID -->
+						<mdui-select id="select-avskrivningstid" name="select-avskrivningstid" variant="outlined" label="Avskrivningstid" end-icon="arrow_drop_down">
+							<mdui-menu-item value="3 år">3 år</mdui-menu-item>
+							<mdui-menu-item value="5 år">5 år</mdui-menu-item>
+						</mdui-select>
 					</div>
 				</div><!-- .row -->
 			</div><!-- .col -->
@@ -484,13 +475,14 @@
 <!-- DIALOGS                                                                 -->
 <!-- ----------------------------------------------------------------------- -->
 
-<mdui-dialog id="dialog-info" close-on-overlay-click icon="info--outlined" headline="Allmän information">
+<mdui-dialog id="dialog-info" close-on-overlay-click headline="Artikelregistreringsunderlag">
+	<p class="x-small"><span id="version"></span></p>
 	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
-	<p>Ingen data skickas till extern part. All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret.</p>
+	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret.</p>
+	<p>Ingen data skickas till extern part.</p>
 	<mdui-divider></mdui-divider>
-	<p class="x-small center-aligned"><span id="version"></span> | Källkod på <a href="https://github.com/edemalm/artikelreg" target="_blank">GitHub</a></p>
-	<p class="x-small center-aligned">Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
-	<p class="x-small center-aligned">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
+	<p class="x-small">Källkod på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a> | Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
+	<p class="x-small">Copyright &copy; 2025 Markus Edemalm | Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
 	<mdui-button class="button-close-dialog" icon="close" slot="action" variant="text">Stäng</mdui-button>
 </mdui-dialog>
 
