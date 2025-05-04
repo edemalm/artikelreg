@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 :root {
-	--app-space-xxs: 0.5rem;
-	--app-space-xs: 0.75rem;
-	--app-space-s: 1rem;
-	--app-space-m: 1.25rem;
-	--app-space-l: 1.5rem;
-	--app-space-xl: 1.75rem;
+	--app-space-xxs: 0.25rem;
+	--app-space-xs: 0.5rem;
+	--app-space-s: 0.75rem;
+	--app-space-m: 1rem;
+	--app-space-l: 1.25rem;
+	--app-space-xl: 1.5rem;
 	--app-space: var(--app-space-s);
 }
 @media only screen and (min-width: 641px)  { :root { --app-space: var(--app-space-m) } }

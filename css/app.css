@@ -306,6 +306,13 @@ h4 mdui-icon {
 	top: .25rem;
 }
 
+mdui-icon.tooltip {
+	font-size: 1rem;
+	margin-left: 0.5rem;
+	position: relative;
+	top: 0.125rem;
+}
+
 .center-aligned { text-align: center; }
 .right-aligned { text-align: right; }
 
