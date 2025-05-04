@@ -109,6 +109,15 @@
 <div id="content-container">
 	<!-- FORMULÄR -->
 	<div id="content-formular" class="content-wrapper"><form id="form-artikeldata">
+
+		<div id="debug">
+			<span id="viewport-size"></span>
+			<span class="bp bp-s"> / Grid class: S (0-640)</span>
+			<span class="bp bp-m"> / Grid class: M (641-1024)</span>
+			<span class="bp bp-l"> / Grid class: L (1025-1280)</span>
+			<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
+		</div>
+
 		<div class="row elevated">
 			<div class="s12"><h4><mdui-icon name="edit"></mdui-icon>Artikelbenämning och produktnamn</h4></div>
 			<div class="s12">
@@ -264,27 +273,25 @@
 							<mdui-menu-item value="688">688 - Taklyftar LOGFAB Borlänge</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m9">
+					<div class="s12 m8">
 						<!-- INKÖPSHANTERING -->
-						<mdui-tooltip content="Ange en rekommenderad inköpshantering att använda inledningsvis">
-							<mdui-select id="select-inkopshantering" name="select-inkopshantering" variant="outlined"
-								label="Inköpshantering på huvudlager" end-icon="arrow_drop_down">
-								<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
-								<mdui-menu-item value="Nettobehov">Nettobehov (lagerlagd)</mdui-menu-item>
-							</mdui-select>
-						</mdui-tooltip>
+						<mdui-select id="select-inkopshantering" name="select-inkopshantering" variant="outlined"
+							label="Inköpshantering på huvudlager" end-icon="arrow_drop_down"
+							helper="Välj en rekommenderad inköpshantering att använda inledningsvis" >
+							<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
+							<mdui-menu-item value="Nettobehov">Nettobehov (lagerlagd)</mdui-menu-item>
+						</mdui-select>
 					</div>
-					<div class="s12 m3">
+					<div class="s12 m4">
 						<!-- LIGGPLATS -->
-						<mdui-tooltip content="Ange en liggplats om den är känd i förväg">
-							<mdui-text-field id="text-liggplats" name="liggplats" variant="outlined" label="Liggplats"></mdui-text-field>
-						</mdui-tooltip>
+						<mdui-text-field id="text-liggplats" name="liggplats" variant="outlined" label="Liggplats"
+							helper="Ange liggplats om den är känd"></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- BUFFERTLAGER -->
-						<mdui-tooltip content="Ange buffertlager, säkerhetlager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad.">
-							<mdui-text-field id="textarea-bufferlager" name="textarea-buffertlager" variant="outlined" label="Eventuella buffertlager" autosize></mdui-text-field>
-						</mdui-tooltip>
+						<mdui-text-field id="textarea-bufferlager" name="textarea-buffertlager" variant="outlined" label="Eventuella buffertlager"
+						helper="Ange buffertlager, säkerhetlager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad."
+						placeholder="Exempel: Lager 220, 3 st, 31-A-123" autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
 				<div class="row elevated">
@@ -470,7 +477,7 @@
 	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret.</p>
 	<p>Ingen data skickas till extern part.</p>
 	<mdui-divider></mdui-divider>
-	<p class="x-small">Källkod på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a> | Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
+	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a> | Skapat med <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a> | Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
 	<p class="x-small">Copyright &copy; 2025 Markus Edemalm | Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
 	<mdui-button class="button-close-dialog" icon="close" slot="action" variant="text">Stäng</mdui-button>
 </mdui-dialog>

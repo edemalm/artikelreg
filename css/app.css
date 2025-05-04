@@ -80,10 +80,6 @@
 .pl-xl { padding-left: var(--app-space-xl) !important }
 .pl-a  { padding-left: var(--app-space) !important }
 
-
-
-
-
 body {
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
@@ -162,7 +158,6 @@ body {
 .christmas-2 { background-image: url('/img/bg/christmas/hert-niks-m3L1AStgkyw-unsplash.jpg') }
 .christmas-3 { background-image: url('/img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
-/* Test! */
 #filter-layer {
 	backdrop-filter: blur(1rem);
 	background-color: rgba(var(--mdui-color-background),0.5);
@@ -179,6 +174,21 @@ body {
 	background-color: transparent;
 	transition: all 2s;
 }
+
+#debug {
+	background-color: rgb(var(--mdui-color-background));
+	font-size: var(--mdui-typescale-body-small-size);
+	font-weight: var(--mdui-typescale-body-small-weight);
+	letter-spacing: var(--mdui-typescale-body-small-tracking);
+	line-height: var(--mdui-typescale-body-small-line-height);
+	margin-bottom: var(--app-space);
+}
+
+.bp { display: none; }
+@media screen and (max-width: 640px) { .bp-s { display: inline !important; } }
+@media screen and (min-width: 641px) and (max-width: 1024px) { .bp-m { display: inline !important; } }
+@media screen and (min-width: 1025px) and (max-width: 1280px) { .bp-l { display: inline !important; } }
+@media screen and (min-width: 1281px) { .bp-xl { display: inline !important; } }
 
 code, kbd, pre, samp, tt {
 	font-family: "Roboto Mono", monospace !important;

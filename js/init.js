@@ -4,6 +4,11 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 	console.log('window.location.protocol: ' + window.location.protocol);
 
+	$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
+	$(window).resize(function() {
+		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
+	});
+
 	// Global variables
 	var update = '2025-05-03';
 	var artikeldata;
