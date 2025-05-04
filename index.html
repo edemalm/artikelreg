@@ -137,6 +137,7 @@
 			</div>
 		</div>
 		<div class="row">
+			<!-- KOLUMN 1 -->
 			<div class="col s12 l6">
 				<div class="row elevated">
 					<div class="col s12">
@@ -182,9 +183,11 @@
 					</div><!-- .col -->
 					<div class="s12 m6 pt-xxs">
 						<!-- INDIVIDMÄRKT -->
-						<label class="align-with-mdui-switch" for="switch-individmarkt">Individmärkt:</label>
-						<div style="float: right;">
+						<label class="align-with-mdui-switch" for="switch-individmarkt">Individmärkt</label>
+						<div style="float: right; line-height: 0;">
+							<mdui-tooltip variant="rich" content="Ett individmärkt hjälpmedel är spårbart, har ett unikt serienummer och en egen transaktionshistorik">
 								<mdui-switch id="switch-individmarkt" name="switch-individmarkt"></mdui-switch>
+							</mdui-tooltip>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -196,9 +199,11 @@
 					</div>
 					<div class="s12 m6 pt-xxs">
 						<!-- INVENTARIE -->
-						<label class="align-with-mdui-switch" for="switch-individmarkt">Inventarie:</label>
-						<div style="float: right;">
-							<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
+						<label class="align-with-mdui-switch" for="switch-individmarkt">Inventarie</label>
+						<div style="float: right; line-height: 0;">
+							<mdui-tooltip variant="rich" content="En inventarie är ett huvudhjälpmedel vars anskaffningskostnad fördelas över dess avskrivningstid på 3 eller 5 år">
+								<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
+							</mdui-tooltip>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -208,86 +213,79 @@
 							<mdui-menu-item value="5 år">5 år</mdui-menu-item>
 						</mdui-select>
 					</div>
+					<div class="s12 m6">
+						<!-- LIKVÄRDIG ARTIKEL -->
+						<mdui-text-field id="text-likvardig" name="likvardig" variant="outlined" label="Likvärdig artikel"
+							helper="Vid behov kan du ange en likvärdig artikel som du vet är korrekt" helper-on-focus clearable></mdui-text-field>
+					</div>
+					<div class="s12 m6 pt-xxs">
+						<!-- UPPFÖLJNING -->
+						<label class="align-with-mdui-switch" for="switch-uppfoljning">Skall ha uppföljning</label>
+						<div style="float: right; line-height: 0;">
+							<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som kräver uppföljning">
+								<mdui-switch id="switch-uppfoljning" name="switch-uppfoljning"></mdui-switch>
+							</mdui-tooltip>
+						</div>
+					</div>
 				</div><!-- .row -->
 			</div><!-- .col -->
-			<div class="col s12 l6">
+			<!-- KOLUMN 2 -->
+			<div class="col s12 l6 mb-a">
 				<div class="row elevated">
 					<div class="col s12">
-
-						<h4><mdui-icon name="people--oulined"></mdui-icon>Ansvarigt team</h4>
-
+						<h4><mdui-icon name="people"></mdui-icon>Ansvarigt team</h4>
 					</div>
 					<div class="col s12">
-
 						<!-- TEAM -->
-						<mdui-select id="select-team" name="select-team" variant="outlined" label="Team" end-icon="arrow_drop_down">
-							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
-							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
-							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
-							<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
-							<mdui-menu-item value="08">08 - SST Rullstolar och arbetsstolar</mdui-menu-item>
-							<mdui-menu-item value="09">09 - ADL Säng, lyft och positionering</mdui-menu-item>
-							<mdui-menu-item value="10">10 - ADL Gång och hygien</mdui-menu-item>
-							<mdui-menu-item value="11">11 - SST Behandling och träning</mdui-menu-item>
-							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
-						</mdui-select>
-
+						<mdui-tooltip content="Denna parameter kallas Sektor i Sesam">
+							<mdui-select id="select-team" name="select-team" variant="outlined" label="Team" end-icon="arrow_drop_down">
+								<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
+								<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
+								<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
+								<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
+								<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
+								<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
+								<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
+								<mdui-menu-item value="11">11 - SST Behandling och träning</mdui-menu-item>
+								<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
+							</mdui-select>
+						</mdui-tooltip>
 					</div><!-- .col -->
 				</div><!-- .row -->
 				<div class="row elevated">
-					<div class="col s12"><h4><mdui-icon name="warehouse"></mdui-icon>Lagerhållning</h4></div>
-					<div class="col s12">
-
+					<div class="s12">
+						<h4><mdui-icon name="warehouse"></mdui-icon>Lagerhållning</h4>
+					</div>
+					<div class="s12">
 						<!-- HUVUDLAGER -->
 						<mdui-select id="select-huvudlager" name="select-huvudlager" variant="outlined" label="Huvudlager" end-icon="arrow_drop_down">
-							<mdui-menu-item value="200">200 - Huvudlager Västermalmsvägen Falun</mdui-menu-item>
-							<mdui-menu-item value="400">400 - Huvudlager Skomakargatan Syncentralen</mdui-menu-item>
-							<mdui-menu-item value="688">688 - Huvudlager LOGFAB Taklyftar</mdui-menu-item>
+							<mdui-menu-item value="200">200 - Västermalmsvägen Falun</mdui-menu-item>
+							<mdui-menu-item value="400">400 - Syncentralen Skomakargatan</mdui-menu-item>
+							<mdui-menu-item value="688">688 - Taklyftar LOGFAB Borlänge</mdui-menu-item>
 						</mdui-select>
-
-					</div><!-- .col -->
-					<div class="col s12 m8">
-
-						<!-- INKÖPSHANTERING -->
-						<mdui-select id="select-inkopshantering" name="select-inkopshantering" variant="outlined"
-							label="Inköpshantering på huvudlager" end-icon="arrow_drop_down">
-							<mdui-menu-item value="Kundorder">Kundorder</mdui-menu-item>
-							<mdui-menu-item value="Nettobehov">Nettobehov</mdui-menu-item>
-						</mdui-select>
-
-					</div><!-- .col -->
-					<div class="col s12 m4">
-
-						<!-- LIGGPLATS -->
-						<mdui-text-field id="text-liggplats" name="liggplats" variant="outlined" label="Liggplats"
-							helper="Ange en liggplats om den är känd" helper-on-focus></mdui-text-field>
-
-					</div><!-- .col -->
-					<!--
-					<div class="col s6">
-
-						<mdui-select id="select-plockomrade" name="select-plockomrade" variant="outlined" label="Plockområde" end-icon="arrow_drop_down"
-							helper="Ange om det är känt">
-							<mdui-menu-item value="1">Plockområde 1</mdui-menu-item>
-							<mdui-menu-item value="2">Plockområde 2</mdui-menu-item>
-							<mdui-menu-item value="3">Plockområde 3</mdui-menu-item>
-							<mdui-menu-item value="4">Plockområde 4</mdui-menu-item>
-							<mdui-menu-item value="6">Plockområde 6</mdui-menu-item>
-							<mdui-menu-item value="7">Plockområde 7</mdui-menu-item>
-							<mdui-menu-item value="8">Plockområde 8</mdui-menu-item>
-							<mdui-menu-item value="11">Plockområde 11</mdui-menu-item>
-							<mdui-menu-item value="0">Jag vet inte!</mdui-menu-item>
-						</mdui-select>
-
 					</div>
-					-->
-					<div class="col s12">
-
+					<div class="s12 m9">
+						<!-- INKÖPSHANTERING -->
+						<mdui-tooltip content="Ange en rekommenderad inköpshantering att använda inledningsvis">
+							<mdui-select id="select-inkopshantering" name="select-inkopshantering" variant="outlined"
+								label="Inköpshantering på huvudlager" end-icon="arrow_drop_down">
+								<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
+								<mdui-menu-item value="Nettobehov">Nettobehov (lagerlagd)</mdui-menu-item>
+							</mdui-select>
+						</mdui-tooltip>
+					</div>
+					<div class="s12 m3">
+						<!-- LIGGPLATS -->
+						<mdui-tooltip content="Ange en liggplats om den är känd i förväg">
+							<mdui-text-field id="text-liggplats" name="liggplats" variant="outlined" label="Liggplats"></mdui-text-field>
+						</mdui-tooltip>
+					</div>
+					<div class="s12">
 						<!-- BUFFERTLAGER -->
-						<mdui-text-field id="textarea-bufferlager" name="textarea-buffertlager" variant="outlined" rows="1" label="Eventuella buffertlager"
-							helper="Ange buffertlager, säkerhetlager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad." helper-on-focus autosize></mdui-text-field>
-
-					</div><!-- .col -->
+						<mdui-tooltip content="Ange buffertlager, säkerhetlager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad.">
+							<mdui-text-field id="textarea-bufferlager" name="textarea-buffertlager" variant="outlined" label="Eventuella buffertlager" autosize></mdui-text-field>
+						</mdui-tooltip>
+					</div>
 				</div><!-- .row -->
 				<div class="row elevated">
 					<div class="s12"><h4><mdui-icon name="shopping_cart--outlined"></mdui-icon>Inställningar för webSesam</h4></div>
@@ -381,7 +379,7 @@
 			</div><!-- .col -->
 		</div><!-- .row -->
 		<div class="row">
-			<div class="col s12 right-aligned">
+			<div class="s12 right-aligned">
 				<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
 				<mdui-button id="button-submit-form" class="ml-a" variant="filled">Skicka artikeluppgifter</mdui-button>
 			</div><!-- .col -->
@@ -416,36 +414,27 @@
 	<div id="content-help-artikelbenamning" class="content-wrapper hidden">
 		<div class="row">
 			<div class="s12">
-
 				<h4>#content-help-artikelbenämning</h4>
 				<p>Bla bla bla ...</p>
-
 			</div>
 		</div><!-- .row -->
 		<div class="row">
 			<div class="s12">
-
 				<mdui-button class="button-back-to-form mt-a" variant="tonal" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
-
 			</div>
 		</div><!-- .row -->
 	</div><!-- .content-wrapper -->
-
 	<!-- Hjälp produktnamn -->
 	<div id="content-help-produktnamn" class="content-wrapper hidden">
 		<div class="row">
 			<div class="s12">
-
 				<h4>#content-help-produktnamn</h4>
 				<p>Produktnamn är ...</p>
-
 			</div>
 		</div><!-- .row -->
 		<div class="row">
 			<div class="s12">
-
 				<mdui-button class="button-back-to-form mt-a" variant="tonal" icon="arrow_back" slot="action">Tillbaka till formulär</mdui-button>
-
 			</div>
 		</div><!-- .row -->
 	</div><!-- .content-wrapper -->

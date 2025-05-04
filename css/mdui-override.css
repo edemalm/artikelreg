@@ -114,7 +114,6 @@ mdui-text-field[focused]::part(label) {
 }
 */
 
-
 .elevated mdui-text-field,
 .elevated mdui-select {
 	--mdui-color-background: var(--mdui-color-surface-container-low);
