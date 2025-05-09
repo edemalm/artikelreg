@@ -114,6 +114,10 @@ mdui-text-field[focused]::part(label) {
 }
 */
 
+mdui-icon.tooltip {
+	cursor: help;
+}
+
 mdui-tooltip[variant=rich]::part(content) {
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);

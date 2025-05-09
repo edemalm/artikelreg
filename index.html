@@ -190,7 +190,7 @@
 						</mdui-select>
 
 					</div>
-					<div class="s12 m6 pt-xxs">
+					<div class="s12 m6 pt-xs">
 						<!-- INDIVIDMÄRKT -->
 						<label class="align-with-mdui-switch" for="switch-individmarkt">Individmärkt</label>
 						<mdui-tooltip variant="rich" content="Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik">
@@ -207,7 +207,7 @@
 							<mdui-menu-item value="Köp">Köp</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6 pt-xxs">
+					<div class="s12 m6 pt-xs">
 						<!-- INVENTARIE -->
 						<label class="align-with-mdui-switch" for="switch-individmarkt">Inventarie</label>
 						<mdui-tooltip variant="rich" content="En inventarie är ett individmärkt huvudhjälpmedel vars anskaffningskostnad fördelas över dess avskrivningstid på 3 eller 5 år">
@@ -239,30 +239,26 @@
 					</div>
 					<div class="s12">
 						<!-- TEAM -->
-						<mdui-tooltip content="Denna parameter kallas Sektor i Sesam">
-							<mdui-select id="select-team" name="select-team" variant="outlined" label="Team" end-icon="arrow_drop_down">
-								<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
-								<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
-								<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
-								<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
-								<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
-								<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
-								<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
-								<mdui-menu-item value="11">11 - SST Behandling och träning</mdui-menu-item>
-								<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
-							</mdui-select>
-						</mdui-tooltip>
+						<mdui-select id="select-team" name="select-team" variant="outlined" label="Team" end-icon="arrow_drop_down">
+							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
+							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
+							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
+							<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
+							<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
+							<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
+							<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
+							<mdui-menu-item value="11">11 - SST Behandling och träning</mdui-menu-item>
+							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
+						</mdui-select>
 					</div>
-					<div class="s12 m6 pt-xxs">
+					<div class="s12 m6 pt-xs">
 						<!-- UPPFÖLJNING -->
 						<label class="align-with-mdui-switch" for="switch-uppfoljning">Skall ha uppföljning</label>
 						<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som kräver uppföljning">
 							<mdui-icon class="tooltip" name="help"></mdui-icon>
 						</mdui-tooltip>
 						<div style="float: right; line-height: 0;">
-							<mdui-tooltip variant="rich" content="">
-								<mdui-switch id="switch-uppfoljning" name="switch-uppfoljning"></mdui-switch>
-							</mdui-tooltip>
+							<mdui-switch id="switch-uppfoljning" name="switch-uppfoljning"></mdui-switch>
 						</div>
 					</div>
 				</div><!-- .row -->
