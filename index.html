@@ -254,7 +254,7 @@
 					<div class="s12 m6 pt-xs">
 						<!-- UPPFÖLJNING -->
 						<label class="align-with-mdui-switch" for="switch-uppfoljning">Skall ha uppföljning</label>
-						<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som kräver uppföljning">
+						<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som har uppföljning">
 							<mdui-icon class="tooltip" name="help"></mdui-icon>
 						</mdui-tooltip>
 						<div style="float: right; line-height: 0;">
@@ -277,8 +277,7 @@
 					<div class="s12 m8">
 						<!-- INKÖPSHANTERING -->
 						<mdui-select id="select-inkopshantering" name="select-inkopshantering" variant="outlined"
-							label="Inköpshantering på huvudlager" end-icon="arrow_drop_down"
-							helper="Välj en rekommenderad inköpshantering att använda inledningsvis" >
+							label="Rekommenderad inköpshantering" end-icon="arrow_drop_down">
 							<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
 							<mdui-menu-item value="Nettobehov">Nettobehov (lagerlagd)</mdui-menu-item>
 						</mdui-select>
@@ -286,7 +285,7 @@
 					<div class="s12 m4">
 						<!-- LIGGPLATS -->
 						<mdui-text-field id="text-liggplats" name="liggplats" variant="outlined" label="Liggplats"
-							helper="Ange liggplats om den är känd"></mdui-text-field>
+							helper="Ange liggplats om den är känd" placeholder="(P?-)01-?-???"></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- BUFFERTLAGER -->
@@ -477,6 +476,7 @@
 	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
 	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret.</p>
 	<p>Ingen data skickas till extern part.</p>
+	<p>Primär webbadress: <a href="https://artikelreg.pages.dev/">https://artikelreg.pages.dev</a><br>Backupadress: <a href="https://artikelreg.netlify.app/">https://artikelreg.netlify.app</a></p>
 	<mdui-divider></mdui-divider>
 	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a> | Skapat med <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a> | Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
 	<p class="x-small">Copyright &copy; 2025 Markus Edemalm | Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
