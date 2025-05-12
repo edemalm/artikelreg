@@ -71,6 +71,12 @@ $(document).ready(function() {
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	}
 
+	// Update site links
+	var deploy1 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLnBhZ2VzLmRldg==');
+	var deploy2 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLm5ldGxpZnkuYXBw');
+	$('#main-site').html('<a href="' + deploy1 + '/">' + deploy1 + '</a>');
+	$('#backup-site').html('<a href="' + deploy2 + '/">' + deploy2 + '</a>');
+
 	/* Toggle theme */
 	$('#button-toggle-theme').click(function() {
 		console.log('#button-toggle-theme clicked');
@@ -212,6 +218,26 @@ $(document).ready(function() {
 
 
 
+	$('#select-team').on('change', function() {
+		let team = this.value;
+		console.log('Team: ' + team );
+		if ( team == "02" || team == "03" || team == "08" || team == "09" || team == "10" || team == "11" ) {
+			console.log('Avdelning: Rörelse');
+			$('#text-avd').val('Rörelse');
+		}
+		if ( team == "05" ) {
+			console.log('Avdelning: KLOK');
+			$('#text-avd').val('KLOK');
+		}
+		if ( team == "07" ) {
+			console.log('Avdelning: PMB');
+			$('#text-avd').val('PMB');
+		}
+		if ( team == "40" ) {
+			console.log('Avdelning: Syncentralen');
+			$('#text-avd').val('Syncentralen');
+		}
+	});
 
 
 
