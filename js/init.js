@@ -10,7 +10,7 @@ $(document).ready(function() {
 	});
 
 	// Global variables
-	var update = '2025-05-12';
+	var update = '2025-05-14';
 	var artikeldata;
 
 	const d = new Date();

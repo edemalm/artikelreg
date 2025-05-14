@@ -90,7 +90,6 @@ body {
 	background-size: cover;
 	margin: 0;
 	padding: var(--app-space);
-	min-height: 100vh;
 	user-select: none;
 }
 
