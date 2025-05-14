@@ -314,15 +314,19 @@ mdui-icon.tooltip {
 	top: 0.125rem;
 }
 
+span.switch-label {
+	color: rgb(var(--mdui-color-on-surface));
+	font-size: var(--mdui-typescale-label-large-size);
+	font-weight: var(--mdui-typescale-label-large-weight);
+	letter-spacing: var(--mdui-typescale-label-large-tracking);
+	line-height: 2.5rem;
+}
+
 .center-aligned { text-align: center; }
 .right-aligned { text-align: right; }
 
 .float-left { float: left; }
 .float-right { float: right; }
-
-.align-with-mdui-switch {
-	line-height: 2.5; /* align with mdui-switch vertically */
-}
 
 .x-small {
 	font-size: .75rem; /* copyright small print */
