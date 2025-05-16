@@ -335,17 +335,13 @@
 						</div><!-- .row -->
 					</div>
 					<div class="s12">
-
 						<!-- ARTIKELINFO WEBSESAM -->
 						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" helper-on-focus autosize></mdui-text-field>
-
 					</div>
 				</div><!-- .row -->
 				<div class="row elevated">
 					<div class="s12">
-
 						<h4><mdui-icon name="build"></mdui-icon>Service och underhåll</h4>
-
 					</div>
 					<div class="s12">
 						<!-- SERVICEGRAD -->
@@ -380,9 +376,42 @@
 							<mdui-menu-item value="4">...</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s6">
+					<div class="s12 m6 pt-xs">
 						<!-- DRIFTTIDSMÄTARE -->
-						<mdui-checkbox id="checkbox-drifttidsmatare" name="checkbox-drifttidsmatare">Drifttidsmätare</mdui-checkbox>
+						<span class="switch-label">Drifttidsmätare</span>
+						<mdui-tooltip variant="rich" content="Förklaring till drifttidsmätare">
+							<mdui-icon class="tooltip" name="help"></mdui-icon>
+						</mdui-tooltip>
+						<div style="float: right; line-height: 0;">
+							<mdui-switch id="switch-drifttidsmatare" name="switch-drifttidsmatare"></mdui-switch>
+						</div>
+					</div>
+					<div class="s12 m6">
+						<!-- ENHET DRIFTTIDSMÄTARE -->
+						<mdui-text-field id="text-enhet-dtm" name="text-enhet-dtm" variant="outlined" label="Enhet drifttidsmätare" clearable></mdui-text-field>
+					</div>
+				</div><!-- .row -->
+				<div class="row elevated">
+					<div class="s12">
+						<h4><mdui-icon name="checklist"></mdui-icon>Hantering vid ankomst</h4>
+					</div>
+					<div class="s12 pt-xs">
+						<!-- GODSMOTTAGNINGSINFO -->
+						<mdui-text-field id="textarea-godsmottagningsinfo" name="textarea-godsmottagningsinfo" variant="outlined" rows="2" label="Godsmottagningsinformation" placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet." helper="Ange en kortfattad information som visas på artikelraden vid godsmottagning. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
+					</div>
+					<div class="s12 pt-xs">
+						<!-- KVALITETSKONTROLL -->
+						<span class="switch-label">Kvalitetskontroll</span>
+						<mdui-tooltip variant="rich" content="Förklaring till kvalitetskontroll">
+							<mdui-icon class="tooltip" name="help"></mdui-icon>
+						</mdui-tooltip>
+						<div style="float: right; line-height: 0;">
+							<mdui-switch id="switch-kvalitetskontroll" name="switch-kvalitetskontroll"></mdui-switch>
+						</div>
+					</div>
+					<div class="s12">
+						<!-- KVALITETSKONTROLLTEXT -->
+						<mdui-text-field id="textarea-kvalitetskontrolltext" name="textarea-kvalitetskontrolltext" variant="outlined" rows="2" label="Kvalitetskontrolltext" placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar" helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Tryck Shift+Enter för ny rad." autosize disabled></mdui-text-field>
 					</div>
 				</div><!-- .row -->
 			</div>
