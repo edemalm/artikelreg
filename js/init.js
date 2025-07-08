@@ -4,13 +4,18 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 	console.log('window.location.protocol: ' + window.location.protocol);
 
-	$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
-	$(window).resize(function() {
+	// Debug
+	if (/\bCrOS\b/.test(navigator.userAgent)) {
+		// Only for ChromeOS :)
+		$('#debug').show();
 		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
-	});
+		$(window).resize(function() {
+			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
+		});
+	}
 
 	// Global variables
-	var update = '2025-05-16';
+	var update = '2025-07-08';
 	var artikeldata;
 
 	const d = new Date();
@@ -192,13 +197,6 @@ $(document).ready(function() {
 		$('#text-produktnamn').attr('label', 'Huvudproduktnamn');
 		$('#div-fler-produktnamn').hide();
 		$('.extra-produkt').removeClass('hidden');
-	});
-
-
-	$('.button-close-dialog').click(function(){
-		console.log('Button #close-dialog clicked');
-		// $('#dialog').removeAttr('open');
-		$('mdui-dialog').removeAttr('open');
 	});
 
 	let var_artikelansvar = '0';
