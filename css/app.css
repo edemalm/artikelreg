@@ -308,11 +308,27 @@ mdui-icon.tooltip {
 	position: relative;
 	top: 0.125rem;
 }
+mdui-checkbox.with-tooltip {
+	vertical-align: middle;
+}
+
+
+.switch-container {
+	padding: calc(var(--app-space) / 2) 0;
+}
+.checkbox-container {
+	height: 48px;
+	padding-top: 8px;
+}
+
+.space-below {
+	margin-bottom: var(--app-space);
+}
 
 @media only screen and (min-width: 1281px) {
 	/* grid class XL active */
-	#checkbox-ht,
-	#checkbox-upphandlad {
+	#xxx-checkbox-ht,
+	#xxx-checkbox-upphandlad {
 		padding: 8px 0;
 	}
 }

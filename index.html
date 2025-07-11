@@ -146,67 +146,64 @@
 				<mdui-text-field id="text-produktnamn4" name="produktnamn4" variant="outlined" label="Extra produktnamn" autocomplete="off" clearable></mdui-text-field>
 			</div>
 		</div>
-		<div class="row elevated">
-			<div class="s12">
-				<h4><mdui-icon name="factory"></mdui-icon>2. Leverantör</h4>
-			</div>
-			<div class="s12 m6 xl3">
-				<!-- LEVERANTÖR -->
-				<mdui-text-field id="text-leverantor" name="leverantor" variant="outlined" label="Leverantör" autocomplete="off" clearable required></mdui-text-field>
-			</div>
-			<div class="s12 m6 xl3">
-				<!-- LEV. ART.NR. -->
-				<mdui-text-field id="text-levartnr" name="levartnr" variant="outlined" label="Leverantörens art.nr." autocomplete="off" clearable required></mdui-text-field>
-			</div>
-			<div class="s12 m6 xl3">
-				<!-- HJÄLPMEDELSTJÄNSTEN -->
-				<mdui-checkbox id="checkbox-ht" name="checkbox-ht">Artikeln finns i Hjälpmedelstjänsten</mdui-checkbox>
-			</div>
-			<div class="s12 m6 xl3">
-				<!-- UPPHANDLAD -->
-				<mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
-			</div>
-		</div>
-
-
-
-
-
 
 		<div class="row">
 			<!-- KOLUMN 1 -->
-			<div class="s12 l6">
+			<div class="s12 l6 mb-a">
+
 				<div class="row elevated">
 					<div class="s12">
-						<h4><mdui-icon name="monetization_on"></mdui-icon>Om artikeln</h4>
+						<h4><mdui-icon name="factory"></mdui-icon>2. Leverantör</h4>
 					</div>
 					<div class="s12 m6">
+						<!-- LEVERANTÖR -->
+						<mdui-text-field id="text-leverantor" class="space-below" name="leverantor" variant="outlined" label="Leverantörens namn" autocomplete="off" clearable required></mdui-text-field>
+						<!-- LEV. ART.NR. -->
+						<mdui-text-field id="text-levartnr" name="levartnr" variant="outlined" label="Leverantörens art.nr." autocomplete="off" clearable required></mdui-text-field>
+					</div>
+					<div class="s12 m6">
+						<!-- HJÄLPMEDELSTJÄNSTEN -->
+						<div class="checkbox-container space-below">
+							<mdui-checkbox id="checkbox-ht" name="checkbox-ht">Artikeln finns i Hjälpmedelstjänsten</mdui-checkbox>
+						</div>
+						<!-- UPPHANDLAD -->
+						<div class="checkbox-container">
+							<mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
+						</div>
+					</div>
+				</div>
+
+				<div class="row elevated">
+					<div class="s12">
+						<h4><mdui-icon name="monetization_on"></mdui-icon>3. Om artikeln</h4>
+					</div>
+					<div class="s12 m6 l12">
 						<!-- ARTIKELANSVAR -->
 						<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="outlined" label="Artikelansvar" end-icon="arrow_drop_down">
 							<mdui-menu-item value="L" icon="local_hospital">Region och kommun</mdui-menu-item>
-							<mdui-menu-item value="R" icon="local_hospital" end-icon="recycling">Retursortiment</mdui-menu-item>
+							<mdui-menu-item value="R" icon="recycling">Retursortiment</mdui-menu-item>
 							<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
 							<mdui-menu-item value="S" icon="remove_red_eye">Syncentralen</mdui-menu-item>
 						</mdui-select>
-
 					</div>
-					<div class="s12 m6">
+					<div class="s12 m6 l12">
 						<!-- ARTIKELTYP -->
-						<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp" end-icon="arrow_drop_down">
+						<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp hos DHC" end-icon="arrow_drop_down">
 							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
 							<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
-							<mdui-menu-item value="R" icon="build">Reservdel</mdui-menu-item>
+							<mdui-menu-item value="R" icon="build">Reservdel (för att reparera ett huvudhjälpmedel eller tillbehör)</mdui-menu-item>
 						</mdui-select>
-
 					</div>
-					<div class="s12 m6 pt-xs">
+					<div class="s12 m6">
 						<!-- INDIVIDMÄRKT -->
-						<span class="switch-label">Individmärkt</span>
-						<mdui-tooltip variant="rich" content="Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-						<div style="float: right; line-height: 0;">
-							<mdui-switch id="switch-individmarkt" name="switch-individmarkt"></mdui-switch>
+						<div class="switch-container">
+							<span class="switch-label">Individmärkt</span>
+							<mdui-tooltip variant="rich" content="Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik">
+								<mdui-icon class="tooltip" name="help"></mdui-icon>
+							</mdui-tooltip>
+							<div style="float: right; line-height: 0;">
+								<mdui-switch id="switch-individmarkt" name="switch-individmarkt"></mdui-switch>
+							</div>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -216,14 +213,16 @@
 							<mdui-menu-item value="Köp">Köp</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6 pt-xs">
+					<div class="s12 m6">
 						<!-- INVENTARIE -->
-						<span class="switch-label">Inventarie</span>
-						<mdui-tooltip variant="rich" content="En inventarie är ett individmärkt huvudhjälpmedel vars anskaffningskostnad fördelas över dess avskrivningstid på 3 eller 5 år">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-						<div style="float: right; line-height: 0;">
-							<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
+						<div class="switch-container">
+							<span class="switch-label">Inventarie</span>
+							<mdui-tooltip variant="rich" content="En inventarie är ett individmärkt huvudhjälpmedel vars anskaffningskostnad fördelas under dess avskrivningstid på 3 eller 5 år">
+								<mdui-icon class="tooltip" name="help"></mdui-icon>
+							</mdui-tooltip>
+							<div style="float: right; line-height: 0;">
+								<mdui-switch id="switch-inventarie" name="switch-inventarie"></mdui-switch>
+							</div>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -233,18 +232,11 @@
 							<mdui-menu-item value="5 år">5 år</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6">
-						<!-- LIKVÄRDIG ARTIKEL -->
-						<mdui-text-field id="text-likvardig" name="likvardig" variant="outlined" label="Likvärdig artikel"
-							helper="Vid behov kan du ange en likvärdig artikel som du vet är korrekt" helper-on-focus clearable></mdui-text-field>
-					</div>
-				</div><!-- .row -->
-			</div>
-			<!-- KOLUMN 2 -->
-			<div class="s12 l6 mb-a">
+				</div>
+
 				<div class="row elevated">
 					<div class="s12">
-						<h4><mdui-icon name="people"></mdui-icon>Ansvarigt team</h4>
+						<h4><mdui-icon name="people"></mdui-icon>4. Ansvarigt team</h4>
 					</div>
 					<div class="s12">
 						<!-- TEAM -->
@@ -275,6 +267,51 @@
 						</div>
 					</div>
 				</div><!-- .row -->
+				<div class="row elevated">
+					<div class="s12"><h4><mdui-icon name="shopping_cart--outlined"></mdui-icon>5. Inställningar för webSesam</h4></div>
+					<div class="s6">
+						<!-- PUBLICERAD WEBSESAM -->
+						<mdui-checkbox id="checkbox-ws-pub" name="checkbox-ws-pub">Publicerad (synlig)</mdui-checkbox>
+						<!-- BESTÄLLNINGSBAR WEBSESAM -->
+						<mdui-checkbox id="checkbox-ws-bb" name="checkbox-ws-bb">Beställningsbar</mdui-checkbox>
+					</div>
+					<div class="s6">
+						<!-- INGÅR I SORTIMENT -->
+						<mdui-checkbox id="checkbox-ws-sortiment" class="with-tooltip" name="checkbox-ws-sort">Ingår i sortiment</mdui-checkbox>
+						<mdui-tooltip variant="rich" content="Artiklar som ingår i sortiment visas alltid vid artikelsökning. Detta är vårt ordinarie (och ofta upphandlade) sortiment. Artiklar som inte ingår i sortiment visas under övrigt sortiment.">
+							<mdui-icon class="tooltip" name="help"></mdui-icon>
+						</mdui-tooltip>
+
+						<!-- KOMPONENT -->
+						<mdui-checkbox id="checkbox-ws-komponent" name="checkbox-ws-komp">Kan vara komponent</mdui-checkbox>
+						<!-- XXX -->
+						<mdui-checkbox id="checkbox-ws-xxx" name="checkbox-ws-xxx">Något mer?</mdui-checkbox>
+					</div>
+					<div class="s12">
+						<!-- ARTIKELINFO WEBSESAM -->
+						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" placeholder="Ange extra artikelinformation eller meddelande som visas i webSesam" helper-on-focus autosize></mdui-text-field>
+					</div>
+				</div><!-- .row -->
+
+
+
+
+
+			</div>
+			<!-- KOLUMN 2 -->
+			<div class="s12 l6 mb-a">
+
+
+			</div>
+		</div>
+		<div class="row">
+			<!-- KOLUMN 1 -->
+			<div class="s12 l6">
+
+			</div>
+			<!-- KOLUMN 2 -->
+			<div class="s12 l6 mb-a">
+
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="warehouse"></mdui-icon>Lagerhållning</h4>
@@ -307,45 +344,7 @@
 						placeholder="Exempel: Lager 220, 3 st, 31-A-123" autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-				<div class="row elevated">
-					<div class="s12"><h4><mdui-icon name="shopping_cart--outlined"></mdui-icon>Inställningar för webSesam</h4></div>
-					<div class="s6">
-						<div class="row">
-							<div class="s12">
 
-								<!-- PUBLICERAD WEBSESAM -->
-								<mdui-checkbox id="checkbox-ws-pub" name="checkbox-ws-pub">Publicerad (synlig)</mdui-checkbox>
-	
-							</div>
-							<div class="s12">
-
-								<!-- BESTÄLLNINGSBAR WEBSESAM -->
-								<mdui-checkbox id="checkbox-ws-bb" name="checkbox-ws-bb">Beställningsbar</mdui-checkbox>
-
-							</div>
-						</div><!-- .row -->
-					</div>
-					<div class="s6">
-						<div class="row">
-							<div class="s12">
-
-								<!-- KOMPONENT -->
-								<mdui-checkbox id="checkbox-ws-komponent" name="checkbox-ws-pub">Kan vara komponent</mdui-checkbox>
-
-							</div>
-							<div class="s12">
-
-								<!-- XXX -->
-								<mdui-checkbox id="checkbox-ws-xxx" name="checkbox-ws-xxx">Något mer?</mdui-checkbox>
-
-							</div>
-						</div><!-- .row -->
-					</div>
-					<div class="s12">
-						<!-- ARTIKELINFO WEBSESAM -->
-						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Tryck SHIFT+ENTER för ny rad" helper-on-focus autosize></mdui-text-field>
-					</div>
-				</div><!-- .row -->
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="build"></mdui-icon>Service och underhåll</h4>
