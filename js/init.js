@@ -15,7 +15,7 @@ $(document).ready(function() {
 	}
 
 	// Global variables
-	var update = '2025-07-08';
+	var update = '2025-07-11';
 	var artikeldata;
 
 	const d = new Date();
