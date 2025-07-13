@@ -285,14 +285,14 @@
 					<div class="s12 m6">
 						<!-- INGÅR I SORTIMENT -->
 						<mdui-checkbox id="checkbox-ws-sortiment" class="with-tooltip" name="checkbox-ws-sort">Sortimentsartikel</mdui-checkbox>
-						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln ingår i vårt ordinarie (och ofta upphandlade) sortiment som erbjuds i första hand. Sortimentsartiklar visas alltid vid artikelsökning.">
+						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln ingår det ordinarie, ofta upphandlade, sortimentet som erbjuds i första hand. Sortimentsartiklar visas alltid vid artikelsökning.">
 							<mdui-icon class="tooltip" name="help"></mdui-icon>
 						</mdui-tooltip>
 					</div>
 					<div class="s12 m6">
 						<!-- KOMPONENT -->
 						<mdui-checkbox id="checkbox-ws-komponent" class="with-tooltip" name="checkbox-ws-komp">Kan vara komponent</mdui-checkbox>
-						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln kan kopplas som komponent till ett huvudhjälpmedel. Gäller endast för tillbehör.">
+						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln kan kopplas som komponent till ett huvudhjälpmedel i webSesam. Gäller endast för tillbehör.">
 							<mdui-icon class="tooltip" name="help"></mdui-icon>
 						</mdui-tooltip>
 					</div>
@@ -302,7 +302,7 @@
 					</div>
 					<div class="s12">
 						<!-- ARTIKELINFO WEBSESAM -->
-						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Ange extra artikelinformation eller ett meddelande som visas i webSesam. Tryck Shift+Enter för ny rad." helper-on-focus autosize></mdui-text-field>
+						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Ange extra artikelinformation eller ett meddelande som visas i webSesam. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
 			</div>
@@ -341,7 +341,29 @@
 						placeholder="Exempel: Lager 220, 3 st, 31-A-123" autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-
+				<div class="row elevated">
+					<div class="s12">
+						<h4><mdui-icon name="checklist"></mdui-icon>7. Hantering vid ankomst</h4>
+					</div>
+					<div class="s12 pt-xs">
+						<!-- GODSMOTTAGNINGSINFO -->
+						<mdui-text-field id="textarea-godsmottagningsinfo" name="textarea-godsmottagningsinfo" variant="outlined" rows="2" label="Godsmottagningsinformation" placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet." helper="Ange en kortfattad text som visas som information för lagerpersonalen vid registrering av godsmottagning. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
+					</div>
+					<div class="s12 pt-xs">
+						<!-- KVALITETSKONTROLL -->
+						<span class="switch-label">Kvalitetskontroll</span>
+						<mdui-tooltip variant="rich" content="Kvalitetskontroll i Sesam innebär att inleveransen görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskotrollen i Sesam. Därefter blir artikeln tillgänglig på lager, eller klar för utleverans om inköpet var öronmärkt för en kundorder. Leverantörsfakturan kan inte betalas innan kvalitetskontrollen är slutförd.">
+							<mdui-icon class="tooltip" name="help"></mdui-icon>
+						</mdui-tooltip>
+						<div style="float: right; line-height: 0;">
+							<mdui-switch id="switch-kvalitetskontroll" name="switch-kvalitetskontroll"></mdui-switch>
+						</div>
+					</div>
+					<div class="s12">
+						<!-- KVALITETSKONTROLLTEXT -->
+						<mdui-text-field id="textarea-kvalitetskontrolltext" name="textarea-kvalitetskontrolltext" variant="outlined" rows="2" label="Kvalitetskontrolltext" placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar" helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på kvalitetkontrollsunderlaget. Tryck Shift+Enter för ny rad." autosize clearable disabled></mdui-text-field>
+					</div>
+				</div><!-- .row -->
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="build"></mdui-icon>Service och underhåll</h4>
@@ -394,29 +416,7 @@
 						<mdui-text-field id="text-enhet-dtm" name="text-enhet-dtm" variant="outlined" label="Enhet drifttidsmätare" clearable></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-				<div class="row elevated">
-					<div class="s12">
-						<h4><mdui-icon name="checklist"></mdui-icon>Hantering vid ankomst</h4>
-					</div>
-					<div class="s12 pt-xs">
-						<!-- GODSMOTTAGNINGSINFO -->
-						<mdui-text-field id="textarea-godsmottagningsinfo" name="textarea-godsmottagningsinfo" variant="outlined" rows="2" label="Godsmottagningsinformation" placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet." helper="Ange en kortfattad information som visas på artikelraden vid godsmottagning. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
-					</div>
-					<div class="s12 pt-xs">
-						<!-- KVALITETSKONTROLL -->
-						<span class="switch-label">Kvalitetskontroll</span>
-						<mdui-tooltip variant="rich" content="Förklaring till kvalitetskontroll">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-						<div style="float: right; line-height: 0;">
-							<mdui-switch id="switch-kvalitetskontroll" name="switch-kvalitetskontroll"></mdui-switch>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- KVALITETSKONTROLLTEXT -->
-						<mdui-text-field id="textarea-kvalitetskontrolltext" name="textarea-kvalitetskontrolltext" variant="outlined" rows="2" label="Kvalitetskontrolltext" placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar" helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Tryck Shift+Enter för ny rad." autosize disabled></mdui-text-field>
-					</div>
-				</div><!-- .row -->
+
 			</div>
 		</div><!-- .row -->
 
