@@ -193,12 +193,6 @@ $(document).ready(function() {
 		$('#navigation-drawer').removeAttr('open');
 	});
 
-	$('#button-fler-produktnamn').click(function(){
-		$('#text-produktnamn').attr('label', 'Huvudproduktnamn');
-		$('#div-fler-produktnamn').hide();
-		$('.extra-produkt').removeClass('hidden');
-	});
-
 	let var_artikelansvar = '0';
 	let var_artikeltyp = '0';
 	let var_debiteringsform = '0';
