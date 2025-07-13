@@ -34,6 +34,56 @@ $(document).ready(function() {
 		$('.extraprodukt').addClass('xl3').removeClass('hidden');
 	});
 
+	// 2. Leverantör
+
+	// mdui-checkbox #checkbox-ht changes
+	$('#checkbox-ht').on('change', function() {
+		console.log('mdui-checkbox #checkbox-ht changed');
+		if ($('#checkbox-ht').prop("checked")) {
+
+			// is checked
+			$('#text-pris').val('').removeAttr('required').attr('disabled', true);
+			$('#text-garanti').val('').removeAttr('required').attr('disabled', true);
+			$('#text-isokod').val('').removeAttr('required').attr('disabled', true);
+
+		} else {
+
+			// not checked
+			$('#text-pris').removeAttr('disabled').attr('required', true);
+			$('#text-garanti').removeAttr('disabled').attr('required', true);
+			$('#text-isokod').removeAttr('disabled').attr('required', true);
+
+		}
+
+	});
+
+	// 4. Ansvarigt team
+
+	// mdui-select #select-team changes
+	$('#select-team').on('change', function() {
+		console.log('mdui-select #select-team changed');
+		let team = this.value;
+		console.log('Team: ' + team );
+		if ( team == "02" || team == "03" || team == "08" || team == "09" || team == "10" || team == "11" ) {
+			console.log('Avdelning: Rörelse');
+			$('#text-avd').val('Rörelse');
+		}
+		if ( team == "05" ) {
+			console.log('Avdelning: KLOK');
+			$('#text-avd').val('KLOK');
+		}
+		if ( team == "07" ) {
+			console.log('Avdelning: PMB');
+			$('#text-avd').val('PMB');
+		}
+		if ( team == "40" ) {
+			console.log('Avdelning: Syncentralen');
+			$('#text-avd').val('Syncentralen');
+		}
+	});
+
+
+
 	// 7. Hantering vid ankomst
 
 	// mdui-switch #switch-kvalitetskontroll changes

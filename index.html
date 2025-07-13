@@ -156,19 +156,29 @@
 					</div>
 					<div class="s12 m6">
 						<!-- LEVERANTÖR -->
-						<mdui-text-field id="text-leverantor" class="space-below" name="leverantor" variant="outlined" label="Leverantörens namn" autocomplete="off" clearable required></mdui-text-field>
+						<mdui-text-field id="text-leverantor" name="leverantor" variant="outlined" label="Leverantörens namn" autocomplete="off" clearable required></mdui-text-field>
+					</div>
+					<div class="s12 m6">
 						<!-- LEV. ART.NR. -->
 						<mdui-text-field id="text-levartnr" name="levartnr" variant="outlined" label="Leverantörens art.nr." autocomplete="off" clearable required></mdui-text-field>
 					</div>
-					<div class="s12 m6">
+					<div class="s12">
 						<!-- HJÄLPMEDELSTJÄNSTEN -->
-						<div class="checkbox-container space-below">
-							<mdui-checkbox id="checkbox-ht" name="checkbox-ht">Artikeln finns i Hjälpmedelstjänsten</mdui-checkbox>
-						</div>
+						<div><mdui-checkbox id="checkbox-ht" name="checkbox-ht" checked>Artikeln finns i Hjälpmedelstjänsten med giltig prislista</mdui-checkbox></div>
 						<!-- UPPHANDLAD -->
-						<div class="checkbox-container">
-							<mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
-						</div>
+						<div><mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox></div>
+					</div>
+					<div class="s12 m4 l12 xl4">
+						<!-- INKÖPSPRIS -->
+						<mdui-text-field id="text-pris" name="pris" variant="outlined" type="text" label="Inköpspris exkl. moms" suffix="kr" inputmode="decimal" autocomplete="off" clearable end-aligned disabled></mdui-text-field>
+					</div>
+					<div class="s6 m4 l6 xl4">
+						<!-- GARANTITID -->
+						<mdui-text-field id="text-garanti" name="garanti" variant="outlined" type="number" label="Garantitid" suffix="dagar" inputmode="numeric" autocomplete="off" clearable end-aligned disabled></mdui-text-field>
+					</div>
+					<div class="s6 m4 l6 xl4">
+						<!-- ISO-KOD -->
+						<mdui-text-field id="text-isokod" name="isokod" variant="outlined" type="number" label="ISO-kod" inputmode="numeric" autocomplete="off" maxlength="6" clearable disabled></mdui-text-field>
 					</div>
 				</div>
 
@@ -187,7 +197,7 @@
 					</div>
 					<div class="s12 m6 l12">
 						<!-- ARTIKELTYP -->
-						<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp hos DHC" end-icon="arrow_drop_down">
+						<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp" end-icon="arrow_drop_down" helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten.">
 							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
 							<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
 							<mdui-menu-item value="R" icon="build">Reservdel (för att reparera ett huvudhjälpmedel eller tillbehör)</mdui-menu-item>
@@ -278,7 +288,7 @@
 					<div class="s12 m6">
 						<!-- BESTÄLLNINGSBAR WEBSESAM -->
 						<mdui-checkbox id="checkbox-ws-bb" class="with-tooltip" name="checkbox-ws-bb">Beställningsbar</mdui-checkbox>
-						<mdui-tooltip variant="rich" content="Denna parameter styr om en artikeln är beställningsbar i webSesam. För att möjliggöra registrering av uttag ur eget kundförråd måste artikeln vara beställningsbar.">
+						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln är beställningsbar i webSesam. För att möjliggöra uttag ur eget kundförråd måste artikeln vara beställningsbar (men ej nödvändigtvis publicerad).">
 							<mdui-icon class="tooltip" name="help"></mdui-icon>
 						</mdui-tooltip>
 					</div>
@@ -508,21 +518,11 @@
 	<p class="x-small"><span id="version"></span></p>
 	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
 	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
-	<p>
-		<table>
-			<tr>
-				<td class="right-aligned pr-a">Primär webbadress:</td>
-				<td id="main-site"></td>
-			</tr>
-			<tr>
-				<td class="right-aligned pr-a">Backupadress:</td>
-				<td id="backup-site"></td>
-			</tr>
-		</table>
-	</p>
+	<p>Primär webbadress:<br><span id="main-site"></span></p>
+	<p>Backupadress:<br><span id="backup-site"></p>
 	<mdui-divider></mdui-divider>
-	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a> | Skapat med <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a> | Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
-	<p class="x-small">Copyright &copy; 2025 Markus Edemalm | Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
+	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a><br>Skapat med <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a><br>Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
+	<p class="x-small">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
 	<mdui-button class="button-close-dialog" icon="close" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 

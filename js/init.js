@@ -15,7 +15,7 @@ $(document).ready(function() {
 	}
 
 	// Global variables
-	var update = '2025-07-11';
+	var update = '2025-07-13';
 	var artikeldata;
 
 	const d = new Date();
@@ -207,31 +207,6 @@ $(document).ready(function() {
 		// $('#select-inventarie').val('0').attr('disabled', true).formSelect();
 		// $('#select-avskriv').val('0').attr('disabled', true).formSelect();
 	});
-
-
-
-	$('#select-team').on('change', function() {
-		let team = this.value;
-		console.log('Team: ' + team );
-		if ( team == "02" || team == "03" || team == "08" || team == "09" || team == "10" || team == "11" ) {
-			console.log('Avdelning: Rörelse');
-			$('#text-avd').val('Rörelse');
-		}
-		if ( team == "05" ) {
-			console.log('Avdelning: KLOK');
-			$('#text-avd').val('KLOK');
-		}
-		if ( team == "07" ) {
-			console.log('Avdelning: PMB');
-			$('#text-avd').val('PMB');
-		}
-		if ( team == "40" ) {
-			console.log('Avdelning: Syncentralen');
-			$('#text-avd').val('Syncentralen');
-		}
-	});
-
-
 
 
 	$('#select-artikeltyp').on('change', function() {
