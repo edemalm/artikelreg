@@ -5,6 +5,7 @@ $(document).ready(function() {
 
 	// 1. Artikelbenämning och produktnamn
 
+/*
 	// mdui-text-field #text-artikelbenamning set random placeholder text
 	var textArray = [
 		'Rullstol SpeedKing sb45 sd50 silver inkl arm- o benstöd',
@@ -24,14 +25,15 @@ $(document).ready(function() {
 		var randomNumber = Math.floor(Math.random()*textArray.length);
 		$('#text-artikelbenamning').attr('placeholder', 'Exempel: ' + textArray[randomNumber]);
 	});
+*/
 
 	// mdui-button #button-fler-produktnamn clicked
 	$('#button-fler-produktnamn').click(function(){
 		$('#div-fler-produktnamn').addClass('hidden');
 		$('#text-produktnamn').attr('label', 'Huvudproduktnamn');
-		$('#text-produktnamn').attr('helper', 'Huvudprodukt visas i resultat vid artikelsök');
+		$('#text-produktnamn').attr('helper', 'Endast huvudprodukt visas i sökresultat');
 		$('.huvudprodukt').addClass('xl3');
-		$('.extraprodukt').addClass('xl3').removeClass('hidden');
+		$('.extraprodukt').removeClass('hidden');
 	});
 
 	// 2. Leverantör
