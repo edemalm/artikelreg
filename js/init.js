@@ -105,10 +105,6 @@ $(document).ready(function() {
 		$('#dialog-info').removeAttr('open');
 	});
 
-
-
-
-
 	// Catch the "open" event of <mdui-collapse-item>
 	$('.menu-collapse-item').on('open', function() {
 		console.log('The open event fired on .menu-collapse-item');
@@ -192,47 +188,5 @@ $(document).ready(function() {
 		console.log('Button #button-close-menu clicked');
 		$('#navigation-drawer').removeAttr('open');
 	});
-
-	let var_artikelansvar = '0';
-	let var_artikeltyp = '0';
-	let var_debiteringsform = '0';
-	let var_avd = '';
-
-	$('#select-artikelansvar').on('change', function() {
-	var_artikelansvar = this.value;
-	console.log('Artikelansvar: ' + var_artikelansvar );
-		$('#select-artikeltyp').removeAttr('selected').val('').attr('disabled', false);
-		$('#select-debiteringsform').removeAttr('selected').val('').attr('disabled', true);
-		// $('#select-individ').val('0').attr('disabled', true).formSelect();
-		// $('#select-inventarie').val('0').attr('disabled', true).formSelect();
-		// $('#select-avskriv').val('0').attr('disabled', true).formSelect();
-	});
-
-
-	$('#select-artikeltyp').on('change', function() {
-		var_artikeltyp = this.value;
-		console.log('Artikeltyp: ' + var_artikeltyp );
-	});
-
-
-	$('#switch-individmarkt').on('change', function() {
-		console.log('#switch-individmarkt changed to: ' + this.checked);
-		var var_individmarkt = (this.checked === true) ? 'Ja' :'Nej';
-		console.log('Individmärkt: ' + var_individmarkt );
-	});
-
-	$('#switch-inventarie').on('change', function() {
-		console.log('#switch-inventarie changed to: ' + this.checked);
-		var var_inventarie = (this.checked === true) ? 'Ja' :'Nej';
-		console.log('Inventarie: ' + var_inventarie );
-	});
-
-	$('#radio-avskrivningstid').on('change', function() {
-		console.log('#radio-avskrivningstid changed to: ' + this.value);
-		var var_avskrivningstid = this.value;
-		console.log('Avskrivningstid: ' + var_avskrivningstid );
-	});
-
-	// $('.input').css('color', 'green !important');
 
 });
