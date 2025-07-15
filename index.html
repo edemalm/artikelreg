@@ -123,30 +123,64 @@
 			<div class="s12"><h4><mdui-icon name="edit"></mdui-icon>1. Artikelbenämning och produktnamn</h4></div>
 			<div class="s12">
 				<!-- ARTIKELBENÄMNING -->
-				<mdui-text-field id="text-artikelbenamning" name="artikelbenamning" variant="outlined" label="Artikelbenämning" maxlength="250" autocomplete="off" autocapitalize="sentences" helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information." counter clearable required></mdui-text-field>
+				<mdui-text-field id="text-artikelbenamning"
+					autocapitalize="sentences"
+					autocomplete="off"
+					enterkeyhint="done"
+					helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
+					label="Artikelbenämning"
+					maxlength="250"
+					name="artikelbenamning"
+					variant="outlined"
+					clearable counter required></mdui-text-field>
 			</div>
 			<div id="div-produktnamn" class="s12 m6 huvudprodukt">
 				<!-- PRODUKTNAMN -->
-				<mdui-text-field id="text-produktnamn" name="produktnamn" variant="outlined" label="Produktnamn" autocomplete="off" clearable required></mdui-text-field>
+				<mdui-text-field id="text-produktnamn"
+					autocomplete="off"
+					enterkeyhint="done"
+					label="Produktnamn"
+					name="produktnamn"
+					variant="outlined"
+					clearable required></mdui-text-field>
 			</div>
 				<!-- FLER PRODUKTNAMN -->
 			<div id="div-fler-produktnamn" class="s12 m6">
-				<mdui-button id="button-fler-produktnamn" variant="text" icon="add">Fler produktnamn</mdui-button>
+				<mdui-button id="button-fler-produktnamn"
+					icon="add"
+					variant="text">Fler produktnamn</mdui-button>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 2 -->
-				<mdui-text-field id="text-produktnamn2" name="produktnamn2" variant="outlined" label="Extra produktnamn" autocomplete="off" clearable></mdui-text-field>
+				<mdui-text-field id="text-produktnamn2"
+					autocomplete="off"
+					enterkeyhint="done"
+					label="Extra produktnamn"
+					name="produktnamn2"
+					variant="outlined"
+					clearable></mdui-text-field>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 3 -->
-				<mdui-text-field id="text-produktnamn3" name="produktnamn3" variant="outlined" label="Extra produktnamn" autocomplete="off" clearable></mdui-text-field>
+				<mdui-text-field id="text-produktnamn3"
+					autocomplete="off"
+					enterkeyhint="done"
+					label="Extra produktnamn"
+					name="produktnamn3"
+					variant="outlined"
+					clearable></mdui-text-field>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 4 -->
-				<mdui-text-field id="text-produktnamn4" name="produktnamn4" variant="outlined" label="Extra produktnamn" autocomplete="off" clearable></mdui-text-field>
+				<mdui-text-field id="text-produktnamn4"
+					autocomplete="off"
+					enterkeyhint="done"
+					label="Extra produktnamn"
+					name="produktnamn4"
+					variant="outlined"
+					clearable></mdui-text-field>
 			</div>
 		</div>
-
 		<div class="row mb-a">
 			<!-- KOLUMN 1 -->
 			<div class="s12 l6">
@@ -156,39 +190,90 @@
 					</div>
 					<div class="s12 m6">
 						<!-- LEVERANTÖR -->
-						<mdui-text-field id="text-leverantor" name="leverantor" variant="outlined" label="Leverantörens namn" autocomplete="off" clearable required></mdui-text-field>
+						<mdui-text-field id="text-leverantor"
+							autocomplete="off"
+							enterkeyhint="done"
+							label="Leverantörens namn"
+							name="leverantor"
+							variant="outlined"
+							clearable required></mdui-text-field>
 					</div>
 					<div class="s12 m6">
-						<!-- LEV. ART.NR. -->
-						<mdui-text-field id="text-levartnr" name="levartnr" variant="outlined" label="Leverantörens art.nr." autocomplete="off" clearable required></mdui-text-field>
+						<!-- LEVERANTÖRENS ART.NR. -->
+						<mdui-text-field id="text-levartnr"
+							autocomplete="off"
+							enterkeyhint="done"
+							label="Leverantörens art.nr."
+							name="levartnr"
+							variant="outlined"
+							clearable required></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- HJÄLPMEDELSTJÄNSTEN -->
-						<div><mdui-checkbox id="checkbox-ht" name="checkbox-ht" checked>Artikeln finns i Hjälpmedelstjänsten med giltig prislista</mdui-checkbox></div>
+						<div>
+							<mdui-checkbox id="checkbox-ht"
+								name="checkbox-ht"
+								checked>Artikeln finns i Hjälpmedelstjänsten med giltig prislista</mdui-checkbox>
+						</div>
 						<!-- UPPHANDLAD -->
-						<div><mdui-checkbox id="checkbox-upphandlad" name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox></div>
+						<div>
+							<mdui-checkbox id="checkbox-upphandlad"
+								name="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
+						</div>
 					</div>
 					<div class="s12 m4 l12 xl4">
 						<!-- INKÖPSPRIS -->
-						<mdui-text-field id="text-pris" name="pris" variant="outlined" type="text" label="Inköpspris exkl. moms" suffix="kr" inputmode="decimal" autocomplete="off" clearable end-aligned required disabled></mdui-text-field>
+						<mdui-text-field id="text-pris"
+							autocomplete="off"
+							enterkeyhint="done"
+							inputmode="decimal"
+							label="Inköpspris exkl. moms"
+							name="pris"
+							suffix="&nbsp;kr"
+							type="text"
+							variant="outlined"
+							clearable disabled end-aligned required></mdui-text-field>
 					</div>
 					<div class="s6 m4 l6 xl4">
 						<!-- GARANTITID -->
-						<mdui-text-field id="text-garanti" name="garanti" variant="outlined" type="number" label="Garantitid" suffix="dagar" inputmode="numeric" autocomplete="off" clearable end-aligned required disabled></mdui-text-field>
+						<mdui-text-field id="text-garanti"
+							autocomplete="off"
+							enterkeyhint="done"
+							inputmode="numeric"
+							label="Garantitid"
+							name="garanti"
+							suffix="&nbsp;dagar"
+							type="number"
+							variant="outlined"
+							clearable disabled end-aligned required></mdui-text-field>
 					</div>
 					<div class="s6 m4 l6 xl4">
 						<!-- ISO-KOD -->
-						<mdui-text-field id="text-isokod" name="isokod" variant="outlined" type="number" label="ISO-kod" inputmode="numeric" autocomplete="off" maxlength="6" clearable required disabled></mdui-text-field>
+						<mdui-text-field id="text-isokod"
+							autocomplete="off"
+							enterkeyhint="done"
+							inputmode="numeric"
+							label="ISO-kod"
+							maxlength="6"
+							minlength="6"
+							name="isokod"
+							type="number"
+							variant="outlined"
+							clearable disabled required></mdui-text-field>
 					</div>
 				</div>
-
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="monetization_on"></mdui-icon>3. Grundläggande parametrar</h4>
 					</div>
 					<div class="s12 m6 l12">
 						<!-- ARTIKELANSVAR -->
-						<mdui-select id="select-artikelansvar" name="select-artikelansvar" variant="outlined" label="Artikelansvar" end-icon="arrow_drop_down" required>
+						<mdui-select id="select-artikelansvar"
+							end-icon="arrow_drop_down"
+							label="Artikelansvar"
+							name="select-artikelansvar"
+							variant="outlined"
+							required>
 							<mdui-menu-item value="L" icon="local_hospital">Region och kommun</mdui-menu-item>
 							<mdui-menu-item value="R" icon="recycling">Retursortiment</mdui-menu-item>
 							<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
@@ -197,7 +282,13 @@
 					</div>
 					<div class="s12 m6 l12">
 						<!-- ARTIKELTYP -->
-						<mdui-select id="select-artikeltyp" name="select-artikeltyp" variant="outlined" label="Artikeltyp" end-icon="arrow_drop_down" helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten." required disabled>
+						<mdui-select id="select-artikeltyp"
+							end-icon="arrow_drop_down"
+							helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten."
+							label="Artikeltyp"
+							name="artikeltyp"
+							variant="outlined"
+							disabled required>
 							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
 							<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
 							<mdui-menu-item id="artikeltyp-menu-item-r" value="R" icon="build">Reservdel (för att reparera ett huvudhjälpmedel eller tillbehör)</mdui-menu-item>
@@ -207,17 +298,26 @@
 						<!-- INDIVIDMÄRKT -->
 						<div class="switch-container">
 							<span class="switch-label">Individmärkt</span>
-							<mdui-tooltip variant="rich" content="Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik">
+							<mdui-tooltip
+								content="Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik"
+								variant="rich">
 								<mdui-icon class="tooltip" name="help"></mdui-icon>
 							</mdui-tooltip>
 							<div style="float: right; line-height: 0;">
-								<mdui-switch id="switch-individmarkt" name="switch-individmarkt" disabled></mdui-switch>
+								<mdui-switch id="switch-individmarkt"
+									name="individmarkt"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
 					<div class="s12 m6">
 						<!-- DEBITERINGSFORM -->
-						<mdui-select id="select-debiteringsform" name="select-debiteringsform" variant="outlined" label="Debiteringsform" end-icon="arrow_drop_down" required disabled>
+						<mdui-select id="select-debiteringsform"
+							end-icon="arrow_drop_down"
+							label="Debiteringsform"
+							name="debiteringsform"
+							variant="outlined"
+							disabled required>
 							<mdui-menu-item value="M">Månadshyra</mdui-menu-item>
 							<mdui-menu-item value="A">Köp</mdui-menu-item>
 						</mdui-select>
@@ -236,7 +336,12 @@
 					</div>
 					<div class="s12 m6">
 						<!-- AVSKRIVNINGSTID -->
-						<mdui-select id="select-avskrivningstid" name="select-avskrivningstid" variant="outlined" label="Avskrivningstid" end-icon="arrow_drop_down" disabled>
+						<mdui-select id="select-avskrivningstid"
+							end-icon="arrow_drop_down"
+							label="Avskrivningstid"
+							name="avskrivningstid"
+							variant="outlined"
+							disabled required>
 							<mdui-menu-item value="3 år">3 år</mdui-menu-item>
 							<mdui-menu-item value="5 år">5 år</mdui-menu-item>
 						</mdui-select>
@@ -249,7 +354,12 @@
 					</div>
 					<div class="s12">
 						<!-- TEAM -->
-						<mdui-select id="select-team" name="select-team" variant="outlined" label="Team" end-icon="arrow_drop_down" required>
+						<mdui-select id="select-team"
+							end-icon="arrow_drop_down"
+							label="Team"
+							name="team"
+							variant="outlined"
+							required>
 							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
 							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
 							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
@@ -263,7 +373,11 @@
 					</div>
 					<div class="s12 m6">
 						<!-- AVDELNING -->
-						<mdui-text-field id="text-avd" name="text-avd" variant="outlined" label="Avdelning" disabled></mdui-text-field>
+						<mdui-text-field id="text-avd"
+							label="Avdelning"
+							name="avd"
+							variant="outlined"
+							readonly required></mdui-text-field>
 					</div>
 					<div class="s12 m6 pt-xs">
 						<!-- UPPFÖLJNING -->

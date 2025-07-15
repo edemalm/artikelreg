@@ -4,7 +4,6 @@ $(document).ready(function() {
 	console.log('Loading artikeldata.js');
 
 	var headertext = "Hej!\n\nHär är uppgifter för upplägg av ny artikel i Sesam.\n\n";
-	var artikeldata = "";
 	var footertext = "Innan du skickar detta mejl, vänligen gör följande:\n";
 	footertext += "1. Markera all text (Ctrl+A)\n";
 	footertext += "2. Byt till teckensnitt Consolas";
@@ -27,10 +26,13 @@ $(document).ready(function() {
 	};
 
 	$('#form-artikeldata').submit(function(event) {
-		console.log('Form #form-artikeldata submitted');
+		console.log('form #form-artikeldata submitted');
+
+		console.log('default submit action cancelled');
 		event.preventDefault();
 
-		// Populate 'artikeldata' variable
+		// populate 'artikeldata' variable
+		var artikeldata = '';
 
 		// Mallartikel
 		artikeldata += "     Mallartikel:  ";

@@ -4,6 +4,7 @@ $(document).ready(function() {
 	console.log('Loading form-events.js');
 
 	// 1. Artikelbenämning och produktnamn
+	// -----------------------------------
 
 /*
 	// mdui-text-field #text-artikelbenamning set random placeholder text
@@ -28,7 +29,7 @@ $(document).ready(function() {
 */
 
 	// mdui-button #button-fler-produktnamn clicked
-	$('#button-fler-produktnamn').click(function(){
+	$('#button-fler-produktnamn').click(function() {
 		$('#div-fler-produktnamn').addClass('hidden');
 		$('#text-produktnamn').attr('label', 'Huvudproduktnamn');
 		$('#text-produktnamn').attr('helper', 'Endast huvudprodukt visas i sökresultat');
@@ -44,16 +45,16 @@ $(document).ready(function() {
 		if ($('#checkbox-ht').prop("checked")) {
 
 			// is checked
-			$('#text-pris').val('').removeAttr('required').attr('disabled', true);
-			$('#text-garanti').val('').removeAttr('required').attr('disabled', true);
-			$('#text-isokod').val('').removeAttr('required').attr('disabled', true);
+			$('#text-pris').val('').attr('disabled', true);
+			$('#text-garanti').val('').attr('disabled', true);
+			$('#text-isokod').val('').attr('disabled', true);
 
 		} else {
 
 			// not checked
-			$('#text-pris').removeAttr('disabled').attr('required', true);
-			$('#text-garanti').removeAttr('disabled').attr('required', true);
-			$('#text-isokod').removeAttr('disabled').attr('required', true);
+			$('#text-pris').removeAttr('disabled');
+			$('#text-garanti').removeAttr('disabled');
+			$('#text-isokod').removeAttr('disabled');
 
 		}
 
@@ -70,7 +71,7 @@ $(document).ready(function() {
 		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
 		$('#select-debiteringsform').val('').attr('selected', false).attr('disabled', true); // clear and disable
 		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		$('#select-avskrivningstid').val('').attr('selected', false).attr('required', false).attr('disabled', true); // clear and disable
+		$('#select-avskrivningstid').val('').attr('selected', false).attr('disabled', true); // clear and disable
 		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
 			$('#artikeltyp-menu-item-r').attr('disabled', true); // disable
 		} else {
@@ -104,7 +105,7 @@ $(document).ready(function() {
 			$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
 		}
 		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		$('#select-avskrivningstid').val('').attr('required', false).attr('disabled', true); // clear and disable
+		$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 	});
 
 	// mdui-switch #switch-individmarkt changes
@@ -116,12 +117,12 @@ $(document).ready(function() {
 		if ( artikeltyp == 'H' && individmarkt == 'Ja' ) {
 			$('#select-debiteringsform').attr('disabled', false); // enable
 			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-avskrivningstid').val('').attr('required', false).attr('disabled', true); // clear and disable
+			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
 		if ( artikeltyp == 'H' && individmarkt == 'Nej' ) {
 			$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
 			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-avskrivningstid').val('').attr('required', false).attr('disabled', true); // clear and disable
+			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
 	});
 
@@ -134,15 +135,14 @@ $(document).ready(function() {
 		if ( artikeltyp == 'H' && debiteringsform == 'M' ) {
 			$('#switch-individmarkt').attr('checked', true).attr('disabled', true); // check and disable
 			$('#switch-inventarie').attr('checked', true).attr('disabled', true); // check and disable
-			$('#select-avskrivningstid').val('').attr('required', true).attr('disabled', false); // clear and enable
+			$('#select-avskrivningstid').val('').attr('disabled', false); // clear and enable
 		}
 		if ( artikeltyp == 'H' && debiteringsform == 'A' ) {
 			$('#switch-individmarkt').attr('disabled', false); // enable
 			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-avskrivningstid').val('').attr('required', false).attr('disabled', true); // clear and disable
+			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
 	});
-
 
 	// mdui-switch #switch-inventarie changes
 	let inventarie = '';
@@ -226,18 +226,22 @@ $(document).ready(function() {
 		$('mdui-dialog').removeAttr('open');
 	});
 
-	$('#button-submit-form').click(function() {
-		console.log('Button #button-submit-form clicked');
+	// Skicka artikeluppgifter
 
-		for (const el of document.getElementById('form-artikeldata').querySelectorAll("[required]")) {
+	$('#button-submit-form').click(function() {
+		console.log('mdui-button #button-submit-form clicked');
+
+		// validate form
+		console.log('validating form');
+		for (const el of document.getElementById('form-artikeldata').querySelectorAll('[required]')) {
 			if (!el.reportValidity()) {
 				mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
 				return;
 			}
 		}
-		$('#form-artikeldata').submit();
 
-		return;
+		// submit form
+		$('#form-artikeldata').submit();
 	});
 
 
