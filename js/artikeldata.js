@@ -5,9 +5,19 @@ $(document).ready(function() {
 
 	// populate 'artikeldata' variable
 	var artikeldata = '';
+	var s1  = ' '; // Non-breaking invisible space: Ctrl+Shift+U, 00a0, Enter
+	var s2  = '  ';
+	var s3  = '   ';
+	var s4  = '    ';
+	var s5  = '     ';
+	var s6  = '      ';
+	var s7  = '       ';
+	var s8  = '        ';
+	var s9  = '         ';
+	var s10 = '          ';
 
 	var headertext = "Hej!\n\nHär är uppgifter för upplägg av ny artikel i Sesam.\n\n";
-	var footertext = "Innan du skickar detta mejl, vänligen gör följande:\n";
+	var footertext = "Innan du skickar detta mejl, vänligen gör följande:\n\n";
 	footertext += "1. Markera all text (Ctrl+A)\n";
 	footertext += "2. Byt till teckensnitt Consolas";
 
@@ -35,7 +45,7 @@ $(document).ready(function() {
 		event.preventDefault();
 
 		// Mallartikel
-		artikeldata += "     Mallartikel:  ";
+		artikeldata += s5 + "Mallartikel:  ";
 		switch ($('#text-avd').val()) {
 			case 'Rörelse': artikeldata += 'R'; break;
 			case 'KLOK': artikeldata += 'K'; break;
@@ -47,7 +57,7 @@ $(document).ready(function() {
 			case 'T': artikeldata += 'T'; break;
 			case 'R': artikeldata += 'R'; break;
 		}
-		artikeldata += "&nbsp;(baserat på valda uppgifter - kontrollera!)\n\n";
+		artikeldata += " (baserat på valda uppgifter - kontrollera!)\n\n";
 		artikeldata += "ARTIKELDATA\n";
 		artikeldata += "-----------\n\n";
 
@@ -55,7 +65,7 @@ $(document).ready(function() {
 		artikeldata += "Artikelbenämning:  " + $('#text-artikelbenamning').val() + "\n";
 
 		// Artikeltyp
-		artikeldata += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Artikeltyp:  ";
+		artikeldata += s6 + "Artikeltyp:  ";
 		switch ($('#select-artikeltyp').val()) {
 			case 'H':
 				artikeldata += 'Huvudhjälpmedel'; break;
@@ -67,7 +77,7 @@ $(document).ready(function() {
 		artikeldata += "\n";
 
 		// Artikelansvar
-		artikeldata += "&nbsp;&nbsp;&nbsp;Artikelansvar:  " + $('#select-artikelansvar').val() + " ";
+		artikeldata += s3 + "Artikelansvar:  " + $('#select-artikelansvar').val() + " ";
 		switch ($('#select-artikelansvar').val()) {
 			case 'L':
 				artikeldata += "(Region och kommun)"; break;
@@ -81,10 +91,10 @@ $(document).ready(function() {
 		artikeldata += "\n";
 
 		// Konteringsgrupp
-		artikeldata += "&nbsp;Konteringsgrupp:  (ej klart)\n";
+		artikeldata += s1 + "Konteringsgrupp:  (ej klart)\n";
 
 		// Sektor
-		artikeldata += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sektor:  " + $('#select-team').val() + "\n\n";
+		artikeldata += s10 + "Sektor:  " + $('#select-team').val() + "\n\n";
 	
 		// Produktnamn
 		artikeldata += 'Huvudproduktnamn:  ' + $('#text-produktnamn').val() + "\n";
@@ -94,17 +104,17 @@ $(document).ready(function() {
 
 		// Leverantör
 		artikeldata += "\n";
-		artikeldata += '      Leverantör:  ' + $('#text-leverantor').val() + "\n";
+		artikeldata += s6 + 'Leverantör:  ' + $('#text-leverantor').val() + "\n";
 
 		// Leverantörens artikelnummer
-		artikeldata += '    Lev. art.nr.:  ' + $('#text-levartnr').val() + "\n";
+		artikeldata += s4 + 'Lev. art.nr.:  ' + $('#text-levartnr').val() + "\n";
 
 		// Upphandlad
 		artikeldata += "\n";
-		artikeldata += '      Upphandlad:  ' + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
+		artikeldata += s6 + 'Upphandlad:  ' + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
 
 		// Hjälpmedelstjänsten
-		artikeldata += '      Finns i HT:  ' + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
+		artikeldata += s6 + 'Finns i HT:  ' + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
 
 		// Add artikeldata to #textarea-artikeldata
 		$('#textarea-artikeldata').html(artikeldata);
