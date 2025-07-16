@@ -3,6 +3,9 @@ $(document).ready(function() {
 	console.log('DOM ready');
 	console.log('Loading artikeldata.js');
 
+	// populate 'artikeldata' variable
+	var artikeldata = '';
+
 	var headertext = "Hej!\n\nHär är uppgifter för upplägg av ny artikel i Sesam.\n\n";
 	var footertext = "Innan du skickar detta mejl, vänligen gör följande:\n";
 	footertext += "1. Markera all text (Ctrl+A)\n";
@@ -31,9 +34,6 @@ $(document).ready(function() {
 		console.log('default submit action cancelled');
 		event.preventDefault();
 
-		// populate 'artikeldata' variable
-		var artikeldata = '';
-
 		// Mallartikel
 		artikeldata += "     Mallartikel:  ";
 		switch ($('#text-avd').val()) {
@@ -47,7 +47,7 @@ $(document).ready(function() {
 			case 'T': artikeldata += 'T'; break;
 			case 'R': artikeldata += 'R'; break;
 		}
-		artikeldata += " (baserat på valda uppgifter - kontrollera!)\n\n";
+		artikeldata += "&nbsp;(baserat på valda uppgifter - kontrollera!)\n\n";
 		artikeldata += "ARTIKELDATA\n";
 		artikeldata += "-----------\n\n";
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
 		artikeldata += "Artikelbenämning:  " + $('#text-artikelbenamning').val() + "\n";
 
 		// Artikeltyp
-		artikeldata += "      Artikeltyp:  ";
+		artikeldata += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Artikeltyp:  ";
 		switch ($('#select-artikeltyp').val()) {
 			case 'H':
 				artikeldata += 'Huvudhjälpmedel'; break;
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		artikeldata += "\n";
 
 		// Artikelansvar
-		artikeldata += "   Artikelansvar:  " + $('#select-artikelansvar').val() + " ";
+		artikeldata += "&nbsp;&nbsp;&nbsp;Artikelansvar:  " + $('#select-artikelansvar').val() + " ";
 		switch ($('#select-artikelansvar').val()) {
 			case 'L':
 				artikeldata += "(Region och kommun)"; break;
@@ -81,10 +81,10 @@ $(document).ready(function() {
 		artikeldata += "\n";
 
 		// Konteringsgrupp
-		artikeldata += " Konteringsgrupp:  (ej klart)\n";
+		artikeldata += "&nbsp;Konteringsgrupp:  (ej klart)\n";
 
 		// Sektor
-		artikeldata += "          Sektor:  " + $('#select-team').val() + "\n\n";
+		artikeldata += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sektor:  " + $('#select-team').val() + "\n\n";
 	
 		// Produktnamn
 		artikeldata += 'Huvudproduktnamn:  ' + $('#text-produktnamn').val() + "\n";

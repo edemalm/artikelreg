@@ -231,6 +231,9 @@ $(document).ready(function() {
 	$('#button-submit-form').click(function() {
 		console.log('mdui-button #button-submit-form clicked');
 
+		console.log('resetting artikeldata');
+		artikeldata = '';
+
 		// validate form
 		console.log('validating form');
 		for (const el of document.getElementById('form-artikeldata').querySelectorAll('[required]')) {
