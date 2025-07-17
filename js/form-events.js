@@ -171,14 +171,10 @@ $(document).ready(function() {
 		console.log('mdui-select #select-team changed');
 		team = this.value;
 		console.log('Selected team: ' + team );
+		/*
 		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
 			console.log('Avdelning: Rörelse');
 			$('#text-avd').val('Rörelse');
-		}
-		if ( team == '02' || team == '03' ) {
-			$('#switch-uppfoljning').attr('disabled', false);
-		} else {
-			$('#switch-uppfoljning').attr('checked', false).attr('disabled', true);
 		}
 		if ( team == '05' ) {
 			console.log('Avdelning: KLOK');
@@ -192,8 +188,64 @@ $(document).ready(function() {
 			console.log('Avdelning: Syncentralen');
 			$('#text-avd').val('Syncentralen');
 		}
+		*/
+		if ( team == '02' || team == '03' ) {
+			$('#switch-uppfoljning').attr('disabled', false);
+		} else {
+			$('#switch-uppfoljning').attr('checked', false).attr('disabled', true);
+		}
+
 	});
 
+	// 5. Inställningar för webSesam
+
+	// mdui-switch #switch-ws-pub changes
+	$('#switch-ws-pub').on('change', function() {
+		console.log('mdui-switch #switch-ws-pub changed');
+		if ($('#switch-ws-pub').prop("checked")) {
+			// on
+			$('#ws-pub-helper').html('Artikeln visas och är sökbar');
+		} else {
+			// off
+			$('#ws-pub-helper').html('Artikeln visas ej');
+		}
+	});
+
+	// mdui-switch #switch-ws-bb changes
+	$('#switch-ws-bb').on('change', function() {
+		console.log('mdui-switch #switch-ws-bb changed');
+		if ($('#switch-ws-bb').prop("checked")) {
+			// on
+			$('#ws-bb-helper').html('Artikeln kan beställas. Uttag från eget kundlager kan registreras.');
+		} else {
+			// off
+			$('#ws-bb-helper').html('Artikeln kan ej beställas. Uttag från eget kundlager kan ej registreras.');
+		}
+	});
+
+	// mdui-switch #switch-ws-komp changes
+	$('#switch-ws-komp').on('change', function() {
+		console.log('mdui-switch #switch-ws-komp changed');
+		if ($('#switch-ws-komp').prop("checked")) {
+			// on
+			$('#ws-komp-helper').html('Artikeln kan beställas som komponent till ett huvudhjälpmedel');
+		} else {
+			// off
+			$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
+		}
+	});
+
+	// mdui-switch #switch-ws-sort changes
+	$('#switch-ws-sort').on('change', function() {
+		console.log('mdui-switch #switch-ws-sort changed');
+		if ($('#switch-ws-sort').prop("checked")) {
+			// on
+			$('#ws-sort-helper').html('Artikeln ingår i ordinarie sortiment och visas vid artikelsökning');
+		} else {
+			// off
+			$('#ws-sort-helper').html('Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsöknig');
+		}
+	});
 
 
 	// 7. Hantering vid ankomst

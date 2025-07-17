@@ -181,7 +181,7 @@
 					clearable></mdui-text-field>
 			</div>
 		</div>
-		<div class="row mb-a">
+		<div class="row">
 			<!-- KOLUMN 1 -->
 			<div class="s12 l6">
 				<div class="row elevated">
@@ -367,23 +367,16 @@
 							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6">
-						<!-- AVDELNING -->
-						<mdui-text-field id="text-avd"
-							label="Avdelning"
-							name="avd"
-							variant="outlined"
-							readonly required></mdui-text-field>
-					</div>
-					<div class="s12 m6">
-						<div>
-							<!-- UPPFÖLJNING -->
-							<mdui-checkbox id="checkbox-uppfoljning"
-								class="with-tooltip"
-								name="uppfoljning">Skall ha uppföljning</mdui-checkbox>
-							<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som har uppföljning">
-								<mdui-icon class="tooltip" name="help"></mdui-icon>
-							</mdui-tooltip>
+					<div class="s12">
+						<!-- UPPFÖLJNING -->
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Skall ha uppföljning</div>
+								<div class="switch-helper">Gäller för närvarande endast elrullstolar</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-uppfoljning" name="uppfoljning" disabled></mdui-switch>
+							</div>
 						</div>
 					</div>
 				</div><!-- .row -->
@@ -394,7 +387,7 @@
 						<div class="switch-wrapper">
 							<div class="text">
 								<div class="switch-label">Publicerad i webSesam</div>
-								<div class="switch-helper">Styr om artikeln är synlig och sökbar</div>
+								<div id="ws-pub-helper" class="switch-helper">Artikel visas inte</div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-ws-pub" name="ws-pub"></mdui-switch>
@@ -404,7 +397,7 @@
 						<div class="switch-wrapper">
 							<div class="text">
 								<div class="switch-label">Beställningsbar i webSesam</div>
-								<div class="switch-helper">Styr också om uttag kan registreras från kundägt lager</div>
+								<div id="ws-bb-helper" class="switch-helper">Artikeln kan ej beställas. Uttag från eget kundlager kan ej registreras.</div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-ws-bb" name="ws-bb"></mdui-switch>
@@ -414,20 +407,20 @@
 						<div class="switch-wrapper">
 							<div class="text">
 								<div class="switch-label">Sortimentsartikel</div>
-								<div class="switch-helper">Artikeln ingår det ordinarie sortimentet som erbjuds i första hand</div>
+								<div id="ws-sort-helper" class="switch-helper">Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsöknig</div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-ws-sortiment" name="ws-sortiment"></mdui-switch>
+								<mdui-switch id="switch-ws-sort" name="ws-sort"></mdui-switch>
 							</div>
 						</div>
 						<!-- KOMPONENT -->
 						<div class="switch-wrapper">
 							<div class="text">
 								<div class="switch-label">Kan vara komponent</div>
-								<div class="switch-helper">Styr om ett tillbehör kan kopplas som komponent till ett huvudhjälpmedel</div>
+								<div id="ws-komp-helper" class="switch-helper">Artikeln kan ej beställas som komponent till ett huvudhjälpmedel</div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-ws-komponent" name="ws-komponent"></mdui-switch>
+								<mdui-switch id="switch-ws-komp" name="ws-komp"></mdui-switch>
 							</div>
 						</div>
 						<!--- XXX -->
@@ -446,12 +439,9 @@
 						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Ange extra artikelinformation eller ett meddelande som visas i webSesam. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-
-
-
 			</div>
 			<!-- KOLUMN 2 -->
-			<div class="s12 l6">
+			<div class="s12 l6 mb-a">
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="warehouse"></mdui-icon>6. Lagerhållning</h4>
@@ -564,12 +554,10 @@
 						<mdui-text-field id="text-enhet-dtm" name="text-enhet-dtm" variant="outlined" label="Enhet drifttidsmätare" clearable></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-
 			</div>
 		</div><!-- .row -->
-
 		<div class="row">
-			<div class="s12 right-aligned">
+			<div class="s12 mt-a flat right-aligned">
 				<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
 				<mdui-button id="button-submit-form" class="ml-a" variant="filled" end-icon="arrow_forward">Skicka artikeluppgifter</mdui-button>
 			</div>

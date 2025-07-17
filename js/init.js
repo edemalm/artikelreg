@@ -15,7 +15,7 @@ $(document).ready(function() {
 	}
 
 	// Global variables
-	var update = '2025-07-17';
+	var update = '2025-07-17 v2';
 
 	const d = new Date();
 	let month = d.getMonth();
