@@ -213,7 +213,7 @@
 						<div>
 							<mdui-checkbox id="checkbox-ht"
 								name="checkbox-ht"
-								checked>Artikeln finns i Hjälpmedelstjänsten med giltig prislista</mdui-checkbox>
+								checked>Artikeln finns i Hjälpmedelstjänsten med aktuell prislista</mdui-checkbox>
 						</div>
 						<!-- UPPHANDLAD -->
 						<div>
@@ -227,7 +227,7 @@
 							autocomplete="off"
 							enterkeyhint="done"
 							inputmode="decimal"
-							label="Inköpspris exkl. moms"
+							label="Inköpspris"
 							name="pris"
 							suffix="&nbsp;kr"
 							type="text"
@@ -294,23 +294,19 @@
 							<mdui-menu-item id="artikeltyp-menu-item-r" value="R" icon="build">Reservdel (för att reparera ett huvudhjälpmedel eller tillbehör)</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6">
+					<div class="s12 m8 l12 xl7">
 						<!-- INDIVIDMÄRKT -->
-						<div class="switch-container">
-							<span class="switch-label">Individmärkt</span>
-							<mdui-tooltip
-								content="Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik"
-								variant="rich">
-								<mdui-icon class="tooltip" name="help"></mdui-icon>
-							</mdui-tooltip>
-							<div style="float: right; line-height: 0;">
-								<mdui-switch id="switch-individmarkt"
-									name="individmarkt"
-									disabled></mdui-switch>
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Individmärkt</div>
+								<div class="switch-helper">Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en transaktionshistorik</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-individmarkt" name="individmarkt" disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
-					<div class="s12 m6">
+					<div class="s12 m4 l12 xl5">
 						<!-- DEBITERINGSFORM -->
 						<mdui-select id="select-debiteringsform"
 							end-icon="arrow_drop_down"
@@ -322,19 +318,19 @@
 							<mdui-menu-item value="A">Köp</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6">
+					<div class="s12 m8 l12 xl7">
 						<!-- INVENTARIE -->
-						<div class="switch-container">
-							<span class="switch-label">Inventarie</span>
-							<mdui-tooltip variant="rich" content="En inventarie är ett individmärkt huvudhjälpmedel vars anskaffningskostnad fördelas under dess avskrivningstid på 3 eller 5 år">
-								<mdui-icon class="tooltip" name="help"></mdui-icon>
-							</mdui-tooltip>
-							<div style="float: right; line-height: 0;">
-								<mdui-switch id="switch-inventarie" name="switch-inventarie" disabled></mdui-switch>
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Inventarie</div>
+								<div class="switch-helper">Ett individmärkt hyreshjälpmedel vars anskaffningskostnad fördelas under dess avskrivningstid</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-inventarie" name="inventarie" disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
-					<div class="s12 m6">
+					<div class="s12 m4 l12 xl5">
 						<!-- AVSKRIVNINGSTID -->
 						<mdui-select id="select-avskrivningstid"
 							end-icon="arrow_drop_down"
@@ -379,56 +375,80 @@
 							variant="outlined"
 							readonly required></mdui-text-field>
 					</div>
-					<div class="s12 m6 pt-xs">
-						<!-- UPPFÖLJNING -->
-						<span class="switch-label">Skall ha uppföljning</span>
-						<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som har uppföljning">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-						<div style="float: right; line-height: 0;">
-							<mdui-switch id="switch-uppfoljning" name="switch-uppfoljning" disabled></mdui-switch>
+					<div class="s12 m6">
+						<div>
+							<!-- UPPFÖLJNING -->
+							<mdui-checkbox id="checkbox-uppfoljning"
+								class="with-tooltip"
+								name="uppfoljning">Skall ha uppföljning</mdui-checkbox>
+							<mdui-tooltip variant="rich" content="I dagsläget är det endast elrullstolar som har uppföljning">
+								<mdui-icon class="tooltip" name="help"></mdui-icon>
+							</mdui-tooltip>
 						</div>
 					</div>
 				</div><!-- .row -->
 				<div class="row elevated">
 					<div class="s12"><h4><mdui-icon name="shopping_cart--outlined"></mdui-icon>5. Inställningar för webSesam</h4></div>
-					<div class="s12 m6">
+					<div class="s12">
 						<!-- PUBLICERAD WEBSESAM -->
-						<mdui-checkbox id="checkbox-ws-pub" class="with-tooltip" name="checkbox-ws-pub">Publicerad</mdui-checkbox>
-						<mdui-tooltip variant="rich" content='Denna parameter styr om artikeln är "synlig" och sökbar i webSesam'>
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-					</div>
-					<div class="s12 m6">
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Publicerad i webSesam</div>
+								<div class="switch-helper">Styr om artikeln är synlig och sökbar</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-ws-pub" name="ws-pub"></mdui-switch>
+							</div>
+						</div>
 						<!-- BESTÄLLNINGSBAR WEBSESAM -->
-						<mdui-checkbox id="checkbox-ws-bb" class="with-tooltip" name="checkbox-ws-bb">Beställningsbar</mdui-checkbox>
-						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln är beställningsbar i webSesam. För att möjliggöra uttag ur eget kundförråd måste artikeln vara beställningsbar (men ej nödvändigtvis publicerad).">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-					</div>
-					<div class="s12 m6">
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Beställningsbar i webSesam</div>
+								<div class="switch-helper">Styr också om uttag kan registreras från kundägt lager</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-ws-bb" name="ws-bb"></mdui-switch>
+							</div>
+						</div>
 						<!-- INGÅR I SORTIMENT -->
-						<mdui-checkbox id="checkbox-ws-sortiment" class="with-tooltip" name="checkbox-ws-sort">Sortimentsartikel</mdui-checkbox>
-						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln ingår det ordinarie, ofta upphandlade, sortimentet som erbjuds i första hand. Sortimentsartiklar visas alltid vid artikelsökning.">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-					</div>
-					<div class="s12 m6">
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Sortimentsartikel</div>
+								<div class="switch-helper">Artikeln ingår det ordinarie sortimentet som erbjuds i första hand</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-ws-sortiment" name="ws-sortiment"></mdui-switch>
+							</div>
+						</div>
 						<!-- KOMPONENT -->
-						<mdui-checkbox id="checkbox-ws-komponent" class="with-tooltip" name="checkbox-ws-komp">Kan vara komponent</mdui-checkbox>
-						<mdui-tooltip variant="rich" content="Denna parameter styr om artikeln kan kopplas som komponent till ett huvudhjälpmedel i webSesam. Gäller endast för tillbehör.">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-					</div>
-					<div class="s12 m6">
-						<!-- XXX -->
-						<mdui-checkbox id="checkbox-ws-xxx" name="checkbox-ws-xxx">Något mer?</mdui-checkbox>
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Kan vara komponent</div>
+								<div class="switch-helper">Styr om ett tillbehör kan kopplas som komponent till ett huvudhjälpmedel</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-ws-komponent" name="ws-komponent"></mdui-switch>
+							</div>
+						</div>
+						<!--- XXX -->
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Något mer?</div>
+								<div class="switch-helper">Någon ytterligare parameter</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-ws-xxx" name="ws-xxx"></mdui-switch>
+							</div>
+						</div>
 					</div>
 					<div class="s12">
 						<!-- ARTIKELINFO WEBSESAM -->
 						<mdui-text-field id="textarea-ws-info" name="textarea-ws-info" variant="outlined" rows="2" label="Extra artikelinformation" helper="Ange extra artikelinformation eller ett meddelande som visas i webSesam. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
+
+
+
 			</div>
 			<!-- KOLUMN 2 -->
 			<div class="s12 l6">
@@ -475,12 +495,14 @@
 					</div>
 					<div class="s12 pt-xs">
 						<!-- KVALITETSKONTROLL -->
-						<span class="switch-label">Kvalitetskontroll</span>
-						<mdui-tooltip variant="rich" content="Kvalitetskontroll i Sesam innebär att inleveransen görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskotrollen i Sesam. Därefter blir artikeln tillgänglig på lager, eller klar för utleverans om inköpet var öronmärkt för en kundorder. Leverantörsfakturan kan inte betalas innan kvalitetskontrollen är slutförd.">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-						<div style="float: right; line-height: 0;">
-							<mdui-switch id="switch-kvalitetskontroll" name="switch-kvalitetskontroll"></mdui-switch>
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Kvalitetskontroll</div>
+								<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskotrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-kvalitetskontroll" name="kvalitetskontroll"></mdui-switch>
+							</div>
 						</div>
 					</div>
 					<div class="s12">
@@ -525,14 +547,16 @@
 							<mdui-menu-item value="4">...</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6 pt-xs">
+					<div class="s12 m6">
 						<!-- DRIFTTIDSMÄTARE -->
-						<span class="switch-label">Drifttidsmätare</span>
-						<mdui-tooltip variant="rich" content="Förklaring till drifttidsmätare">
-							<mdui-icon class="tooltip" name="help"></mdui-icon>
-						</mdui-tooltip>
-						<div style="float: right; line-height: 0;">
-							<mdui-switch id="switch-drifttidsmatare" name="switch-drifttidsmatare"></mdui-switch>
+						<div class="switch-wrapper">
+							<div class="text">
+								<div class="switch-label">Drifttidsmätare</div>
+								<div class="switch-helper"></div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-dtm" name="dtm"></mdui-switch>
+							</div>
 						</div>
 					</div>
 					<div class="s12 m6">

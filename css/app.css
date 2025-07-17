@@ -315,10 +315,10 @@ mdui-checkbox.with-tooltip {
 	vertical-align: middle;
 }
 
-
 .switch-container {
 	padding: calc(var(--app-space) / 2) 0;
 }
+
 .checkbox-container {
 	background-color: yellow;
 	height: 48px;
@@ -329,22 +329,56 @@ mdui-checkbox.with-tooltip {
 	margin-bottom: var(--app-space);
 }
 
-@media only screen and (min-width: 1281px) {
-	/* grid class XL active */
-	#xxx-checkbox-ht,
-	#xxx-checkbox-upphandlad {
-		padding: 8px 0;
-	}
+.switch-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+	margin-bottom: var(--app-space);
+}
+.switch-wrapper .text {
+	display: block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+}
+.switch-wrapper .switch {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	padding-left: var(--app-space);
 }
 
-
-span.switch-label {
+div.switch-label {
 	color: rgb(var(--mdui-color-on-surface));
-	font-size: var(--mdui-typescale-label-large-size);
-	font-weight: var(--mdui-typescale-label-large-weight);
-	letter-spacing: var(--mdui-typescale-label-large-tracking);
-	line-height: 2.5rem;
+	/*
+	font-size: var(--mdui-typescale-title-medium-size);
+	font-weight: var(--mdui-typescale-label-medium-weight);
+	letter-spacing: var(--mdui-typescale-label-medium-tracking);
+	line-height: var(--mdui-typescale-body-medium-line-height);
+	*/
+	font-size: var(--mdui-typescale-body-large-size);
+	font-weight: var(--mdui-typescale-body-large-weight);
+	letter-spacing: var(--mdui-typescale-body-large-tracking);
+	line-height: var(--mdui-typescale-body-large-line-height);
 }
+
+div.switch-helper {
+	color: rgb(var(--mdui-color-on-surface-variant));
+	font-size: var(--mdui-typescale-body-small-size);
+	font-weight: var(--mdui-typescale-body-small-weight);
+	letter-spacing: var(--mdui-typescale-body-small-tracking);
+	line-height: var(--mdui-typescale-body-small-line-height);
+}
+
+
 
 .center-aligned { text-align: center; }
 .right-aligned { text-align: right; }
