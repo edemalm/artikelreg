@@ -63,30 +63,42 @@ $(document).ready(function() {
 	// 3. Grundläggande parametrar
 
 	// mdui-select #select-artikelansvar changes
+	var artikelansvar = '';
 	$('#select-artikelansvar').on('change', function() {
 		console.log('mdui-select #select-artikelansvar changed');
-		let artikelansvar = this.value;
-		console.log('Selected artikelansvar: ' + artikelansvar );
-		$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', false); // clear and enable
-		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
+		// reset everything
+		$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', true); // clear and enable
 		$('#select-debiteringsform').val('').attr('selected', false).attr('disabled', true); // clear and disable
+		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
 		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		$('#select-avskrivningstid').val('').attr('selected', false).attr('disabled', true); // clear and disable
+		$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+
+		artikelansvar = this.value;
+		console.log('Selected artikelansvar: ' + artikelansvar );
+		if ( artikelansvar == '' ) {
+			// nothing selected
+			$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', true); // clear and disable
+		} else {
+			// something selected
+			$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', false); // clear and enable
+		}
 		if ( artikelansvar == 'L' ) {
+			// landsting och kommun
 			$('#select-debiteringsform').val('').attr('disabled', true); // clear and disable
 		}
 		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
+			// retursortiment eller egenansvar
 			$('#artikeltyp-menu-item-r').attr('disabled', true); // disable
 			$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
 		} else {
 			$('#artikeltyp-menu-item-r').attr('disabled', false); // enable
 		}
 		if ( artikelansvar == 'S' ) {
+			// syncentralen
 			$('#select-team').val('40').attr('disabled', true); // select '40' and disable
 		} else {
 			$('#select-team').val('').attr('disabled', false); // clear and enable
-			$('#text-avd').val(''); // clear	
-	}
+		}
 
 	});
 
@@ -94,42 +106,92 @@ $(document).ready(function() {
 	let artikeltyp = '';
 	$('#select-artikeltyp').on('change', function() {
 		console.log('mdui-select #select-artikeltyp changed');
+		// reset
+		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
+		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
+		$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+
 		artikeltyp = this.value;
 		console.log('Selected artikeltyp: ' + artikeltyp );
-		if ( artikeltyp == 'H' ) {
-			// $('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
-			$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+		if ( artikelansvar == 'L' || artikelansvar == 'S' ) {
+			// landsting och kommun, eller syncentralen
+			if ( artikeltyp == 'H' || artikeltyp == 'T' ) {
+				$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+			}
+			if ( artikeltyp == 'R' ) {
+				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+
+			}
 		}
-		if ( artikeltyp == 'T' ) {
-			$('#switch-individmarkt').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+
+		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
+			// retursortiment eller egenansvar
+			if ( artikeltyp == 'H' ) {
+				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+				$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
+			}
+			if ( artikeltyp == 'T' ) {
+				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+				$('#switch-individmarkt').attr('checked', false).attr('disabled', true); // uncheck and disable
+			}
 		}
-		if ( artikeltyp == 'R' ) {
-			$('#switch-individmarkt').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+
+		if ( artikelansvar == 'S' ) {
+			$('#select-team').val('40').attr('disabled', true); // select '40' and disable
 		}
-		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 	});
 
 	// mdui-select #select-debiteringsform changes
-	let debiteringsform = '';
+	var debiteringsform = '';
 	$('#select-debiteringsform').on('change', function() {
 		console.log('mdui-select #select-debiteringsform changed');
 		debiteringsform = this.value;
 		console.log('Selected debiteringsform: ' + debiteringsform );
+
+		if ( artikelansvar == 'L' || artikelansvar == 'S' ) {
+			// landsting och kommun, eller syncentralen
+			if ( artikeltyp == 'H' ) {
+				if ( debiteringsform == 'M' ) {
+					$('#switch-individmarkt').attr('checked', true).attr('disabled', true); // check and disable
+					$('#switch-inventarie').attr('checked', true).attr('disabled', true); // check and disable
+					$('#radio-avskrivningstid').val('').attr('disabled', false); // clear and enable
+				}
+				if ( debiteringsform == 'A' ) {
+					$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
+					$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
+					$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+				}
+
+			}
+			if ( artikeltyp == 'T' ) {
+			}
+			if ( artikeltyp == 'R' ) {
+			}
+		}
+
+		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
+			// retursortiment eller egenansvar
+			if ( artikeltyp == 'H' ) {
+			}
+			if ( artikeltyp == 'T' ) {
+			}
+		}
+
+
+		/*
 		if ( artikeltyp == 'H' && debiteringsform == 'M' ) {
 			$('#switch-individmarkt').attr('checked', true).attr('disabled', true); // check and disable
-			$('#switch-inventarie').attr('checked', true).attr('disabled', true); // check and disable
-			$('#select-avskrivningstid').val('').attr('disabled', false); // clear and enable
 		}
 		if ( artikeltyp == 'H' && debiteringsform == 'A' ) {
 			$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
 			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
 			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
+		*/
+
 	});
 
+	/*
 	// mdui-switch #switch-individmarkt changes
 	let individmarkt = '';
 	$('#switch-individmarkt').on('change', function() {
@@ -163,7 +225,7 @@ $(document).ready(function() {
 		avskrivningstid = this.value;
 		console.log('Selected avskrivningstid: ' + avskrivningstid );
 	});
-
+	*/
 
 
 

@@ -332,18 +332,20 @@
 					</div>
 					<div class="s12">
 						<!-- AVSKRIVNINGSTID -->
-						<mdui-select id="select-avskrivningstid"
-							end-icon="arrow_drop_down"
-							label="Avskrivningstid"
-							name="avskrivningstid"
-							variant="outlined"
-							disabled required>
-							<mdui-menu-item value="3 år">3 år</mdui-menu-item>
-							<mdui-menu-item value="5 år">5 år</mdui-menu-item>
-						</mdui-select>
+						<div class="radio-wrapper">
+							<div class="text">
+								<div class="radio-label">Avskrivningstid</div>
+								<div class="radio-helper">Välj inventariens avskrivningstid</div>
+							</div>
+							<div class="radio">
+								<mdui-radio-group id="radio-avskrivningstid" disabled>
+									<mdui-radio value="3">3 år</mdui-radio>
+									<mdui-radio value="5">5 år</mdui-radio>
+								</mdui-radio-group>
+							</div>
+						</div>
 					</div>
 				</div>
-
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="people"></mdui-icon>4. Ansvarigt team</h4>
@@ -441,7 +443,7 @@
 				</div><!-- .row -->
 			</div>
 			<!-- KOLUMN 2 -->
-			<div class="s12 l6 mb-a">
+			<div class="s12 l6">
 				<div class="row elevated">
 					<div class="s12">
 						<h4><mdui-icon name="warehouse"></mdui-icon>6. Lagerhållning</h4>
@@ -568,7 +570,7 @@
 					<div class="s12">
 						<!-- INTERN KUNDORDERINFO -->
 						<mdui-text-field id="textarea-iki-text"
-							helper="Ange en kortfattat text som visas som en informationssymol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
+							helper="Ange en kortfattat text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
 							label="Intern kundorderinformation"
 							name="kk"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
@@ -591,9 +593,9 @@
 			</div>
 		</div><!-- .row -->
 		<div class="row">
-			<div class="s12 mt-a flat right-aligned">
+			<div class="s12 p-a" style="display: flex; justify-content: flex-end; align-items: center; ">
 				<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
-				<mdui-button id="button-submit-form" class="ml-a" variant="filled" end-icon="arrow_forward">Skicka artikeluppgifter</mdui-button>
+				<mdui-button id="button-submit-form" class="ml-a" variant="filled" end-icon="arrow_forward">Skicka underlag</mdui-button>
 			</div>
 		</div><!-- .row -->
 	</form></div><!-- .content-wrapper -->

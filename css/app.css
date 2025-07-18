@@ -327,7 +327,8 @@ mdui-checkbox.with-tooltip {
 	margin-bottom: var(--app-space);
 }
 
-.switch-wrapper {
+.switch-wrapper,
+.radio-wrapper {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -336,7 +337,8 @@ mdui-checkbox.with-tooltip {
 	align-content: stretch;
 	margin-bottom: var(--app-space);
 }
-.switch-wrapper .text {
+.switch-wrapper .text,
+.radio-wrapper .text {
 	display: block;
 	flex-grow: 1;
 	flex-shrink: 1;
@@ -344,7 +346,8 @@ mdui-checkbox.with-tooltip {
 	align-self: auto;
 	order: 0;
 }
-.switch-wrapper .switch {
+.switch-wrapper .switch,
+.radio-wrapper .radio {
 	display: block;
 	flex-grow: 0;
 	flex-shrink: 1;
@@ -354,7 +357,8 @@ mdui-checkbox.with-tooltip {
 	padding-left: var(--app-space);
 }
 
-div.switch-label {
+div.switch-label,
+div.radio-label {
 	color: rgb(var(--mdui-color-on-surface));
 	/*
 	font-size: var(--mdui-typescale-title-medium-size);
@@ -369,7 +373,8 @@ div.switch-label {
 	line-height: 2;
 }
 
-div.switch-helper {
+div.switch-helper,
+div.radio-helper {
 	color: rgb(var(--mdui-color-on-surface-variant));
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
