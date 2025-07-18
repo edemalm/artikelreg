@@ -377,6 +377,11 @@ div.switch-helper {
 	line-height: var(--mdui-typescale-body-small-line-height);
 }
 
+#button-submit-form {
+	font-size: 1.375rem;
+	font-weight: 400;
+	height: 3.5rem;
+}
 
 
 .center-aligned { text-align: center; }

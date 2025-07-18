@@ -1,3 +1,4 @@
+/*
 :root {
 	--mdui-color-primary-light: 78,91,146;
 	--mdui-color-surface-tint-color-light: 78,91,146;
@@ -75,6 +76,7 @@
 	--mdui-color-surface-container-high-dark: 41,42,47;
 	--mdui-color-surface-container-highest-dark: 52,52,58;
 }
+*/
 
 mdui-navigation-drawer,
 mdui-top-app-bar {
