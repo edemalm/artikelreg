@@ -82,6 +82,7 @@ mdui-navigation-drawer,
 mdui-top-app-bar {
 	position: fixed !important;
 }
+
 /*
 mdui-navigation-drawer::part(panel) {
 	backdrop-filter: blur(1rem);
@@ -127,7 +128,10 @@ mdui-tooltip[variant=rich]::part(content) {
 	line-height: var(--mdui-typescale-body-small-line-height);
 }
 
+/* make label background on outlined text fields match background */
+/*
 .elevated mdui-text-field,
 .elevated mdui-select {
-	--mdui-color-background: var(--mdui-color-surface-container-low);
+	--mdui-color-background: var(--mdui-color-surface-container);
 }
+*/

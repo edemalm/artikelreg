@@ -63,14 +63,15 @@ $(document).ready(function() {
 	// 3. Grundläggande parametrar
 
 	// mdui-select #select-artikelansvar changes
-	var artikelansvar = '';
 	$('#select-artikelansvar').on('change', function() {
 		console.log('mdui-select #select-artikelansvar changed');
 		// reset everything
 		$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', true); // clear and enable
 		$('#select-debiteringsform').val('').attr('selected', false).attr('disabled', true); // clear and disable
 		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
+		individmarkt = "Nej";
 		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
+		inventarie = "Nej";
 		$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
 
 		artikelansvar = this.value;
@@ -103,13 +104,14 @@ $(document).ready(function() {
 	});
 
 	// mdui-select #select-artikeltyp changes
-	let artikeltyp = '';
 	$('#select-artikeltyp').on('change', function() {
 		console.log('mdui-select #select-artikeltyp changed');
 		// reset
 		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
+		individmarkt = "Nej";
 		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+		inventarie = "Nej";
+		$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear, disable and not required
 
 		artikeltyp = this.value;
 		console.log('Selected artikeltyp: ' + artikeltyp );
@@ -129,10 +131,12 @@ $(document).ready(function() {
 			if ( artikeltyp == 'H' ) {
 				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
 				$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
+				individmarkt = "Nej";
 			}
 			if ( artikeltyp == 'T' ) {
 				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
 				$('#switch-individmarkt').attr('checked', false).attr('disabled', true); // uncheck and disable
+				individmarkt = "Nej";
 			}
 		}
 
@@ -142,7 +146,6 @@ $(document).ready(function() {
 	});
 
 	// mdui-select #select-debiteringsform changes
-	var debiteringsform = '';
 	$('#select-debiteringsform').on('change', function() {
 		console.log('mdui-select #select-debiteringsform changed');
 		debiteringsform = this.value;
@@ -153,13 +156,17 @@ $(document).ready(function() {
 			if ( artikeltyp == 'H' ) {
 				if ( debiteringsform == 'M' ) {
 					$('#switch-individmarkt').attr('checked', true).attr('disabled', true); // check and disable
+					individmarkt = "Ja";
 					$('#switch-inventarie').attr('checked', true).attr('disabled', true); // check and disable
-					$('#radio-avskrivningstid').val('').attr('disabled', false); // clear and enable
+					inventarie = "Ja";
+					$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and required
 				}
 				if ( debiteringsform == 'A' ) {
 					$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
+					individmarkt = "Nej";
 					$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-					$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+					inventarie = "Nej";
+					$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
 				}
 
 			}
@@ -191,13 +198,12 @@ $(document).ready(function() {
 
 	});
 
-	/*
 	// mdui-switch #switch-individmarkt changes
-	let individmarkt = '';
 	$('#switch-individmarkt').on('change', function() {
 		console.log('mdui-switch #switch-individmarkt changed');
 		individmarkt = (this.checked === true) ? 'Ja' :'Nej';
 		console.log('Switch individmärkt: ' + individmarkt );
+		/*
 		if ( artikeltyp == 'H' && individmarkt == 'Ja' ) {
 			$('#select-debiteringsform').attr('disabled', false); // enable
 			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
@@ -208,53 +214,53 @@ $(document).ready(function() {
 			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
 			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
+		*/
 	});
 
 	// mdui-switch #switch-inventarie changes
-	let inventarie = '';
 	$('#switch-inventarie').on('change', function() {
 		console.log('mdui-switch #switch-inventarie changed');
 		inventarie = (this.checked === true) ? 'Ja' :'Nej';
 		console.log('Switch inventarie: ' + inventarie );
 	});
 
-	// mdui-select #select-avskrivningstid changes
-	let avskrivningstid = '';
-	$('#select-avskrivningstid').on('change', function() {
-		console.log('mdui-select #select-avskrivningstid changed');
+	// mdui-select #raio-avskrivningstid changes
+	$('#radio-avskrivningstid').on('change', function() {
+		console.log('mdui-radio #radio-avskrivningstid changed');
 		avskrivningstid = this.value;
 		console.log('Selected avskrivningstid: ' + avskrivningstid );
 	});
-	*/
 
 
 
 	// 4. Ansvarigt team
 
 	// mdui-select #select-team changes
-	let team = '';
 	$('#select-team').on('change', function() {
 		console.log('mdui-select #select-team changed');
 		team = this.value;
 		console.log('Selected team: ' + team );
-		/*
 		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
 			console.log('Avdelning: Rörelse');
-			$('#text-avd').val('Rörelse');
+			avd = 'R';
+			avdelning = 'Rörelse';
 		}
 		if ( team == '05' ) {
 			console.log('Avdelning: KLOK');
-			$('#text-avd').val('KLOK');
+			avd = 'K';
+			avdelning = 'KLOK';
 		}
 		if ( team == '07' ) {
 			console.log('Avdelning: PMB');
-			$('#text-avd').val('PMB');
+			avd = 'PMB';
+			avdelning = 'PMB';
 		}
 		if ( team == '40' ) {
 			console.log('Avdelning: Syncentralen');
-			$('#text-avd').val('Syncentralen');
+			avd = 'S';
+			avdelning = 'Syncentralen';
 		}
-		*/
+		// uppföljningsorsaker
 		if ( team == '02' || team == '03' ) {
 			$('#switch-uppfoljning').attr('disabled', false);
 		} else {
@@ -306,9 +312,11 @@ $(document).ready(function() {
 		console.log('mdui-switch #switch-ws-sort changed');
 		if ($('#switch-ws-sort').prop("checked")) {
 			// on
+			sortimentsartikel = "Ja";
 			$('#ws-sort-helper').html('Artikeln ingår i ordinarie sortiment och visas vid artikelsökning');
 		} else {
 			// off
+			sortimentsartikel = "Nej";
 			$('#ws-sort-helper').html('Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsöknig');
 		}
 	});

@@ -4,6 +4,17 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 	console.log('window.location.protocol: ' + window.location.protocol);
 
+	var artikeldata = '';
+	var artikelansvar = '';
+	var avd = '';
+	var avdelning = '';
+	var avskrivningstid = '';
+	var debiteringsform = '';
+	var individmarkt = '';
+	var inventarie = '';
+	var sortimentsartikel = '';
+	var team = '';
+
 	// Debug
 	if (/\bCrOS\b/.test(navigator.userAgent)) {
 		// Only for ChromeOS :)
@@ -15,7 +26,7 @@ $(document).ready(function() {
 	}
 
 	// Global variables
-	var update = '2025-07-17 v2';
+	var update = '2025-07-21';
 
 	const d = new Date();
 	let month = d.getMonth();
@@ -104,16 +115,26 @@ $(document).ready(function() {
 		$('#dialog-info').removeAttr('open');
 	});
 
-	// Catch the "open" event of <mdui-collapse-item>
-	$('.menu-collapse-item').on('open', function() {
-		console.log('The open event fired on .menu-collapse-item');
-		$('#menu-group-arrow').attr('name', 'keyboard_arrow_up')
+	// Catch the "open" event of <mdui-collapse-item> #menu-collapse-group1
+	$('#menu-collapse-group1').on('open', function() {
+		console.log('The open event fired on #menu-collapse-group1');
+		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_up')
+	});
+	// Catch the "open" event of <mdui-collapse-item> #menu-collapse-group2
+	$('#menu-collapse-group2').on('open', function() {
+		console.log('The open event fired on #menu-collapse-group2');
+		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_up')
 	});
 
-	// Catch the "close" event of <mdui-collapse-item>
-	$('.menu-collapse-item').on('close', function() {
-		console.log('The close event fired on .menu-collapse-item');
-		$('#menu-group-arrow').attr('name', 'keyboard_arrow_down')
+	// Catch the "close" event of <mdui-collapse-item> #menu-collapse-group1
+	$('#menu-collapse-group1').on('close', function() {
+		console.log('The close event fired on #menu-collapse-group1');
+		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_down')
+	});
+	// Catch the "close" event of <mdui-collapse-item> #menu-collapse-group2
+	$('#menu-collapse-group2').on('close', function() {
+		console.log('The close event fired on #menu-collapse-group2');
+		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
 	});
 
 	$('#menu-formular, .button-back-to-form').click(function() {

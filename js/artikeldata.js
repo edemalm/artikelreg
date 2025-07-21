@@ -3,8 +3,7 @@ $(document).ready(function() {
 	console.log('DOM ready');
 	console.log('Loading artikeldata.js');
 
-	// populate 'artikeldata' variable
-	var artikeldata = '';
+	/*
 	var s1  = ' '; // Non-breaking invisible space: Ctrl+Shift+U, 00a0, Enter
 	var s2  = '  ';
 	var s3  = '   ';
@@ -15,11 +14,7 @@ $(document).ready(function() {
 	var s8  = '        ';
 	var s9  = '         ';
 	var s10 = '          ';
-
-	var headertext = "Hej!\n\nHär är uppgifter för upplägg av ny artikel i Sesam.\n\n";
-	var footertext = "Innan du skickar detta mejl, vänligen gör följande:\n\n";
-	footertext += "1. Markera all text (Ctrl+A)\n";
-	footertext += "2. Byt till teckensnitt Consolas";
+	*/
 
 	// https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
 	// https://jsfiddle.net/edelman/KcX6A/1506/
@@ -41,31 +36,27 @@ $(document).ready(function() {
 	$('#form-artikeldata').submit(function(event) {
 		console.log('form #form-artikeldata submitted');
 
-		console.log('default submit action cancelled');
+		// Cancel default browser submit action
 		event.preventDefault();
 
+		// Leverantör + lev. art.nr.
+		artikeldata += "LEVERANTÖR OCH ART.NR.\n";
+		artikeldata += $('#text-leverantor').val() + "\n";
+		artikeldata += $('#text-levartnr').val() + "\n\n";
+
+		// Hjälpmedelstjänsten + upphandlad
+		artikeldata += ( $('#checkbox-ht').attr('checked')? "Artikeln finns i Hjälpmedelstjänsten." : "Artikel saknas tyvärr i Hjälpmedelstjänsten." );
+		artikeldata += ( $('#checkbox-upphandlad').attr('checked')? " Artikeln är upphandlad." : " Artikeln är inte upphandlad." );
+		artikeldata += "\n\n";
+
 		// Mallartikel
-		artikeldata += s5 + "Mallartikel:  ";
-		switch ($('#text-avd').val()) {
-			case 'Rörelse': artikeldata += 'R'; break;
-			case 'KLOK': artikeldata += 'K'; break;
-			case 'PMB': artikeldata += 'P'; break;
-			case 'Syncentralen': artikeldata += 'S'; break;
-		}
-		switch ($('#select-artikeltyp').val()) {
-			case 'H': artikeldata += 'H'; break;
-			case 'T': artikeldata += 'T'; break;
-			case 'R': artikeldata += 'R'; break;
-		}
-		artikeldata += " (baserat på valda uppgifter - kontrollera!)\n\n";
-		artikeldata += "ARTIKELDATA\n";
-		artikeldata += "-----------\n\n";
+		artikeldata += "Beräknad mallartikel: " + avd + artikeltyp + " (kontrollera!)\n\n";
 
 		// Artikelbenämning
-		artikeldata += "Artikelbenämning:  " + $('#text-artikelbenamning').val() + "\n";
+		artikeldata += "ARTIKELBENÄMNING\n" + $('#text-artikelbenamning').val() + "\n\n";
 
 		// Artikeltyp
-		artikeldata += s6 + "Artikeltyp:  ";
+		artikeldata += "ARTIKELTYP\n";
 		switch ($('#select-artikeltyp').val()) {
 			case 'H':
 				artikeldata += 'Huvudhjälpmedel'; break;
@@ -74,10 +65,10 @@ $(document).ready(function() {
 			case 'R':
 				artikeldata += 'Reservdel'; break;
 		}
-		artikeldata += "\n";
+		artikeldata += "\n\n";
 
 		// Artikelansvar
-		artikeldata += s3 + "Artikelansvar:  " + $('#select-artikelansvar').val() + " ";
+		artikeldata += "ARTIKELANSVAR\n" + $('#select-artikelansvar').val() + " ";
 		switch ($('#select-artikelansvar').val()) {
 			case 'L':
 				artikeldata += "(Region och kommun)"; break;
@@ -88,44 +79,44 @@ $(document).ready(function() {
 			case 'S':
 				artikeldata += "(Syncentralen)"; break;
 		}
-		artikeldata += "\n";
+		artikeldata += "\n\n";
 
 		// Konteringsgrupp
-		artikeldata += s1 + "Konteringsgrupp:  (ej klart)\n";
+		artikeldata += "KONTERINGSGRUPP\n";
+
+		if ( artikeltyp == 'H' && debiteringsform == 'M' && individmarkt == 'Ja' && inventarie == 'Ja'  ) {
+			artikeldata += avd + "I" + avskrivningstid + " (" + avdelning + ", " + avskrivningstid + " års avskrivningstid)\n\n"; 
+		}
 
 		// Sektor
-		artikeldata += s10 + "Sektor:  " + $('#select-team').val() + "\n\n";
+		artikeldata += "SEKTOR\n" + $('#select-team').val() + " (team)\n\n";
 	
+		// Klassning
+		artikeldata += "KLASSIFICERING\n";
+		artikeldata += "Ingår i sortiment: " + ($('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
+		artikeldata += "\n\n";
+
 		// Produktnamn
-		artikeldata += 'Huvudproduktnamn:  ' + $('#text-produktnamn').val() + "\n";
-		if ( $('#text-produktnamn2').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn2').val() + "\n";
-		if ( $('#text-produktnamn3').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn3').val() + "\n";
-		if ( $('#text-produktnamn4').val() ) artikeldata += 'Extra produktnamn:  ' + $('#text-produktnamn4').val() + "\n";
-
-		// Leverantör
+		artikeldata += "PRODUKT\n" + $('#text-produktnamn').val();
+		if ( $('#text-produktnamn2').val() ) {
+			artikeldata += " (huvudprodukt)\n" + $('#text-produktnamn2').val();
+		}
 		artikeldata += "\n";
-		artikeldata += s6 + 'Leverantör:  ' + $('#text-leverantor').val() + "\n";
-
-		// Leverantörens artikelnummer
-		artikeldata += s4 + 'Lev. art.nr.:  ' + $('#text-levartnr').val() + "\n";
-
-		// Upphandlad
+		if ( $('#text-produktnamn3').val() ) artikeldata += $('#text-produktnamn3').val() + "\n";
+		if ( $('#text-produktnamn4').val() ) artikeldata += $('#text-produktnamn4').val() + "\n";
 		artikeldata += "\n";
-		artikeldata += s6 + 'Upphandlad:  ' + ( $('#checkbox-upphandlad').attr('checked')? 'Ja' : 'Nej' ) + "\n";
 
-		// Hjälpmedelstjänsten
-		artikeldata += s6 + 'Finns i HT:  ' + ( $('#checkbox-ht').attr('checked')? 'Ja' : 'Nej' ) + "\n";
-
-		// Add artikeldata to #textarea-artikeldata
-		$('#textarea-artikeldata').html(artikeldata);
+		// Add artikeldata to #div-artikeldata
+		$('#div-artikeldata').html('<pre>' + artikeldata + '</pre>');
 
 		// Prepare encoded email body
-		var encodedArtikeldata = encodeURIComponent(headertext + artikeldata + footertext);
+		var encodedArtikeldata = encodeURIComponent(artikeldata);
 		console.log('encodedArtikeldata = ' + encodedArtikeldata);
 
 		// Update href mailto link
 		var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
-		var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent('Upplägg av ny artikel i Sesam') + '&body=' + encodedArtikeldata;
+		// var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent('Upplägg av ny artikel i Sesam') + '&body=' + encodedArtikeldata;
+		var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent('Upplägg av ny artikel i Sesam');
 		$('#button-send-email').attr('href', hrefcontent).attr('rel', 'external').attr('target', '_blank');
 
 		/* Change page */
@@ -134,11 +125,18 @@ $(document).ready(function() {
 
 	});
 
+	// mdui-button #button-show-artikeldata clicked
+	$('#button-show-artikeldata').click(function() {
+		$('#button-show-artikeldata').addClass('hidden');
+		$('#div-artikeldata').removeClass('hidden');
+	});
+
+
 	$('#button-copy-artikeldata').click(function() {
 		console.log('#button-copy-artikeldata clicked');
 		// $('#textarea-artikeldata').selectText();
 		// document.execCommand('copy');
-		navigator.clipboard.writeText(headertext + artikeldata + footertext);
+		navigator.clipboard.writeText(artikeldata);
 		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
 	});
 
