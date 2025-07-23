@@ -85,7 +85,8 @@ body {
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 	-webkit-tap-highlight-color: transparent;
 	background-attachment: fixed;
-	background-color: rgb(var(--mdui-color-surface-bright));
+	/* background-color: rgb(var(--mdui-color-surface-bright)); */
+	background-color: rgb(var(--mdui-color-background));
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -99,91 +100,102 @@ body {
 }
 
 
+@media screen and (min-width: 1025px) {
+	.winter-0 { background-image: url('/img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
+	.winter-1 { background-image: url('/img/bg/winter/birger-strahl-6YZgnYaPD5s-unsplash.jpg') }
+	.winter-2 { background-image: url('/img/bg/winter/galina-n-AgWVcQz1bOA-unsplash.jpg') }
+	.winter-3 { background-image: url('/img/bg/winter/ian-schneider-gwF2mDy5lFQ-unsplash.jpg') }
+	.winter-4 { background-image: url('/img/bg/winter/joel-jasmin-forestbird-efuwb5eBDrI-unsplash.jpg') }
+	.winter-5 { background-image: url('/img/bg/winter/lucian-qxO2PBn7eKU-unsplash.jpg') }
+	.winter-6 { background-image: url('/img/bg/winter/pascal-debrunner-xT1oIYEucOU-unsplash.jpg') }
+	.winter-7 { background-image: url('/img/bg/winter/samsommer-vddccTqwal8-unsplash.jpg') }
+	.winter-8 { background-image: url('/img/bg/winter/simon-fitall-5ditmO9_ae0-unsplash.jpg') }
 
-.winter-0 { background-image: url('/img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
-.winter-1 { background-image: url('/img/bg/winter/birger-strahl-6YZgnYaPD5s-unsplash.jpg') }
-.winter-2 { background-image: url('/img/bg/winter/galina-n-AgWVcQz1bOA-unsplash.jpg') }
-.winter-3 { background-image: url('/img/bg/winter/ian-schneider-gwF2mDy5lFQ-unsplash.jpg') }
-.winter-4 { background-image: url('/img/bg/winter/joel-jasmin-forestbird-efuwb5eBDrI-unsplash.jpg') }
-.winter-5 { background-image: url('/img/bg/winter/lucian-qxO2PBn7eKU-unsplash.jpg') }
-.winter-6 { background-image: url('/img/bg/winter/pascal-debrunner-xT1oIYEucOU-unsplash.jpg') }
-.winter-7 { background-image: url('/img/bg/winter/samsommer-vddccTqwal8-unsplash.jpg') }
-.winter-8 { background-image: url('/img/bg/winter/simon-fitall-5ditmO9_ae0-unsplash.jpg') }
+	.spring-0 { background-image: url('/img/bg/spring/anders-jilden-O85h02qZ24w-unsplash.jpg') }
+	.spring-1 { background-image: url('/img/bg/spring/aniket-bhattacharya-CgyrwbE6Hm4-unsplash.jpg') }
+	.spring-2 { background-image: url('/img/bg/spring/ash-amplifies-NQ6Lh81BTRs-unsplash.jpg') }
+	.spring-3 { background-image: url('/img/bg/spring/biegun-wschodni-ZloDJXzcMGA-unsplash.jpg') }
+	.spring-4 { background-image: url('/img/bg/spring/braden-jarvis-prSogOoFmkw-unsplash.jpg') }
+	.spring-5 { background-image: url('/img/bg/spring/jenny-theolin-4OxOYLf59QE-unsplash.jpg') }
+	.spring-6 { background-image: url('/img/bg/spring/joshua-sortino-CTVGEm6V8qI-unsplash.jpg') }
+	.spring-7 { background-image: url('/img/bg/spring/rainhard-wiesinger-6ZVNBTvBLf4-unsplash.jpg') }
 
-.spring-0 { background-image: url('/img/bg/spring/anders-jilden-O85h02qZ24w-unsplash.jpg') }
-.spring-1 { background-image: url('/img/bg/spring/aniket-bhattacharya-CgyrwbE6Hm4-unsplash.jpg') }
-.spring-2 { background-image: url('/img/bg/spring/ash-amplifies-NQ6Lh81BTRs-unsplash.jpg') }
-.spring-3 { background-image: url('/img/bg/spring/biegun-wschodni-ZloDJXzcMGA-unsplash.jpg') }
-.spring-4 { background-image: url('/img/bg/spring/braden-jarvis-prSogOoFmkw-unsplash.jpg') }
-.spring-5 { background-image: url('/img/bg/spring/jenny-theolin-4OxOYLf59QE-unsplash.jpg') }
-.spring-6 { background-image: url('/img/bg/spring/joshua-sortino-CTVGEm6V8qI-unsplash.jpg') }
-.spring-7 { background-image: url('/img/bg/spring/rainhard-wiesinger-6ZVNBTvBLf4-unsplash.jpg') }
+	.summer-0 { background-image: url('/img/bg/summer/adriel-kloppenburg-S1XAf3JxOLI-unsplash.jpg') }
+	.summer-1 { background-image: url('/img/bg/summer/andrey-grinkevich-rIDE73mqi2s-unsplash.jpg') }
+	.summer-2 { background-image: url('/img/bg/summer/christian-widell-qWqj7_h0mxU-unsplash.jpg') }
+	.summer-3 { background-image: url('/img/bg/summer/claudio-testa--SO3JtE3gZo-unsplash.jpg') }
+	.summer-4 { background-image: url('/img/bg/summer/daiga-ellaby-YnNczu62rdk-unsplash.jpg') }
+	.summer-5 { background-image: url('/img/bg/summer/daniela-cuevas-t7YycgAoVSw-unsplash.jpg') }
+	.summer-6 { background-image: url('/img/bg/summer/hans-isaacson-FNS6mP4fsIs-unsplash.jpg') }
+	.summer-7 { background-image: url('/img/bg/summer/ken-cheung-KonWFWUaAuk-unsplash.jpg') }
+	.summer-8 { background-image: url('/img/bg/summer/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg') }
+	.summer-9 { background-image: url('/img/bg/summer/luca-micheli-r9RW20TrQ0Y-unsplash.jpg') }
+	.summer-10 { background-image: url('/img/bg/summer/marita-kavelashvili-ugnrXk1129g-unsplash.jpg') }
+	.summer-11 { background-image: url('/img/bg/summer/mateo-giraud-wtBex4wQw60-unsplash.jpg') }
+	.summer-12 { background-image: url('/img/bg/summer/nils-leonhardt-Tss1uOMczDg-unsplash.jpg') }
+	.summer-13 { background-image: url('/img/bg/summer/pedro-lastra-br-Xdb9KE0Q-unsplash.jpg') }
+	.summer-14 { background-image: url('/img/bg/summer/robin-mathlener-Jdem_eQTHTQ-unsplash.jpg') }
+	.summer-15 { background-image: url('/img/bg/summer/sean-oulashin-KMn4VEeEPR8-unsplash.jpg') }
+	.summer-16 { background-image: url('/img/bg/summer/tobias-rademacher-NuBvAE6VfSM-unsplash.jpg') }
 
-.summer-0 { background-image: url('/img/bg/summer/adriel-kloppenburg-S1XAf3JxOLI-unsplash.jpg') }
-.summer-1 { background-image: url('/img/bg/summer/andrey-grinkevich-rIDE73mqi2s-unsplash.jpg') }
-.summer-2 { background-image: url('/img/bg/summer/christian-widell-qWqj7_h0mxU-unsplash.jpg') }
-.summer-3 { background-image: url('/img/bg/summer/claudio-testa--SO3JtE3gZo-unsplash.jpg') }
-.summer-4 { background-image: url('/img/bg/summer/daiga-ellaby-YnNczu62rdk-unsplash.jpg') }
-.summer-5 { background-image: url('/img/bg/summer/daniela-cuevas-t7YycgAoVSw-unsplash.jpg') }
-.summer-6 { background-image: url('/img/bg/summer/hans-isaacson-FNS6mP4fsIs-unsplash.jpg') }
-.summer-7 { background-image: url('/img/bg/summer/ken-cheung-KonWFWUaAuk-unsplash.jpg') }
-.summer-8 { background-image: url('/img/bg/summer/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg') }
-.summer-9 { background-image: url('/img/bg/summer/luca-micheli-r9RW20TrQ0Y-unsplash.jpg') }
-.summer-10 { background-image: url('/img/bg/summer/marita-kavelashvili-ugnrXk1129g-unsplash.jpg') }
-.summer-11 { background-image: url('/img/bg/summer/mateo-giraud-wtBex4wQw60-unsplash.jpg') }
-.summer-12 { background-image: url('/img/bg/summer/nils-leonhardt-Tss1uOMczDg-unsplash.jpg') }
-.summer-13 { background-image: url('/img/bg/summer/pedro-lastra-br-Xdb9KE0Q-unsplash.jpg') }
-.summer-14 { background-image: url('/img/bg/summer/robin-mathlener-Jdem_eQTHTQ-unsplash.jpg') }
-.summer-15 { background-image: url('/img/bg/summer/sean-oulashin-KMn4VEeEPR8-unsplash.jpg') }
-.summer-16 { background-image: url('/img/bg/summer/tobias-rademacher-NuBvAE6VfSM-unsplash.jpg') }
+	.fall-0 { background-image: url('/img/bg/fall/becky-winner-mpREFER4w7w-unsplash.jpg') }
+	.fall-1 { background-image: url('/img/bg/fall/chad-madden-cPa-7yByq3o-unsplash.jpg') }
+	.fall-2 { background-image: url('/img/bg/fall/colton-sturgeon-EFQlS6SL9uw-unsplash.jpg') }
+	.fall-3 { background-image: url('/img/bg/fall/cristina-gottardi-ajYKLDAa9tQ-unsplash.jpg') }
+	.fall-4 { background-image: url('/img/bg/fall/daniel-foster-r2uZFQoarXM-unsplash.jpg') }
+	.fall-5 { background-image: url('/img/bg/fall/daniel-mirlea-dfuA04fz9yM-unsplash.jpg') }
+	.fall-6 { background-image: url('/img/bg/fall/daniel-sessler-z_9VmsxR8hs-unsplash.jpg') }
+	.fall-7 { background-image: url('/img/bg/fall/dave-hoefler-GVw2IB_xwII-unsplash.jpg') }
+	.fall-8 { background-image: url('/img/bg/fall/erica-li-qbNcIFPC3qc-unsplash.jpg') }
+	.fall-9 { background-image: url('/img/bg/fall/federica-galli-pF1ug8ysTtY-unsplash.jpg') }
+	.fall-10 { background-image: url('/img/bg/fall/freestocks-ZArDeAtxj0Q-unsplash.jpg') }
+	.fall-11 { background-image: url('/img/bg/fall/jeremy-thomas-O6N9RV2rzX8-unsplash.jpg') }
+	.fall-12 { background-image: url('/img/bg/fall/jeremy-thomas-Qw2CUd_9OWo-unsplash.jpg') }
+	.fall-13 { background-image: url('/img/bg/fall/johannes-plenio-a72o8w9HC2w-unsplash.jpg') }
+	.fall-14 { background-image: url('/img/bg/fall/johannes-plenio-RwHv7LgeC7s-unsplash.jpg') }
+	.fall-15 { background-image: url('/img/bg/fall/johannes-plenio-UewgGfZgYj0-unsplash.jpg') }
+	.fall-16 { background-image: url('/img/bg/fall/john-jennings-j4W0yavYZWA-unsplash.jpg') }
+	.fall-17 { background-image: url('/img/bg/fall/john-towner-89PFnHKg8HE-unsplash.jpg') }
+	.fall-18 { background-image: url('/img/bg/fall/katie-moum-DLNoV-SFQ-U-unsplash.jpg') }
+	.fall-19 { background-image: url('/img/bg/fall/monique-caraballo-apCZADUINlQ-unsplash.jpg') }
+	.fall-20 { background-image: url('/img/bg/fall/patrick-tomasso-5hvn-2WW6rY-unsplash.jpg') }
+	.fall-21 { background-image: url('/img/bg/fall/willian-justen-de-vasconcellos-T_Qe4QlMIvQ-unsplash.jpg') }
 
-.fall-0 { background-image: url('/img/bg/fall/becky-winner-mpREFER4w7w-unsplash.jpg') }
-.fall-1 { background-image: url('/img/bg/fall/chad-madden-cPa-7yByq3o-unsplash.jpg') }
-.fall-2 { background-image: url('/img/bg/fall/colton-sturgeon-EFQlS6SL9uw-unsplash.jpg') }
-.fall-3 { background-image: url('/img/bg/fall/cristina-gottardi-ajYKLDAa9tQ-unsplash.jpg') }
-.fall-4 { background-image: url('/img/bg/fall/daniel-foster-r2uZFQoarXM-unsplash.jpg') }
-.fall-5 { background-image: url('/img/bg/fall/daniel-mirlea-dfuA04fz9yM-unsplash.jpg') }
-.fall-6 { background-image: url('/img/bg/fall/daniel-sessler-z_9VmsxR8hs-unsplash.jpg') }
-.fall-7 { background-image: url('/img/bg/fall/dave-hoefler-GVw2IB_xwII-unsplash.jpg') }
-.fall-8 { background-image: url('/img/bg/fall/erica-li-qbNcIFPC3qc-unsplash.jpg') }
-.fall-9 { background-image: url('/img/bg/fall/federica-galli-pF1ug8ysTtY-unsplash.jpg') }
-.fall-10 { background-image: url('/img/bg/fall/freestocks-ZArDeAtxj0Q-unsplash.jpg') }
-.fall-11 { background-image: url('/img/bg/fall/jeremy-thomas-O6N9RV2rzX8-unsplash.jpg') }
-.fall-12 { background-image: url('/img/bg/fall/jeremy-thomas-Qw2CUd_9OWo-unsplash.jpg') }
-.fall-13 { background-image: url('/img/bg/fall/johannes-plenio-a72o8w9HC2w-unsplash.jpg') }
-.fall-14 { background-image: url('/img/bg/fall/johannes-plenio-RwHv7LgeC7s-unsplash.jpg') }
-.fall-15 { background-image: url('/img/bg/fall/johannes-plenio-UewgGfZgYj0-unsplash.jpg') }
-.fall-16 { background-image: url('/img/bg/fall/john-jennings-j4W0yavYZWA-unsplash.jpg') }
-.fall-17 { background-image: url('/img/bg/fall/john-towner-89PFnHKg8HE-unsplash.jpg') }
-.fall-18 { background-image: url('/img/bg/fall/katie-moum-DLNoV-SFQ-U-unsplash.jpg') }
-.fall-19 { background-image: url('/img/bg/fall/monique-caraballo-apCZADUINlQ-unsplash.jpg') }
-.fall-20 { background-image: url('/img/bg/fall/patrick-tomasso-5hvn-2WW6rY-unsplash.jpg') }
-.fall-21 { background-image: url('/img/bg/fall/willian-justen-de-vasconcellos-T_Qe4QlMIvQ-unsplash.jpg') }
+	.christmas-0 { background-image: url('/img/bg/christmas/annie-spratt-QKo-op_gR9I-unsplash.jpg') }
+	.christmas-1 { background-image: url('/img/bg/christmas/freestocks-r0eEDn1GAKw-unsplash.jpg') }
+	.christmas-2 { background-image: url('/img/bg/christmas/hert-niks-m3L1AStgkyw-unsplash.jpg') }
+	.christmas-3 { background-image: url('/img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
-.christmas-0 { background-image: url('/img/bg/christmas/annie-spratt-QKo-op_gR9I-unsplash.jpg') }
-.christmas-1 { background-image: url('/img/bg/christmas/freestocks-r0eEDn1GAKw-unsplash.jpg') }
-.christmas-2 { background-image: url('/img/bg/christmas/hert-niks-m3L1AStgkyw-unsplash.jpg') }
-.christmas-3 { background-image: url('/img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
-
-#filter-layer {
+	/*
 	backdrop-filter: blur(1rem);
 	background: linear-gradient(180deg,rgba(var(--mdui-color-scrim),0.1) 0%, rgba(var(--mdui-color-scrim),0.9) 100%);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	transition: all 0.5s;
-}
-#filter-layer.inactive {
-	backdrop-filter: none;
-	background: none;
-	transition: all 2s;
+	*/
+
+	#filter-layer {
+		backdrop-filter: blur(5px);
+		background: linear-gradient(180deg,rgba(var(--mdui-color-secondary),0.5) 0%, rgba(var(--mdui-color-secondary),1) 100%);
+		display: block;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		position: fixed;
+		transition: all 0.5s;
+	}
+	#filter-layer.inactive {
+		backdrop-filter: none;
+		background: none;
+		transition: all 2s;
+	}
+	#content-container.inactive {
+		opacity: 0%;
+		transition: all 2s;
+	}
+
 }
 
-#debug {
-	/* background-color: rgb(var(--mdui-color-background)); */
+#viewport {
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
 	letter-spacing: var(--mdui-typescale-body-small-tracking);
@@ -301,12 +313,10 @@ code, kbd, pre, samp, tt {
 }
 
 #content-container {
-	/* background-color: rgb(var(--mdui-color-background)); */
 	background-color: rgb(var(--mdui-color-surface-container));
-	/* box-shadow: var(--mdui-elevation-level1); */
 	transition: all 0.5s;
 	margin: 0 auto;
-	padding: 0;
+	padding: 0 0 var(--app-space) 0;
 }
 @media only screen and (min-width: 641px) {
 	#content-container {
@@ -322,10 +332,6 @@ code, kbd, pre, samp, tt {
 }
 
 
-#content-container.inactive {
-	opacity: 0%;
-	transition: all 2s;
-}
 
 .content-wrapper {
 	margin: 0;
@@ -501,8 +507,15 @@ div.radio-helper {
 
 div.controls {
 	display: flex;
-	padding-top: var(--app-space);
+	margin: var(--app-space);
 }
+@media only screen and (min-width: 641px) {
+	div.controls {
+		margin: var(--app-space) 0;
+	}
+}
+
+
 div.control-left {
 	align-self: center;
 	flex-grow: 1;

@@ -352,6 +352,24 @@ $(document).ready(function() {
 		$('mdui-dialog').removeAttr('open');
 	});
 
+	// 8. Service and underhåll
+
+	// mdui-switch #switch-dtm changes
+	$('#switch-dtm').on('change', function() {
+		console.log('mdui-switch #switch-dtm changed');
+		if ($('#switch-dtm').prop("checked")) {
+			// on
+			$('#dtm-helper').html('Artikeln har drifttidsmätare (enhet timmar)');
+		} else {
+			// off
+			$('#dtm-helper').html('Artikel har ej drifttidsmätare');
+		}
+	});
+
+
+
+
+
 	// Skicka artikeluppgifter
 
 	$('#button-submit-form').click(function() {

@@ -18,7 +18,7 @@ $(document).ready(function() {
 	// Debug
 	if (/\bCrOS\b/.test(navigator.userAgent)) {
 		// Only for ChromeOS :)
-		$('#debug').show();
+		$('.debug').removeClass('hidden');
 		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
@@ -63,7 +63,7 @@ $(document).ready(function() {
 	}
 
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 60000 });
+	$(document).inactivity( { timeout: 3000 });
 	$(document).on("activity", function() {
 		$('#filter-layer, #content-container').removeClass('inactive')
 	});
