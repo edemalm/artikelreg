@@ -4,6 +4,8 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 	console.log('window.location.protocol: ' + window.location.protocol);
 
+	// Global variables
+	var update = '2025-07-24';
 	var artikeldata = '';
 	var artikelansvar = '';
 	var avd = '';
@@ -15,6 +17,17 @@ $(document).ready(function() {
 	var sortimentsartikel = '';
 	var team = '';
 
+	/* Set theme class on html element, set icon on theme toggle button */
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		console.log('System prefers dark mode');
+		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
+		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
+	} else {
+		console.log('System prefers light mode');
+		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
+		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
+	}
+
 	// Debug
 	if (/\bCrOS\b/.test(navigator.userAgent)) {
 		// Only for ChromeOS :)
@@ -24,9 +37,6 @@ $(document).ready(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		});
 	}
-
-	// Global variables
-	var update = '2025-07-21';
 
 	const d = new Date();
 	let month = d.getMonth();
@@ -63,7 +73,7 @@ $(document).ready(function() {
 	}
 
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 3000 });
+	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
 		$('#filter-layer, #content-container').removeClass('inactive')
 	});
@@ -74,17 +84,6 @@ $(document).ready(function() {
 
 	// Set date in version
 	$('#version').html( 'Version ' + update );
-
-	/* Set theme class on html element, set icon on theme toggle button */
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		console.log('System prefers dark mode');
-		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
-		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
-	} else {
-		console.log('System prefers light mode');
-		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
-		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
-	}
 
 	// Update site links
 	var deploy1 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLnBhZ2VzLmRldg==');

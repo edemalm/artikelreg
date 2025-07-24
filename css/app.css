@@ -186,6 +186,7 @@ body {
 	#filter-layer.inactive {
 		backdrop-filter: none;
 		background: none;
+		opacity: 0%;
 		transition: all 2s;
 	}
 	#content-container.inactive {
