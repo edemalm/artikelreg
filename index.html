@@ -274,7 +274,7 @@
 							name="select-artikelansvar"
 							variant="outlined"
 							required>
-							<mdui-menu-item value="L" icon="local_hospital">Region och kommun</mdui-menu-item>
+							<mdui-menu-item value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
 							<mdui-menu-item value="R" icon="recycling">Retursortiment</mdui-menu-item>
 							<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
 							<mdui-menu-item value="S" icon="remove_red_eye">Syncentralen</mdui-menu-item>
@@ -314,19 +314,19 @@
 								<div class="switch-helper">Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-individmarkt" name="individmarkt" disabled></mdui-switch>
+								<mdui-switch id="switch-individartikel" name="individartikel" disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
 					<div class="s12">
-						<!-- INVENTARIE -->
+						<!-- INVENTARIUM -->
 						<div class="switch-wrapper">
 							<div class="text">
-								<div class="switch-label">Inventarie</div>
+								<div class="switch-label">Inventarium</div>
 								<div class="switch-helper">Ett individmärkt huvudhjälpmedel för uthyrning vars anskaffningskostnad fördelas under dess avskrivningstid på tre eller fem år</div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-inventarie" name="inventarie" disabled></mdui-switch>
+								<mdui-switch id="switch-inventarium" name="inventarium" disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -657,7 +657,7 @@
 		<p class="body-large">Skicka uppgifterna till inköpspersonalen. Gör så här:</p>
 		<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
 		<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-		<div id="div-artikeldata" class="debug hidden"></div>
+		<div id="div-artikeldata"></div>
 		<div class="controls">
 			<div class="control-left">
 				<mdui-button class="button-back-to-form large"

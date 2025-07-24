@@ -13,11 +13,15 @@ $(document).ready(function() {
 	window.avdelning = '(saknas)';
 	window.avskrivningstid = '(saknas)';
 	window.debiteringsform = '(saknas)';
-	window.individmarkt = '(saknas)';
-	window.inventarie = '(saknas)';
+	window.individartikel = '(saknas)';
+	window.inventarium = '(saknas)';
 	window.leverantor = '(saknas)';
 	window.sortimentsartikel = '(saknas)';
 	window.team = '(saknas)';
+	window.ws_bb = '(saknas)';
+	window.ws_pub = '(saknas)';
+	window.ws_komp = '(saknas)';
+	window.ws_sort = '(saknas)';
 
 	/* Set theme class on html element, set icon on theme toggle button */
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

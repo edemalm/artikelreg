@@ -26,8 +26,21 @@ $(document).ready(function() {
 		// Cancel default browser submit action
 		event.preventDefault();
 
+		artikelansvar = $('#select-artikelansvar').val();
+		artikelbenamning = $('#text-artikelbenamning').val();
+		artikeltyp = $('#select-artikeltyp').val();
+		avskrivningstid = $('#radio-avskrivningstid').val();
+		debiteringsform = $('#select-debiteringsform').val();
+		individmarkt = ($('#switch-individ').prop("checked") ? "Ja" : "Nej" );
+		inventarie = ($('#switch-inventarie').prop("checked") ? "Ja" : "Nej" );
 		leverantor = $('#text-leverantor').val();
 		levartnr = $('#text-levartnr').val();
+		team = $('#select-team').val();
+		dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
+		ws_bb = ($('#switch-ws-bb').prop("checked") ? "Ja" : "Nej" );
+		ws_komp = ($('#switch-komp').prop("checked") ? "Ja" : "Nej" );
+		ws_pub = ($('#switch-pub').prop("checked") ? "Ja" : "Nej" );
+		ws_sort = ( $('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
 
 		// Hjälpmedelstjänsten + upphandlad
 		artikeldata += "INFORMATION\n";
@@ -40,15 +53,16 @@ $(document).ready(function() {
 
 		// Leverantör + lev. art.nr.
 		artikeldata += "LEVERANTÖR OCH ART.NR.\n";
-		artikeldata += leverantor + "\n";
-		artikeldata += "Lev. art.nr.: " + levartnr + "\n\n";
+		artikeldata += leverantor + "\n" + levartnr + "\n\n";
 
 		// Artikelbenämning
-		artikeldata += "ARTIKELBENÄMNING\n" + $('#text-artikelbenamning').val() + "\n\n";
+		artikeldata += "ARTIKELBENÄMNING\n" + artikelbenamning + "\n\n";
+
+		artikeldata += "KLASSIFICERING\n";
 
 		// Artikeltyp
-		artikeldata += "ARTIKELTYP\n";
-		switch ($('#select-artikeltyp').val()) {
+		artikeldata += "Artikeltyp: ";
+		switch ( artikeltyp ) {
 			case 'H':
 				artikeldata += 'Huvudhjälpmedel'; break;
 			case 'T':
@@ -56,36 +70,50 @@ $(document).ready(function() {
 			case 'R':
 				artikeldata += 'Reservdel'; break;
 		}
-		artikeldata += "\n\n";
+		artikeldata += "\n";
 
 		// Artikelansvar
-		artikeldata += "ARTIKELANSVAR\n" + $('#select-artikelansvar').val() + " ";
-		switch ($('#select-artikelansvar').val()) {
+		artikeldata += "Artikelansvar: ";
+		switch ( artikelansvar ) {
 			case 'L':
-				artikeldata += "(Region och kommun)"; break;
+				artikeldata += "L (Region eller kommun)"; break;
 			case 'R':
-				artikeldata += "(Retursortiment)"; break;
+				artikeldata += "R (Retursortiment)"; break;
 			case 'E':
-				artikeldata += "(Egenansvar)"; break;
+				artikeldata += "E (Egenansvar)"; break;
 			case 'S':
-				artikeldata += "(Syncentralen)"; break;
+				artikeldata += "S (Syncentralen)"; break;
 		}
-		artikeldata += "\n\n";
+		artikeldata += "\n";
 
 		// Konteringsgrupp
-		artikeldata += "KONTERINGSGRUPP\n";
-
+		artikeldata += "Konteringsgrupp: ";
 		if ( artikeltyp == 'H' && debiteringsform == 'M' && individmarkt == 'Ja' && inventarie == 'Ja'  ) {
 			artikeldata += avd + "I" + avskrivningstid + " (" + avdelning + ", " + avskrivningstid + " års avskrivningstid)\n\n"; 
 		}
 
+		artikeldata += "Avskrivningsregel: " + avskrivningstid + " år\n";
+
 		// Sektor
-		artikeldata += "SEKTOR\n" + $('#select-team').val() + " (team)\n\n";
-	
-		// Klassning
-		artikeldata += "KLASSIFICERING\n";
-		artikeldata += "Ingår i sortiment: " + ($('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
-		artikeldata += "\n\n";
+		artikeldata += "Sektor: " + team + " (team)\n";
+
+		// Sortimentsartikel
+		artikeldata += "Ingår i sortimentet: " + ws_sort + "\n";
+
+		// Individartikel
+		artikeldata += "Individartikel: " + individartikel + "\n";
+
+		// Inventarium
+		artikeldata += "Inventarium: " + inventarium + "\n";
+
+		// Drifttidsmätare
+		artikeldata += "Drifttidsmätare: " + dtm;
+		artikeldata += (dtm == 'Ja' ? ' (enhet: timmar)' : '' ) + "\n\n";
+
+		// Artikelstatus
+		// if inköpshantering nettobehov, status = Ny else Aktiv
+
+		artikeldata += "INSTRUKTIONER\n";
 
 		// Produktnamn
 		artikeldata += "PRODUKT\n" + $('#text-produktnamn').val();

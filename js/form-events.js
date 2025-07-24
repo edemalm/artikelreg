@@ -68,10 +68,10 @@ $(document).ready(function() {
 		// reset everything
 		$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', true); // clear and enable
 		$('#select-debiteringsform').val('').attr('selected', false).attr('disabled', true); // clear and disable
-		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
-		individmarkt = "Nej";
-		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		inventarie = "Nej";
+		$('#switch-individartikel').attr('checked',false).attr('disabled', true); // uncheck and disable
+		individartikel = "Nej";
+		$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
+		inventarium = "Nej";
 		$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
 
 		artikelansvar = this.value;
@@ -107,10 +107,10 @@ $(document).ready(function() {
 	$('#select-artikeltyp').on('change', function() {
 		console.log('mdui-select #select-artikeltyp changed');
 		// reset
-		$('#switch-individmarkt').attr('checked',false).attr('disabled', true); // uncheck and disable
-		individmarkt = "Nej";
-		$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-		inventarie = "Nej";
+		$('#switch-individartikel').attr('checked',false).attr('disabled', true); // uncheck and disable
+		individartikel = "Nej";
+		$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
+		inventarium = "Nej";
 		$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear, disable and not required
 
 		artikeltyp = this.value;
@@ -130,13 +130,13 @@ $(document).ready(function() {
 			// retursortiment eller egenansvar
 			if ( artikeltyp == 'H' ) {
 				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-				$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
-				individmarkt = "Nej";
+				$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+				individartikel = "Nej";
 			}
 			if ( artikeltyp == 'T' ) {
 				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-				$('#switch-individmarkt').attr('checked', false).attr('disabled', true); // uncheck and disable
-				individmarkt = "Nej";
+				$('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
+				individartikel = "Nej";
 			}
 		}
 
@@ -155,17 +155,17 @@ $(document).ready(function() {
 			// landsting och kommun, eller syncentralen
 			if ( artikeltyp == 'H' ) {
 				if ( debiteringsform == 'M' ) {
-					$('#switch-individmarkt').attr('checked', true).attr('disabled', true); // check and disable
-					individmarkt = "Ja";
-					$('#switch-inventarie').attr('checked', true).attr('disabled', true); // check and disable
-					inventarie = "Ja";
+					$('#switch-individartikel').attr('checked', true).attr('disabled', true); // check and disable
+					individartikel = "Ja";
+					$('#switch-inventarium').attr('checked', true).attr('disabled', true); // check and disable
+					inventarium = "Ja";
 					$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and required
 				}
 				if ( debiteringsform == 'A' ) {
-					$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
-					individmarkt = "Nej";
-					$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
-					inventarie = "Nej";
+					$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+					individartikel = "Nej";
+					$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
+					inventarium = "Nej";
 					$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
 				}
 
@@ -187,41 +187,41 @@ $(document).ready(function() {
 
 		/*
 		if ( artikeltyp == 'H' && debiteringsform == 'M' ) {
-			$('#switch-individmarkt').attr('checked', true).attr('disabled', true); // check and disable
+			$('#switch-individartikel').attr('checked', true).attr('disabled', true); // check and disable
 		}
 		if ( artikeltyp == 'H' && debiteringsform == 'A' ) {
-			$('#switch-individmarkt').attr('checked', false).attr('disabled', false); // uncheck and enable
-			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
+			$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
 			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
 		*/
 
 	});
 
-	// mdui-switch #switch-individmarkt changes
-	$('#switch-individmarkt').on('change', function() {
-		console.log('mdui-switch #switch-individmarkt changed');
-		individmarkt = (this.checked === true) ? 'Ja' :'Nej';
-		console.log('Switch individmärkt: ' + individmarkt );
+	// mdui-switch #switch-individartikel changes
+	$('#switch-individartikel').on('change', function() {
+		console.log('mdui-switch #switch-individartikel changed');
+		individartikel = (this.checked === true) ? 'Ja' :'Nej';
+		console.log('Switch individmärkt: ' + individartikel );
 		/*
-		if ( artikeltyp == 'H' && individmarkt == 'Ja' ) {
+		if ( artikeltyp == 'H' && individartikel == 'Ja' ) {
 			$('#select-debiteringsform').attr('disabled', false); // enable
-			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
+			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
 			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
-		if ( artikeltyp == 'H' && individmarkt == 'Nej' ) {
+		if ( artikeltyp == 'H' && individartikel == 'Nej' ) {
 			$('#select-debiteringsform').val('A'); // select 'A'
-			$('#switch-inventarie').attr('checked', false).attr('disabled', true); // uncheck and disable
+			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
 			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
 		}
 		*/
 	});
 
-	// mdui-switch #switch-inventarie changes
-	$('#switch-inventarie').on('change', function() {
-		console.log('mdui-switch #switch-inventarie changed');
-		inventarie = (this.checked === true) ? 'Ja' :'Nej';
-		console.log('Switch inventarie: ' + inventarie );
+	// mdui-switch #switch-inventarium changes
+	$('#switch-inventarium').on('change', function() {
+		console.log('mdui-switch #switch-inventarium changed');
+		inventarium = (this.checked === true) ? 'Ja' :'Nej';
+		console.log('Switch inventarium: ' + inventarium );
 	});
 
 	// mdui-select #raio-avskrivningstid changes
