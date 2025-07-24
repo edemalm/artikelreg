@@ -5,17 +5,19 @@ $(document).ready(function() {
 	console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	var update = '2025-07-24';
-	var artikeldata = '';
-	var artikelansvar = '';
-	var avd = '';
-	var avdelning = '';
-	var avskrivningstid = '';
-	var debiteringsform = '';
-	var individmarkt = '';
-	var inventarie = '';
-	var sortimentsartikel = '';
-	var team = '';
+	window.update = '2025-07-24-1100';
+	window.artikelansvar = '(saknas)';
+	window.artikeldata = '(saknas)';
+	window.artikeltyp = '(saknas)';
+	window.avd = '(saknas)';
+	window.avdelning = '(saknas)';
+	window.avskrivningstid = '(saknas)';
+	window.debiteringsform = '(saknas)';
+	window.individmarkt = '(saknas)';
+	window.inventarie = '(saknas)';
+	window.leverantor = '(saknas)';
+	window.sortimentsartikel = '(saknas)';
+	window.team = '(saknas)';
 
 	/* Set theme class on html element, set icon on theme toggle button */
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

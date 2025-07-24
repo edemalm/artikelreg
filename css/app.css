@@ -173,7 +173,10 @@ body {
 
 	#filter-layer {
 		backdrop-filter: blur(5px);
-		background: linear-gradient(180deg,rgba(var(--mdui-color-secondary),0.5) 0%, rgba(var(--mdui-color-secondary),1) 100%);
+		background: linear-gradient(180deg,
+					rgba(var(--mdui-color-secondary-container),0.5) 50%,
+					rgba(var(--mdui-color-secondary),1) 100%
+		);
 		display: block;
 		top: 0;
 		left: 0;
@@ -307,7 +310,12 @@ body {
 	line-height: var(--mdui-typescale-body-small-line-height) !important;
 }
 
-
+h4 {
+	/* titles in form groups */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 
 code, kbd, pre, samp, tt {
 	font-family: "Roboto Mono", monospace !important;

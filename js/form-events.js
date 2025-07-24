@@ -379,6 +379,8 @@ $(document).ready(function() {
 		artikeldata = '';
 
 		// validate form
+
+		/*
 		console.log('validating form');
 		for (const el of document.getElementById('form-artikeldata').querySelectorAll('[required]')) {
 			if (!el.reportValidity()) {
@@ -386,6 +388,8 @@ $(document).ready(function() {
 				return;
 			}
 		}
+		*/
+		mdui.snackbar({ message: 'Kontroll av obligatoriska fält inaktiverat i form-events.js:383' });
 
 		// submit form
 		$('#form-artikeldata').submit();

@@ -605,7 +605,7 @@
 						<mdui-text-field id="textarea-iki-text"
 							helper="Ange en kortfattat text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
 							label="Intern kundorderinformation"
-							name="kk"
+							name="kk-text"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
 							rows="2"
 							variant="outlined"
@@ -616,13 +616,28 @@
 						<mdui-text-field id="textarea-ri-text"
 							helper="Ange en kortfattad text som visas i samband med returtagnig. Tryck Shift+Enter för ny rad."
 							label="Returtagningsinformation"
-							name="ri"
+							name="ri-text"
 							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
 							rows="2"
 							variant="outlined"
 							autosize clearable></mdui-text-field>
 					</div>
-				</div>
+				</div><!-- .row -->
+				<div class="row form-group">
+					<div class="s12">
+						<h4 class="title-large"><mdui-icon name="info"></mdui-icon>Övriga upplysningar</h4>
+					</div>
+					<div class="s12">
+						<!-- ÖVRIGA UPPLYSNINGAR -->
+						<mdui-text-field id="textarea-kommentar-text"
+							helper="Övrig information till inköpspersonalen. Tryck Shift+Enter för ny rad."
+							label="Övriga upplysningar"
+							name="upplysningar-text"
+							rows="2"
+							variant="outlined"
+							autosize clearable></mdui-text-field>
+					</div>
+				</div><!-- .row -->
 			</div>
 		</div><!-- .row -->
 		<div class="controls">
@@ -642,12 +657,7 @@
 		<p class="body-large">Skicka uppgifterna till inköpspersonalen. Gör så här:</p>
 		<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
 		<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-		<div class="debug hidden">
-			<p><mdui-button id="button-show-artikeldata"
-					icon="add"
-					variant="text">Visa artikeluppgifter</mdui-button></p>
-			<div id="div-artikeldata" class="hidden"></div>
-		</div>
+		<div id="div-artikeldata" class="debug hidden"></div>
 		<div class="controls">
 			<div class="control-left">
 				<mdui-button class="button-back-to-form large"

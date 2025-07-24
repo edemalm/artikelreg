@@ -3,19 +3,6 @@ $(document).ready(function() {
 	console.log('DOM ready');
 	console.log('Loading artikeldata.js');
 
-	/*
-	var s1  = ' '; // Non-breaking invisible space: Ctrl+Shift+U, 00a0, Enter
-	var s2  = '  ';
-	var s3  = '   ';
-	var s4  = '    ';
-	var s5  = '     ';
-	var s6  = '      ';
-	var s7  = '       ';
-	var s8  = '        ';
-	var s9  = '         ';
-	var s10 = '          ';
-	*/
-
 	// https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
 	// https://jsfiddle.net/edelman/KcX6A/1506/
 	jQuery.fn.selectText = function() {
@@ -39,18 +26,22 @@ $(document).ready(function() {
 		// Cancel default browser submit action
 		event.preventDefault();
 
-		// Leverantör + lev. art.nr.
-		artikeldata += "LEVERANTÖR OCH ART.NR.\n";
-		artikeldata += $('#text-leverantor').val() + "\n";
-		artikeldata += $('#text-levartnr').val() + "\n\n";
+		leverantor = $('#text-leverantor').val();
+		levartnr = $('#text-levartnr').val();
 
 		// Hjälpmedelstjänsten + upphandlad
-		artikeldata += ( $('#checkbox-ht').attr('checked')? "Artikeln finns i Hjälpmedelstjänsten." : "Artikel saknas tyvärr i Hjälpmedelstjänsten." );
-		artikeldata += ( $('#checkbox-upphandlad').attr('checked')? " Artikeln är upphandlad." : " Artikeln är inte upphandlad." );
-		artikeldata += "\n\n";
+		artikeldata += "INFORMATION\n";
+		artikeldata += ( $('#checkbox-ht').attr('checked')? "Artikeln finns i Hjälpmedelstjänsten\n" : "Artikel saknas tyvärr i Hjälpmedelstjänsten\n" );
+		artikeldata += ( $('#checkbox-upphandlad').attr('checked')? "Artikeln är upphandlad\n" : "Artikeln är inte upphandlad\n" );
+		artikeldata += "\n";
 
 		// Mallartikel
-		artikeldata += "Beräknad mallartikel: " + avd + artikeltyp + " (kontrollera!)\n\n";
+		artikeldata += "Beräknad mallartikel: " + avd + artikeltyp + "??? (kontrollera!)\n\n";
+
+		// Leverantör + lev. art.nr.
+		artikeldata += "LEVERANTÖR OCH ART.NR.\n";
+		artikeldata += leverantor + "\n";
+		artikeldata += "Lev. art.nr.: " + levartnr + "\n\n";
 
 		// Artikelbenämning
 		artikeldata += "ARTIKELBENÄMNING\n" + $('#text-artikelbenamning').val() + "\n\n";
