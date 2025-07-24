@@ -503,8 +503,8 @@
 						<h4 class="title-large"><mdui-icon name="checklist"></mdui-icon>7. Hantering vid ankomst</h4>
 					</div>
 					<div class="s12 pt-xs">
-						<!-- GODSMOTTAGNINGSINFO -->
-						<mdui-text-field id="textarea-godsmottagningsinfo" name="textarea-godsmottagningsinfo" variant="outlined" rows="2" label="Godsmottagningsinformation" placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet." helper="Ange en kortfattad text som visas som information för lagerpersonalen vid registrering av godsmottagning. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
+						<!-- GODSMOTTAGNINGSINSTRUKTION -->
+						<mdui-text-field id="textarea-gmi" name="gmi" variant="outlined" rows="2" label="Godsmottagningsinstruktion" placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet." helper="Ange en kortfattad text som visas som information för lagerpersonalen vid registrering av godsmottagning. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
 					</div>
 					<div class="s12 pt-xs">
 						<!-- KVALITETSKONTROLL -->
@@ -519,15 +519,15 @@
 						</div>
 					</div>
 					<div class="s12">
-						<!-- KVALITETSKONTROLLTEXT -->
-						<mdui-text-field id="textarea-kk-text"
+						<!-- KVALITETSKONTROLL, BESKRIVNING -->
+						<mdui-text-field id="textarea-kkb-text"
 							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på kvalitetkontrollsunderlaget. Tryck Shift+Enter för ny rad."
-							label="Kvalitetskontrolltext"
-							name="kk"
+							label="Kvalitetskontroll, beskrivning"
+							name="kkb-text"
 							placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
 							rows="2"
 							variant="outlined"
-							autosize clearable disabled></mdui-text-field>
+							autosize clearable disabled required></mdui-text-field>
 					</div>
 				</div><!-- .row -->
 				<div class="row form-group">
@@ -603,9 +603,9 @@
 					<div class="s12">
 						<!-- INTERN KUNDORDERINFO -->
 						<mdui-text-field id="textarea-iki-text"
-							helper="Ange en kortfattat text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattat text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
 							label="Intern kundorderinformation"
-							name="kk-text"
+							name="iki-text"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
 							rows="2"
 							variant="outlined"
@@ -614,7 +614,7 @@
 					<div class="s12">
 						<!-- RETURTAGNINGSINFO -->
 						<mdui-text-field id="textarea-ri-text"
-							helper="Ange en kortfattad text som visas i samband med returtagnig. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattad text som visas i samband med returtagnig. Tryck Shift+Enter för ny rad."
 							label="Returtagningsinformation"
 							name="ri-text"
 							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."

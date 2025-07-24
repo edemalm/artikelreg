@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-	console.log('DOM ready');
 	console.log('Loading form-events.js');
 
 	// 1. Artikelbenämning och produktnamn
@@ -325,15 +324,14 @@ $(document).ready(function() {
 	// 7. Hantering vid ankomst
 
 	// mdui-switch #switch-kvalitetskontroll changes
-	$('#switch-kvalitetskontroll').on('change', function() {
-		console.log('mdui-switch #switch-kvalitetskontroll changed');
-		if ($('#switch-kvalitetskontroll').prop("checked")) {
+	$('#switch-kk').on('change', function() {
+		console.log('mdui-switch #switch-kk changed');
+		if ($('#switch-kk').prop("checked")) {
 			// is checked
-			$('#textarea-kvalitetskontrolltext').removeAttr('disabled');
+			$('#textarea-kkb-text').attr('disabled', false).attr('required', true); // enable
 		} else {
 			// not checked
-			$('#textarea-kvalitetskontrolltext').val(''); // clear input
-			$('#textarea-kvalitetskontrolltext').attr('disabled', true);
+			$('#textarea-kkb-text').val('').attr('disabled', true); // clear and disable
 		}
 	});
 

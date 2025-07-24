@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-	console.log('DOM ready');
 	console.log('Loading artikeldata.js');
 
 	// https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
@@ -31,8 +30,12 @@ $(document).ready(function() {
 		artikeltyp = $('#select-artikeltyp').val();
 		avskrivningstid = $('#radio-avskrivningstid').val();
 		debiteringsform = $('#select-debiteringsform').val();
+		gmi = $('#textarea-gmi').val();
+		iki = $('#textarea-iki-text').val();
 		individmarkt = ($('#switch-individ').prop("checked") ? "Ja" : "Nej" );
 		inventarie = ($('#switch-inventarie').prop("checked") ? "Ja" : "Nej" );
+		kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej" );
+		kkb = $('#textarea-kkb-text').val();
 		leverantor = $('#text-leverantor').val();
 		levartnr = $('#text-levartnr').val();
 		team = $('#select-team').val();
@@ -108,12 +111,18 @@ $(document).ready(function() {
 
 		// Drifttidsmätare
 		artikeldata += "Drifttidsmätare: " + dtm;
-		artikeldata += (dtm == 'Ja' ? ' (enhet: timmar)' : '' ) + "\n\n";
+		artikeldata += (dtm == 'Ja' ? ' (enhet: timmar)' : '' ) + "\n";
+
+		// Kvalitetskontroll
+		artikeldata += "Kvalitetskontroll: " + kk + "\n\n";
 
 		// Artikelstatus
 		// if inköpshantering nettobehov, status = Ny else Aktiv
 
 		artikeldata += "INSTRUKTIONER\n";
+		if ( gmi.length > 0 ) artikeldata += "Godsmottagningsinstruktion: " + gmi + "\n";
+		if ( kkb.length > 0 ) artikeldata += "Kvalitetskontroll, beskrivning: " + kkb + "\n";
+		if ( kkb.length > 0 ) artikeldata += "Intern kundorderinformation: " + iki + "\n";
 
 		// Produktnamn
 		artikeldata += "PRODUKT\n" + $('#text-produktnamn').val();
@@ -129,8 +138,8 @@ $(document).ready(function() {
 		$('#div-artikeldata').html('<pre>' + artikeldata + '</pre>');
 
 		// Prepare encoded email body
-		var encodedArtikeldata = encodeURIComponent(artikeldata);
-		console.log('encodedArtikeldata = ' + encodedArtikeldata);
+		// var encodedArtikeldata = encodeURIComponent(artikeldata);
+		// console.log('encodedArtikeldata = ' + encodedArtikeldata);
 
 		// Update href mailto link
 		var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');

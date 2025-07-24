@@ -1,27 +1,31 @@
 $(document).ready(function() {
 
-	console.log('DOM ready');
 	console.log('Loading init.js');
-	console.log('window.location.protocol: ' + window.location.protocol);
+	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
 	window.update = '2025-07-24-1100';
-	window.artikelansvar = '(saknas)';
-	window.artikeldata = '(saknas)';
-	window.artikeltyp = '(saknas)';
-	window.avd = '(saknas)';
-	window.avdelning = '(saknas)';
-	window.avskrivningstid = '(saknas)';
-	window.debiteringsform = '(saknas)';
-	window.individartikel = '(saknas)';
-	window.inventarium = '(saknas)';
-	window.leverantor = '(saknas)';
-	window.sortimentsartikel = '(saknas)';
-	window.team = '(saknas)';
-	window.ws_bb = '(saknas)';
-	window.ws_pub = '(saknas)';
-	window.ws_komp = '(saknas)';
-	window.ws_sort = '(saknas)';
+
+	window.artikelansvar = '';
+	window.artikeldata = '';
+	window.artikeltyp = '';
+	window.avd = '';
+	window.avdelning = '';
+	window.avskrivningstid = '';
+	window.debiteringsform = '';
+	window.gmi = '';
+	window.iki = '';
+	window.individartikel = '';
+	window.inventarium = '';
+	window.kk = '';
+	window.kkb = '';
+	window.leverantor = '';
+	window.sortimentsartikel = '';
+	window.team = '';
+	window.ws_bb = '';
+	window.ws_pub = '';
+	window.ws_komp = '';
+	window.ws_sort = '';
 
 	/* Set theme class on html element, set icon on theme toggle button */
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
