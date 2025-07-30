@@ -410,7 +410,7 @@
 						<div class="switch-wrapper">
 							<div class="text">
 								<div class="switch-label">Sortimentsartikel</div>
-								<div id="ws-sort-helper" class="switch-helper">Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsöknig</div>
+								<div id="ws-sort-helper" class="switch-helper">Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsökning</div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-ws-sort" name="ws-sort"></mdui-switch>
@@ -494,7 +494,7 @@
 							name="textarea-buffertlager"
 							variant="outlined"
 							label="Eventuella buffertlager"
-							helper="Ange buffertlager, säkerhetlager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad."
+							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad."
 							placeholder="Exempel: Lager 220, 3 st, 31-A-123"
 							autosize></mdui-text-field>
 					</div>
@@ -512,7 +512,7 @@
 						<div class="switch-wrapper">
 							<div class="text">
 								<div class="switch-label">Kvalitetskontroll</div>
-								<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskotrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
+								<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-kk" name="kk"></mdui-switch>
@@ -522,7 +522,7 @@
 					<div class="s12">
 						<!-- KVALITETSKONTROLL, BESKRIVNING -->
 						<mdui-text-field id="textarea-kkb-text"
-							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på kvalitetkontrollsunderlaget. Tryck Shift+Enter för ny rad."
+							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll. Tryck Shift+Enter för ny rad."
 							label="Kvalitetskontroll, beskrivning"
 							name="kkb-text"
 							placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
@@ -546,6 +546,7 @@
 							<mdui-menu-item value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
 							<mdui-menu-item value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
 							<mdui-menu-item value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
+							<mdui-menu-item value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
 						</mdui-select>
 					</div>
 					<div class="s12 m6 l12 xl6">
@@ -604,7 +605,7 @@
 					<div class="s12">
 						<!-- INTERN KUNDORDERINFO -->
 						<mdui-text-field id="textarea-iki-text"
-							helper="Vid behov, ange en kortfattat text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattad text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
 							label="Intern kundorderinformation"
 							name="iki-text"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
@@ -615,7 +616,7 @@
 					<div class="s12">
 						<!-- INTERN PLOCKINFO -->
 						<mdui-text-field id="textarea-ipi-text"
-							helper="Vid behov, ange en kortfattat text som visas för lagerpersonalen vid plockning. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattad text som visas för lagerpersonalen vid plockning. Tryck Shift+Enter för ny rad."
 							label="Intern plockinformation"
 							name="ipi-text"
 							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
@@ -664,26 +665,29 @@
 
 	<!-- Artikeldata -->
 	<div id="content-artikeldata" class="content-wrapper hidden">
-		<h2 class="display-large">Nästan klart!</h2>
-		<p class="body-large">Skicka uppgifterna till inköpspersonalen. Gör så här:</p>
-		<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
-		<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-		<div id="div-artikeldata"></div>
-		<div class="controls">
-			<div class="control-left">
-				<mdui-button class="button-back-to-form large"
-					variant="text"
-					icon="arrow_back">Tillbaka till formulär</mdui-button>
+		<div class="row">
+			<div class="s12 page-content">
+				<h2 class="display-large">Nästan klart!</h2>
+				<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
+				<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
+				<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
+
+				<mdui-card class="p-a" variant="filled">
+					<div id="div-artikeldata"></div>
+				</mdui-card>
 			</div>
-			<div class="control-right">
-				<mdui-button id="button-copy-artikeldata" class="large"
-					variant="filled"
-					icon="content_copy">Kopiera artikeluppgifter</mdui-button>
-				<mdui-button id="button-send-email" class="large ml-a"
-					variant="filled"
-					icon="email">Skapa epost</mdui-button>
+			<div class="s12">
+				<div class="controls">
+					<div class="control-left">
+						<mdui-button class="button-back-to-form" icon="arrow_back" variant="text">Tillbaka till formulär</mdui-button>
+					</div>
+					<div class="control-right">
+						<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
+						<mdui-button id="button-send-email" class="ml-a" icon="email" variant="filled">Skapa epost</mdui-button>
+					</div>
+				</div><!-- .controls -->
 			</div>
-		</div><!-- .controls -->
+		</div><!-- .row -->
 	</div><!-- .content-wrapper -->
 
 	<!-- Hjälp artikelbenämning -->

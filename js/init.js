@@ -26,6 +26,7 @@ $(document).ready(function() {
 	window.team = '';
 	window.ws_bb = '';
 	window.ws_pub = '';
+	window.ws_info = '';
 	window.ws_komp = '';
 	window.ws_sort = '';
 

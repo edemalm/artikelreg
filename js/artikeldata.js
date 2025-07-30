@@ -43,8 +43,9 @@ $(document).ready(function() {
 		team = $('#select-team').val();
 		dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
 		ws_bb = ($('#switch-ws-bb').prop("checked") ? "Ja" : "Nej" );
-		ws_komp = ($('#switch-komp').prop("checked") ? "Ja" : "Nej" );
-		ws_pub = ($('#switch-pub').prop("checked") ? "Ja" : "Nej" );
+		ws_info = $('#textarea-ws-info').val();
+		ws_komp = ($('#switch-ws-komp').prop("checked") ? "Ja" : "Nej" );
+		ws_pub = ($('#switch-ws-pub').prop("checked") ? "Ja" : "Nej" );
 		ws_sort = ( $('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
 
 		// Hjälpmedelstjänsten + upphandlad
@@ -123,12 +124,24 @@ $(document).ready(function() {
 		// Artikelstatus
 		// if inköpshantering nettobehov, status = Ny else Aktiv
 
-		artikeldata += "INSTRUKTIONER\n";
-		if ( gmi.length > 0 ) artikeldata += "Godsmottagningsinstruktion: " + gmi + "\n";
-		if ( kkb.length > 0 ) artikeldata += "Kvalitetskontroll, beskrivning: " + kkb + "\n";
-		if ( kkb.length > 0 ) artikeldata += "Intern kundorderinformation: " + iki + "\n";
-		if ( ipi.length > 0 ) artikeldata += "Intern plockinformation: " + ipi + "\n";
-		if ( iri.length > 0 ) artikeldata += "Intern returtagningsinformation: " + iri + "\n";
+		// Instruktioner
+		if ( gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0 ) {
+			artikeldata += "INSTRUKTIONER\n\n";
+			if ( gmi.length > 0 ) artikeldata += "Godsmottagningsinstruktion: " + gmi + "\n";
+			if ( kkb.length > 0 ) artikeldata += "Kvalitetskontroll, beskrivning: " + kkb + "\n";
+			if ( iki.length > 0 ) artikeldata += "Intern kundorderinformation: " + iki + "\n";
+			if ( ipi.length > 0 ) artikeldata += "Intern plockinformation: " + ipi + "\n";
+			if ( iri.length > 0 ) artikeldata += "Intern returtagningsinformation: " + iri + "\n";
+			artikeldata += "\n";
+		}
+
+		// Visma webSesam
+		artikeldata += "VISMA WEBSESAM\n\n";
+		artikeldata += "Publicera: " + ws_pub + "\n";
+		artikeldata += "Beställningsbar: " + ws_bb + "\n";
+		artikeldata += "Kan vara komponent: " + ws_komp + "\n";
+		if ( ws_info.length > 0 ) artikeldata += "Extra artikelinformation: " + ws_info + "\n";
+		artikeldata += "\n";
 
 		// Produktnamn
 		artikeldata += "PRODUKT\n" + $('#text-produktnamn').val();
