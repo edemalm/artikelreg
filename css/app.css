@@ -355,6 +355,13 @@ code, kbd, pre, samp, tt {
 	width: calc(100% - calc(var(--app-space)*2));
 }
 
+.page-content {
+	background-color: rgb(var(--mdui-color-surface-container));
+	padding: var(--app-space);
+	width: calc(100% - calc(var(--app-space)*2));
+}
+
+
 .flat {
 	margin-bottom: var(--app-space);
 	padding: var(--app-space);
@@ -362,10 +369,9 @@ code, kbd, pre, samp, tt {
 }
 
 @media only screen and (min-width: 641px) {
-	.form-group {
+	.form-group,
+	.page-content {
 		border-radius: calc(var(--app-space)/2);
-		/* width: calc(100% - (var(--app-space)*2)); */
-		/* make room for box-shadow */
 	}
 }
 
@@ -516,24 +522,21 @@ div.radio-helper {
 
 div.controls {
 	display: flex;
-	margin: var(--app-space);
+	justify-content: space-between;
 }
-@media only screen and (min-width: 641px) {
-	div.controls {
-		margin: var(--app-space) 0;
-	}
-}
-
-
 div.control-left {
-	align-self: center;
 	flex-grow: 1;
 	order: 0;
+	text-align: left;
 }
-div.control-right {
-	align-self: center;
+div.control-center {
 	flex-grow: 1;
 	order: 1;
+	text-align: center;
+}
+div.control-right {
+	flex-grow: 1;
+	order: 2;
 	text-align: right;
 }
 

@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-07-24-1100';
+	window.update = '2025-07-30-1122';
 
 	window.artikelansvar = '';
 	window.artikeldata = '';
@@ -166,22 +166,12 @@ $(document).ready(function() {
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
-	$('#menu-help-produktnamn').click(function() {
-		console.log('#menu-help-produktnamn clicked');
+	$('#menu-help-produkt').click(function() {
+		console.log('#menu-help-produkt clicked');
 		$('.content-wrapper').addClass('hidden'); /* hide all content */
-		$('#content-help-produktnamn').removeClass('hidden');
+		$('#content-help-produkt').removeClass('hidden');
 		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-produktnamn').attr('active','');
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
-	});
-
-
-	$('#menu-help-plockomraden').click(function() {
-		console.log('#menu-help-plockomraden clicked');
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
-		$('#content-help-plockomraden').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-plockomraden').attr('active','');
+		$('#menu-help-produkt').attr('active','');
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
@@ -189,20 +179,19 @@ $(document).ready(function() {
 		console.log('#menu-help-liggplats clicked');
 		$('.content-wrapper').addClass('hidden'); /* hide all content */
 		$('#content-help-liggplats').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-liggplats').attr('active','');
+		$('mdui-list-item').attr('active', false); /* remove active class from all list items */
+		$('#menu-help-liggplats').attr('active',true);
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
-	$('#menu-help-outlook').click(function() {
-		console.log('#menu-help-outlook clicked');
+	$('#menu-help-plockomrade').click(function() {
+		console.log('#menu-help-plockomrade clicked');
 		$('.content-wrapper').addClass('hidden'); /* hide all content */
-		$('#content-help-outlook').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-outlook').attr('active','');
+		$('#content-help-plockomrade').removeClass('hidden');
+		$('mdui-list-item').attr('active', false); /* remove active class from all list items */
+		$('#menu-help-plockomrade').attr('active',true);
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
-
 
 	$('#button-open-menu').click(function(){
 		console.log('Button #button-open-menu clicked');
@@ -221,7 +210,16 @@ $(document).ready(function() {
 	});
 
 	// Include HTML from files
-	console.log('Loading include/produktnamn.html');
-	$("#include-produktnamn").load("include/produktnamn.html"); 
+	console.log('Loading inc/artikelbenamning.html');
+	$("#inc-artikelbenamning").load("inc/artikelbenamning.html"); 
+
+	console.log('Loading inc/produkt.html');
+	$("#inc-produkt").load("inc/produkt.html"); 
+
+	console.log('Loading inc/liggplats.html');
+	$("#inc-liggplats").load("inc/liggplats.html");
+
+	console.log('Loading inc/plockomrade.html');
+	$("#inc-plockomrade").load("inc/plockomrade.html");
 
 });

@@ -73,8 +73,9 @@
 					<mdui-list-item slot="header" icon="help" rounded>Hjälpavsnitt<mdui-icon id="menu-group1-arrow" slot="end-icon" name="keyboard_arrow_down"></mdui-icon></mdui-list-item>
 					<div style="margin-left: 2.5rem">
 						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
-						<mdui-list-item id="menu-help-produktnamn" rounded>Produktnamn</mdui-list-item>
-						<mdui-list-item id="menu-help-outlook" rounded>Instruktion Outlook</mdui-list-item>
+						<mdui-list-item id="menu-help-produkt" rounded>Produkt</mdui-list-item>
+						<mdui-list-item id="menu-help-liggplats" rounded>Liggplatser</mdui-list-item>
+						<mdui-list-item id="menu-help-plockomrade" rounded>Plockområden</mdui-list-item>
 					</div>
 				</mdui-collapse-item>
 
@@ -650,16 +651,15 @@
 					</div>
 				</div><!-- .row -->
 			</div>
-		</div><!-- .row -->
-		<div class="controls">
-			<div class="control-right">
-				<mdui-button id="button-reset-form-warning" class="large"
-					variant="text">Rensa formuläret</mdui-button>
-				<mdui-button id="button-submit-form" class="large ml-a"
-				variant="filled"
-				end-icon="arrow_forward">Skicka underlag</mdui-button>
+			<div class="s12">
+				<div class="controls">
+					<div class="control-right">
+						<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
+						<mdui-button id="button-submit-form" class="ml-a" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
+					</div>
+				</div><!-- .controls -->
 			</div>
-		</div><!-- .controls -->
+		</div><!-- .row -->
 	</form></div><!-- .content-wrapper -->
 
 	<!-- Artikeldata -->
@@ -688,29 +688,50 @@
 
 	<!-- Hjälp artikelbenämning -->
 	<div id="content-help-artikelbenamning" class="content-wrapper hidden">
-		<h4 class="headline-large">#content-help-artikelbenämning</h4>
-		<p class="body-large">Bla bla bla ...</p>
-		<p>Bla bla bla ...</p>
-		<div class="controls">
-			<div class="control-left">
-				<mdui-button class="button-back-to-form mt-a" variant="tonal" icon="arrow_back">Tillbaka till formulär</mdui-button>
-			</div>
-		</div><!-- .controls -->
-
-	</div><!-- .content-wrapper -->
-	<!-- Hjälp produktnamn -->
-	<div id="content-help-produktnamn" class="content-wrapper hidden">
 		<div class="row">
-			<div id="include-produktnamn" class="s12">
-				<h4 class="title-large">#content-help-produktnamn</h4>
-				<p>Produktnamn är ...</p>
-			</div>
-		</div><!-- .row -->
-		<div class="row">
+			<div id="inc-artikelbenamning" class="s12 page-content"></div>
 			<div class="s12">
-				<mdui-button class="button-back-to-form mt-a" variant="tonal" icon="arrow_back">Tillbaka till formulär</mdui-button>
+				<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+				</div><!-- .controls -->
 			</div>
-		</div><!-- .row -->
+		</div>
+	</div><!-- .content-wrapper -->
+
+	<!-- Hjälp produkt -->
+	<div id="content-help-produkt" class="content-wrapper hidden">
+		<div class="row">
+			<div id="inc-produkt" class="s12 page-content"></div>
+			<div class="s12">
+				<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+				</div><!-- .controls -->
+			</div>
+		</div>
+	</div><!-- .content-wrapper -->
+
+	<!-- Hjälp liggplats -->
+	<div id="content-help-liggplats" class="content-wrapper hidden">
+		<div class="row">
+			<div id="inc-liggplats" class="s12 page-content"></div>
+			<div class="s12">
+				<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+				</div><!-- .controls -->
+			</div>
+		</div>
+	</div><!-- .content-wrapper -->
+
+	<!-- Hjälp plockområde -->
+	<div id="content-help-plockomrade" class="content-wrapper hidden">
+		<div class="row">
+			<div id="inc-plockomrade" class="s12 page-content"></div>
+			<div class="s12">
+				<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+				</div><!-- .controls -->
+			</div>
+		</div>
 	</div><!-- .content-wrapper -->
 
 	<div id="content-help-outlook" class="content-wrapper hidden">
