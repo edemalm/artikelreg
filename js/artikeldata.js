@@ -32,6 +32,8 @@ $(document).ready(function() {
 		debiteringsform = $('#select-debiteringsform').val();
 		gmi = $('#textarea-gmi').val();
 		iki = $('#textarea-iki-text').val();
+		ipi = $('#textarea-ipi-text').val();
+		iri = $('#textarea-iri-text').val();
 		individmarkt = ($('#switch-individ').prop("checked") ? "Ja" : "Nej" );
 		inventarie = ($('#switch-inventarie').prop("checked") ? "Ja" : "Nej" );
 		kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej" );
@@ -46,22 +48,24 @@ $(document).ready(function() {
 		ws_sort = ( $('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
 
 		// Hjälpmedelstjänsten + upphandlad
-		artikeldata += "INFORMATION\n";
-		artikeldata += ( $('#checkbox-ht').attr('checked')? "Artikeln finns i Hjälpmedelstjänsten\n" : "Artikel saknas tyvärr i Hjälpmedelstjänsten\n" );
-		artikeldata += ( $('#checkbox-upphandlad').attr('checked')? "Artikeln är upphandlad\n" : "Artikeln är inte upphandlad\n" );
-		artikeldata += "\n";
+		artikeldata += "INFORMATION\n\n";
+
+		artikeldata += ( $('#checkbox-ht').attr('checked') ? "Artikeln finns i Hjälpmedelstjänsten." : "Artikeln saknas tyvärr i Hjälpmedelstjänsten." );
+
+		artikeldata += ( $('#checkbox-upphandlad').attr('checked')? " Artikeln är upphandlad." : " Artikeln är inte upphandlad" );
+		artikeldata += "\n\n";
 
 		// Mallartikel
-		artikeldata += "Beräknad mallartikel: " + avd + artikeltyp + "??? (kontrollera!)\n\n";
+		artikeldata += "Gissas mallartikel: " + avd + artikeltyp + "??? (kontrollera!)\n\n";
 
 		// Leverantör + lev. art.nr.
-		artikeldata += "LEVERANTÖR OCH ART.NR.\n";
+		artikeldata += "LEVERANTÖR OCH ART.NR.\n\n";
 		artikeldata += leverantor + "\n" + levartnr + "\n\n";
 
 		// Artikelbenämning
-		artikeldata += "ARTIKELBENÄMNING\n" + artikelbenamning + "\n\n";
+		artikeldata += "ARTIKELBENÄMNING\n\n" + artikelbenamning + "\n\n";
 
-		artikeldata += "KLASSIFICERING\n";
+		artikeldata += "KLASSIFICERING\n\n";
 
 		// Artikeltyp
 		artikeldata += "Artikeltyp: ";
@@ -98,7 +102,7 @@ $(document).ready(function() {
 		artikeldata += "Avskrivningsregel: " + avskrivningstid + " år\n";
 
 		// Sektor
-		artikeldata += "Sektor: " + team + " (team)\n";
+		artikeldata += "Sektor: " + team + "\n";
 
 		// Sortimentsartikel
 		artikeldata += "Ingår i sortimentet: " + ws_sort + "\n";
@@ -123,6 +127,8 @@ $(document).ready(function() {
 		if ( gmi.length > 0 ) artikeldata += "Godsmottagningsinstruktion: " + gmi + "\n";
 		if ( kkb.length > 0 ) artikeldata += "Kvalitetskontroll, beskrivning: " + kkb + "\n";
 		if ( kkb.length > 0 ) artikeldata += "Intern kundorderinformation: " + iki + "\n";
+		if ( ipi.length > 0 ) artikeldata += "Intern plockinformation: " + ipi + "\n";
+		if ( iri.length > 0 ) artikeldata += "Intern returtagningsinformation: " + iri + "\n";
 
 		// Produktnamn
 		artikeldata += "PRODUKT\n" + $('#text-produktnamn').val();

@@ -45,7 +45,7 @@
 
 	<!-- Load JS from local file system -->
 	<script src="js/mdui-2.1.4.hack.js"></script>
-	<script src="js/jquery-3.7.1.slim.min.js"></script>
+	<script src="js/jquery-3.7.1.min.js"></script>
 
 	<title>Artikelregistreringsunderlag</title>
 </head>
@@ -612,11 +612,22 @@
 							autosize clearable></mdui-text-field>
 					</div>
 					<div class="s12">
+						<!-- INTERN PLOCKINFO -->
+						<mdui-text-field id="textarea-ipi-text"
+							helper="Vid behov, ange en kortfattat text som visas för lagerpersonalen vid plockning. Tryck Shift+Enter för ny rad."
+							label="Intern plockinformation"
+							name="ipi-text"
+							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
+							rows="2"
+							variant="outlined"
+							autosize clearable></mdui-text-field>
+					</div>
+					<div class="s12">
 						<!-- RETURTAGNINGSINFO -->
-						<mdui-text-field id="textarea-ri-text"
+						<mdui-text-field id="textarea-iri-text"
 							helper="Vid behov, ange en kortfattad text som visas i samband med returtagnig. Tryck Shift+Enter för ny rad."
 							label="Returtagningsinformation"
-							name="ri-text"
+							name="iri-text"
 							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
 							rows="2"
 							variant="outlined"
@@ -690,7 +701,7 @@
 	<!-- Hjälp produktnamn -->
 	<div id="content-help-produktnamn" class="content-wrapper hidden">
 		<div class="row">
-			<div class="s12">
+			<div id="include-produktnamn" class="s12">
 				<h4 class="title-large">#content-help-produktnamn</h4>
 				<p>Produktnamn är ...</p>
 			</div>
@@ -744,28 +755,10 @@
 	<mdui-button id="button-reset-form" class="button-close-dialog" type="reset" form="form-artikeldata" variant="filled" icon="warning" slot="action">Rensa</mdui-button>
 </mdui-dialog>
 
-
 </body>
 <script src="js/jquery.inactivity.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/init.js"></script>
 <script src="js/form-events.js"></script>
 <script src="js/artikeldata.js"></script>
-<script>
-/* Load external HTML content from files - not allowed from local file system! */
-/*
-(() => {
-	const includes = document.getElementsByTagName('include');
-	[].forEach.call(includes, i => {
-		let filePath = i.getAttribute('src');
-		fetch(filePath).then(file => {
-			file.text().then(content => {
-				i.insertAdjacentHTML('afterend', content);
-				i.remove();
-			});
-		});
-	});
-})();
-*/
-</script>
 </html>

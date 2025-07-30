@@ -15,8 +15,10 @@ $(document).ready(function() {
 	window.debiteringsform = '';
 	window.gmi = '';
 	window.iki = '';
+	window.iri = '';
 	window.individartikel = '';
 	window.inventarium = '';
+	window.ipi = '';
 	window.kk = '';
 	window.kkb = '';
 	window.leverantor = '';
@@ -217,5 +219,9 @@ $(document).ready(function() {
 		console.log('Button #button-close-menu clicked');
 		$('#navigation-drawer').removeAttr('open');
 	});
+
+	// Include HTML from files
+	console.log('Loading include/produktnamn.html');
+	$("#include-produktnamn").load("include/produktnamn.html"); 
 
 });
