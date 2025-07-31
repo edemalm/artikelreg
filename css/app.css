@@ -320,6 +320,10 @@ h4 {
 code, kbd, pre, samp, tt {
 	font-family: "Roboto Mono", monospace !important;
 }
+pre {
+	white-space: pre-wrap;
+}
+
 
 #content-container {
 	background-color: rgb(var(--mdui-color-surface-container));

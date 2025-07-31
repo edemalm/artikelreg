@@ -219,7 +219,7 @@ $(document).ready(function() {
 	// mdui-switch #switch-inventarium changes
 	$('#switch-inventarium').on('change', function() {
 		console.log('mdui-switch #switch-inventarium changed');
-		inventarium = (this.checked === true) ? 'Ja' :'Nej';
+		inventarium = (this.checked === true) ? "Ja" : "Nej";
 		console.log('Switch inventarium: ' + inventarium );
 	});
 
@@ -241,29 +241,24 @@ $(document).ready(function() {
 		console.log('Selected team: ' + team );
 		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
 			console.log('Avdelning: Rörelse');
-			avd = 'R';
-			avdelning = 'Rörelse';
-		}
-		if ( team == '05' ) {
+			avd = "R";
+			avdelning = "Rörelse";
+		} else if ( team == '05' ) {
 			console.log('Avdelning: KLOK');
-			avd = 'K';
-			avdelning = 'KLOK';
-		}
-		if ( team == '07' ) {
+			avd = "K";
+			avdelning = "KLOK";
+		} else if ( team == '07' ) {
 			console.log('Avdelning: PMB');
-			avd = 'PMB';
-			avdelning = 'PMB';
-		}
-		if ( team == '40' ) {
+			avd = "PMB";
+			avdelning = "PMB";
+		} else if ( team == '40' ) {
 			console.log('Avdelning: Syncentralen');
-			avd = 'S';
-			avdelning = 'Syncentralen';
-		}
-		// uppföljningsorsaker
-		if ( team == '02' || team == '03' ) {
-			$('#switch-uppfoljning').attr('disabled', false);
+			avd = "S";
+			avdelning = "Syncentralen";
 		} else {
-			$('#switch-uppfoljning').attr('checked', false).attr('disabled', true);
+			console.log('Avdelning: Kan ej fastställas baserat på team');
+			avd = "(avd saknas)";
+			avdelning = "(avdelning saknas)";
 		}
 
 	});

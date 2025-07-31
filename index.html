@@ -137,11 +137,11 @@
 			</div>
 			<div id="div-produktnamn" class="s12 m6 huvudprodukt">
 				<!-- PRODUKTNAMN -->
-				<mdui-text-field id="text-produktnamn"
+				<mdui-text-field id="text-huvudprodukt"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Produktnamn"
-					name="produktnamn"
+					label="Produktbenämning"
+					name="huvudprodukt"
 					variant="outlined"
 					clearable required></mdui-text-field>
 			</div>
@@ -149,35 +149,35 @@
 			<div id="div-fler-produktnamn" class="s12 m6">
 				<mdui-button id="button-fler-produktnamn"
 					icon="add"
-					variant="text">Fler produktnamn</mdui-button>
+					variant="text">Fler produkttillhörigheter</mdui-button>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 2 -->
-				<mdui-text-field id="text-produktnamn2"
+				<mdui-text-field id="text-produkt2"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Extra produktnamn"
-					name="produktnamn2"
+					label="Extra produktbenämning"
+					name="produkt2"
 					variant="outlined"
 					clearable></mdui-text-field>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 3 -->
-				<mdui-text-field id="text-produktnamn3"
+				<mdui-text-field id="text-produkt3"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Extra produktnamn"
-					name="produktnamn3"
+					label="Extra produktbenämning"
+					name="produkt3"
 					variant="outlined"
 					clearable></mdui-text-field>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 4 -->
-				<mdui-text-field id="text-produktnamn4"
+				<mdui-text-field id="text-produkt4"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Extra produktnamn"
-					name="produktnamn4"
+					label="Extra produktbenämning"
+					name="produkt4"
 					variant="outlined"
 					clearable></mdui-text-field>
 			</div>
@@ -308,11 +308,11 @@
 						</mdui-select>
 					</div>
 					<div class="s12">
-						<!-- INDIVIDMÄRKT -->
+						<!-- INDIVIDARTIKEL -->
 						<div class="switch-wrapper">
 							<div class="text">
-								<div class="switch-label">Individmärkt</div>
-								<div class="switch-helper">Ett individmärkt hjälpmedel är spårbart, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
+								<div class="switch-label">Individartikel</div>
+								<div class="switch-helper">Ett individartikel är spårbar, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-individartikel" name="individartikel" disabled></mdui-switch>
@@ -369,18 +369,6 @@
 							<mdui-menu-item value="11">11 - SST behandling och träning</mdui-menu-item>
 							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
 						</mdui-select>
-					</div>
-					<div class="s12">
-						<!-- UPPFÖLJNING -->
-						<div class="switch-wrapper">
-							<div class="text">
-								<div class="switch-label">Skall ha uppföljning</div>
-								<div class="switch-helper">Gäller för närvarande endast elrullstolar</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-uppfoljning" name="uppfoljning" disabled></mdui-switch>
-							</div>
-						</div>
 					</div>
 				</div><!-- .row -->
 				<div class="row form-group">
@@ -440,10 +428,13 @@
 					<div class="s12">
 						<!-- ARTIKELINFO WEBSESAM -->
 						<mdui-text-field id="textarea-ws-info"
+							enterkeyhint="enter"
 							helper="Ange extra artikelinformation som visas för artikeln i webSesam. Tryck Shift+Enter för ny rad."
+							inputmode="text"
 							label="Extra artikelinformation"
 							name="ws-info"
 							rows="2"
+							type="text"
 							variant="outlined"
 							autosize></mdui-text-field>
 					</div>
@@ -546,7 +537,9 @@
 							<mdui-menu-item value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
 							<mdui-menu-item value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
 							<mdui-menu-item value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
+							<!--
 							<mdui-menu-item value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
+							-->
 						</mdui-select>
 					</div>
 					<div class="s12 m6 l12 xl6">
@@ -642,7 +635,7 @@
 					</div>
 					<div class="s12">
 						<!-- ÖVRIGA UPPLYSNINGAR -->
-						<mdui-text-field id="textarea-kommentar-text"
+						<mdui-text-field id="textarea-upplysningar-text"
 							helper="Övrig information till inköpspersonalen. Tryck Shift+Enter för ny rad."
 							label="Övriga upplysningar"
 							name="upplysningar-text"
@@ -774,10 +767,10 @@
 	<mdui-button class="button-close-dialog" icon="close" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 
-<mdui-dialog id="dialog-reset-warning" close-on-overlay-click headline="Rensa formuläret?">
-	<p>Alla uppgifter går förlorade.</p>
+<mdui-dialog id="dialog-reset-warning" close-on-overlay-click headline="Bekräfta rensning">
+	<p>Alla ifyllda uppgifter går förlorade.</p>
 	<mdui-button class="button-close-dialog" variant="text" slot="action">Avbryt</mdui-button>
-	<mdui-button id="button-reset-form" class="button-close-dialog" type="reset" form="form-artikeldata" variant="filled" icon="warning" slot="action">Rensa</mdui-button>
+	<mdui-button id="button-reset-form" class="button-close-dialog" type="reset" form="form-artikeldata" variant="filled" slot="action">Rensa</mdui-button>
 </mdui-dialog>
 
 </body>

@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-07-30-1605';
+	window.update = '2025-08-01';
 
 	window.artikelansvar = '';
 	window.artikeldata = '';
@@ -13,17 +13,25 @@ $(document).ready(function() {
 	window.avdelning = '';
 	window.avskrivningstid = '';
 	window.debiteringsform = '';
+	window.dtm = '';
 	window.gmi = '';
 	window.iki = '';
 	window.iri = '';
 	window.individartikel = '';
+	window.inkopshantering = '';
 	window.inventarium = '';
 	window.ipi = '';
 	window.kk = '';
 	window.kkb = '';
 	window.leverantor = '';
+	window.huvudprodukt = '';
+	window.produkt2 = '';
+	window.produkt3 = '';
+	window.produkt4 = '';
+	window.servicegrad = '';
 	window.sortimentsartikel = '';
 	window.team = '';
+	window.upplysningar = '';
 	window.ws_bb = '';
 	window.ws_pub = '';
 	window.ws_info = '';
