@@ -354,7 +354,6 @@ pre {
 	/* background-color: rgb(var(--mdui-color-surface-container)); */
 	background-color: rgb(var(--mdui-color-background));
 	/* box-shadow: var(--mdui-elevation-level1); */
-	margin-bottom: var(--app-space);
 	padding: var(--app-space);
 	width: calc(100% - calc(var(--app-space)*2));
 }
@@ -365,6 +364,14 @@ pre {
 	width: calc(100% - calc(var(--app-space)*2));
 }
 
+@media only screen and (min-width: 641px) {
+	.form-group,
+	.page-content {
+		border-radius: calc(var(--app-space)/2);
+		margin-bottom: var(--app-space);
+	}
+}
+
 
 .flat {
 	margin-bottom: var(--app-space);
@@ -372,12 +379,6 @@ pre {
 	width: calc(100% - calc(var(--app-space)*2));
 }
 
-@media only screen and (min-width: 641px) {
-	.form-group,
-	.page-content {
-		border-radius: calc(var(--app-space)/2);
-	}
-}
 
 #dhc-logo {
 	background-position: center center;
@@ -523,6 +524,12 @@ div.radio-helper {
 div.controls {
 	display: flex;
 	justify-content: space-between;
+	margin: 0 var(--app-space);
+}
+@media only screen and (min-width: 641px) {
+	div.controls {
+		margin: 0;
+	}
 }
 div.control-left {
 	flex-grow: 1;

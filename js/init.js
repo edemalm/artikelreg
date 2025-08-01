@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-01-1700';
+	window.update = '2025-08-01-2115';
 
 	window.artikelansvar = '';
 	window.artikeldata = '';
@@ -219,6 +219,7 @@ $(document).ready(function() {
 	});
 
 	// Include HTML from files
+	// Note: The load function is not included in the slim verion of jQuery
 	console.log('Loading inc/artikelbenamning.html');
 	$("#inc-artikelbenamning").load("inc/artikelbenamning.html"); 
 
