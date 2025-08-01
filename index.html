@@ -110,7 +110,8 @@
 
 <div id="content-container" class="wave">
 	<!-- FORMULÄR -->
-	<div id="content-formular" class="content-wrapper mdui-prose"><form id="form-artikeldata" autocomplete="off" autocorrect="off">
+	<div id="content-formular" class="content-wrapper mdui-prose">
+	<!-- <form id="form-artikeldata" autocomplete="off" autocorrect="off"> -->
 
 		<div id="viewport" class="debug hidden">
 			<span id="viewport-size"></span>
@@ -140,7 +141,7 @@
 				<mdui-text-field id="text-huvudprodukt"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Produktbenämning"
+					label="Produktnamn"
 					name="huvudprodukt"
 					variant="outlined"
 					clearable required></mdui-text-field>
@@ -149,14 +150,14 @@
 			<div id="div-fler-produktnamn" class="s12 m6">
 				<mdui-button id="button-fler-produktnamn"
 					icon="add"
-					variant="text">Fler produkttillhörigheter</mdui-button>
+					variant="text">Fler produktnamn</mdui-button>
 			</div>
 			<div class="s12 m6 xl3 hidden extraprodukt">
 				<!-- PRODUKTNAMN 2 -->
 				<mdui-text-field id="text-produkt2"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Extra produktbenämning"
+					label="Extra Produktnamn"
 					name="produkt2"
 					variant="outlined"
 					clearable></mdui-text-field>
@@ -166,7 +167,7 @@
 				<mdui-text-field id="text-produkt3"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Extra produktbenämning"
+					label="Extra Produktnamn"
 					name="produkt3"
 					variant="outlined"
 					clearable></mdui-text-field>
@@ -176,7 +177,7 @@
 				<mdui-text-field id="text-produkt4"
 					autocomplete="off"
 					enterkeyhint="done"
-					label="Extra produktbenämning"
+					label="Extra Produktnamn"
 					name="produkt4"
 					variant="outlined"
 					clearable></mdui-text-field>
@@ -429,7 +430,7 @@
 						<!-- ARTIKELINFO WEBSESAM -->
 						<mdui-text-field id="textarea-ws-info"
 							enterkeyhint="enter"
-							helper="Ange extra artikelinformation som visas för artikeln i webSesam. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange extra artikelinformation som visas för artikeln i webSesam"
 							inputmode="text"
 							label="Extra artikelinformation"
 							name="ws-info"
@@ -485,7 +486,7 @@
 							name="textarea-buffertlager"
 							variant="outlined"
 							label="Eventuella buffertlager"
-							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret. Tryck Shift+Enter för ny rad."
+							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
 							placeholder="Exempel: Lager 220, 3 st, 31-A-123"
 							autosize></mdui-text-field>
 					</div>
@@ -496,7 +497,14 @@
 					</div>
 					<div class="s12 pt-xs">
 						<!-- GODSMOTTAGNINGSINSTRUKTION -->
-						<mdui-text-field id="textarea-gmi" name="gmi" variant="outlined" rows="2" label="Godsmottagningsinstruktion" placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet." helper="Ange en kortfattad text som visas som information för lagerpersonalen vid registrering av godsmottagning. Tryck Shift+Enter för ny rad." autosize></mdui-text-field>
+						<mdui-text-field id="textarea-gmi"
+							name="gmi"
+							variant="outlined"
+							rows="2"
+							label="Godsmottagningsinstruktion"
+							placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet."
+							helper="Ange en kortfattad text som visas som information för lagerpersonalen vid godsmottagning"
+							autosize></mdui-text-field>
 					</div>
 					<div class="s12 pt-xs">
 						<!-- KVALITETSKONTROLL -->
@@ -513,7 +521,7 @@
 					<div class="s12">
 						<!-- KVALITETSKONTROLL, BESKRIVNING -->
 						<mdui-text-field id="textarea-kkb-text"
-							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll. Tryck Shift+Enter för ny rad."
+							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll."
 							label="Kvalitetskontroll, beskrivning"
 							name="kkb-text"
 							placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
@@ -598,7 +606,7 @@
 					<div class="s12">
 						<!-- INTERN KUNDORDERINFO -->
 						<mdui-text-field id="textarea-iki-text"
-							helper="Vid behov, ange en kortfattad text som visas som en informationssymbol på orderraden i Sesam. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
 							label="Intern kundorderinformation"
 							name="iki-text"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
@@ -609,7 +617,7 @@
 					<div class="s12">
 						<!-- INTERN PLOCKINFO -->
 						<mdui-text-field id="textarea-ipi-text"
-							helper="Vid behov, ange en kortfattad text som visas för lagerpersonalen vid plockning. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
 							label="Intern plockinformation"
 							name="ipi-text"
 							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
@@ -620,7 +628,7 @@
 					<div class="s12">
 						<!-- RETURTAGNINGSINFO -->
 						<mdui-text-field id="textarea-iri-text"
-							helper="Vid behov, ange en kortfattad text som visas i samband med returtagnig. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
 							label="Returtagningsinformation"
 							name="iri-text"
 							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
@@ -636,7 +644,7 @@
 					<div class="s12">
 						<!-- ÖVRIGA UPPLYSNINGAR -->
 						<mdui-text-field id="textarea-upplysningar-text"
-							helper="Övrig information till inköpspersonalen. Tryck Shift+Enter för ny rad."
+							helper="Vid behov, ange övrig information till inköpspersonalen"
 							label="Övriga upplysningar"
 							name="upplysningar-text"
 							rows="2"
@@ -649,12 +657,13 @@
 				<div class="controls">
 					<div class="control-right">
 						<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
-						<mdui-button id="button-submit-form" class="ml-a" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
+						<mdui-button id="button-create-artikeldata" validate-input="yes" class="ml-a" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
 					</div>
 				</div><!-- .controls -->
 			</div>
 		</div><!-- .row -->
-	</form></div><!-- .content-wrapper -->
+	<!-- </form> -->
+	</div><!-- .content-wrapper -->
 
 	<!-- Artikeldata -->
 	<div id="content-artikeldata" class="content-wrapper hidden">

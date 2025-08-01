@@ -30,8 +30,8 @@ $(document).ready(function() {
 	// mdui-button #button-fler-produktnamn clicked
 	$('#button-fler-produktnamn').click(function() {
 		$('#div-fler-produktnamn').addClass('hidden');
-		$('#text-produktnamn').attr('label', 'Huvudproduktnamn');
-		$('#text-produktnamn').attr('helper', 'Endast huvudprodukt visas i sökresultat');
+		$('#text-huvudprodukt').attr('label', 'Huvudproduktnamn');
+		$('#text-huvudprodukt').attr('helper', 'Endast huvudprodukt visas i sökresultat');
 		$('.huvudprodukt').addClass('xl3');
 		$('.extraprodukt').removeClass('hidden');
 	});
@@ -359,34 +359,32 @@ $(document).ready(function() {
 		}
 	});
 
+	// Skapa artikeluppgifter
 
+	$('#button-create-artikeldata').click(function() {
+		console.log('mdui-button #button-create-artikeldata clicked');
 
-
-
-	// Skicka artikeluppgifter
-
-	$('#button-submit-form').click(function() {
-		console.log('mdui-button #button-submit-form clicked');
-
-		console.log('resetting artikeldata');
-		artikeldata = '';
-
-		// validate form
-
-		/*
-		console.log('validating form');
-		for (const el of document.getElementById('form-artikeldata').querySelectorAll('[required]')) {
-			if (!el.reportValidity()) {
-				mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
-				return;
+		if ( $('#button-create-artikeldata').attr('validate-input') == "yes" ) {
+			console.log('Input validation enabled');
+			// validate input
+			// vanilla javascript
+			//for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
+			//	if (!el.reportValidity()) {
+			//		mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+			//		return;
+			//	}
+			//}
+			for (const el of $('[required]')) {
+				if (!el.reportValidity()) {
+					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+					return;
+				}
 			}
+		} else {
+			console.log('Input validation disabled');
 		}
-		*/
-		mdui.snackbar({ message: 'Kontroll av obligatoriska fält inaktiverat i form-events.js:383' });
 
-		// submit form
-		$('#form-artikeldata').submit();
+		console.log('Calling createArtikeldata()');
+		createArtikeldata()
 	});
-
-
 });
