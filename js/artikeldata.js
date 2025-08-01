@@ -273,19 +273,13 @@ $(document).ready(function() {
 			artikeldata += extratext;
 		}
 
-
 		// Add artikeldata to #div-artikeldata
 		$('#div-artikeldata').html('<pre>' + artikeldata + '</pre>');
 
-		// Prepare encoded email body
-		// var encodedArtikeldata = encodeURIComponent(artikeldata);
-		// console.log('encodedArtikeldata = ' + encodedArtikeldata);
-
 		// Update href mailto link
 		var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
-		// var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent('Upplägg av ny artikel i Sesam') + '&body=' + encodedArtikeldata;
 		var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent('Upplägg av ny artikel i Sesam');
-		$('#button-send-email').attr('href', hrefcontent).attr('rel', 'external').attr('target', '_blank');
+		$('#button-send-email').attr('href', hrefcontent);
 
 		/* Change page */
 		$('.content-wrapper').addClass('hidden'); /* hide all content */
