@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-01-2115';
+	window.update = '2025-08-02-0150';
 
 	window.artikelansvar = '';
 	window.artikeldata = '';
@@ -221,15 +221,25 @@ $(document).ready(function() {
 	// Include HTML from files
 	// Note: The load function is not included in the slim verion of jQuery
 	console.log('Loading inc/artikelbenamning.html');
-	$("#inc-artikelbenamning").load("inc/artikelbenamning.html"); 
+	$('#inc-artikelbenamning').load('inc/artikelbenamning.html'); 
 
 	console.log('Loading inc/produkt.html');
-	$("#inc-produkt").load("inc/produkt.html"); 
+	$('#inc-produkt').load('inc/produkt.html'); 
 
 	console.log('Loading inc/liggplats.html');
-	$("#inc-liggplats").load("inc/liggplats.html");
+	$('#inc-liggplats').load('inc/liggplats.html');
 
 	console.log('Loading inc/plockomrade.html');
-	$("#inc-plockomrade").load("inc/plockomrade.html");
+	$('#inc-plockomrade').load('inc/plockomrade.html');
+
+	// Page was reloaded
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if (urlParams.has('reload')) {
+		console.log('Page reload detected');
+		const url = location.protocol + '//' + location.host + location.pathname;
+		window.history.pushState(null, '', url);
+		mdui.snackbar({ message: 'Formuläret är rensat' });
+	}
 
 });

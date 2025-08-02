@@ -1,3 +1,111 @@
+function huvudhjalpmedel() {
+	console.log('huvudhjalpmedel() executed');
+
+	// 3. Ekonomi
+	$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+	$('#select-artikeltyp').attr('helper','Huvudjälpmedel är ett komplett fungerande hjälpmedel');
+
+	// 5. Inställningar för webSesam
+	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+
+	// 7. Hantering vid ankomst
+	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#textarea-kkb').val('').attr('disabled', false); // clear and enable
+
+	// 9. Information
+	$('#textarea-iri').val('').attr('disabled', false); // clear and enable
+
+}
+
+function tillbehor() {
+	console.log('tillbehor() executed');
+
+	// 3. Ekonomi
+	$('#select-debiteringsform').val('').attr('disabled', false).attr('required', true); // clear and enable
+	$('#select-artikeltyp').attr('helper','Tillbehör tillför en extra funktion till ett huvudhjälpmedel');
+
+	// 5. Inställningar för webSesam
+	$('#switch-ws-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
+
+	// 7. Hantering vid ankomst
+	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#textarea-kkb').val('').attr('disabled', false).attr('required', false); // clear and enable
+
+	// 9. Information
+	$('#textarea-iri').val('').attr('disabled',true); // clear and disable
+
+}
+
+function reservdel() {
+	console.log('reservdel() executed');
+
+	// 3. Ekonomi
+	$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' (Köp) and disable
+	$('#select-artikeltyp').attr('helper','Reservdelar används för reparationer och underhåll av huvudhjälpmedel och tillbehör');
+
+	// 5. Inställningar för webSesam
+	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+
+	// 7. Hantering vid ankomst
+	$('#switch-kk').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
+
+	// 9. Information
+	$('#textarea-iri').val('').attr('disabled', true); // clear and disable
+}
+
+function manadshyra(artikeltyp) {
+	console.log('mandshyra() executed with argument artikeltyp=' + artikeltyp );
+	switch (artikeltyp) {
+		case 'H':
+			// 3. Ekonomi
+			$('#switch-individartikel').attr('checked', true).attr('disabled', true); // check and disable
+			individartikel = "Ja";
+			$('#switch-inventarium').attr('checked', true).attr('disabled', true); // check and disable
+			inventarium = "Ja";
+			$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and required
+
+			// 8. Service och underhåll
+			$('#select-servicegrad').val('').attr('disabled', false).attr('required', true); // clear, enable and require
+			$('#select-besiktningsintervall').val('').attr('disabled', false); // clear and enable
+			$('#select-fu-intervall').val('').attr('disabled', false); // clear and enable
+			$('#switch-dtm').attr('checked', false).attr('disabled', false); // uncheck and enable
+
+		break;
+		case 'T':
+			// 8. Service och underhåll
+			$('#select-servicegrad').val('44').attr('disabled', true).attr('required', false); // select '44' and disable
+			servicegrad = '44';
+		break;
+	}
+}
+
+function kop(artikeltyp) {
+	console.log('kop() executed with argument artikeltyp=' + artikeltyp );
+	switch (artikeltyp) {
+		case 'H':
+			// 3. Ekonomi
+			$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+			individartikel = "Nej";
+			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
+			inventarium = "Nej";
+			$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
+
+			// 8. Service och underhåll
+			$('#select-servicegrad').val('').attr('disabled', true).attr('required', false); // clear and disable
+			$('#select-besiktningsintervall').val('').attr('disabled', true); // clear and disable
+			$('#select-fu-intervall').val('').attr('disabled', true); // clear and disable
+			$('#switch-dtm').attr('checked', false).attr('disabled', true); // uncheck and enable
+
+		break;
+		case 'T':
+
+		break;
+
+	}
+}
+
+
 function createArtikeldata() {
 
 	// console.log('form #form-artikeldata submitted');
@@ -16,12 +124,14 @@ function createArtikeldata() {
 	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
 	gmi = $('#textarea-gmi').val();
 	huvudprodukt = $('#text-huvudprodukt').val();
-	iki = $('#textarea-iki-text').val();
-	ipi = $('#textarea-ipi-text').val();
-	iri = $('#textarea-iri-text').val();
+	iki = $('#textarea-iki').val();
+	ipi = $('#textarea-ipi').val();
+	iri = $('#textarea-iri').val();
+	individartikel = ( $('#switch-individartikel').prop("checked") ? "Ja" : "Nej" );
 	inkopshantering = $('#select-inkopshantering').val();
+	inventarium = ( $('#switch-inventarium').prop("checked") ? "Ja" : "Nej" );
 	kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej" );
-	kkb = $('#textarea-kkb-text').val();
+	kkb = $('#textarea-kkb').val();
 	leverantor = $('#text-leverantor').val();
 	levartnr = $('#text-levartnr').val();
 	produkt2 = $('#text-produkt2').val();
@@ -29,7 +139,7 @@ function createArtikeldata() {
 	produkt4 = $('#text-produkt4').val();
 	servicegrad = $('#select-servicegrad').val();
 	team = $('#select-team').val();
-	upplysningar = $('#textarea-upplysningar-text').val();
+	upplysningar = $('#textarea-upplysningar').val();
 	ws_bb = ($('#switch-ws-bb').prop("checked") ? "Ja" : "Nej" );
 	ws_info = $('#textarea-ws-info').val();
 	ws_komp = ($('#switch-ws-komp').prop("checked") ? "Ja" : "Nej" );
@@ -111,9 +221,6 @@ function createArtikeldata() {
 		artikeldata += "(avd saknas)";
 	}
 
-	console.log('artikeldata.js:137 individartikel = ' + individartikel);
-	console.log('artikeldata.js:138 inventarium = ' + inventarium);
-
 	if ( inventarium == 'Ja' && avskrivningstid == '3' ) {
 		artikeldata += "I3";
 	} else if ( inventarium == 'Ja' && avskrivningstid == '5' ) {
@@ -165,9 +272,7 @@ function createArtikeldata() {
 	// Status
 	artikeldata += "Status: " + ( inkopshantering == 'Nettobehov' ? "Ny" : "Aktiv" ) + "\n\n";
 
-	// if inköpshantering nettobehov, status = Ny else Aktiv
-
-	// Instruktioner
+	// INSTRUKTIONER
 	if ( gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0 ) {
 		artikeldata += "INSTRUKTIONER\n\n";
 		if ( gmi.length > 0 ) artikeldata += "Godsmottagningsinstruktion: " + gmi + "\n";

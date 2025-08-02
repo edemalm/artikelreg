@@ -114,33 +114,44 @@ $(document).ready(function() {
 
 		artikeltyp = this.value;
 		console.log('Selected artikeltyp: ' + artikeltyp );
+
+		switch (artikeltyp) {
+			case 'H':
+				huvudhjalpmedel();
+			break;
+			case 'T':
+				tillbehor();
+			break;
+			case 'R':
+				reservdel();
+			break;
+		}
+
 		if ( artikelansvar == 'L' || artikelansvar == 'S' ) {
 			// landsting och kommun, eller syncentralen
 			if ( artikeltyp == 'H' || artikeltyp == 'T' ) {
-				$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+				// $('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
 			}
 			if ( artikeltyp == 'R' ) {
-				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-
 			}
 		}
 
 		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
 			// retursortiment eller egenansvar
 			if ( artikeltyp == 'H' ) {
-				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-				$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
-				individartikel = "Nej";
+				// $('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+				// $('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+				// individartikel = "Nej";
 			}
 			if ( artikeltyp == 'T' ) {
-				$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-				$('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
-				individartikel = "Nej";
+				// $('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+				// $('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
+				// individartikel = "Nej";
 			}
 		}
 
 		if ( artikelansvar == 'S' ) {
-			$('#select-team').val('40').attr('disabled', true); // select '40' and disable
+			// $('#select-team').val('40').attr('disabled', true); // select '40' and disable
 		}
 	});
 
@@ -149,52 +160,14 @@ $(document).ready(function() {
 		console.log('mdui-select #select-debiteringsform changed');
 		debiteringsform = this.value;
 		console.log('Selected debiteringsform: ' + debiteringsform );
-
-		if ( artikelansvar == 'L' || artikelansvar == 'S' ) {
-			// landsting och kommun, eller syncentralen
-			if ( artikeltyp == 'H' ) {
-				if ( debiteringsform == 'M' ) {
-					$('#switch-individartikel').attr('checked', true).attr('disabled', true); // check and disable
-					individartikel = "Ja";
-					$('#switch-inventarium').attr('checked', true).attr('disabled', true); // check and disable
-					inventarium = "Ja";
-					$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and required
-				}
-				if ( debiteringsform == 'A' ) {
-					$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
-					individartikel = "Nej";
-					$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-					inventarium = "Nej";
-					$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
-				}
-
-			}
-			if ( artikeltyp == 'T' ) {
-			}
-			if ( artikeltyp == 'R' ) {
-			}
+		switch (debiteringsform) {
+			case 'M':
+				manadshyra(artikeltyp);
+			break;
+			case 'A':
+				kop(artikeltyp);
+			break;
 		}
-
-		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
-			// retursortiment eller egenansvar
-			if ( artikeltyp == 'H' ) {
-			}
-			if ( artikeltyp == 'T' ) {
-			}
-		}
-
-
-		/*
-		if ( artikeltyp == 'H' && debiteringsform == 'M' ) {
-			$('#switch-individartikel').attr('checked', true).attr('disabled', true); // check and disable
-		}
-		if ( artikeltyp == 'H' && debiteringsform == 'A' ) {
-			$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
-			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
-		}
-		*/
-
 	});
 
 	// mdui-switch #switch-individartikel changes
@@ -202,18 +175,6 @@ $(document).ready(function() {
 		console.log('mdui-switch #switch-individartikel changed');
 		individartikel = (this.checked === true) ? 'Ja' :'Nej';
 		console.log('Switch individmärkt: ' + individartikel );
-		/*
-		if ( artikeltyp == 'H' && individartikel == 'Ja' ) {
-			$('#select-debiteringsform').attr('disabled', false); // enable
-			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
-		}
-		if ( artikeltyp == 'H' && individartikel == 'Nej' ) {
-			$('#select-debiteringsform').val('A'); // select 'A'
-			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-			$('#select-avskrivningstid').val('').attr('disabled', true); // clear and disable
-		}
-		*/
 	});
 
 	// mdui-switch #switch-inventarium changes
@@ -229,8 +190,6 @@ $(document).ready(function() {
 		avskrivningstid = this.value;
 		console.log('Selected avskrivningstid: ' + avskrivningstid );
 	});
-
-
 
 	// 4. Ansvarigt team
 
@@ -271,9 +230,11 @@ $(document).ready(function() {
 		if ($('#switch-ws-pub').prop("checked")) {
 			// on
 			$('#ws-pub-helper').html('Artikeln visas och är sökbar');
+			$('#textarea-ws-info').val('').attr('disabled', false); // clear and enable
 		} else {
 			// off
 			$('#ws-pub-helper').html('Artikeln visas ej');
+			$('#textarea-ws-info').val('').attr('disabled', true); // clear and disable
 		}
 	});
 
@@ -323,10 +284,10 @@ $(document).ready(function() {
 		console.log('mdui-switch #switch-kk changed');
 		if ($('#switch-kk').prop("checked")) {
 			// is checked
-			$('#textarea-kkb-text').attr('disabled', false).attr('required', true); // enable
+			$('#textarea-kkb').attr('disabled', false).attr('required', true); // enable
 		} else {
 			// not checked
-			$('#textarea-kkb-text').val('').attr('disabled', true); // clear and disable
+			$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
 		}
 	});
 
@@ -336,8 +297,14 @@ $(document).ready(function() {
 	});
 
 	$('#button-reset-form').click(function() {
-		console.log('Button #button-reset-form clicked');
-		mdui.snackbar({ message: 'Formuläret är rensat' });
+		// console.log('Button #button-reset-form clicked');
+		// resetForm();
+		if ( window.location.search.indexOf('?reload=') == -1 ) {
+			window.location.search += '?reload=1';
+		} else {
+			location.reload();
+		}
+
 	});
 
 	$('.button-close-dialog').click(function() {
