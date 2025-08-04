@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
 	<meta name="renderer" content="webkit"/>
 	<meta name="robots" content="noindex, nofollow">
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-	<link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico">
-	<link rel="manifest" href="/app.webmanifest" crossorigin="anonymous">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+	<link rel="manifest" href="app.webmanifest" crossorigin="anonymous">
 	<style>.hidden { display: none; }</style>
 
 	<!-- CSS served from CDNs online -->
@@ -213,7 +213,7 @@
 							<mdui-checkbox id="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
 						</div>
 					</div>
-					<div class="s12 m4 l12 xl4">
+					<div id="ejht-pris" class="s12 m4 l12 xl4 hidden">
 						<!-- INKÖPSPRIS -->
 						<mdui-text-field id="text-pris"
 							autocomplete="off"
@@ -225,7 +225,7 @@
 							variant="outlined"
 							clearable disabled end-aligned required></mdui-text-field>
 					</div>
-					<div class="s6 m4 l6 xl4">
+					<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
 						<!-- GARANTITID -->
 						<mdui-text-field id="text-garanti"
 							autocomplete="off"
@@ -237,7 +237,7 @@
 							variant="outlined"
 							clearable disabled end-aligned required></mdui-text-field>
 					</div>
-					<div class="s6 m4 l6 xl4">
+					<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
 						<!-- ISO-KOD -->
 						<mdui-text-field id="text-isokod"
 							autocomplete="off"
@@ -295,7 +295,7 @@
 					<div class="s12">
 						<!-- INDIVIDARTIKEL -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-individartikel" class="text disabled">
 								<div class="switch-label">Individartikel</div>
 								<div class="switch-helper">Ett individartikel är spårbar, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
 							</div>
@@ -307,7 +307,7 @@
 					<div class="s12">
 						<!-- INVENTARIUM -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-inventarium" class="text disabled">
 								<div class="switch-label">Inventarium</div>
 								<div class="switch-helper">Ett individmärkt huvudhjälpmedel för uthyrning vars anskaffningskostnad fördelas under dess avskrivningstid på tre eller fem år</div>
 							</div>
@@ -319,7 +319,7 @@
 					<div class="s12">
 						<!-- AVSKRIVNINGSTID -->
 						<div class="radio-wrapper">
-							<div class="text">
+							<div id="label-avskrivningstid" class="text disabled">
 								<div class="radio-label">Avskrivningstid</div>
 								<div class="radio-helper">Välj inventariens avskrivningstid</div>
 							</div>
@@ -360,7 +360,7 @@
 					<div class="s12">
 						<!-- PUBLICERAD WEBSESAM -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-ws-pub" class="text">
 								<div class="switch-label">Publicerad i webSesam</div>
 								<div id="ws-pub-helper" class="switch-helper">Artikel visas inte</div>
 							</div>
@@ -370,7 +370,7 @@
 						</div>
 						<!-- BESTÄLLNINGSBAR WEBSESAM -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-ws-bb" class="text">
 								<div class="switch-label">Beställningsbar i webSesam</div>
 								<div id="ws-bb-helper" class="switch-helper">Artikeln kan ej beställas. Uttag från eget kundlager kan ej registreras.</div>
 							</div>
@@ -380,7 +380,7 @@
 						</div>
 						<!-- INGÅR I SORTIMENT -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-ws-sort" class="text">
 								<div class="switch-label">Sortimentsartikel</div>
 								<div id="ws-sort-helper" class="switch-helper">Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsökning</div>
 							</div>
@@ -390,7 +390,7 @@
 						</div>
 						<!-- KOMPONENT -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-ws-komp" class="text disabled">
 								<div class="switch-label">Kan vara komponent</div>
 								<div id="ws-komp-helper" class="switch-helper">Artikeln kan ej beställas som komponent till ett huvudhjälpmedel</div>
 							</div>
@@ -400,7 +400,7 @@
 						</div>
 						<!--- XXX -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-ws-xxx" class="text disabled">
 								<div class="switch-label">Något mer?</div>
 								<div class="switch-helper">Någon ytterligare parameter</div>
 							</div>
@@ -455,16 +455,16 @@
 						<mdui-text-field id="text-liggplats"
 							variant="outlined"
 							label="Liggplats"
-							helper="Ange en liggplats om den är känd i förväg"
-							placeholder="(PX-)01-X-XXX"></mdui-text-field>
+							helper="Ange en liggplats om den är känd i förväg"></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- BUFFERTLAGER -->
 						<mdui-text-field id="textarea-bufferlager"
-							variant="outlined"
-							label="Eventuella buffertlager"
 							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
+							label="Eventuella buffertlager"
 							placeholder="Exempel: Lager 220, 3 st, 31-A-123"
+							rows="2"
+							variant="outlined"
 							autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
@@ -485,7 +485,7 @@
 					<div class="s12 pt-xs">
 						<!-- KVALITETSKONTROLL -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-kk" class="text disabled">
 								<div class="switch-label">Kvalitetskontroll</div>
 								<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
 							</div>
@@ -566,7 +566,7 @@
 					<div class="s12">
 						<!-- DRIFTTIDSMÄTARE -->
 						<div class="switch-wrapper">
-							<div class="text">
+							<div id="label-dtm" class="text disabled">
 								<div class="switch-label">Drifttidsmätare</div>
 								<div id="dtm-helper" class="switch-helper">Artikel har ej drifttidsmätare</div>
 							</div>
@@ -630,6 +630,8 @@
 				<div class="controls">
 					<div class="control-right">
 						<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
+					</div>
+					<div class="control-right">
 						<mdui-button id="button-create-artikeldata" validate-input="no" class="ml-a" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
 					</div>
 				</div><!-- .controls -->
@@ -658,6 +660,8 @@
 					</div>
 					<div class="control-right">
 						<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
+					</div>
+					<div class="control-right">
 						<mdui-button id="button-send-email" class="ml-a" icon="email" variant="filled">Skapa epost</mdui-button>
 					</div>
 				</div><!-- .controls -->

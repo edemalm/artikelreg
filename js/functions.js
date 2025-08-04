@@ -7,9 +7,12 @@ function huvudhjalpmedel() {
 
 	// 5. Inställningar för webSesam
 	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-ws-kom').addClass('disabled'); // add .disabled
 
 	// 7. Hantering vid ankomst
 	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-kk').removeClass('disabled'); // remove .disabled
+
 	$('#textarea-kkb').val('').attr('disabled', false); // clear and enable
 
 	// 9. Information
@@ -26,9 +29,12 @@ function tillbehor() {
 
 	// 5. Inställningar för webSesam
 	$('#switch-ws-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-ws-komp').removeClass('disabled'); // remove .disabled
 
 	// 7. Hantering vid ankomst
 	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-kk').removeClass('disabled'); // remove .disabled
+
 	$('#textarea-kkb').val('').attr('disabled', false).attr('required', false); // clear and enable
 
 	// 9. Information
@@ -45,9 +51,12 @@ function reservdel() {
 
 	// 5. Inställningar för webSesam
 	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-ws-komp').addClass('disabled'); // add .disabled
 
 	// 7. Hantering vid ankomst
 	$('#switch-kk').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-kk').addClass('disabled'); // add .disabled
+
 	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
 
 	// 9. Information
@@ -86,16 +95,21 @@ function kop(artikeltyp) {
 		case 'H':
 			// 3. Ekonomi
 			$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+			$('#label-individartikel').removeClass('disabled'); // remove .disabled
 			individartikel = "Nej";
+
 			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
 			inventarium = "Nej";
+
 			$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
 
 			// 8. Service och underhåll
 			$('#select-servicegrad').val('').attr('disabled', true).attr('required', false); // clear and disable
 			$('#select-besiktningsintervall').val('').attr('disabled', true); // clear and disable
 			$('#select-fu-intervall').val('').attr('disabled', true); // clear and disable
+
 			$('#switch-dtm').attr('checked', false).attr('disabled', true); // uncheck and enable
+			$('#label-dtm').removeClass('disabled'); // remove .disabled
 
 		break;
 		case 'T':
@@ -123,6 +137,7 @@ function createArtikeldata() {
 	debiteringsform = $('#select-debiteringsform').val();
 	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
 	gmi = $('#textarea-gmi').val();
+	huvudlager = $('#select-huvudlager').val();
 	huvudprodukt = $('#text-huvudprodukt').val();
 	iki = $('#textarea-iki').val();
 	ipi = $('#textarea-ipi').val();

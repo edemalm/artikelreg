@@ -44,6 +44,10 @@ $(document).ready(function() {
 		if ($('#checkbox-ht').prop("checked")) {
 
 			// is checked
+			$('#ejht-pris').addClass('hidden');
+			$('#ejht-garanti').addClass('hidden');
+			$('#ejht-isokod').addClass('hidden');
+
 			$('#text-pris').val('').attr('disabled', true);
 			$('#text-garanti').val('').attr('disabled', true);
 			$('#text-isokod').val('').attr('disabled', true);
@@ -51,9 +55,13 @@ $(document).ready(function() {
 		} else {
 
 			// not checked
-			$('#text-pris').removeAttr('disabled');
-			$('#text-garanti').removeAttr('disabled');
-			$('#text-isokod').removeAttr('disabled');
+			$('#text-pris').attr('disabled', false);
+			$('#text-garanti').attr('disabled', false);
+			$('#text-isokod').attr('disabled', false);
+
+			$('#ejht-pris').removeClass('hidden');
+			$('#ejht-garanti').removeClass('hidden');
+			$('#ejht-isokod').removeClass('hidden');
 
 		}
 
@@ -96,8 +104,10 @@ $(document).ready(function() {
 		if ( artikelansvar == 'S' ) {
 			// syncentralen
 			$('#select-team').val('40').attr('disabled', true); // select '40' and disable
+			$('#select-huvudlager').val('400');
 		} else {
 			$('#select-team').val('').attr('disabled', false); // clear and enable
+			$('#select-huvudlager').val('200');
 		}
 
 	});
@@ -273,6 +283,41 @@ $(document).ready(function() {
 			// off
 			sortimentsartikel = "Nej";
 			$('#ws-sort-helper').html('Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsöknig');
+		}
+	});
+
+	// 6. Lagerhållning
+
+	// mdui-select #select-huvudlager changes
+	$('#select-huvudlager').on('change', function() {
+		console.log('mdui-select #select-huvudlager changed');
+		huvudlager = this.value;
+		console.log('Selected huvudlager: ' + huvudlager );
+		switch( huvudlager) {
+		case '200':
+			$('#text-liggplats').attr('placeholder', 'P?-01-?-???');
+		break;
+		case '400':
+			$('#text-liggplats').attr('placeholder', '01-?-???');
+		break;
+		case '688':
+			$('#text-liggplats').attr('placeholder', '01-?-???');
+		break;
+		}
+	});
+
+	// mdui-select #select-inkopshantering changes
+	$('#select-inkopshantering').on('change', function() {
+		console.log('mdui-select #select-inkopshantering changed');
+		inkopshantering = this.value;
+		console.log('Selected inkopshantering: ' + inkopshantering );
+		switch( inkopshantering) {
+		case 'Kundorder':
+			//
+		break;
+		case 'Nettobehov':
+			//
+		break;
 		}
 	});
 

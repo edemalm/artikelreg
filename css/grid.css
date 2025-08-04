@@ -17,11 +17,12 @@
 .row {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	gap: var(--app-space);
-	/*
-	row-gap: calc(var(--app-space)*2);
-	column-gap: var(--app-space);
-	*/
+	gap: 1rem;
+}
+@media only screen and (min-width: 641px) {
+	.row {
+		gap: 2rem;
+	}
 }
 
 .row .s1 { grid-column: auto/span 1; }

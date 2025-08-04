@@ -24,6 +24,7 @@ $(document).ready(function() {
 	window.kk = '';
 	window.kkb = '';
 	window.leverantor = '';
+	window.huvudlager = '';
 	window.huvudprodukt = '';
 	window.produkt2 = '';
 	window.produkt3 = '';

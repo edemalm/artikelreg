@@ -329,18 +329,17 @@ pre {
 	background-color: rgb(var(--mdui-color-surface-container));
 	transition: all 0.5s;
 	margin: 0 auto;
-	padding: 0 0 var(--app-space) 0;
+	padding: 0 0 1rem 0;
 }
 @media only screen and (min-width: 641px) {
 	#content-container {
-		max-width: calc(1280px - calc(var(--app-space)*2));
-		padding: var(--app-space);
+		max-width: calc(1280px - 4rem);
+		padding: 2rem;
 	}
 }
-
 @media screen and (min-width: 1281px) {
 	#content-container {
-		border-radius: calc(var(--app-space));
+		border-radius: var(--mdui-shape-corner-extra-large);
 	}
 }
 
@@ -351,27 +350,30 @@ pre {
 }
 
 .form-group {
-	/* background-color: rgb(var(--mdui-color-surface-container)); */
 	background-color: rgb(var(--mdui-color-background));
-	/* box-shadow: var(--mdui-elevation-level1); */
-	padding: var(--app-space);
-	width: calc(100% - calc(var(--app-space)*2));
+	border-bottom: 0.0625rem solid rgb(var(--mdui-color-surface-variant));
+	padding: 1rem;
+	width: calc(100% - 2rem);
+}
+.form-group:last-child {
+	border: none;
 }
 
 .page-content {
 	background-color: rgb(var(--mdui-color-surface-container));
-	padding: var(--app-space);
-	width: calc(100% - calc(var(--app-space)*2));
+	padding: 1rem;
+	width: calc(100% - 2rem);
 }
 
 @media only screen and (min-width: 641px) {
-	.form-group,
-	.page-content {
-		border-radius: calc(var(--app-space)/2);
-		margin-bottom: var(--app-space);
+	.form-group, .page-content {
+		border-radius: var(--mdui-shape-corner-medium);
+		border: none;
+		margin-bottom: 2rem;
+		padding: 2rem;
+		width: calc(100% - 4rem);
 	}
 }
-
 
 .flat {
 	margin-bottom: var(--app-space);
@@ -521,31 +523,17 @@ div.radio-helper {
 }
 
 
-div.controls {
-	display: flex;
-	justify-content: space-between;
-	margin: 0 var(--app-space);
+div.controls { display: flex; flex-direction: row; justify-content: right; margin: 0; }
+div.control-left {flex-grow: 1; text-align: left; }
+div.control-center { flex-grow: 1; text-align: center; }
+div.control-right { flex-grow: 0; text-align: right; }
+
+@media only screen and (max-width: 640px) {
+	div.controls { flex-direction: column; margin: 0 var(--app-space); }
+	div.control-left, div.control-center, div.control-right { text-align: right; }
 }
-@media only screen and (min-width: 641px) {
-	div.controls {
-		margin: 0;
-	}
-}
-div.control-left {
-	flex-grow: 1;
-	order: 0;
-	text-align: left;
-}
-div.control-center {
-	flex-grow: 1;
-	order: 1;
-	text-align: center;
-}
-div.control-right {
-	flex-grow: 1;
-	order: 2;
-	text-align: right;
-}
+
+
 
 .wave {
 	background-repeat: no-repeat;
@@ -582,3 +570,8 @@ url encoded: rgb%28232%2C222%2C248%29
 url encoded: rgb%2874%2C68%2C88%29
 
 */
+
+.disabled .switch-helper, .disabled .switch-label,
+.disabled .radio-helper, .disabled .radio-label {
+    color: rgba(var(--mdui-color-on-surface), 38%);
+}
