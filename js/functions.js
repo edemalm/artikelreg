@@ -1,3 +1,31 @@
+function enableSwitchWSKomp() {
+	$('#switch-ws-komp').attr('checked', true).attr('disabled', false); // check and enable
+	$('#label-ws-komp').removeClass('disabled'); // remove .disabled
+	$('#ws-komp-helper').html('Artikeln kan beställas som komponent till ett huvudhjälpmedel');
+}
+
+function disableSwitchWSKomp() {
+	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-ws-komp').addClass('disabled'); // add .disabled
+	$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
+}
+
+function enableServiceOchUnderhall() {
+	$('#select-servicegrad').val('').attr('disabled', false); // reset and enable
+	$('#select-besiktningsintervall').val('').attr('disabled', false); // reset and enable
+	$('#select-fu-intervall').val('').attr('disabled', false); // reset and enable
+	$('#switch-dtm').attr('checked', false).attr('disabled', false); // uncheck and disable
+	$('#label-dtm').removeClass('disabled'); // remove .disabled
+}
+
+function disableServiceOchUnderhall() {
+	$('#select-servicegrad').val('').attr('disabled', true); // reset and disable
+	$('#select-besiktningsintervall').val('').attr('disabled', true); // reset and disable
+	$('#select-fu-intervall').val('').attr('disabled', true); // reset and disable
+	$('#switch-dtm').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-dtm').addClass('disabled'); // add .disabled
+}
+
 function huvudhjalpmedel() {
 	console.log('huvudhjalpmedel() executed');
 
@@ -6,14 +34,16 @@ function huvudhjalpmedel() {
 	$('#select-artikeltyp').attr('helper','Huvudjälpmedel är ett komplett fungerande hjälpmedel');
 
 	// 5. Inställningar för webSesam
-	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-ws-kom').addClass('disabled'); // add .disabled
+	disableSwitchWSKomp();
 
 	// 7. Hantering vid ankomst
 	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
 	$('#label-kk').removeClass('disabled'); // remove .disabled
 
 	$('#textarea-kkb').val('').attr('disabled', false); // clear and enable
+
+	// 8. Service och underhåll
+	disableServiceOchUnderhall();
 
 	// 9. Information
 	$('#textarea-iri').val('').attr('disabled', false); // clear and enable
@@ -28,14 +58,16 @@ function tillbehor() {
 	$('#select-artikeltyp').attr('helper','Tillbehör tillför en extra funktion till ett huvudhjälpmedel');
 
 	// 5. Inställningar för webSesam
-	$('#switch-ws-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-ws-komp').removeClass('disabled'); // remove .disabled
+	enableSwitchWSKomp();
 
 	// 7. Hantering vid ankomst
 	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
 	$('#label-kk').removeClass('disabled'); // remove .disabled
 
 	$('#textarea-kkb').val('').attr('disabled', false).attr('required', false); // clear and enable
+
+	// 8. Service och underhåll
+	disableServiceOchUnderhall();
 
 	// 9. Information
 	$('#textarea-iri').val('').attr('disabled',true); // clear and disable
@@ -50,14 +82,16 @@ function reservdel() {
 	$('#select-artikeltyp').attr('helper','Reservdelar används för reparationer och underhåll av huvudhjälpmedel och tillbehör');
 
 	// 5. Inställningar för webSesam
-	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-ws-komp').addClass('disabled'); // add .disabled
+	disableSwitchWSKomp();
 
 	// 7. Hantering vid ankomst
 	$('#switch-kk').attr('checked', false).attr('disabled', true); // uncheck and disable
 	$('#label-kk').addClass('disabled'); // add .disabled
 
 	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
+
+	// 8. Service och underhåll
+	disableServiceOchUnderhall();
 
 	// 9. Information
 	$('#textarea-iri').val('').attr('disabled', true); // clear and disable
@@ -75,10 +109,7 @@ function manadshyra(artikeltyp) {
 			$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and required
 
 			// 8. Service och underhåll
-			$('#select-servicegrad').val('').attr('disabled', false).attr('required', true); // clear, enable and require
-			$('#select-besiktningsintervall').val('').attr('disabled', false); // clear and enable
-			$('#select-fu-intervall').val('').attr('disabled', false); // clear and enable
-			$('#switch-dtm').attr('checked', false).attr('disabled', false); // uncheck and enable
+			enableServiceOchUnderhall();
 
 		break;
 		case 'T':
@@ -104,12 +135,7 @@ function kop(artikeltyp) {
 			$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
 
 			// 8. Service och underhåll
-			$('#select-servicegrad').val('').attr('disabled', true).attr('required', false); // clear and disable
-			$('#select-besiktningsintervall').val('').attr('disabled', true); // clear and disable
-			$('#select-fu-intervall').val('').attr('disabled', true); // clear and disable
-
-			$('#switch-dtm').attr('checked', false).attr('disabled', true); // uncheck and enable
-			$('#label-dtm').removeClass('disabled'); // remove .disabled
+			disableServiceOchUnderhall();
 
 		break;
 		case 'T':

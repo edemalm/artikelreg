@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*
 .m-xxs { margin: var(--app-space-xxs) !important }
 .m-xs { margin: var(--app-space-xs) !important }
 .m-s  { margin: var(--app-space-s) !important }
@@ -79,6 +80,7 @@
 .pl-l  { padding-left: var(--app-space-l) !important }
 .pl-xl { padding-left: var(--app-space-xl) !important }
 .pl-a  { padding-left: var(--app-space) !important }
+*/
 
 body {
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -101,70 +103,70 @@ body {
 
 
 @media screen and (min-width: 1025px) {
-	.winter-0 { background-image: url('/img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
-	.winter-1 { background-image: url('/img/bg/winter/birger-strahl-6YZgnYaPD5s-unsplash.jpg') }
-	.winter-2 { background-image: url('/img/bg/winter/galina-n-AgWVcQz1bOA-unsplash.jpg') }
-	.winter-3 { background-image: url('/img/bg/winter/ian-schneider-gwF2mDy5lFQ-unsplash.jpg') }
-	.winter-4 { background-image: url('/img/bg/winter/joel-jasmin-forestbird-efuwb5eBDrI-unsplash.jpg') }
-	.winter-5 { background-image: url('/img/bg/winter/lucian-qxO2PBn7eKU-unsplash.jpg') }
-	.winter-6 { background-image: url('/img/bg/winter/pascal-debrunner-xT1oIYEucOU-unsplash.jpg') }
-	.winter-7 { background-image: url('/img/bg/winter/samsommer-vddccTqwal8-unsplash.jpg') }
-	.winter-8 { background-image: url('/img/bg/winter/simon-fitall-5ditmO9_ae0-unsplash.jpg') }
+	.winter-0 { background-image: url('../img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
+	.winter-1 { background-image: url('../img/bg/winter/birger-strahl-6YZgnYaPD5s-unsplash.jpg') }
+	.winter-2 { background-image: url('../img/bg/winter/galina-n-AgWVcQz1bOA-unsplash.jpg') }
+	.winter-3 { background-image: url('../img/bg/winter/ian-schneider-gwF2mDy5lFQ-unsplash.jpg') }
+	.winter-4 { background-image: url('../img/bg/winter/joel-jasmin-forestbird-efuwb5eBDrI-unsplash.jpg') }
+	.winter-5 { background-image: url('../img/bg/winter/lucian-qxO2PBn7eKU-unsplash.jpg') }
+	.winter-6 { background-image: url('../img/bg/winter/pascal-debrunner-xT1oIYEucOU-unsplash.jpg') }
+	.winter-7 { background-image: url('../img/bg/winter/samsommer-vddccTqwal8-unsplash.jpg') }
+	.winter-8 { background-image: url('../img/bg/winter/simon-fitall-5ditmO9_ae0-unsplash.jpg') }
 
-	.spring-0 { background-image: url('/img/bg/spring/anders-jilden-O85h02qZ24w-unsplash.jpg') }
-	.spring-1 { background-image: url('/img/bg/spring/aniket-bhattacharya-CgyrwbE6Hm4-unsplash.jpg') }
-	.spring-2 { background-image: url('/img/bg/spring/ash-amplifies-NQ6Lh81BTRs-unsplash.jpg') }
-	.spring-3 { background-image: url('/img/bg/spring/biegun-wschodni-ZloDJXzcMGA-unsplash.jpg') }
-	.spring-4 { background-image: url('/img/bg/spring/braden-jarvis-prSogOoFmkw-unsplash.jpg') }
-	.spring-5 { background-image: url('/img/bg/spring/jenny-theolin-4OxOYLf59QE-unsplash.jpg') }
-	.spring-6 { background-image: url('/img/bg/spring/joshua-sortino-CTVGEm6V8qI-unsplash.jpg') }
-	.spring-7 { background-image: url('/img/bg/spring/rainhard-wiesinger-6ZVNBTvBLf4-unsplash.jpg') }
+	.spring-0 { background-image: url('../img/bg/spring/anders-jilden-O85h02qZ24w-unsplash.jpg') }
+	.spring-1 { background-image: url('../img/bg/spring/aniket-bhattacharya-CgyrwbE6Hm4-unsplash.jpg') }
+	.spring-2 { background-image: url('../img/bg/spring/ash-amplifies-NQ6Lh81BTRs-unsplash.jpg') }
+	.spring-3 { background-image: url('../img/bg/spring/biegun-wschodni-ZloDJXzcMGA-unsplash.jpg') }
+	.spring-4 { background-image: url('../img/bg/spring/braden-jarvis-prSogOoFmkw-unsplash.jpg') }
+	.spring-5 { background-image: url('../img/bg/spring/jenny-theolin-4OxOYLf59QE-unsplash.jpg') }
+	.spring-6 { background-image: url('../img/bg/spring/joshua-sortino-CTVGEm6V8qI-unsplash.jpg') }
+	.spring-7 { background-image: url('../img/bg/spring/rainhard-wiesinger-6ZVNBTvBLf4-unsplash.jpg') }
 
-	.summer-0 { background-image: url('/img/bg/summer/adriel-kloppenburg-S1XAf3JxOLI-unsplash.jpg') }
-	.summer-1 { background-image: url('/img/bg/summer/andrey-grinkevich-rIDE73mqi2s-unsplash.jpg') }
-	.summer-2 { background-image: url('/img/bg/summer/christian-widell-qWqj7_h0mxU-unsplash.jpg') }
-	.summer-3 { background-image: url('/img/bg/summer/claudio-testa--SO3JtE3gZo-unsplash.jpg') }
-	.summer-4 { background-image: url('/img/bg/summer/daiga-ellaby-YnNczu62rdk-unsplash.jpg') }
-	.summer-5 { background-image: url('/img/bg/summer/daniela-cuevas-t7YycgAoVSw-unsplash.jpg') }
-	.summer-6 { background-image: url('/img/bg/summer/hans-isaacson-FNS6mP4fsIs-unsplash.jpg') }
-	.summer-7 { background-image: url('/img/bg/summer/ken-cheung-KonWFWUaAuk-unsplash.jpg') }
-	.summer-8 { background-image: url('/img/bg/summer/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg') }
-	.summer-9 { background-image: url('/img/bg/summer/luca-micheli-r9RW20TrQ0Y-unsplash.jpg') }
-	.summer-10 { background-image: url('/img/bg/summer/marita-kavelashvili-ugnrXk1129g-unsplash.jpg') }
-	.summer-11 { background-image: url('/img/bg/summer/mateo-giraud-wtBex4wQw60-unsplash.jpg') }
-	.summer-12 { background-image: url('/img/bg/summer/nils-leonhardt-Tss1uOMczDg-unsplash.jpg') }
-	.summer-13 { background-image: url('/img/bg/summer/pedro-lastra-br-Xdb9KE0Q-unsplash.jpg') }
-	.summer-14 { background-image: url('/img/bg/summer/robin-mathlener-Jdem_eQTHTQ-unsplash.jpg') }
-	.summer-15 { background-image: url('/img/bg/summer/sean-oulashin-KMn4VEeEPR8-unsplash.jpg') }
-	.summer-16 { background-image: url('/img/bg/summer/tobias-rademacher-NuBvAE6VfSM-unsplash.jpg') }
+	.summer-0 { background-image: url('../img/bg/summer/adriel-kloppenburg-S1XAf3JxOLI-unsplash.jpg') }
+	.summer-1 { background-image: url('../img/bg/summer/andrey-grinkevich-rIDE73mqi2s-unsplash.jpg') }
+	.summer-2 { background-image: url('../img/bg/summer/christian-widell-qWqj7_h0mxU-unsplash.jpg') }
+	.summer-3 { background-image: url('../img/bg/summer/claudio-testa--SO3JtE3gZo-unsplash.jpg') }
+	.summer-4 { background-image: url('../img/bg/summer/daiga-ellaby-YnNczu62rdk-unsplash.jpg') }
+	.summer-5 { background-image: url('../img/bg/summer/daniela-cuevas-t7YycgAoVSw-unsplash.jpg') }
+	.summer-6 { background-image: url('../img/bg/summer/hans-isaacson-FNS6mP4fsIs-unsplash.jpg') }
+	.summer-7 { background-image: url('../img/bg/summer/ken-cheung-KonWFWUaAuk-unsplash.jpg') }
+	.summer-8 { background-image: url('../img/bg/summer/kurt-cotoaga-cqbLg3lZEpk-unsplash.jpg') }
+	.summer-9 { background-image: url('../img/bg/summer/luca-micheli-r9RW20TrQ0Y-unsplash.jpg') }
+	.summer-10 { background-image: url('../img/bg/summer/marita-kavelashvili-ugnrXk1129g-unsplash.jpg') }
+	.summer-11 { background-image: url('../img/bg/summer/mateo-giraud-wtBex4wQw60-unsplash.jpg') }
+	.summer-12 { background-image: url('../img/bg/summer/nils-leonhardt-Tss1uOMczDg-unsplash.jpg') }
+	.summer-13 { background-image: url('../img/bg/summer/pedro-lastra-br-Xdb9KE0Q-unsplash.jpg') }
+	.summer-14 { background-image: url('../img/bg/summer/robin-mathlener-Jdem_eQTHTQ-unsplash.jpg') }
+	.summer-15 { background-image: url('../img/bg/summer/sean-oulashin-KMn4VEeEPR8-unsplash.jpg') }
+	.summer-16 { background-image: url('../img/bg/summer/tobias-rademacher-NuBvAE6VfSM-unsplash.jpg') }
 
-	.fall-0 { background-image: url('/img/bg/fall/becky-winner-mpREFER4w7w-unsplash.jpg') }
-	.fall-1 { background-image: url('/img/bg/fall/chad-madden-cPa-7yByq3o-unsplash.jpg') }
-	.fall-2 { background-image: url('/img/bg/fall/colton-sturgeon-EFQlS6SL9uw-unsplash.jpg') }
-	.fall-3 { background-image: url('/img/bg/fall/cristina-gottardi-ajYKLDAa9tQ-unsplash.jpg') }
-	.fall-4 { background-image: url('/img/bg/fall/daniel-foster-r2uZFQoarXM-unsplash.jpg') }
-	.fall-5 { background-image: url('/img/bg/fall/daniel-mirlea-dfuA04fz9yM-unsplash.jpg') }
-	.fall-6 { background-image: url('/img/bg/fall/daniel-sessler-z_9VmsxR8hs-unsplash.jpg') }
-	.fall-7 { background-image: url('/img/bg/fall/dave-hoefler-GVw2IB_xwII-unsplash.jpg') }
-	.fall-8 { background-image: url('/img/bg/fall/erica-li-qbNcIFPC3qc-unsplash.jpg') }
-	.fall-9 { background-image: url('/img/bg/fall/federica-galli-pF1ug8ysTtY-unsplash.jpg') }
-	.fall-10 { background-image: url('/img/bg/fall/freestocks-ZArDeAtxj0Q-unsplash.jpg') }
-	.fall-11 { background-image: url('/img/bg/fall/jeremy-thomas-O6N9RV2rzX8-unsplash.jpg') }
-	.fall-12 { background-image: url('/img/bg/fall/jeremy-thomas-Qw2CUd_9OWo-unsplash.jpg') }
-	.fall-13 { background-image: url('/img/bg/fall/johannes-plenio-a72o8w9HC2w-unsplash.jpg') }
-	.fall-14 { background-image: url('/img/bg/fall/johannes-plenio-RwHv7LgeC7s-unsplash.jpg') }
-	.fall-15 { background-image: url('/img/bg/fall/johannes-plenio-UewgGfZgYj0-unsplash.jpg') }
-	.fall-16 { background-image: url('/img/bg/fall/john-jennings-j4W0yavYZWA-unsplash.jpg') }
-	.fall-17 { background-image: url('/img/bg/fall/john-towner-89PFnHKg8HE-unsplash.jpg') }
-	.fall-18 { background-image: url('/img/bg/fall/katie-moum-DLNoV-SFQ-U-unsplash.jpg') }
-	.fall-19 { background-image: url('/img/bg/fall/monique-caraballo-apCZADUINlQ-unsplash.jpg') }
-	.fall-20 { background-image: url('/img/bg/fall/patrick-tomasso-5hvn-2WW6rY-unsplash.jpg') }
-	.fall-21 { background-image: url('/img/bg/fall/willian-justen-de-vasconcellos-T_Qe4QlMIvQ-unsplash.jpg') }
+	.fall-0 { background-image: url('../img/bg/fall/becky-winner-mpREFER4w7w-unsplash.jpg') }
+	.fall-1 { background-image: url('../img/bg/fall/chad-madden-cPa-7yByq3o-unsplash.jpg') }
+	.fall-2 { background-image: url('../img/bg/fall/colton-sturgeon-EFQlS6SL9uw-unsplash.jpg') }
+	.fall-3 { background-image: url('../img/bg/fall/cristina-gottardi-ajYKLDAa9tQ-unsplash.jpg') }
+	.fall-4 { background-image: url('../img/bg/fall/daniel-foster-r2uZFQoarXM-unsplash.jpg') }
+	.fall-5 { background-image: url('../img/bg/fall/daniel-mirlea-dfuA04fz9yM-unsplash.jpg') }
+	.fall-6 { background-image: url('../img/bg/fall/daniel-sessler-z_9VmsxR8hs-unsplash.jpg') }
+	.fall-7 { background-image: url('../img/bg/fall/dave-hoefler-GVw2IB_xwII-unsplash.jpg') }
+	.fall-8 { background-image: url('../img/bg/fall/erica-li-qbNcIFPC3qc-unsplash.jpg') }
+	.fall-9 { background-image: url('../img/bg/fall/federica-galli-pF1ug8ysTtY-unsplash.jpg') }
+	.fall-10 { background-image: url('../img/bg/fall/freestocks-ZArDeAtxj0Q-unsplash.jpg') }
+	.fall-11 { background-image: url('../img/bg/fall/jeremy-thomas-O6N9RV2rzX8-unsplash.jpg') }
+	.fall-12 { background-image: url('../img/bg/fall/jeremy-thomas-Qw2CUd_9OWo-unsplash.jpg') }
+	.fall-13 { background-image: url('../img/bg/fall/johannes-plenio-a72o8w9HC2w-unsplash.jpg') }
+	.fall-14 { background-image: url('../img/bg/fall/johannes-plenio-RwHv7LgeC7s-unsplash.jpg') }
+	.fall-15 { background-image: url('../img/bg/fall/johannes-plenio-UewgGfZgYj0-unsplash.jpg') }
+	.fall-16 { background-image: url('../img/bg/fall/john-jennings-j4W0yavYZWA-unsplash.jpg') }
+	.fall-17 { background-image: url('../img/bg/fall/john-towner-89PFnHKg8HE-unsplash.jpg') }
+	.fall-18 { background-image: url('../img/bg/fall/katie-moum-DLNoV-SFQ-U-unsplash.jpg') }
+	.fall-19 { background-image: url('../img/bg/fall/monique-caraballo-apCZADUINlQ-unsplash.jpg') }
+	.fall-20 { background-image: url('../img/bg/fall/patrick-tomasso-5hvn-2WW6rY-unsplash.jpg') }
+	.fall-21 { background-image: url('../img/bg/fall/willian-justen-de-vasconcellos-T_Qe4QlMIvQ-unsplash.jpg') }
 
-	.christmas-0 { background-image: url('/img/bg/christmas/annie-spratt-QKo-op_gR9I-unsplash.jpg') }
-	.christmas-1 { background-image: url('/img/bg/christmas/freestocks-r0eEDn1GAKw-unsplash.jpg') }
-	.christmas-2 { background-image: url('/img/bg/christmas/hert-niks-m3L1AStgkyw-unsplash.jpg') }
-	.christmas-3 { background-image: url('/img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
+	.christmas-0 { background-image: url('../img/bg/christmas/annie-spratt-QKo-op_gR9I-unsplash.jpg') }
+	.christmas-1 { background-image: url('../img/bg/christmas/freestocks-r0eEDn1GAKw-unsplash.jpg') }
+	.christmas-2 { background-image: url('../img/bg/christmas/hert-niks-m3L1AStgkyw-unsplash.jpg') }
+	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
 	/*
 	backdrop-filter: blur(1rem);
@@ -213,110 +215,6 @@ body {
 @media screen and (min-width: 1025px) and (max-width: 1280px) { .bp-l { display: inline !important; } }
 @media screen and (min-width: 1281px) { .bp-xl { display: inline !important; } }
 
-/* Typography classes */
-.display-large {
-	font-size: var(--mdui-typescale-display-large-size) !important;
-	font-weight: var(--mdui-typescale-display-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-display-large-tracking) !important;
-	line-height: var(--mdui-typescale-display-large-line-height) !important;
-}
-.display-medium {
-	font-size: var(--mdui-typescale-display-medium-size) !important;
-	font-weight: var(--mdui-typescale-display-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-display-medium-tracking) !important;
-	line-height: var(--mdui-typescale-display-medium-line-height) !important;
-}
-.display-small {
-	font-size: var(--mdui-typescale-display-small-size) !important;
-	font-weight: var(--mdui-typescale-display-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-display-small-tracking) !important;
-	line-height: var(--mdui-typescale-display-small-line-height) !important;
-}
-
-.headline-large {
-	font-size: var(--mdui-typescale-headline-large-size) !important;
-	font-weight: var(--mdui-typescale-headline-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-headline-large-tracking) !important;
-	line-height: var(--mdui-typescale-headline-large-line-height) !important;
-}
-.headline-medium {
-	font-size: var(--mdui-typescale-headline-medium-size) !important;
-	font-weight: var(--mdui-typescale-headline-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-headline-medium-tracking) !important;
-	line-height: var(--mdui-typescale-headline-medium-line-height) !important;
-}
-.headline-small {
-	font-size: var(--mdui-typescale-headline-small-size) !important;
-	font-weight: var(--mdui-typescale-headline-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-headline-small-tracking) !important;
-	line-height: var(--mdui-typescale-headline-small-line-height) !important;
-}
-
-.title-large {
-	font-size: var(--mdui-typescale-title-large-size) !important;
-	font-weight: var(--mdui-typescale-title-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-title-large-tracking) !important;
-	line-height: var(--mdui-typescale-title-large-line-height) !important;
-}
-.title-medium {
-	font-size: var(--mdui-typescale-title-medium-size) !important;
-	font-weight: var(--mdui-typescale-title-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-title-medium-tracking) !important;
-	line-height: var(--mdui-typescale-title-medium-line-height) !important;
-}
-.title-small {
-	font-size: var(--mdui-typescale-title-small-size) !important;
-	font-weight: var(--mdui-typescale-title-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-title-small-tracking) !important;
-	line-height: var(--mdui-typescale-title-small-line-height) !important;
-}
-
-.label-large {
-	font-size: var(--mdui-typescale-label-large-size) !important;
-	font-weight: var(--mdui-typescale-label-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-label-large-tracking) !important;
-	line-height: var(--mdui-typescale-label-large-line-height) !important;
-}
-.label-medium {
-	font-size: var(--mdui-typescale-label-medium-size) !important;
-	font-weight: var(--mdui-typescale-label-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-label-medium-tracking) !important;
-	line-height: var(--mdui-typescale-label-medium-line-height) !important;
-}
-.label-small {
-	font-size: var(--mdui-typescale-label-small-size) !important;
-	font-weight: var(--mdui-typescale-label-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-label-small-tracking) !important;
-	line-height: var(--mdui-typescale-label-small-line-height) !important;
-}
-
-
-.body-large {
-	font-size: var(--mdui-typescale-body-large-size) !important;
-	font-weight: var(--mdui-typescale-body-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-body-large-tracking) !important;
-	line-height: var(--mdui-typescale-body-large-line-height) !important;
-}
-.body-medium {
-	font-size: var(--mdui-typescale-body-medium-size) !important;
-	font-weight: var(--mdui-typescale-body-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-body-medium-tracking) !important;
-	line-height: var(--mdui-typescale-body-medium-line-height) !important;
-}
-.body-small {
-	font-size: var(--mdui-typescale-body-small-size) !important;
-	font-weight: var(--mdui-typescale-body-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-body-small-tracking) !important;
-	line-height: var(--mdui-typescale-body-small-line-height) !important;
-}
-
-h4 {
-	/* titles in form groups */
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
 code, kbd, pre, samp, tt {
 	font-family: "Roboto Mono", monospace !important;
 }
@@ -351,27 +249,26 @@ pre {
 
 .form-group {
 	background-color: rgb(var(--mdui-color-background));
-	border-bottom: 0.0625rem solid rgb(var(--mdui-color-surface-variant));
-	padding: 1rem;
-	width: calc(100% - 2rem);
-}
-.form-group:last-child {
-	border: none;
+	border-radius: var(--mdui-shape-corner-medium);
+	margin-bottom: 2rem;
+	padding: 2rem;
+	width: calc(100% - 4rem);
 }
 
 .page-content {
 	background-color: rgb(var(--mdui-color-surface-container));
-	padding: 1rem;
-	width: calc(100% - 2rem);
+	border-radius: var(--mdui-shape-corner-medium);
+	margin-bottom: 2rem;
+	padding: 2rem;
+	width: calc(100% - 4rem);
 }
 
-@media only screen and (min-width: 641px) {
+@media only screen and (max-width: 640px) {
 	.form-group, .page-content {
-		border-radius: var(--mdui-shape-corner-medium);
-		border: none;
-		margin-bottom: 2rem;
-		padding: 2rem;
-		width: calc(100% - 4rem);
+		border-radius: 0;
+		margin: 0;
+		padding: 2rem 1rem;
+		width: calc(100% - 2rem);
 	}
 }
 
@@ -415,12 +312,6 @@ pre {
 	margin: var(--app-space) 0;
 	padding: var(--app-space);
 	*/
-}
-
-h4 mdui-icon {
-	margin-right: 1rem;
-	position: relative;
-	top: .25rem;
 }
 
 mdui-icon.tooltip {
@@ -524,12 +415,12 @@ div.radio-helper {
 
 
 div.controls { display: flex; flex-direction: row; justify-content: right; margin: 0; }
-div.control-left {flex-grow: 1; text-align: left; }
+div.control-left {flex-grow: 1; padding-right: 1rem; text-align: left; }
 div.control-center { flex-grow: 1; text-align: center; }
-div.control-right { flex-grow: 0; text-align: right; }
+div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
 
 @media only screen and (max-width: 640px) {
-	div.controls { flex-direction: column; margin: 0 var(--app-space); }
+	div.controls { flex-direction: column; padding: 0 1rem; }
 	div.control-left, div.control-center, div.control-right { text-align: right; }
 }
 
@@ -574,4 +465,49 @@ url encoded: rgb%2874%2C68%2C88%29
 .disabled .switch-helper, .disabled .switch-label,
 .disabled .radio-helper, .disabled .radio-label {
     color: rgba(var(--mdui-color-on-surface), 38%);
+}
+
+div.no-row-gap { row-gap: 0; }
+div.no-row-gap > div:last-child { margin-top: 2rem; }
+@media only screen and (max-width: 640px) { div.no-row-gap > div:last-child { margin-top: 1rem; } }
+
+div.form-title {
+	display: flex;
+}
+
+div.form-title-icon {
+	align-self: center;
+	background-color: rgb(var(--mdui-color-primary-container));
+	border-radius: var(--mdui-shape-corner-full);
+	color: rgb(var(--mdui-color-on-primary-container));
+	height: 1.5rem;
+	line-height: 1;
+	margin-right: 1rem;
+	padding: 1rem;
+	text-align: center;
+	width: 1.5rem;
+}
+div.form-title-icon mdui-icon {
+	font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 640px) {
+	div.form-title-icon {
+		height: 1rem;
+		padding: 0.75rem;
+		width: 1rem;
+	}
+	div.form-title-icon mdui-icon {
+		font-size: 1rem;
+	}
+}
+
+div.form-title-text {
+	align-self: center;
+	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
+}
+div.form-title-text h3.title-large {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
