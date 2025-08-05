@@ -129,10 +129,10 @@
 			<div class="s12">
 				<!-- ARTIKELBENÄMNING -->
 				<mdui-text-field id="text-artikelbenamning"
-					autocapitalize="sentences"
 					autocomplete="off"
-					enterkeyhint="done"
+					autocorrect="off"
 					helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
+					inputmode="text"
 					label="Artikelbenämning"
 					maxlength="250"
 					variant="outlined"
@@ -142,7 +142,8 @@
 				<!-- PRODUKTNAMN -->
 				<mdui-text-field id="text-huvudprodukt"
 					autocomplete="off"
-					enterkeyhint="done"
+					autocorrect="off"
+					inputmode="text"
 					label="Produktnamn"
 					variant="outlined"
 					clearable required></mdui-text-field>
@@ -157,7 +158,8 @@
 				<!-- PRODUKTNAMN 2 -->
 				<mdui-text-field id="text-produkt2"
 					autocomplete="off"
-					enterkeyhint="done"
+					autocorrect="off"
+					inputmode="text"
 					label="Extra Produktnamn"
 					variant="outlined"
 					clearable></mdui-text-field>
@@ -166,7 +168,8 @@
 				<!-- PRODUKTNAMN 3 -->
 				<mdui-text-field id="text-produkt3"
 					autocomplete="off"
-					enterkeyhint="done"
+					autocorrect="off"
+					inputmode="text"
 					label="Extra Produktnamn"
 					variant="outlined"
 					clearable></mdui-text-field>
@@ -175,7 +178,8 @@
 				<!-- PRODUKTNAMN 4 -->
 				<mdui-text-field id="text-produkt4"
 					autocomplete="off"
-					enterkeyhint="done"
+					autocorrect="off"
+					inputmode="text"
 					label="Extra Produktnamn"
 					variant="outlined"
 					clearable></mdui-text-field>
@@ -195,7 +199,8 @@
 						<!-- LEVERANTÖR -->
 						<mdui-text-field id="text-leverantor"
 							autocomplete="off"
-							enterkeyhint="done"
+							autocorrect="off"
+							inputmode="text"
 							label="Leverantörens namn"
 							variant="outlined"
 							clearable required></mdui-text-field>
@@ -204,7 +209,8 @@
 						<!-- LEVERANTÖRENS ART.NR. -->
 						<mdui-text-field id="text-levartnr"
 							autocomplete="off"
-							enterkeyhint="done"
+							autocorrect="off"
+							inputmode="text"
 							label="Leverantörens art.nr."
 							variant="outlined"
 							clearable required></mdui-text-field>
@@ -223,7 +229,7 @@
 						<!-- INKÖPSPRIS -->
 						<mdui-text-field id="text-pris"
 							autocomplete="off"
-							enterkeyhint="done"
+							autocorrect="off"
 							inputmode="decimal"
 							label="Inköpspris"
 							suffix="&nbsp;kr"
@@ -235,7 +241,7 @@
 						<!-- GARANTITID -->
 						<mdui-text-field id="text-garanti"
 							autocomplete="off"
-							enterkeyhint="done"
+							autocorrect="off"
 							inputmode="numeric"
 							label="Garantitid"
 							suffix="&nbsp;dagar"
@@ -247,7 +253,7 @@
 						<!-- ISO-KOD -->
 						<mdui-text-field id="text-isokod"
 							autocomplete="off"
-							enterkeyhint="done"
+							autocorrect="off"
 							inputmode="numeric"
 							label="ISO-kod"
 							maxlength="6"
@@ -429,6 +435,8 @@
 					<div class="s12">
 						<!-- ARTIKELINFO WEBSESAM -->
 						<mdui-text-field id="textarea-ws-info"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Vid behov, ange extra artikelinformation som visas för artikeln i webSesam"
 							inputmode="text"
 							label="Extra artikelinformation"
@@ -473,14 +481,20 @@
 					<div class="s12 m4">
 						<!-- LIGGPLATS -->
 						<mdui-text-field id="text-liggplats"
+							autocomplete="off"
+							autocorrect="off"
 							variant="outlined"
+							inputmode="text"
 							label="Liggplats"
 							helper="Ange en liggplats om den är känd i förväg"></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- BUFFERTLAGER -->
 						<mdui-text-field id="textarea-bufferlager"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
+							inputmode="text"
 							label="Eventuella buffertlager"
 							placeholder="Exempel: Lager 220, 3 st, 31-A-123"
 							rows="2"
@@ -498,8 +512,11 @@
 					<div class="s12">
 						<!-- GODSMOTTAGNINGSINSTRUKTION -->
 						<mdui-text-field id="textarea-gmi"
+							autocomplete="off"
+							autocorrect="off"
 							variant="outlined"
 							rows="2"
+							inputmode="text"
 							label="Godsmottagningsinstruktion"
 							placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet."
 							helper="Ange en kortfattad text som visas som information för lagerpersonalen vid godsmottagning"
@@ -520,7 +537,10 @@
 					<div class="s12">
 						<!-- KVALITETSKONTROLL, BESKRIVNING -->
 						<mdui-text-field id="textarea-kkb"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll."
+							inputmode="text"
 							label="Kvalitetskontroll, beskrivning"
 							placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
 							rows="2"
@@ -612,7 +632,10 @@
 					<div class="s12">
 						<!-- INTERN KUNDORDERINFO -->
 						<mdui-text-field id="textarea-iki"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
+							inputmode="text"
 							label="Intern kundorderinformation"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
 							rows="2"
@@ -622,7 +645,10 @@
 					<div class="s12">
 						<!-- INTERN PLOCKINFO -->
 						<mdui-text-field id="textarea-ipi"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
+							inputmode="text"
 							label="Intern plockinformation"
 							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
 							rows="2"
@@ -632,7 +658,10 @@
 					<div class="s12">
 						<!-- RETURTAGNINGSINFO -->
 						<mdui-text-field id="textarea-iri"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
+							inputmode="text"
 							label="Returtagningsinformation"
 							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
 							rows="2"
@@ -650,7 +679,10 @@
 					<div class="s12">
 						<!-- ÖVRIGA UPPLYSNINGAR -->
 						<mdui-text-field id="textarea-upplysningar"
+							autocomplete="off"
+							autocorrect="off"
 							helper="Vid behov, ange övrig information till inköpspersonalen"
+							inputmode="text"
 							label="Övriga upplysningar"
 							rows="2"
 							variant="outlined"
