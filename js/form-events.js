@@ -71,127 +71,159 @@ $(document).ready(function() {
 
 	// mdui-select #select-artikelansvar changes
 	$('#select-artikelansvar').on('change', function() {
-		console.log('mdui-select #select-artikelansvar changed');
-		// reset everything
-		$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', true); // clear and enable
-		$('#select-debiteringsform').val('').attr('selected', false).attr('disabled', true); // clear and disable
-		$('#switch-individartikel').attr('checked',false).attr('disabled', true); // uncheck and disable
-		individartikel = "Nej";
-		$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-		inventarium = "Nej";
-		$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
-
+		console.log('<mdui-select #select-artikelansvar> changed');
 		artikelansvar = this.value;
-		console.log('Selected artikelansvar: ' + artikelansvar );
-		if ( artikelansvar == '' ) {
-			// nothing selected
-			$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', true); // clear and disable
-		} else {
-			// something selected
-			$('#select-artikeltyp').val('').attr('selected',false).attr('disabled', false); // clear and enable
-		}
-		if ( artikelansvar == 'L' ) {
-			// landsting och kommun
-			$('#select-debiteringsform').val('').attr('disabled', true); // clear and disable
-		}
-		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
-			// retursortiment eller egenansvar
-			$('#artikeltyp-menu-item-r').attr('disabled', true); // disable
-			$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-		} else {
-			$('#artikeltyp-menu-item-r').attr('disabled', false); // enable
-		}
-		if ( artikelansvar == 'S' ) {
-			// syncentralen
-			$('#select-team').val('40').attr('disabled', true); // select '40' and disable
-			$('#select-huvudlager').val('400');
-		} else {
-			$('#select-team').val('').attr('disabled', false); // clear and enable
-			$('#select-huvudlager').val('200');
-		}
+		console.log(' -- Artikelansvar = ' + artikelansvar );
 
+		// reset everything
+		disableSelectArtikeltyp();
+		disableSelectDebiteringsform();
+		disableSwitchIndividartikel();
+		disableSwitchInventarium();
+		disableRadioAvskrivningstid();
+
+		switch (artikelansvar) {
+			case 'L':
+				// Region eller kommun
+				enableSelectArtikeltyp();
+				$('#select-huvudlager').val('200');
+			break;
+			case 'R':
+				// Retursortiment
+				$('#artikeltyp-menu-item-r').attr('disabled', true); // disable option 'R' (Reservdel)
+				enableSelectArtikeltyp();
+				$('#select-huvudlager').val('200');
+			break;
+			case 'E':
+				// Egenansvar
+				$('#artikeltyp-menu-item-r').attr('disabled', true); // disable option 'R' (Reservdel)
+				enableSelectArtikeltyp();
+				$('#select-huvudlager').val('200');
+			break;
+			case 'S':
+				// Syncentralen
+				enableSelectArtikeltyp();
+				$('#select-team').val('40');
+				$('#select-huvudlager').val('400');
+			break;
+		}
 	});
 
 	// mdui-select #select-artikeltyp changes
 	$('#select-artikeltyp').on('change', function() {
-		console.log('mdui-select #select-artikeltyp changed');
-		// reset
-		$('#switch-individartikel').attr('checked',false).attr('disabled', true); // uncheck and disable
-		individartikel = "Nej";
-		$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-		inventarium = "Nej";
-		$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear, disable and not required
-
+		console.log('<mdui-select #select-artikeltyp> changed');
 		artikeltyp = this.value;
-		console.log('Selected artikeltyp: ' + artikeltyp );
+		console.log(' -- Artikeltyp = ' + artikeltyp );
+
+		// reset
+		disableSelectDebiteringsform();
+		disableSwitchIndividartikel();
+		disableSwitchInventarium();
+		disableRadioAvskrivningstid();
 
 		switch (artikeltyp) {
 			case 'H':
-				huvudhjalpmedel();
+				// huvudhjalpmedel();
+				$('#select-artikeltyp').attr('helper','Ett huvudjälpmedel är ett komplett fungerande hjälpmedel');
+				enableSelectDebiteringsform();
+				if (artikelansvar == 'R' || artikelansvar == 'E') {
+					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
+					$('#select-debiteringsform').val('A'); // select option 'A' (Köp)
+				}
 			break;
 			case 'T':
-				tillbehor();
+				// tillbehor();
+				$('#select-artikeltyp').attr('helper','Ett tillbehör tillför en extra funktion till ett huvudhjälpmedel');
+				enableSelectDebiteringsform();
+				if (artikelansvar == 'R' || artikelansvar == 'E') {
+					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
+					$('#select-debiteringsform').val('A'); // select option 'A' (Köp)
+				}
 			break;
 			case 'R':
-				reservdel();
+				// reservdel();
+				$('#select-artikeltyp').attr('helper','En reservdel används för att reparera eller underhålla ett huvudhjälpmedel eller tillbehör');
+				enableSelectDebiteringsform();
+				$('#select-debiteringsform').val('A'); // select 'A' (köp)
+				$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (månadshyra)
 			break;
-		}
-
-		if ( artikelansvar == 'L' || artikelansvar == 'S' ) {
-			// landsting och kommun, eller syncentralen
-			if ( artikeltyp == 'H' || artikeltyp == 'T' ) {
-				// $('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
-			}
-			if ( artikeltyp == 'R' ) {
-			}
-		}
-
-		if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
-			// retursortiment eller egenansvar
-			if ( artikeltyp == 'H' ) {
-				// $('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-				// $('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
-				// individartikel = "Nej";
-			}
-			if ( artikeltyp == 'T' ) {
-				// $('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-				// $('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
-				// individartikel = "Nej";
-			}
-		}
-
-		if ( artikelansvar == 'S' ) {
-			// $('#select-team').val('40').attr('disabled', true); // select '40' and disable
 		}
 	});
 
 	// mdui-select #select-debiteringsform changes
 	$('#select-debiteringsform').on('change', function() {
-		console.log('mdui-select #select-debiteringsform changed');
+		console.log('<mdui-select #select-debiteringsform> changed');
 		debiteringsform = this.value;
-		console.log('Selected debiteringsform: ' + debiteringsform );
+		console.log('Debiteringsform = ' + debiteringsform );
 		switch (debiteringsform) {
 			case 'M':
-				manadshyra(artikeltyp);
+				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'H') {
+					enableSwitchIndividartikel();
+					$('#switch-individartikel').attr('checked', true); // checked
+					console.log(' -- Väljer individartikel');
+					enableSwitchInventarium();
+					$('#switch-inventarium').attr('checked', true); // checked
+					console.log(' -- Väljer inventarium');
+					enableRadioAvskrivningstid();
+				}
 			break;
 			case 'A':
-				kop(artikeltyp);
+				//if (artikelansvar == 'L' && artikeltyp == 'H') {
+				//	enableSwitchIndividartikel();
+				//	disableSwitchInventarium();
+				//	disableRadioAvskrivningstid();
+				//}
+				if (artikeltyp == 'H') {
+					enableSwitchIndividartikel();
+					disableSwitchInventarium();
+					disableRadioAvskrivningstid();
+				}
 			break;
 		}
 	});
 
 	// mdui-switch #switch-individartikel changes
 	$('#switch-individartikel').on('change', function() {
-		console.log('mdui-switch #switch-individartikel changed');
-		individartikel = (this.checked === true) ? 'Ja' :'Nej';
-		console.log('Switch individmärkt: ' + individartikel );
+		console.log('<mdui-switch #switch-individartikel> changed');
+		individartikel = (this.checked === true) ? 'Ja' : 'Nej';
+		console.log(' -- Individartikel = ' + individartikel);
+		switch (individartikel) {
+			case 'Ja':
+			break;
+			case 'Nej':
+				if (artikeltyp == 'H' && debiteringsform == 'M') {
+					mdui.alert({
+						headline: "Ej tillåtet",
+						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
+						confirmText: "Jag förstår"
+					});
+					$('#switch-individartikel').attr('checked', true); // re-checked
+					console.log(' -- Väljer individartikel');
+				}
+			break;
+		}
 	});
 
 	// mdui-switch #switch-inventarium changes
 	$('#switch-inventarium').on('change', function() {
-		console.log('mdui-switch #switch-inventarium changed');
+		console.log('<mdui-switch #switch-inventarium> changed');
 		inventarium = (this.checked === true) ? "Ja" : "Nej";
-		console.log('Switch inventarium: ' + inventarium );
+		console.log(' -- Inventarium = ' + inventarium );
+		switch (inventarium) {
+			case 'Ja':
+			break;
+			case 'Nej':
+				if (artikeltyp == 'H' && debiteringsform == 'M') {
+					mdui.alert({
+						headline: "Ej tillåtet",
+						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
+						confirmText: "Jag förstår"
+					});
+					$('#switch-inventarium').attr('checked', true); // re-checked
+					console.log(' -- Väljer inventarium');
+				}
+			break;
+		}
 	});
 
 	// mdui-select #raio-avskrivningstid changes
@@ -394,6 +426,7 @@ $(document).ready(function() {
 			}
 		} else {
 			console.log('Input validation disabled');
+			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
 		}
 
 		console.log('Calling createArtikeldata()');

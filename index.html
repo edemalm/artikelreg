@@ -106,7 +106,7 @@
 
 <mdui-layout-main>
 
-<div id="content-container" class="wave">
+<div id="content-container" class="waves">
 	<!-- FORMULÄR -->
 	<div id="content-formular" class="content-wrapper mdui-prose">
 	<!-- <form id="form-artikeldata" autocomplete="off" autocorrect="off"> -->
@@ -131,6 +131,7 @@
 				<mdui-text-field id="text-artikelbenamning"
 					autocomplete="off"
 					autocorrect="off"
+					enterkeyhint="done"
 					helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
 					inputmode="text"
 					label="Artikelbenämning"
@@ -143,6 +144,7 @@
 				<mdui-text-field id="text-huvudprodukt"
 					autocomplete="off"
 					autocorrect="off"
+					enterkeyhint="done"
 					inputmode="text"
 					label="Produktnamn"
 					variant="outlined"
@@ -159,6 +161,7 @@
 				<mdui-text-field id="text-produkt2"
 					autocomplete="off"
 					autocorrect="off"
+					enterkeyhint="done"
 					inputmode="text"
 					label="Extra Produktnamn"
 					variant="outlined"
@@ -169,6 +172,7 @@
 				<mdui-text-field id="text-produkt3"
 					autocomplete="off"
 					autocorrect="off"
+					enterkeyhint="done"
 					inputmode="text"
 					label="Extra Produktnamn"
 					variant="outlined"
@@ -179,13 +183,14 @@
 				<mdui-text-field id="text-produkt4"
 					autocomplete="off"
 					autocorrect="off"
+					enterkeyhint="done"
 					inputmode="text"
 					label="Extra Produktnamn"
 					variant="outlined"
 					clearable></mdui-text-field>
 			</div>
 		</div>
-		<div class="row no-row-gap">
+		<div class="row">
 			<!-- KOLUMN 1 -->
 			<div class="s12 l6">
 				<div class="row form-group">
@@ -200,6 +205,7 @@
 						<mdui-text-field id="text-leverantor"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="done"
 							inputmode="text"
 							label="Leverantörens namn"
 							variant="outlined"
@@ -210,6 +216,7 @@
 						<mdui-text-field id="text-levartnr"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="done"
 							inputmode="text"
 							label="Leverantörens art.nr."
 							variant="outlined"
@@ -230,6 +237,7 @@
 						<mdui-text-field id="text-pris"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="done"
 							inputmode="decimal"
 							label="Inköpspris"
 							suffix="&nbsp;kr"
@@ -242,6 +250,7 @@
 						<mdui-text-field id="text-garanti"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="done"
 							inputmode="numeric"
 							label="Garantitid"
 							suffix="&nbsp;dagar"
@@ -254,6 +263,7 @@
 						<mdui-text-field id="text-isokod"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="done"
 							inputmode="numeric"
 							label="ISO-kod"
 							maxlength="6"
@@ -303,8 +313,8 @@
 							label="Debiteringsform"
 							variant="outlined"
 							disabled required>
-							<mdui-menu-item value="M">Månadshyra</mdui-menu-item>
-							<mdui-menu-item value="A">Köp</mdui-menu-item>
+							<mdui-menu-item id="debiteringsform-menu-item-m" value="M">Månadshyra</mdui-menu-item>
+							<mdui-menu-item id="debiteringsform-menu-item-a" value="A">Köp</mdui-menu-item>
 						</mdui-select>
 					</div>
 					<div class="s12">
@@ -437,6 +447,7 @@
 						<mdui-text-field id="textarea-ws-info"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Vid behov, ange extra artikelinformation som visas för artikeln i webSesam"
 							inputmode="text"
 							label="Extra artikelinformation"
@@ -483,6 +494,7 @@
 						<mdui-text-field id="text-liggplats"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="done"
 							variant="outlined"
 							inputmode="text"
 							label="Liggplats"
@@ -493,6 +505,7 @@
 						<mdui-text-field id="textarea-bufferlager"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
 							inputmode="text"
 							label="Eventuella buffertlager"
@@ -514,6 +527,7 @@
 						<mdui-text-field id="textarea-gmi"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							variant="outlined"
 							rows="2"
 							inputmode="text"
@@ -539,6 +553,7 @@
 						<mdui-text-field id="textarea-kkb"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll."
 							inputmode="text"
 							label="Kvalitetskontroll, beskrivning"
@@ -634,6 +649,7 @@
 						<mdui-text-field id="textarea-iki"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
 							inputmode="text"
 							label="Intern kundorderinformation"
@@ -647,6 +663,7 @@
 						<mdui-text-field id="textarea-ipi"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
 							inputmode="text"
 							label="Intern plockinformation"
@@ -660,6 +677,7 @@
 						<mdui-text-field id="textarea-iri"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
 							inputmode="text"
 							label="Returtagningsinformation"
@@ -681,6 +699,7 @@
 						<mdui-text-field id="textarea-upplysningar"
 							autocomplete="off"
 							autocorrect="off"
+							enterkeyhint="enter"
 							helper="Vid behov, ange övrig information till inköpspersonalen"
 							inputmode="text"
 							label="Övriga upplysningar"

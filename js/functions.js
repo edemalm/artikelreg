@@ -1,24 +1,84 @@
+function enableSelectArtikeltyp() {
+	console.log(' -- enableSelectArtikeltyp()');
+	$('#select-artikeltyp').val('').attr('disabled', false); // unselect and enable
+}
+function disableSelectArtikeltyp() {
+	console.log(' -- disableSelectArtikeltyp()');
+	$('#artikeltyp-menu-item-r').attr('disabled', false); // re-enable option 'R'
+	$('#select-artikeltyp').val('').attr('disabled', true); // unselect and disable
+}
+
+function enableSelectDebiteringsform() {
+	console.log(' -- enableSelectDebiteringsform()');
+	$('#select-debiteringsform').val('').attr('disabled', false); // unselect and enable
+}
+function disableSelectDebiteringsform() {
+	console.log(' -- disableSelectDebiteringsform()');
+	$('#debiteringsform-menu-item-m').attr('disabled', false); // re-enable option 'M' (månadshyra)
+	$('#debiteringsform-menu-item-a').attr('disabled', false); // re-enable option 'A' (köp)
+	$('#select-debiteringsform').val('').attr('disabled', true); // unselect and disable
+}
+
+function enableSwitchIndividartikel() {
+	console.log(' -- enableSwitchIndividartikel()');
+	$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-individartikel').removeClass('disabled'); // remove .disabled
+	individartikel = "Nej";
+}
+function disableSwitchIndividartikel() {
+	console.log(' -- disableSwitchIndividartikel()');
+	$('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-individartikel').addClass('disabled'); // add .disabled
+	individartikel = "Nej";
+}
+
+function enableSwitchInventarium() {
+	console.log(' -- enableSwitchInventarium()');
+	$('#switch-inventarium').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-inventarium').removeClass('disabled'); // remove .disabled
+	inventarium = "Nej";
+}
+function disableSwitchInventarium() {
+	console.log(' -- disableSwitchInventarium()');
+	$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-inventarium').addClass('disabled'); // add .disabled
+	inventarium = "Nej";
+}
+
+function enableRadioAvskrivningstid() {
+	console.log(' -- enableRadioAvskrivningstid()');
+	$('#radio-avskrivningstid').val('').attr('disabled', false); // clear and enable
+	$('#label-avskrivningstid').removeClass('disabled'); // remove .disabled
+}
+function disableRadioAvskrivningstid() {
+	console.log(' -- disableRadioAvskrivningstid()');
+	$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+	$('#label-avskrivningstid').addClass('disabled'); // add .disabled
+}
+
 function enableSwitchWSKomp() {
+	console.log(' -- enableSwitchWSKomp()');
 	$('#switch-ws-komp').attr('checked', true).attr('disabled', false); // check and enable
 	$('#label-ws-komp').removeClass('disabled'); // remove .disabled
 	$('#ws-komp-helper').html('Artikeln kan beställas som komponent till ett huvudhjälpmedel');
 }
-
 function disableSwitchWSKomp() {
+	console.log(' -- disableSwitchWSKomp()');
 	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
 	$('#label-ws-komp').addClass('disabled'); // add .disabled
 	$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
 }
 
 function enableServiceOchUnderhall() {
+	console.log(' -- enableServiceOchUnderhall()');
 	$('#select-servicegrad').val('').attr('disabled', false); // reset and enable
 	$('#select-besiktningsintervall').val('').attr('disabled', false); // reset and enable
 	$('#select-fu-intervall').val('').attr('disabled', false); // reset and enable
 	$('#switch-dtm').attr('checked', false).attr('disabled', false); // uncheck and disable
 	$('#label-dtm').removeClass('disabled'); // remove .disabled
 }
-
 function disableServiceOchUnderhall() {
+	console.log(' -- disableServiceOchUnderhall()');
 	$('#select-servicegrad').val('').attr('disabled', true); // reset and disable
 	$('#select-besiktningsintervall').val('').attr('disabled', true); // reset and disable
 	$('#select-fu-intervall').val('').attr('disabled', true); // reset and disable
@@ -30,8 +90,13 @@ function huvudhjalpmedel() {
 	console.log('huvudhjalpmedel() executed');
 
 	// 3. Ekonomi
-	$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
-	$('#select-artikeltyp').attr('helper','Huvudjälpmedel är ett komplett fungerande hjälpmedel');
+	if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
+		$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+	} else {
+		$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+	}
+	disableSwitchIndividartikel();
+	disableSwitchInventarium();
 
 	// 5. Inställningar för webSesam
 	disableSwitchWSKomp();
@@ -54,8 +119,12 @@ function tillbehor() {
 	console.log('tillbehor() executed');
 
 	// 3. Ekonomi
-	$('#select-debiteringsform').val('').attr('disabled', false).attr('required', true); // clear and enable
-	$('#select-artikeltyp').attr('helper','Tillbehör tillför en extra funktion till ett huvudhjälpmedel');
+	if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
+		$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
+	} else {
+		$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
+	}
+	disableSwitchIndividartikel();
 
 	// 5. Inställningar för webSesam
 	enableSwitchWSKomp();
@@ -78,8 +147,6 @@ function reservdel() {
 	console.log('reservdel() executed');
 
 	// 3. Ekonomi
-	$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' (Köp) and disable
-	$('#select-artikeltyp').attr('helper','Reservdelar används för reparationer och underhåll av huvudhjälpmedel och tillbehör');
 
 	// 5. Inställningar för webSesam
 	disableSwitchWSKomp();
@@ -125,9 +192,7 @@ function kop(artikeltyp) {
 	switch (artikeltyp) {
 		case 'H':
 			// 3. Ekonomi
-			$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
-			$('#label-individartikel').removeClass('disabled'); // remove .disabled
-			individartikel = "Nej";
+			enableSwitchIndividartikel();
 
 			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
 			inventarium = "Nej";
@@ -139,6 +204,8 @@ function kop(artikeltyp) {
 
 		break;
 		case 'T':
+			// 3. Ekonomi
+			disableSwitchIndividartikel();
 
 		break;
 
