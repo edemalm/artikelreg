@@ -342,7 +342,7 @@ $(document).ready(function() {
 	$('#select-inkopshantering').on('change', function() {
 		console.log('<mdui-select #select-inkopshantering> changed');
 		inkopshantering = this.value;
-		console.log('* Ikopshantering: ' + inkopshantering );
+		console.log('Inköpshantering: ' + inkopshantering );
 		switch( inkopshantering) {
 		case 'Kundorder':
 			disableSliderForbrukning();
