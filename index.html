@@ -501,6 +501,15 @@
 							helper="Ange en liggplats om den är känd i förväg"></mdui-text-field>
 					</div>
 					<div class="s12">
+						<div class="switch-label">Uppskattad förbrukning</div>
+						<div class="switch-helper">Dra i reglaged för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
+						<mdui-slider id="slider-uppskattning"
+							min="0"
+							max="500"
+							step="25"></mdui-slider>
+						<div class="switch-helper"><strong><span id="slider-msg">Årsbehov 0-24. Mindre än 0.5 per vecka.</span></strong></div>
+					</div>
+					<div class="s12">
 						<!-- BUFFERTLAGER -->
 						<mdui-text-field id="textarea-bufferlager"
 							autocomplete="off"

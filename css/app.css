@@ -376,8 +376,9 @@ div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
 .waves {
 	background-repeat: repeat-x;
 	background-position: center bottom;
-	background-size: 250%;
+	background-size: 400%;
 }
+
 .mdui-theme-light .waves {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="230.66 2559.64 2472 144.8"><path fill="rgb%28232%2C222%2C248%29" d="M230.67 2704.44v-75.47c103 0 103-69.33 206-69.33s103 69.33 206 69.33 103-69.33 205.99-69.33c103 0 103 69.33 206 69.33s103-69.33 206-69.33 103 69.33 206 69.33 103-69.33 206-69.33 103 69.33 206 69.33 103-69.33 206-69.33 103 69.33 206 69.33 103-69.33 206-69.33 103 69.33 206 69.33v75.47h-2472"/></svg>');
 }
@@ -448,4 +449,8 @@ div.form-title-text h3.title-large {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+mdui-slider {
+	margin: 0.5rem 0;
 }

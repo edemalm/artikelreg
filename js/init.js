@@ -33,6 +33,7 @@ $(document).ready(function() {
 	window.sortimentsartikel = '';
 	window.team = '';
 	window.upplysningar = '';
+	window.uppskattning = '';
 	window.ws_bb = '';
 	window.ws_pub = '';
 	window.ws_info = '';
