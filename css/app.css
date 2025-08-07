@@ -310,14 +310,9 @@ mdui-checkbox.with-tooltip {
 }
 
 div.switch-label,
-div.radio-label {
+div.radio-label,
+div.slider-label {
 	color: rgb(var(--mdui-color-on-surface));
-	/*
-	font-size: var(--mdui-typescale-title-medium-size);
-	font-weight: var(--mdui-typescale-label-medium-weight);
-	letter-spacing: var(--mdui-typescale-label-medium-tracking);
-	line-height: var(--mdui-typescale-body-medium-line-height);
-	*/
 	font-size: var(--mdui-typescale-body-large-size);
 	font-weight: var(--mdui-typescale-body-large-weight);
 	letter-spacing: var(--mdui-typescale-body-large-tracking);
@@ -326,7 +321,8 @@ div.radio-label {
 }
 
 div.switch-helper,
-div.radio-helper {
+div.radio-helper,
+div.slider-helper {
 	color: rgb(var(--mdui-color-on-surface-variant));
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
@@ -400,7 +396,8 @@ url encoded: rgb%2874%2C68%2C88%29
 */
 
 .disabled .switch-helper, .disabled .switch-label,
-.disabled .radio-helper, .disabled .radio-label {
+.disabled .radio-helper, .disabled .radio-label,
+.slider-helper.disabled, .slider-label.disabled {
     color: rgba(var(--mdui-color-on-surface), 38%);
 }
 

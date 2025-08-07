@@ -501,13 +501,13 @@
 							helper="Ange en liggplats om den är känd i förväg"></mdui-text-field>
 					</div>
 					<div class="s12">
-						<div class="switch-label">Uppskattad förbrukning</div>
-						<div class="switch-helper">Dra i reglaged för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
-						<mdui-slider id="slider-uppskattning"
+						<div class="slider-label disabled">Uppskattad förbrukning</div>
+						<div class="slider-helper disabled">Dra i reglaged för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
+						<mdui-slider id="slider-forbrukning"
 							min="0"
 							max="500"
-							step="25"></mdui-slider>
-						<div class="switch-helper"><strong><span id="slider-msg">Årsbehov 0-24. Mindre än 0.5 per vecka.</span></strong></div>
+							step="25" disabled></mdui-slider>
+						<div class="slider-helper disabled"><strong><span id="slider-msg">Endast relevant för inköpshantering Nettobehov</span></strong></div>
 					</div>
 					<div class="s12">
 						<!-- BUFFERTLAGER -->

@@ -69,6 +69,24 @@ function disableSwitchWSKomp() {
 	$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
 }
 
+function enalbeSliderForbrukning() {
+	console.log(' -- enableSliderForbrukning()');
+	$('#slider-forbrukning').val('').attr('disabled', false); // clear and enable
+	$('.slider-label').removeClass('disabled'); // remove .disabled
+	$('.slider-helper').removeClass('disabled'); // remove .disabled
+	forbrukning_msg = 'Årsbehov 0-24. Mindre än 0.5 per vecka.';
+	$('#slider-msg').html(forbrukning_msg); // update displayd msg
+}
+function disableSliderForbrukning() {
+	console.log(' -- disableSliderForbrukning()');
+	$('#slider-forbrukning').val('').attr('disabled', true); // clear and disable
+	$('.slider-label').addClass('disabled'); // add .disabled
+	$('.slider-helper').addClass('disabled'); // add .disabled
+	forbrukning = ''; // reset
+	forbrukning_msg = 'Endast relevant för inköpshantering Nettobehov'; // reset to default msg
+	$('#slider-msg').html(forbrukning_msg); // update displayd msg
+}
+
 function enableServiceOchUnderhall() {
 	console.log(' -- enableServiceOchUnderhall()');
 	$('#select-servicegrad').val('').attr('disabled', false); // reset and enable
