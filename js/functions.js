@@ -97,6 +97,7 @@ function enableServiceOchUnderhall() {
 }
 function disableServiceOchUnderhall() {
 	console.log(' -- disableServiceOchUnderhall()');
+	$('#servicegrad-menu-item-44').attr('disabled', false); // re-enable option '44'
 	$('#select-servicegrad').val('').attr('disabled', true); // reset and disable
 	$('#select-besiktningsintervall').val('').attr('disabled', true); // reset and disable
 	$('#select-fu-intervall').val('').attr('disabled', true); // reset and disable

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	console.log('Loading form-events.js');
+	console.log('Loading events.js');
 
 	// 1. Artikelbenämning och produktnamn
 	// -----------------------------------
@@ -29,6 +29,7 @@ $(document).ready(function() {
 
 	// mdui-button #button-fler-produktnamn clicked
 	$('#button-fler-produktnamn').click(function() {
+		console.log('<mdui-button #button-fler-produktnamn> clicked');
 		$('#div-fler-produktnamn').addClass('hidden');
 		$('#text-huvudprodukt').attr('label', 'Huvudproduktnamn');
 		$('#text-huvudprodukt').attr('helper', 'Endast huvudprodukt visas i sökresultat');
@@ -40,7 +41,7 @@ $(document).ready(function() {
 
 	// mdui-checkbox #checkbox-ht changes
 	$('#checkbox-ht').on('change', function() {
-		console.log('mdui-checkbox #checkbox-ht changed');
+		console.log('<mdui-checkbox #checkbox-ht> changed');
 		if ($('#checkbox-ht').prop("checked")) {
 
 			// is checked
@@ -73,7 +74,7 @@ $(document).ready(function() {
 	$('#select-artikelansvar').on('change', function() {
 		console.log('<mdui-select #select-artikelansvar> changed');
 		artikelansvar = this.value;
-		console.log(' -- Artikelansvar = ' + artikelansvar );
+		console.log('Artikelansvar = ' + artikelansvar );
 
 		// reset everything
 		disableSelectArtikeltyp();
@@ -113,7 +114,7 @@ $(document).ready(function() {
 	$('#select-artikeltyp').on('change', function() {
 		console.log('<mdui-select #select-artikeltyp> changed');
 		artikeltyp = this.value;
-		console.log(' -- Artikeltyp = ' + artikeltyp );
+		console.log('Artikeltyp = ' + artikeltyp );
 
 		// reset
 		disableSelectDebiteringsform();
@@ -155,6 +156,10 @@ $(document).ready(function() {
 		console.log('<mdui-select #select-debiteringsform> changed');
 		debiteringsform = this.value;
 		console.log('Debiteringsform = ' + debiteringsform );
+		disableSwitchIndividartikel();
+		disableSwitchInventarium();
+		disableRadioAvskrivningstid();
+		disableServiceOchUnderhall();
 		switch (debiteringsform) {
 			case 'M':
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'H') {
@@ -165,18 +170,17 @@ $(document).ready(function() {
 					$('#switch-inventarium').attr('checked', true); // checked
 					console.log(' -- Väljer inventarium');
 					enableRadioAvskrivningstid();
+					enableServiceOchUnderhall();
+					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
 				}
-			break;
+				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'T') {
+					$('#select-servicegrad').val('44').attr('disabled', false).attr('readonly', true); // reset and enable
+				}
+	
+		break;
 			case 'A':
-				//if (artikelansvar == 'L' && artikeltyp == 'H') {
-				//	enableSwitchIndividartikel();
-				//	disableSwitchInventarium();
-				//	disableRadioAvskrivningstid();
-				//}
 				if (artikeltyp == 'H') {
 					enableSwitchIndividartikel();
-					disableSwitchInventarium();
-					disableRadioAvskrivningstid();
 				}
 			break;
 		}

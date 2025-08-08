@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-07-1500';
+	window.update = '2025-08-08';
 
 	window.artikelansvar = '';
 	window.artikeldata = '';

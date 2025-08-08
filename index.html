@@ -106,7 +106,7 @@
 
 <mdui-layout-main>
 
-<div id="content-container" class="waves">
+<div id="content-container" class="wave">
 	<!-- FORMULÄR -->
 	<div id="content-formular" class="content-wrapper mdui-prose">
 	<!-- <form id="form-artikeldata" autocomplete="off" autocorrect="off"> -->
@@ -192,7 +192,7 @@
 		</div>
 		<div class="row">
 			<!-- KOLUMN 1 -->
-			<div class="s12 l6">
+			<div class="s12 l6 no-padding">
 				<div class="row form-group">
 					<div class="s12">
 						<div class="form-title">
@@ -280,7 +280,7 @@
 							<div class="form-title-text"><h3 class="title-large">3. Ekonomi</h3></div>
 						</div>
 					</div>
-					<div class="s12 m6 l12">
+					<div class="s12">
 						<!-- ARTIKELANSVAR -->
 						<mdui-select id="select-artikelansvar"
 							end-icon="arrow_drop_down"
@@ -293,7 +293,7 @@
 							<mdui-menu-item value="S" icon="remove_red_eye">Syncentralen</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m6 l12">
+					<div class="s12">
 						<!-- ARTIKELTYP -->
 						<mdui-select id="select-artikeltyp"
 							end-icon="arrow_drop_down"
@@ -459,7 +459,7 @@
 				</div><!-- .row -->
 			</div>
 			<!-- KOLUMN 2 -->
-			<div class="s12 l6">
+			<div class="s12 l6 no-padding">
 				<div class="row form-group">
 					<div class="s12">
 						<div class="form-title">
@@ -594,7 +594,7 @@
 							<mdui-menu-item value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
 							<mdui-menu-item value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
 							<mdui-menu-item value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
-							<mdui-menu-item value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
+							<mdui-menu-item id="servicegrad-menu-item-44" value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
 						</mdui-select>
 					</div>
 					<div class="s12 m6 l12 xl6">
@@ -718,7 +718,7 @@
 					</div>
 				</div><!-- .row -->
 			</div>
-			<div class="s12">
+			<div class="s12 no-padding">
 				<div class="controls">
 					<div class="control-right">
 						<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
@@ -734,17 +734,18 @@
 
 	<!-- Artikeldata -->
 	<div id="content-artikeldata" class="content-wrapper hidden">
-		<div class="row">
-			<div class="s12 page-content">
+		<div class="row page-content">
+			<div class="s12">
 				<h2 class="display-large">Nästan klart!</h2>
 				<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
 				<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
 				<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-
-				<mdui-card id="card-artikeldata" variant="outlined">
+				<mdui-card variant="filled">
 					<div id="div-artikeldata"></div>
 				</mdui-card>
 			</div>
+		</div>
+		<div class="row">
 			<div class="s12">
 				<div class="controls">
 					<div class="control-left">
@@ -857,6 +858,6 @@
 <script src="js/jquery.inactivity.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/init.js"></script>
-<script src="js/form-events.js"></script>
+<script src="js/events.js"></script>
 <script src="js/artikeldata.js"></script>
 </html>
