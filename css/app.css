@@ -89,8 +89,8 @@ body {
 	#filter-layer {
 		backdrop-filter: blur(5px);
 		background: linear-gradient(180deg,
-					rgba(var(--mdui-color-secondary),0.25) 0%,
-					rgba(var(--mdui-color-secondary),1) 100%
+					rgba(var(--mdui-color-secondary-container),0.5) 0%,
+					rgba(var(--mdui-color-secondary-container),1) 100%
 		);
 		display: block;
 		top: 0;
@@ -129,17 +129,17 @@ div.inner-container {
 div.fullpage-container {
 	background-color: rgb(var(--mdui-color-surface));
 	margin-bottom: 0.25rem;
-	padding: 2rem;
+	padding: 1rem;
 }
 div.upper-container {
 	background-color: rgb(var(--mdui-color-surface));
 	margin-bottom: 0.25rem;
-	padding: 2rem;
+	padding: 1rem;
 }
 div.middle-container {
 	background-color: rgb(var(--mdui-color-surface));
 	margin-bottom: 0.25rem;
-	padding: 2rem;
+	padding: 1rem;
 }
 
 div.flex-container {
@@ -162,7 +162,7 @@ div.right-container {
 
 div.buttom-container {
 	background-color: rgb(var(--mdui-color-surface-container));
-	padding: 2rem;
+	padding: 1rem;
 }
 
 @media only screen and (min-width: 641px) {
@@ -170,20 +170,21 @@ div.buttom-container {
 		padding: 0;
 		width: calc(100% - 0); /* substract padding */
 	}
-	div.fullpage-container {
-		padding: 3rem;
-	}
-	div.upper-container {
-		padding: 3rem;
-	}
+	div.fullpage-container,
+	div.upper-container,
 	div.middle-container {
-		padding: 3rem;
+		padding: 2rem;
 	}
 	div.buttom-container {
 		padding: 1.5rem;
 	}
 }
 @media only screen and (min-width: 1025px) {
+	div.fullpage-container,
+	div.upper-container,
+	div.middle-container {
+		padding: 3rem;
+	}
 	div.flex-container {
 		flex-direction: row;
 	}
@@ -221,7 +222,24 @@ div.buttom-container {
 
 
 
-
+.form-section {
+	background-color: rgb(var(--mdui-color-surface));
+	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));
+	padding: 1rem;
+}
+.form-section:last-child {
+	border: 0;
+}
+@media only screen and (min-width: 641px) {
+	.form-section {
+		padding: 2rem;
+	}
+}
+@media only screen and (min-width: 1025px) {
+	.form-section {
+		padding: 3rem;
+	}
+}
 
 
 
@@ -247,19 +265,6 @@ pre {
 	white-space: pre-wrap;
 }
 
-.form-section {
-	background-color: rgb(var(--mdui-color-surface));
-	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));
-	padding: 2rem;
-}
-.form-section:last-child {
-	border: 0;
-}
-@media only screen and (min-width: 641px) {
-	.form-section {
-		padding: 3rem;
-	}
-}
 
 
 div.controls { display: flex; flex-direction: row; justify-content: right; }

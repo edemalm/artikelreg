@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-08';
+	window.update = '2025-08-09';
 
 	window.artikelansvar = '';
 	window.artikeldata = '';
@@ -97,7 +97,7 @@ $(document).ready(function() {
 	}
 
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 10000 });
+	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
 		$('#filter-layer, .outer-container').removeClass('inactive')
 	});
