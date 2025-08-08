@@ -97,13 +97,13 @@ $(document).ready(function() {
 	}
 
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 30000 });
+	$(document).inactivity( { timeout: 10000 });
 	$(document).on("activity", function() {
-		$('#filter-layer, #content-container').removeClass('inactive')
+		$('#filter-layer, .outer-container').removeClass('inactive')
 	});
 	$(document).on("inactivity", function() {
 		console.log('function that fires on inactivity');
-		$('#filter-layer, #content-container').addClass('inactive')
+		$('#filter-layer, .outer-container').addClass('inactive')
 	});
 
 	// Set date in version
@@ -162,7 +162,7 @@ $(document).ready(function() {
 
 	$('#menu-formular, .button-back-to-form').click(function() {
 		console.log('#menu-formular or .button-back-to-form clicked');
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('.outer-container').addClass('hidden'); /* hide all content */
 		$('#content-formular').removeClass('hidden');
 		$('mdui-list-item').removeAttr('active');
 		$('#menu-formular').attr('active','');
@@ -171,7 +171,7 @@ $(document).ready(function() {
 
 	$('#menu-help-artikelbenamning').click(function() {
 		console.log('#menu-help-artikelbenamning clicked');
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('.outer-container').addClass('hidden'); /* hide all content */
 		$('#content-help-artikelbenamning').removeClass('hidden');
 		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
 		$('#menu-help-artikelbenamning').attr('active','');
@@ -180,7 +180,7 @@ $(document).ready(function() {
 
 	$('#menu-help-produkt').click(function() {
 		console.log('#menu-help-produkt clicked');
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('.outer-container').addClass('hidden'); /* hide all content */
 		$('#content-help-produkt').removeClass('hidden');
 		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
 		$('#menu-help-produkt').attr('active','');
@@ -189,7 +189,7 @@ $(document).ready(function() {
 
 	$('#menu-help-liggplats').click(function() {
 		console.log('#menu-help-liggplats clicked');
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('.outer-container').addClass('hidden'); /* hide all content */
 		$('#content-help-liggplats').removeClass('hidden');
 		$('mdui-list-item').attr('active', false); /* remove active class from all list items */
 		$('#menu-help-liggplats').attr('active',true);
@@ -198,7 +198,7 @@ $(document).ready(function() {
 
 	$('#menu-help-plockomrade').click(function() {
 		console.log('#menu-help-plockomrade clicked');
-		$('.content-wrapper').addClass('hidden'); /* hide all content */
+		$('.outer-container').addClass('hidden'); /* hide all content */
 		$('#content-help-plockomrade').removeClass('hidden');
 		$('mdui-list-item').attr('active', false); /* remove active class from all list items */
 		$('#menu-help-plockomrade').attr('active',true);

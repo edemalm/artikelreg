@@ -498,7 +498,7 @@ function createArtikeldata() {
 	$('#button-send-email').attr('href', hrefcontent);
 
 	/* Change page */
-	$('.content-wrapper').addClass('hidden'); /* hide all content */
+	$('.outer-container').addClass('hidden'); /* hide all content */
 	$('#content-artikeldata').removeClass('hidden');
 
 }

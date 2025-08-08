@@ -8,15 +8,12 @@ body {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	user-select: none;
 	min-height: calc(100vh - 64px);
 }
-@media screen and (min-width: 1281px) {
-	body { padding: 2rem 0 ; }
-}
-
 
 @media screen and (min-width: 1025px) {
 	.winter-0 { background-image: url('../img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
@@ -92,7 +89,7 @@ body {
 	#filter-layer {
 		backdrop-filter: blur(5px);
 		background: linear-gradient(180deg,
-					rgba(var(--mdui-color-secondary-container),0.5) 50%,
+					rgba(var(--mdui-color-secondary),0.25) 0%,
 					rgba(var(--mdui-color-secondary),1) 100%
 		);
 		display: block;
@@ -110,19 +107,131 @@ body {
 		opacity: 0%;
 		transition: all 2s;
 	}
-	#content-container.inactive {
+	.outer-container.inactive {
 		opacity: 0%;
 		transition: all 2s;
 	}
 
 }
 
+
+div.outer-container {
+	background-color: rgb(var(--mdui-color-surface-container));
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+div.inner-container {
+	display: flex;
+	flex-direction: column;
+}
+div.fullpage-container {
+	background-color: rgb(var(--mdui-color-surface));
+	margin-bottom: 0.25rem;
+	padding: 2rem;
+}
+div.upper-container {
+	background-color: rgb(var(--mdui-color-surface));
+	margin-bottom: 0.25rem;
+	padding: 2rem;
+}
+div.middle-container {
+	background-color: rgb(var(--mdui-color-surface));
+	margin-bottom: 0.25rem;
+	padding: 2rem;
+}
+
+div.flex-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.25rem;
+}
+
+div.left-container {
+	background-color: rgb(var(--mdui-color-surface));
+	flex-basis: 0;
+	flex-grow: 1;
+}
+
+div.right-container {
+	background-color: rgb(var(--mdui-color-surface));
+	flex-basis: 0;
+	flex-grow: 1;
+}
+
+div.buttom-container {
+	background-color: rgb(var(--mdui-color-surface-container));
+	padding: 2rem;
+}
+
+@media only screen and (min-width: 641px) {
+	div.outer-container {
+		padding: 0;
+		width: calc(100% - 0); /* substract padding */
+	}
+	div.fullpage-container {
+		padding: 3rem;
+	}
+	div.upper-container {
+		padding: 3rem;
+	}
+	div.middle-container {
+		padding: 3rem;
+	}
+	div.buttom-container {
+		padding: 1.5rem;
+	}
+}
+@media only screen and (min-width: 1025px) {
+	div.flex-container {
+		flex-direction: row;
+	}
+	div.left-container {
+		margin-right: 0.125rem;
+	}
+	div.right-container {
+		margin-left: 0.125rem;
+	}
+
+}
+@media only screen and (min-width: 1281px) {
+	div.outer-container {
+		border-radius: var(--mdui-shape-corner-large);
+		margin: 3rem auto;
+		max-width: 1280px;
+		overflow: hidden;
+	}
+	div.fullpage-container {
+		border-bottom-left-radius: var(--mdui-shape-corner-large);
+		border-bottom-right-radius: var(--mdui-shape-corner-large);
+		padding-bottom: var(--mdui-shape-corner-large);
+
+	}
+	div.left-container {
+		border-bottom-left-radius: var(--mdui-shape-corner-large);
+		padding-bottom: var(--mdui-shape-corner-large);
+	}
+	div.right-container {
+		border-bottom-right-radius: var(--mdui-shape-corner-large);
+		padding-bottom: var(--mdui-shape-corner-large);
+	}
+}
+@media only screen and (min-width: 1441px) {}
+
+
+
+
+
+
+
 #viewport {
+	background-color: #808080;
+	color: #000000;
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
 	letter-spacing: var(--mdui-typescale-body-small-tracking);
 	line-height: var(--mdui-typescale-body-small-line-height);
-	margin-bottom: var(--app-space);
 }
 
 .bp { display: none; }
@@ -138,54 +247,31 @@ pre {
 	white-space: pre-wrap;
 }
 
-#content-container {
-	background-color: rgb(var(--mdui-color-surface-container));
-	transition: all 0.5s;
-	margin: 0 auto;
-	padding: 2rem;
-	max-width: calc(1280px - 4rem);
-}
-@media only screen and (max-width: 640px) {
-	#content-container {
-		padding: 1rem;
-	}
-}
-@media screen and (min-width: 1281px) {
-	#content-container {
-		border-radius: var(--mdui-shape-corner-extra-large);
-	}
-}
-
-.form-group, .page-content {
+.form-section {
 	background-color: rgb(var(--mdui-color-surface));
-	/* border: .0625rem solid rgb(var(--mdui-color-outline-variant)); */
-	border-radius: var(--mdui-shape-corner-medium);
-	/* margin-bottom: 1rem; */
-	margin-bottom: 2rem;
-	/* padding: 1.25rem; */
+	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));
 	padding: 2rem;
+}
+.form-section:last-child {
+	border: 0;
+}
+@media only screen and (min-width: 641px) {
+	.form-section {
+		padding: 3rem;
+	}
 }
 
 
-div.controls { display: flex; flex-direction: row; justify-content: right; padding-top: 1rem; }
+div.controls { display: flex; flex-direction: row; justify-content: right; }
 div.control-left {flex-grow: 1; padding-right: 1rem; text-align: left; }
 div.control-center { flex-grow: 1; text-align: center; }
 div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
 
 @media only screen and (max-width: 640px) {
 	div.controls { flex-direction: column; }
-	div.control-left, div.control-center, div.control-right { padding: 1rem 0 0 0; text-align: right; }
+	div.control-left, div.control-center, div.control-right { text-align: right; }
 }
 
-
-
-
-
-.flat {
-	margin-bottom: var(--app-space);
-	padding: var(--app-space);
-	width: calc(100% - calc(var(--app-space)*2));
-}
 
 
 #dhc-logo {

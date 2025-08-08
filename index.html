@@ -106,94 +106,97 @@
 
 <mdui-layout-main>
 
-<div id="content-container" class="wave">
-	<!-- FORMULÄR -->
-	<div id="content-formular" class="content-wrapper mdui-prose">
-	<!-- <form id="form-artikeldata" autocomplete="off" autocorrect="off"> -->
+<!-- FORMULÄR -->
 
-		<div id="viewport" class="debug hidden">
-			<span id="viewport-size"></span>
-			<span class="bp bp-s"> / Grid class: S (0-640)</span>
-			<span class="bp bp-m"> / Grid class: M (641-1024)</span>
-			<span class="bp bp-l"> / Grid class: L (1025-1280)</span>
-			<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
-		</div>
+<div id="content-formular" class="outer-container mdui-prose">
+	<div class="inner-container">
+		<div class="upper-container">
+			<div class="row">
+				<div class="s12">
 
-		<div class="row form-group">
-			<div class="s12">
-				<div class="form-title">
-					<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
-					<div class="form-title-text"><h3 class="title-large">1. Artikelbenämning och produktnamn</h3></div>
+					<div id="viewport" class="debug hidden">
+						<span id="viewport-size"></span>
+						<span class="bp bp-s"> / Grid class: S (0-640)</span>
+						<span class="bp bp-m"> / Grid class: M (641-1024)</span>
+						<span class="bp bp-l"> / Grid class: L (1025-1280)</span>
+						<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
+					</div>
+
+					<div class="form-title">
+						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
+						<div class="form-title-text"><h3 class="title-large">1. Artikelbenämning och produktnamn</h3></div>
+					</div>
+				</div>
+				<div class="s12">
+					<!-- ARTIKELBENÄMNING -->
+					<mdui-text-field id="text-artikelbenamning"
+						autocomplete="off"
+						autocorrect="off"
+						enterkeyhint="done"
+						helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
+						inputmode="text"
+						label="Artikelbenämning"
+						maxlength="250"
+						variant="outlined"
+						clearable counter required></mdui-text-field>
+				</div>
+				<div id="div-produktnamn" class="s12 m6 huvudprodukt">
+					<!-- PRODUKTNAMN -->
+					<mdui-text-field id="text-huvudprodukt"
+						autocomplete="off"
+						autocorrect="off"
+						enterkeyhint="done"
+						inputmode="text"
+						label="Produktnamn"
+						variant="outlined"
+						clearable required></mdui-text-field>
+				</div>
+					<!-- FLER PRODUKTNAMN -->
+				<div id="div-fler-produktnamn" class="s12 m6">
+					<mdui-button id="button-fler-produktnamn"
+						icon="add"
+						variant="text">Fler produktnamn</mdui-button>
+				</div>
+				<div class="s12 m6 xl3 hidden extraprodukt">
+					<!-- PRODUKTNAMN 2 -->
+					<mdui-text-field id="text-produkt2"
+						autocomplete="off"
+						autocorrect="off"
+						enterkeyhint="done"
+						inputmode="text"
+						label="Extra Produktnamn"
+						variant="outlined"
+						clearable></mdui-text-field>
+				</div>
+				<div class="s12 m6 xl3 hidden extraprodukt">
+					<!-- PRODUKTNAMN 3 -->
+					<mdui-text-field id="text-produkt3"
+						autocomplete="off"
+						autocorrect="off"
+						enterkeyhint="done"
+						inputmode="text"
+						label="Extra Produktnamn"
+						variant="outlined"
+						clearable></mdui-text-field>
+				</div>
+				<div class="s12 m6 xl3 hidden extraprodukt">
+					<!-- PRODUKTNAMN 4 -->
+					<mdui-text-field id="text-produkt4"
+						autocomplete="off"
+						autocorrect="off"
+						enterkeyhint="done"
+						inputmode="text"
+						label="Extra Produktnamn"
+						variant="outlined"
+						clearable></mdui-text-field>
 				</div>
 			</div>
-			<div class="s12">
-				<!-- ARTIKELBENÄMNING -->
-				<mdui-text-field id="text-artikelbenamning"
-					autocomplete="off"
-					autocorrect="off"
-					enterkeyhint="done"
-					helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
-					inputmode="text"
-					label="Artikelbenämning"
-					maxlength="250"
-					variant="outlined"
-					clearable counter required></mdui-text-field>
-			</div>
-			<div id="div-produktnamn" class="s12 m6 huvudprodukt">
-				<!-- PRODUKTNAMN -->
-				<mdui-text-field id="text-huvudprodukt"
-					autocomplete="off"
-					autocorrect="off"
-					enterkeyhint="done"
-					inputmode="text"
-					label="Produktnamn"
-					variant="outlined"
-					clearable required></mdui-text-field>
-			</div>
-				<!-- FLER PRODUKTNAMN -->
-			<div id="div-fler-produktnamn" class="s12 m6">
-				<mdui-button id="button-fler-produktnamn"
-					icon="add"
-					variant="text">Fler produktnamn</mdui-button>
-			</div>
-			<div class="s12 m6 xl3 hidden extraprodukt">
-				<!-- PRODUKTNAMN 2 -->
-				<mdui-text-field id="text-produkt2"
-					autocomplete="off"
-					autocorrect="off"
-					enterkeyhint="done"
-					inputmode="text"
-					label="Extra Produktnamn"
-					variant="outlined"
-					clearable></mdui-text-field>
-			</div>
-			<div class="s12 m6 xl3 hidden extraprodukt">
-				<!-- PRODUKTNAMN 3 -->
-				<mdui-text-field id="text-produkt3"
-					autocomplete="off"
-					autocorrect="off"
-					enterkeyhint="done"
-					inputmode="text"
-					label="Extra Produktnamn"
-					variant="outlined"
-					clearable></mdui-text-field>
-			</div>
-			<div class="s12 m6 xl3 hidden extraprodukt">
-				<!-- PRODUKTNAMN 4 -->
-				<mdui-text-field id="text-produkt4"
-					autocomplete="off"
-					autocorrect="off"
-					enterkeyhint="done"
-					inputmode="text"
-					label="Extra Produktnamn"
-					variant="outlined"
-					clearable></mdui-text-field>
-			</div>
-		</div>
-		<div class="row">
-			<!-- KOLUMN 1 -->
-			<div class="s12 l6 no-padding">
-				<div class="row form-group">
+
+		</div><!-- .upper-container -->
+		<div class="flex-container">
+			<div class="left-container">
+
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="factory"></mdui-icon></div>
@@ -273,7 +276,7 @@
 							clearable disabled required></mdui-text-field>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="payments"></mdui-icon></div>
@@ -357,7 +360,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
@@ -382,8 +385,8 @@
 							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
 						</mdui-select>
 					</div>
-				</div><!-- .row -->
-				<div class="row form-group">
+				</div>
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
@@ -456,11 +459,12 @@
 							variant="outlined"
 							autosize disabled></mdui-text-field>
 					</div>
-				</div><!-- .row -->
-			</div>
-			<!-- KOLUMN 2 -->
-			<div class="s12 l6 no-padding">
-				<div class="row form-group">
+				</div>
+
+			</div><!-- .left-container -->
+			<div class="right-container">
+
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
@@ -524,7 +528,7 @@
 							autosize></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-				<div class="row form-group">
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
@@ -572,7 +576,7 @@
 							autosize clearable disabled></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-				<div class="row form-group">
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
@@ -646,7 +650,7 @@
 						</div>
 					</div>
 				</div><!-- .row -->
-				<div class="row form-group">
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
@@ -696,7 +700,7 @@
 							autosize clearable disabled></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-				<div class="row form-group">
+				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="chat"></mdui-icon></div>
@@ -717,113 +721,113 @@
 							autosize clearable></mdui-text-field>
 					</div>
 				</div><!-- .row -->
-			</div>
-			<div class="s12 no-padding">
-				<div class="controls">
-					<div class="control-right">
-						<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
-					</div>
-					<div class="control-right">
-						<mdui-button id="button-create-artikeldata" validate-input="no" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
-					</div>
-				</div><!-- .controls -->
-			</div>
-		</div><!-- .row -->
-	<!-- </form> -->
-	</div><!-- .content-wrapper -->
 
-	<!-- Artikeldata -->
-	<div id="content-artikeldata" class="content-wrapper hidden">
-		<div class="row page-content">
-			<div class="s12">
-				<h2 class="display-large">Nästan klart!</h2>
-				<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
-				<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
-				<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-				<mdui-card variant="filled">
-					<div id="div-artikeldata"></div>
-				</mdui-card>
-			</div>
+			</div><!-- .right-container -->
+		</div><!-- .flex-container -->
+		<div class="buttom-container">
+
+			<div class="controls">
+				<div class="control-right">
+					<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
+				</div>
+				<div class="control-right">
+					<mdui-button id="button-create-artikeldata" validate-input="no" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
+				</div>
+			</div><!-- .controls -->
+
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
+
+<!-- Artikeldata -->
+
+<div id="content-artikeldata" class="outer-container mdui-prose hidden">
+	<div class="inner-container">
+		<div class="fullpage-container">
+			<h2 class="display-large">Nästan klart!</h2>
+			<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
+			<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
+			<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
+			<mdui-card variant="filled">
+				<div id="div-artikeldata"></div>
+			</mdui-card>
 		</div>
-		<div class="row">
-			<div class="s12">
-				<div class="controls">
-					<div class="control-left">
-						<mdui-button class="button-back-to-form" icon="arrow_back" variant="text">Tillbaka till formulär</mdui-button>
-					</div>
-					<div class="control-right">
-						<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
-					</div>
-					<div class="control-right">
-						<mdui-button id="button-send-email" icon="email" variant="filled">Skapa epost</mdui-button>
-					</div>
-				</div><!-- .controls -->
-			</div>
-		</div><!-- .row -->
-	</div><!-- .content-wrapper -->
+		<div class="buttom-container">
+			<div class="controls">
+				<div class="control-left">
+					<mdui-button class="button-back-to-form" icon="arrow_back" variant="text">Tillbaka till formulär</mdui-button>
+				</div>
+				<div class="control-right">
+					<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
+				</div>
+				<div class="control-right">
+					<mdui-button id="button-send-email" icon="email" variant="filled">Skapa epost</mdui-button>
+				</div>
+			</div><!-- .controls -->
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
 
-	<!-- Hjälp artikelbenämning -->
-	<div id="content-help-artikelbenamning" class="content-wrapper hidden">
-		<div class="row">
-			<div id="inc-artikelbenamning" class="s12 page-content"></div>
-			<div class="s12">
-				<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-				</div><!-- .controls -->
-			</div>
+<!-- Hjälp artikelbenämning -->
+
+<div id="content-help-artikelbenamning" class="outer-container mdui-prose hidden">
+	<div class="inner-container">
+		<div class="fullpage-container">
+			<div id="inc-artikelbenamning"></div>
 		</div>
-	</div><!-- .content-wrapper -->
+		<div class="buttom-container">
+			<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+			</div><!-- .controls -->
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
 
-	<!-- Hjälp produkt -->
-	<div id="content-help-produkt" class="content-wrapper hidden">
-		<div class="row">
-			<div id="inc-produkt" class="s12 page-content"></div>
-			<div class="s12">
-				<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-				</div><!-- .controls -->
-			</div>
+<!-- Hjälp produkt -->
+
+<div id="content-help-produkt" class="outer-container mdui-prose hidden">
+	<div class="inner-container">
+		<div class="fullpage-container">
+			<div id="inc-produkt"></div>
 		</div>
-	</div><!-- .content-wrapper -->
+		<div class="buttom-container">
+			<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+			</div><!-- .controls -->
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
 
-	<!-- Hjälp liggplats -->
-	<div id="content-help-liggplats" class="content-wrapper hidden">
-		<div class="row">
-			<div id="inc-liggplats" class="s12 page-content"></div>
-			<div class="s12">
-				<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-				</div><!-- .controls -->
-			</div>
+<!-- Hjälp liggplats -->
+
+<div id="content-help-liggplats" class="outer-container mdui-prose hidden">
+	<div class="inner-container">
+		<div class="fullpage-container">
+			<div id="inc-liggplats"></div>
 		</div>
-	</div><!-- .content-wrapper -->
+		<div class="buttom-container">
+			<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+			</div><!-- .controls -->
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
 
-	<!-- Hjälp plockområde -->
-	<div id="content-help-plockomrade" class="content-wrapper hidden">
-		<div class="row">
-			<div id="inc-plockomrade" class="s12 page-content"></div>
-			<div class="s12">
-				<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="filled" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-				</div><!-- .controls -->
-			</div>
+<!-- Hjälp plockområde -->
+
+<div id="content-help-plockomrade" class="outer-container mdui-prose hidden">
+	<div class="inner-container">
+		<div class="fullpage-container">
+			<div id="inc-plockomrade"></div>
 		</div>
-	</div><!-- .content-wrapper -->
+		<div class="buttom-container">
+			<div class="controls">
+					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
+			</div><!-- .controls -->
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
 
-	<div id="content-help-outlook" class="content-wrapper hidden">
-		<h1>Instruktion för ändring av teckensnitt med fast bredd i Outlook</h1>
-		<p>För att inklistrad artikeldata ska visas korrekt i Outlook måste ett teckensnitt med fast bredd användas när meddelanden med oformaterad text skickas.</p>
-		<p>Följ dessa enkla steg:</p>
-		<ol>
-			<li><p>Välj <strong>Arkiv</strong> i Outlook och klicka sedan på <strong>Alternativ</strong></p><p><img src="img/outlook-alternativ.png"></p></li>
-			<li><p>Välj <strong>E-post</strong> i vänsterkanten, sedan <strong>Mallar och teckensnitt</strong></p><p><img src="img/outlook-epost.png"></p></li>
-			<li><p>Klicka på <strong>Teckensnitt</strong> för meddelanden med oformaterad text</p><p><img src="img/outlook-teckensnitt.png"></p></li>
-			<li><p>Välj teckensnittet <strong>Consolas</strong> och klicka på <strong>OK</strong></p><p><img src="img/outlook-consolas.png"></p></li>
-			<li><p>Nu är det klart. När du skickar artikeldata till inköp ska du välja <strong>Oformaterad text</strong></p><p><img src="img/outlook-oformaterad-text.png"></p></li>
-		</ol>
-	</div><!-- .content-wrapper -->
-
-</div><!-- #content-container -->
 
 </mdui-layout-main>
 

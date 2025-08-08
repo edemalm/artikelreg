@@ -3,6 +3,7 @@ mdui-top-app-bar {
 	position: fixed !important;
 }
 
+/*
 html.mdui-theme-light mdui-top-app-bar {
 	--mdui-color-surface: var(--mdui-color-surface-container-light);
 	--mdui-color-surface-container: var(--mdui-color-surface-container-high-light);
@@ -11,6 +12,7 @@ html.mdui-theme-dark mdui-top-app-bar {
 	--mdui-color-surface: var(--mdui-color-surface-container-dark);
 	--mdui-color-surface-container: var(--mdui-color-surface-container-high-dark);
 }
+*/
 
 @media only screen and (min-width: 993px)  {
 	#text-artikelbenamning {
