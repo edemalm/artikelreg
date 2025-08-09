@@ -449,22 +449,38 @@ $(document).ready(function() {
 			console.log('Input validation enabled');
 			// validate input
 			// vanilla javascript
-			//for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
-			//	if (!el.reportValidity()) {
-			//		mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
-			//		return;
-			//	}
-			//}
-			for (const el of $('[required]')) {
+			for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
 				if (!el.reportValidity()) {
 					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
 					return;
 				}
 			}
+			
+			//for (const el of $('[required]')) {
+			//	if (!el.reportValidity()) {
+			//		mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+			//		return;
+			//	}
+			//}
 		} else {
 			console.log('Input validation disabled');
 			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
 		}
+
+
+/*
+		if ( $('#button-create-artikeldata').attr('validate-input') == "custom" ) {
+			console.log('Custom input validation enabled');
+
+		$('#select-artikelansvar').required = true;
+		document.getElementById("select-artikelansvar").reportValidity();
+
+		} else {
+			console.log('Custom nput validation disabled');
+			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
+		}
+*/
+
 
 		console.log('Calling createArtikeldata()');
 		createArtikeldata()

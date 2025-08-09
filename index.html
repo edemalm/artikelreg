@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/2.1.3/mdui.min.css" integrity="sha512-VKWvZIrq1VZ9C+74DI7IPPwf76qTIxJGqFD2TsYsU7nAhZMPMEwU2GjqoB3pbvWuJyBsXlCQhndSlflxSvPkjA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
@@ -124,7 +125,7 @@
 
 					<div class="form-title">
 						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
-						<div class="form-title-text"><h3 class="title-large">1. Artikelbenämning och produktnamn</h3></div>
+						<div class="form-title-text"><h3 class="headline-dynamic">1. Artikelbenämning och produktnamn</h3></div>
 					</div>
 				</div>
 				<div class="s12">
@@ -137,6 +138,7 @@
 						inputmode="text"
 						label="Artikelbenämning"
 						maxlength="250"
+						name="artikelbenamning"
 						variant="outlined"
 						clearable counter required></mdui-text-field>
 				</div>
@@ -148,6 +150,7 @@
 						enterkeyhint="done"
 						inputmode="text"
 						label="Produktnamn"
+						name="huvudprodukt"
 						variant="outlined"
 						clearable required></mdui-text-field>
 				</div>
@@ -165,6 +168,7 @@
 						enterkeyhint="done"
 						inputmode="text"
 						label="Extra Produktnamn"
+						name="produkt2"
 						variant="outlined"
 						clearable></mdui-text-field>
 				</div>
@@ -176,6 +180,7 @@
 						enterkeyhint="done"
 						inputmode="text"
 						label="Extra Produktnamn"
+						name="produkt3"
 						variant="outlined"
 						clearable></mdui-text-field>
 				</div>
@@ -187,6 +192,7 @@
 						enterkeyhint="done"
 						inputmode="text"
 						label="Extra Produktnamn"
+						name="produkt4"
 						variant="outlined"
 						clearable></mdui-text-field>
 				</div>
@@ -200,7 +206,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="factory"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">2. Leverantör</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">2. Leverantör</h3></div>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -211,6 +217,7 @@
 							enterkeyhint="done"
 							inputmode="text"
 							label="Leverantörens namn"
+							name="leverantor"
 							variant="outlined"
 							clearable required></mdui-text-field>
 					</div>
@@ -222,6 +229,7 @@
 							enterkeyhint="done"
 							inputmode="text"
 							label="Leverantörens art.nr."
+							name="levartnr"
 							variant="outlined"
 							clearable required></mdui-text-field>
 					</div>
@@ -243,10 +251,11 @@
 							enterkeyhint="done"
 							inputmode="decimal"
 							label="Inköpspris"
+							name="pris"
 							suffix="&nbsp;kr"
 							type="text"
 							variant="outlined"
-							clearable disabled end-aligned required></mdui-text-field>
+							clearable disabled end-aligned></mdui-text-field>
 					</div>
 					<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
 						<!-- GARANTITID -->
@@ -256,10 +265,11 @@
 							enterkeyhint="done"
 							inputmode="numeric"
 							label="Garantitid"
+							name="garanti"
 							suffix="&nbsp;dagar"
 							type="number"
 							variant="outlined"
-							clearable disabled end-aligned required></mdui-text-field>
+							clearable disabled end-aligned></mdui-text-field>
 					</div>
 					<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
 						<!-- ISO-KOD -->
@@ -271,16 +281,17 @@
 							label="ISO-kod"
 							maxlength="6"
 							minlength="6"
+							name="isokod"
 							type="number"
 							variant="outlined"
-							clearable disabled required></mdui-text-field>
+							clearable disabled></mdui-text-field>
 					</div>
 				</div>
 				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="payments"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">3. Ekonomi</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">3. Ekonomi</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -288,6 +299,7 @@
 						<mdui-select id="select-artikelansvar"
 							end-icon="arrow_drop_down"
 							label="Artikelansvar"
+							name="artikelansvar"
 							variant="outlined"
 							required>
 							<mdui-menu-item value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
@@ -302,6 +314,7 @@
 							end-icon="arrow_drop_down"
 							helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten."
 							label="Artikeltyp"
+							name="artikeltyp"
 							variant="outlined"
 							disabled required>
 							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
@@ -314,6 +327,7 @@
 						<mdui-select id="select-debiteringsform"
 							end-icon="arrow_drop_down"
 							label="Debiteringsform"
+							name="debiteringsform"
 							variant="outlined"
 							disabled required>
 							<mdui-menu-item id="debiteringsform-menu-item-m" value="M">Månadshyra</mdui-menu-item>
@@ -352,7 +366,10 @@
 								<div class="radio-helper">Välj inventariens avskrivningstid</div>
 							</div>
 							<div class="radio">
-								<mdui-radio-group id="radio-avskrivningstid" disabled required>
+								<mdui-radio-group id="radio-avskrivningstid"
+									name="avskrivningstid"
+									disabled
+									required>
 									<mdui-radio value="3">3 år</mdui-radio>
 									<mdui-radio value="5">5 år</mdui-radio>
 								</mdui-radio-group>
@@ -364,7 +381,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">4. Ansvarigt team</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">4. Ansvarigt team</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -372,6 +389,7 @@
 						<mdui-select id="select-team"
 							end-icon="arrow_drop_down"
 							label="Team"
+							name="team"
 							variant="outlined"
 							required>
 							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
@@ -390,7 +408,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">5. Inställningar för webSesam</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">5. Inställningar för webSesam</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -454,6 +472,7 @@
 							helper="Vid behov, ange extra artikelinformation som visas för artikeln i webSesam"
 							inputmode="text"
 							label="Extra artikelinformation"
+							name="ws-info"
 							rows="2"
 							type="text"
 							variant="outlined"
@@ -468,7 +487,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">6. Lagerhållning</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">6. Lagerhållning</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -476,6 +495,7 @@
 						<mdui-select id="select-huvudlager"
 							variant="outlined"
 							label="Huvudlager"
+							name="huvudlager"
 							end-icon="arrow_drop_down">
 							<mdui-menu-item value="200">200 - Västermalmsvägen Falun</mdui-menu-item>
 							<mdui-menu-item value="400">400 - Syncentralen Skomakargatan</mdui-menu-item>
@@ -487,6 +507,7 @@
 						<mdui-select id="select-inkopshantering"
 							variant="outlined"
 							label="Inköpshantering"
+							name="inkopshantering"
 							end-icon="arrow_drop_down"
 							helper="Ange en rekommenderad inköpshantering. Denna kan ändras i framtiden beroende på inköpsbehov.">
 							<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
@@ -499,6 +520,7 @@
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
+							name="liggplats"
 							variant="outlined"
 							inputmode="text"
 							label="Liggplats"
@@ -522,6 +544,7 @@
 							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
 							inputmode="text"
 							label="Eventuella buffertlager"
+							name="buffertlager"
 							placeholder="Exempel: Lager 220, 3 st, 31-A-123"
 							rows="2"
 							variant="outlined"
@@ -532,7 +555,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">7. Hantering vid ankomst</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">7. Hantering vid ankomst</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -545,6 +568,7 @@
 							rows="2"
 							inputmode="text"
 							label="Godsmottagningsinstruktion"
+							name="gmi"
 							placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet."
 							helper="Ange en kortfattad text som visas som information för lagerpersonalen vid godsmottagning"
 							autosize></mdui-text-field>
@@ -570,6 +594,7 @@
 							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll."
 							inputmode="text"
 							label="Kvalitetskontroll, beskrivning"
+							name="kkb"
 							placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
 							rows="2"
 							variant="outlined"
@@ -580,7 +605,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">8. Service och underhåll</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">8. Service och underhåll</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -588,6 +613,7 @@
 						<mdui-select id="select-servicegrad"
 							end-icon="arrow_drop_down"
 							label="Servicegrad"
+							name="servicegrad"
 							variant="outlined"
 							disabled>
 							<mdui-menu-item value="00">00 - Inget AU, inget FU</mdui-menu-item>
@@ -606,6 +632,7 @@
 						<mdui-select id="select-besiktningsintervall"
 							end-icon="arrow_drop_down"
 							label="Besiktningsintervall"
+							name="besiktningsintervall"
 							variant="outlined"
 							disabled>
 							<mdui-menu-item value="bi90">90 dagar</mdui-menu-item>
@@ -621,6 +648,7 @@
 						<mdui-select id="select-fu-intervall"
 							end-icon="arrow_drop_down"
 							label="FU-intervall"
+							name="fu-intervall"
 							variant="outlined"
 							disabled>
 							<mdui-menu-item value="fu360">360 dagar</mdui-menu-item>
@@ -654,7 +682,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">9. Information</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">9. Information</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -666,6 +694,7 @@
 							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
 							inputmode="text"
 							label="Intern kundorderinformation"
+							name="iki"
 							placeholder="Exempel: Skall alltid handläggas av konsulent"
 							rows="2"
 							variant="outlined"
@@ -680,6 +709,7 @@
 							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
 							inputmode="text"
 							label="Intern plockinformation"
+							name="ipi"
 							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
 							rows="2"
 							variant="outlined"
@@ -694,6 +724,7 @@
 							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
 							inputmode="text"
 							label="Returtagningsinformation"
+							name="iri"
 							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
 							rows="2"
 							variant="outlined"
@@ -704,7 +735,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="chat"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="title-large">10. Övriga upplysningar</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">10. Övriga upplysningar</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -716,6 +747,7 @@
 							helper="Vid behov, ange övrig information till inköpspersonalen"
 							inputmode="text"
 							label="Övriga upplysningar"
+							name="upplysningar"
 							rows="2"
 							variant="outlined"
 							autosize clearable></mdui-text-field>
@@ -731,7 +763,7 @@
 					<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
 				</div>
 				<div class="control-right">
-					<mdui-button id="button-create-artikeldata" validate-input="no" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
+					<mdui-button id="button-create-artikeldata" validate-input="yes" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
 				</div>
 			</div><!-- .controls -->
 
@@ -840,19 +872,21 @@
 
 <mdui-dialog id="dialog-info" close-on-overlay-click headline="Artikelregistreringsunderlag">
 	<p class="x-small"><span id="version"></span></p>
-	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
-	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
+	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av ny artikel i Sesam.</p>
+	<p>All inmatad information lagras tillfälligt i webbläsaren och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
 	<p>Primär webbadress:<br><span id="main-site"></span></p>
 	<p>Backupadress:<br><span id="backup-site"></p>
 	<mdui-divider></mdui-divider>
-	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a><br>Skapat med <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a><br>Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
+	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a><br>Skapat med hjälp av <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a><br>Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
 	<p class="x-small">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
 	<mdui-button class="button-close-dialog" icon="close" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 
 <mdui-dialog id="dialog-reset-warning" close-on-overlay-click headline="Bekräfta rensning">
-	<p>Alla ifyllda uppgifter går förlorade.</p>
-	<mdui-button class="button-close-dialog" variant="text" slot="action">Avbryt</mdui-button>
+	<p>All ifylld information går förlorad</p>
+	<mdui-button class="button-close-dialog"
+		slot="action"
+		variant="text">Avbryt</mdui-button>
 	<mdui-button id="button-reset-form" class="button-close-dialog"
 		slot="action"
 		variant="filled">Rensa</mdui-button>
