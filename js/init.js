@@ -4,8 +4,8 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-09';
-	window.debug = 'No'; // "Yes" to enable
+	window.update = '2025-08-11';
+	window.debug = 'Yes'; // "Yes" to enable
 
 	window.artikelansvar = '';
 	window.artikeldata = '';

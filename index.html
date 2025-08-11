@@ -112,7 +112,7 @@
 <div id="content-formular" class="outer-container mdui-prose">
 	<div class="inner-container">
 		<div class="upper-container">
-			<div class="row">
+			<div class="row form-section">
 				<div class="s12">
 
 					<div id="viewport" class="debug hidden">
@@ -199,6 +199,16 @@
 			</div>
 
 		</div><!-- .upper-container -->
+		<div class="middle-container">
+			<div class="row form-section">
+				<div class="s12">
+					<div class="form-title">
+						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
+						<div class="form-title-text"><h3 class="headline-dynamic">1b. Middle container</h3></div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="flex-container">
 			<div class="left-container">
 
@@ -380,35 +390,8 @@
 				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">4. Ansvarigt team</h3></div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- TEAM -->
-						<mdui-select id="select-team"
-							end-icon="arrow_drop_down"
-							label="Team"
-							name="team"
-							variant="outlined"
-							required>
-							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
-							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
-							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
-							<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
-							<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
-							<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
-							<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
-							<mdui-menu-item value="11">11 - SST behandling och träning</mdui-menu-item>
-							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
-						</mdui-select>
-					</div>
-				</div>
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">5. Inställningar för webSesam</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">4. Inställningar för webSesam</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -479,15 +462,93 @@
 							autosize disabled></mdui-text-field>
 					</div>
 				</div>
-
+				<div class="row form-section">
+					<div class="s12">
+						<div class="form-title">
+							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">5. Information</h3></div>
+						</div>
+					</div>
+					<div class="s12">
+						<!-- INTERN KUNDORDERINFO -->
+						<mdui-text-field id="textarea-iki"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="enter"
+							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
+							inputmode="text"
+							label="Intern kundorderinformation"
+							name="iki"
+							placeholder="Exempel: Skall alltid handläggas av konsulent"
+							rows="2"
+							variant="outlined"
+							autosize clearable></mdui-text-field>
+					</div>
+					<div class="s12">
+						<!-- INTERN PLOCKINFO -->
+						<mdui-text-field id="textarea-ipi"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="enter"
+							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
+							inputmode="text"
+							label="Intern plockinformation"
+							name="ipi"
+							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
+							rows="2"
+							variant="outlined"
+							autosize clearable></mdui-text-field>
+					</div>
+					<div class="s12">
+						<!-- RETURTAGNINGSINFO -->
+						<mdui-text-field id="textarea-iri"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="enter"
+							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
+							inputmode="text"
+							label="Returtagningsinformation"
+							name="iri"
+							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
+							rows="2"
+							variant="outlined"
+							autosize clearable disabled></mdui-text-field>
+					</div>
+				</div><!-- .row -->
 			</div><!-- .left-container -->
 			<div class="right-container">
-
+				<div class="row form-section">
+					<div class="s12">
+						<div class="form-title">
+							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">6. Ansvarigt team</h3></div>
+						</div>
+					</div>
+					<div class="s12">
+						<!-- TEAM -->
+						<mdui-select id="select-team"
+							end-icon="arrow_drop_down"
+							label="Team"
+							name="team"
+							variant="outlined"
+							required>
+							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
+							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
+							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
+							<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
+							<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
+							<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
+							<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
+							<mdui-menu-item value="11">11 - SST behandling och träning</mdui-menu-item>
+							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
+						</mdui-select>
+					</div>
+				</div>
 				<div class="row form-section">
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">6. Lagerhållning</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">7. Lagerhållning</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -555,7 +616,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">7. Hantering vid ankomst</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">8. Hantering vid ankomst</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -605,7 +666,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">8. Service och underhåll</h3></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">9. Service och underhåll</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -676,59 +737,6 @@
 								<mdui-switch id="switch-dtm" disabled></mdui-switch>
 							</div>
 						</div>
-					</div>
-				</div><!-- .row -->
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">9. Information</h3></div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- INTERN KUNDORDERINFO -->
-						<mdui-text-field id="textarea-iki"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
-							inputmode="text"
-							label="Intern kundorderinformation"
-							name="iki"
-							placeholder="Exempel: Skall alltid handläggas av konsulent"
-							rows="2"
-							variant="outlined"
-							autosize clearable></mdui-text-field>
-					</div>
-					<div class="s12">
-						<!-- INTERN PLOCKINFO -->
-						<mdui-text-field id="textarea-ipi"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
-							inputmode="text"
-							label="Intern plockinformation"
-							name="ipi"
-							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
-							rows="2"
-							variant="outlined"
-							autosize clearable></mdui-text-field>
-					</div>
-					<div class="s12">
-						<!-- RETURTAGNINGSINFO -->
-						<mdui-text-field id="textarea-iri"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
-							inputmode="text"
-							label="Returtagningsinformation"
-							name="iri"
-							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
-							rows="2"
-							variant="outlined"
-							autosize clearable disabled></mdui-text-field>
 					</div>
 				</div><!-- .row -->
 				<div class="row form-section">
