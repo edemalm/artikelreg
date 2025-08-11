@@ -148,10 +148,7 @@ div.buttom-container {
 	background-color: rgb(var(--mdui-color-surface-container));
 }
 
-@media only screen and (min-width: 641px) {
-	div.outer-container {
-	}
-}
+@media only screen and (min-width: 641px) {}
 @media only screen and (min-width: 1025px) {
 	div.fullpage-container {
 		border-bottom-left-radius: var(--mdui-shape-corner-large);
@@ -187,17 +184,15 @@ div.buttom-container {
 
 
 
-.form-section {
+div.form-section {
 	background-color: rgb(var(--mdui-color-surface));
 	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));;
 	padding: 1.5rem 1rem;
 }
+
 @media only screen and (min-width: 641px) {
-	.form-section {
-		padding: 2rem;
-	}
-	div.left-container .form-section:last-child,
-	div.right-container .form-section:last-child {
+	div.form-section {
+		padding: 3rem 2rem;
 	}
 
 }
@@ -205,8 +200,22 @@ div.buttom-container {
 	div.left-container .form-section:last-child,
 	div.right-container .form-section:last-child {
 		border: 0;
-		padding: 2rem 2rem calc(2rem - var(--mdui-shape-corner-large)) 2rem;
+		padding-bottom: calc(3rem - var(--mdui-shape-corner-large));
 	}
+}
+
+div.controls-section {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem 1rem;
+}
+div.control-left, div.control-center, div.control-right { text-align: right; }
+
+@media only screen and (min-width: 641px) {
+	div.controls-section { flex-direction: row; justify-content: right; }
+	div.control-left {flex-grow: 1; padding-right: 1rem; text-align: left; }
+	div.control-center { flex-grow: 1; text-align: center; }
+	div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
 }
 
 
@@ -236,15 +245,6 @@ pre {
 
 
 
-div.controls { display: flex; flex-direction: row; justify-content: right; }
-div.control-left {flex-grow: 1; padding-right: 1rem; text-align: left; }
-div.control-center { flex-grow: 1; text-align: center; }
-div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
-
-@media only screen and (max-width: 640px) {
-	div.controls { flex-direction: column; }
-	div.control-left, div.control-center, div.control-right { text-align: right; }
-}
 
 h3.headline-dynamic {
 	/* title-medium */
