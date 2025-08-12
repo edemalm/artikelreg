@@ -4,15 +4,16 @@ body {
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 	-webkit-tap-highlight-color: transparent;
 	background-attachment: fixed;
-	background-color: rgb(var(--mdui-color-background));
+	background-color: rgb(var(--mdui-color-surface-container)) !important;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	box-sizing: border-box;
+	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	margin: 0;
+	min-height: 100vh;
 	padding: 0;
 	user-select: none;
-	min-height: calc(100vh - 64px);
 }
 
 @media screen and (min-width: 1025px) {
@@ -123,20 +124,18 @@ div.inner-container {
 	display: flex;
 	flex-direction: column;
 }
-div.fullpage-container {
-	background-color: rgb(var(--mdui-color-surface));
+
+div.fullpage-container,
+div.upper-container,
+div.middle-container,
+div.buttom-container {
+	background-color: rgb(var(--mdui-color-surface-container));
 }
-div.upper-container {
-	background-color: rgb(var(--mdui-color-surface));
-}
-div.middle-container {
-	background-color: rgb(var(--mdui-color-surface));
-}
+
 div.flex-container {
 	display: flex;
 	flex-direction: column;
 }
-
 div.left-container,
 div.right-container {
 	background-color: rgb(var(--mdui-color-surface));
@@ -144,33 +143,18 @@ div.right-container {
 	flex-grow: 1;
 }
 
-div.buttom-container {
-	background-color: rgb(var(--mdui-color-surface-container));
-}
-
-@media only screen and (min-width: 641px) {}
 @media only screen and (min-width: 1025px) {
-	div.fullpage-container {
-		border-bottom-left-radius: var(--mdui-shape-corner-large);
-		border-bottom-right-radius: var(--mdui-shape-corner-large);
-		padding-bottom: var(--mdui-shape-corner-large);
-
-	}
 	div.flex-container {
 		flex-direction: row;
 	}
 	div.left-container {
-		border-right: 0.125rem solid rgb(var(--mdui-color-surface-container));;
-		border-bottom-left-radius: var(--mdui-shape-corner-large);
-		padding-bottom: var(--mdui-shape-corner-large);
+		border-right: 0.125rem solid rgb(var(--mdui-color-surface-container));
 	}
 	div.right-container {
-		border-left: 0.125rem solid rgb(var(--mdui-color-surface-container));;
-		border-bottom-right-radius: var(--mdui-shape-corner-large);
-		padding-bottom: var(--mdui-shape-corner-large);
+		border-left: 0.125rem solid rgb(var(--mdui-color-surface-container));
 	}
-
 }
+
 @media only screen and (min-width: 1281px) {
 	div.outer-container {
 		border-radius: var(--mdui-shape-corner-large);
@@ -178,43 +162,84 @@ div.buttom-container {
 		max-width: 1280px;
 		overflow: hidden;
 	}
+	div.fullpage-container {
+		border-bottom-left-radius: var(--mdui-shape-corner-large);
+		border-bottom-right-radius: var(--mdui-shape-corner-large);
+		padding-bottom: var(--mdui-shape-corner-large);
 
+	}
+	div.left-container {
+		border-bottom-left-radius: var(--mdui-shape-corner-large);
+		padding-bottom: var(--mdui-shape-corner-large);
+	}
+	div.right-container {
+		border-bottom-right-radius: var(--mdui-shape-corner-large);
+		padding-bottom: var(--mdui-shape-corner-large);
+	}
 }
+
 @media only screen and (min-width: 1441px) {}
 
-
+div.fullpage-content {
+	background-color: rgb(var(--mdui-color-surface));
+	padding: 1.5rem 1rem;
+}
 
 div.form-section {
 	background-color: rgb(var(--mdui-color-surface));
 	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));;
 	padding: 1.5rem 1rem;
 }
-
 @media only screen and (min-width: 641px) {
+	div.fullpage-content,
 	div.form-section {
 		padding: 3rem 2rem;
 	}
-
 }
 @media only screen and (min-width: 1025px) {
 	div.left-container .form-section:last-child,
 	div.right-container .form-section:last-child {
-		border: 0;
+		border-bottom: 0;
+	}
+}
+@media only screen and (min-width: 1281px) {
+	div.fullpage-content {
+		border-bottom-left-radius: var(--mdui-shape-corner-large);
+		border-bottom-right-radius: var(--mdui-shape-corner-large);
+		padding-bottom: calc(3rem - var(--mdui-shape-corner-large));
+	}
+	div.left-container .form-section:last-child,
+	div.right-container .form-section:last-child {
 		padding-bottom: calc(3rem - var(--mdui-shape-corner-large));
 	}
 }
 
-div.controls-section {
+div.controls-container-left,
+div.controls-container-center,
+div.controls-container-right {
 	display: flex;
 	flex-direction: column;
-	padding: 1.5rem 1rem;
+	padding: 1.5rem 2rem;
 }
-div.control-left, div.control-center, div.control-right { text-align: right; }
+div.control-left,
+div.control-center,
+div.control-right {
+	text-align: right;
+}
 
 @media only screen and (min-width: 641px) {
-	div.controls-section { flex-direction: row; justify-content: right; }
-	div.control-left {flex-grow: 1; padding-right: 1rem; text-align: left; }
-	div.control-center { flex-grow: 1; text-align: center; }
+	div.controls-container-left,
+	div.controls-container-center,
+	div.controls-container-right {
+		flex-direction: row;
+		padding: 1.5rem 2rem;
+	}
+	div.controls-container-left { justify-content: left; }
+	div.controls-container-center { justify-content: center; }
+	div.controls-container-right { justify-content: right; }
+
+	div.control-left { flex-grow: 1; padding-right: 1rem; text-align: left; }
+	div.control-center { flex-grow: 0; text-align: center; }
 	div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
 }
 
@@ -480,7 +505,7 @@ div.form-title-text {
 	align-self: center;
 	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
 }
-div.form-title-text h3.title-large {
+div.form-title-text h3.headline-dynamic {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;

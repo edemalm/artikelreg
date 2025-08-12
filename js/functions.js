@@ -105,133 +105,6 @@ function disableServiceOchUnderhall() {
 	$('#label-dtm').addClass('disabled'); // add .disabled
 }
 
-function huvudhjalpmedel() {
-	console.log('huvudhjalpmedel() executed');
-
-	// 3. Ekonomi
-	if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
-		$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-	} else {
-		$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
-	}
-	disableSwitchIndividartikel();
-	disableSwitchInventarium();
-
-	// 5. Inställningar för webSesam
-	disableSwitchWSKomp();
-
-	// 7. Hantering vid ankomst
-	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-kk').removeClass('disabled'); // remove .disabled
-
-	$('#textarea-kkb').val('').attr('disabled', false); // clear and enable
-
-	// 8. Service och underhåll
-	disableServiceOchUnderhall();
-
-	// 9. Information
-	$('#textarea-iri').val('').attr('disabled', false); // clear and enable
-
-}
-
-function tillbehor() {
-	console.log('tillbehor() executed');
-
-	// 3. Ekonomi
-	if ( artikelansvar == 'R' || artikelansvar == 'E' ) {
-		$('#select-debiteringsform').val('A').attr('disabled', true); // select 'A' and disable
-	} else {
-		$('#select-debiteringsform').val('').attr('disabled', false); // clear and enable
-	}
-	disableSwitchIndividartikel();
-
-	// 5. Inställningar för webSesam
-	enableSwitchWSKomp();
-
-	// 7. Hantering vid ankomst
-	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-kk').removeClass('disabled'); // remove .disabled
-
-	$('#textarea-kkb').val('').attr('disabled', false).attr('required', false); // clear and enable
-
-	// 8. Service och underhåll
-	disableServiceOchUnderhall();
-
-	// 9. Information
-	$('#textarea-iri').val('').attr('disabled',true); // clear and disable
-
-}
-
-function reservdel() {
-	console.log('reservdel() executed');
-
-	// 3. Ekonomi
-
-	// 5. Inställningar för webSesam
-	disableSwitchWSKomp();
-
-	// 7. Hantering vid ankomst
-	$('#switch-kk').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-kk').addClass('disabled'); // add .disabled
-
-	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
-
-	// 8. Service och underhåll
-	disableServiceOchUnderhall();
-
-	// 9. Information
-	$('#textarea-iri').val('').attr('disabled', true); // clear and disable
-}
-
-function manadshyra(artikeltyp) {
-	console.log('mandshyra() executed with argument artikeltyp=' + artikeltyp );
-	switch (artikeltyp) {
-		case 'H':
-			// 3. Ekonomi
-			$('#switch-individartikel').attr('checked', true).attr('disabled', true); // check and disable
-			individartikel = "Ja";
-			$('#switch-inventarium').attr('checked', true).attr('disabled', true); // check and disable
-			inventarium = "Ja";
-			$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and required
-
-			// 8. Service och underhåll
-			enableServiceOchUnderhall();
-
-		break;
-		case 'T':
-			// 8. Service och underhåll
-			$('#select-servicegrad').val('44').attr('disabled', true).attr('required', false); // select '44' and disable
-			servicegrad = '44';
-		break;
-	}
-}
-
-function kop(artikeltyp) {
-	console.log('kop() executed with argument artikeltyp=' + artikeltyp );
-	switch (artikeltyp) {
-		case 'H':
-			// 3. Ekonomi
-			enableSwitchIndividartikel();
-
-			$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-			inventarium = "Nej";
-
-			$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear and disable
-
-			// 8. Service och underhåll
-			disableServiceOchUnderhall();
-
-		break;
-		case 'T':
-			// 3. Ekonomi
-			disableSwitchIndividartikel();
-
-		break;
-
-	}
-}
-
-
 function createArtikeldata() {
 
 	// console.log('form #form-artikeldata submitted');
@@ -274,21 +147,19 @@ function createArtikeldata() {
 	ws_sort = ( $('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
 
 	// Leverantör + lev. art.nr.
-	artikeldata += "LEVERANTÖR OCH ART.NR.\n\n";
-	artikeldata += leverantor + "\n" + levartnr + "\n\n";
+	artikeldata += "Leverantör: " + leverantor + "\nArtikelnummer: " + levartnr + "\n\n";
 
 	// Hjälpmedelstjänsten, avtal, mallartikel
 	if ( $('#checkbox-ht').attr('checked') ) {
 		artikeldata += "Artikeln finns i Hjälpmedelstjänsten";
 		if ( $('#checkbox-upphandlad').attr('checked') ) artikeldata +=" och är upphandlad";
+		// Mallartikel
+		artikeldata += ". Använd mallartikel '" + avd + artikeltyp + "' vid import";
 	} else {
 		artikeldata += "Artikeln saknas tyvärr i Hjälpmedelstjänsten";
 		if ( $('#checkbox-upphandlad').attr('checked') ) artikeldata +=" men är upphandlad";
 	}
 	artikeldata += ".\n\n";
-
-	// Mallartikel
-	artikeldata += "Mallartikel: " + avd + artikeltyp + "\n\n";
 
 	// ARTIKELBENÄMNING
 	artikeldata += "ARTIKELBENÄMNING\n\n" + artikelbenamning + "\n\n";
@@ -443,7 +314,15 @@ function createArtikeldata() {
 	artikeldata += "PRISPARAMETRAR\n\n";
 
 	// Debiteringsform
-	artikeldata += "Debiteringsform: " + ( debiteringsform == 'M' ? "Hyra" : "Köp") + "\n";
+	artikeldata += "Debiteringsform: ";
+	if ( debiteringsform == 'A' ) {
+		artikeldata += "Köp";
+	} else if ( debiteringsform == 'M' ) {
+		artikeldata += "Hyra";
+	} else {
+		artikeldata += "Uppgift saknas";
+	}
+	artikeldata += "\n";
 
 	// Prisgrupp
 	artikeldata += "Prisgrupp: ";

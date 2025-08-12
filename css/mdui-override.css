@@ -3,6 +3,11 @@ mdui-top-app-bar {
 	position: fixed !important;
 }
 
+mdui-top-app-bar-title::part(label),
+mdui-dialog::part(headline) {
+	font-family: 'Roboto Condensed', system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
 /*
 html.mdui-theme-light mdui-top-app-bar {
 	--mdui-color-surface: var(--mdui-color-surface-container-light);

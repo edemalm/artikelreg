@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-11-1130';
+	window.update = '2025-08-13';
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';
@@ -190,6 +190,15 @@ $(document).ready(function() {
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
+	$('#menu-help-iso-koder').click(function() {
+		console.log('#menu-help-iso-koder clicked');
+		$('.outer-container').addClass('hidden'); /* hide all content */
+		$('#content-help-iso-koder').removeClass('hidden');
+		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
+		$('#menu-help-iso-koder').attr('active','');
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
 	$('#menu-help-liggplats').click(function() {
 		console.log('#menu-help-liggplats clicked');
 		$('.outer-container').addClass('hidden'); /* hide all content */
@@ -231,6 +240,9 @@ $(document).ready(function() {
 
 	console.log('Loading inc/produkt.html');
 	$('#inc-produkt').load('inc/produkt.html'); 
+
+	console.log('Loading inc/iso-koder.html');
+	$('#inc-iso-koder').load('inc/iso-koder.html'); 
 
 	console.log('Loading inc/liggplats.html');
 	$('#inc-liggplats').load('inc/liggplats.html');

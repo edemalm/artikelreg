@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-body {
-	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
 /* Typography classes */
 /* https://www.mdui.org/en/docs/2/styles/design-tokens#typescale */
 

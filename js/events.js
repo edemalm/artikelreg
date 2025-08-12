@@ -124,7 +124,6 @@ $(document).ready(function() {
 
 		switch (artikeltyp) {
 			case 'H':
-				// huvudhjalpmedel();
 				$('#select-artikeltyp').attr('helper','Ett huvudjälpmedel är ett komplett fungerande hjälpmedel');
 				enableSelectDebiteringsform();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
@@ -133,7 +132,6 @@ $(document).ready(function() {
 				}
 			break;
 			case 'T':
-				// tillbehor();
 				$('#select-artikeltyp').attr('helper','Ett tillbehör tillför en extra funktion till ett huvudhjälpmedel');
 				enableSelectDebiteringsform();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
@@ -142,7 +140,6 @@ $(document).ready(function() {
 				}
 			break;
 			case 'R':
-				// reservdel();
 				$('#select-artikeltyp').attr('helper','En reservdel används för att reparera eller underhålla ett huvudhjälpmedel eller tillbehör');
 				enableSelectDebiteringsform();
 				$('#select-debiteringsform').val('A'); // select 'A' (köp)

@@ -73,6 +73,7 @@
 					<div style="margin-left: 2.5rem">
 						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
 						<mdui-list-item id="menu-help-produkt" rounded>Produkt</mdui-list-item>
+						<mdui-list-item id="menu-help-iso-koder" rounded>ISO-koder</mdui-list-item>
 						<mdui-list-item id="menu-help-liggplats" rounded>Liggplatser</mdui-list-item>
 						<mdui-list-item id="menu-help-plockomrade" rounded>Plockområden</mdui-list-item>
 					</div>
@@ -765,16 +766,14 @@
 			</div><!-- .right-container -->
 		</div><!-- .flex-container -->
 		<div class="buttom-container">
-
-			<div class="controls-section">
+			<div class="controls-container-right">
 				<div class="control-right">
 					<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
 				</div>
 				<div class="control-right">
-					<mdui-button id="button-create-artikeldata" validate-input="yes" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
+					<mdui-button id="button-create-artikeldata" validate-input="no" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
 				</div>
 			</div><!-- .controls -->
-
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -784,26 +783,28 @@
 <div id="content-artikeldata" class="outer-container mdui-prose hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
-			<h2 class="display-large">Nästan klart!</h2>
-			<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
-			<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
-			<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-			<mdui-card variant="filled">
-				<div id="div-artikeldata"></div>
-			</mdui-card>
+			<div class="fullpage-content">
+				<h2 class="display-large">Nästan klart!</h2>
+				<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
+				<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
+				<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
+				<mdui-card variant="filled">
+					<div id="div-artikeldata"></div>
+				</mdui-card>
+			</div>
 		</div>
 		<div class="buttom-container">
-			<div class="controls">
-				<div class="control-left">
-					<mdui-button class="button-back-to-form" icon="arrow_back" variant="text">Tillbaka till formulär</mdui-button>
-				</div>
-				<div class="control-right">
-					<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
-				</div>
-				<div class="control-right">
-					<mdui-button id="button-send-email" icon="email" variant="filled">Skapa epost</mdui-button>
-				</div>
-			</div><!-- .controls -->
+			<div class="controls-container-center">
+					<div class="control-left">
+						<mdui-button class="button-back-to-form" icon="arrow_back" variant="text">Tillbaka till formulär</mdui-button>
+					</div>
+					<div class="control-right">
+						<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
+					</div>
+					<div class="control-right">
+						<mdui-button id="button-send-email" icon="email" variant="filled">Skapa epost</mdui-button>
+					</div>
+			</div>
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -813,12 +814,14 @@
 <div id="content-help-artikelbenamning" class="outer-container mdui-prose hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
-			<div id="inc-artikelbenamning"></div>
+			<div class="fullpage-content">
+				<div id="inc-artikelbenamning"></div>
+			</div>
 		</div>
 		<div class="buttom-container">
-			<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-			</div><!-- .controls -->
+			<div class="controls-container-center">
+				<div class="control-center"><mdui-button class="button-back-to-form" variant="filled">Stäng hjälpavsnitt</mdui-button></div>
+			</div>
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -828,12 +831,29 @@
 <div id="content-help-produkt" class="outer-container mdui-prose hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
-			<div id="inc-produkt"></div>
+			<div class="fullpage-content">
+				<div id="inc-produkt"></div>
+			</div>
 		</div>
 		<div class="buttom-container">
-			<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-			</div><!-- .controls -->
+			<div class="controls-container-center">
+				<div class="control-center"><mdui-button class="button-back-to-form" variant="filled">Stäng hjälpavsnitt</mdui-button></div>
+			</div>
+		</div><!-- .buttom-container -->
+	</div><!-- .inner-container -->
+</div><!-- .outer-container -->
+
+<div id="content-help-iso-koder" class="outer-container mdui-prose hidden">
+	<div class="inner-container">
+		<div class="fullpage-container">
+			<div class="fullpage-content">
+				<div id="inc-iso-koder"></div>
+			</div>
+		</div>
+		<div class="buttom-container">
+			<div class="controls-container-center">
+				<div class="control-center"><mdui-button class="button-back-to-form" variant="filled">Stäng hjälpavsnitt</mdui-button></div>
+			</div>
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -843,12 +863,14 @@
 <div id="content-help-liggplats" class="outer-container mdui-prose hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
-			<div id="inc-liggplats"></div>
+			<div class="fullpage-content">
+				<div id="inc-liggplats"></div>
+			</div>
 		</div>
 		<div class="buttom-container">
-			<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-			</div><!-- .controls -->
+			<div class="controls-container-center">
+				<div class="control-center"><mdui-button class="button-back-to-form" variant="filled">Stäng hjälpavsnitt</mdui-button></div>
+			</div>
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -858,12 +880,14 @@
 <div id="content-help-plockomrade" class="outer-container mdui-prose hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
-			<div id="inc-plockomrade"></div>
+			<div class="fullpage-content">
+				<div id="inc-plockomrade"></div>
+			</div>
 		</div>
 		<div class="buttom-container">
-			<div class="controls">
-					<div class="control-center"><mdui-button class="button-back-to-form" variant="text" icon="close">Stäng hjälpavsnitt</mdui-button></div>
-			</div><!-- .controls -->
+			<div class="controls-container-center">
+				<div class="control-center"><mdui-button class="button-back-to-form" variant="filled">Stäng hjälpavsnitt</mdui-button></div>
+			</div>
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -880,14 +904,34 @@
 
 <mdui-dialog id="dialog-info" close-on-overlay-click headline="Artikelregistreringsunderlag">
 	<p class="x-small"><span id="version"></span></p>
-	<p>Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av ny artikel i Sesam.</p>
+	<p>Detta verktyp används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
 	<p>All inmatad information lagras tillfälligt i webbläsaren och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
 	<p>Primär webbadress:<br><span id="main-site"></span></p>
 	<p>Backupadress:<br><span id="backup-site"></p>
+
 	<mdui-divider></mdui-divider>
-	<p class="x-small">All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a><br>Skapat med hjälp av <a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a><br>Fria bilder från <a href="https://unsplash.com/" rel="external" target="_blank">Unsplash</a></p>
-	<p class="x-small">Copyright &copy; 2025 Markus Edemalm<br>Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
-	<mdui-button class="button-close-dialog" icon="close" variant="text" slot="action">Stäng</mdui-button>
+
+	<p class="x-small">Skapat med hjälp av följande fria programvaror och bilder:</p>
+
+	<p>
+		<ul class="x-small">
+			<li><a href="https://www.mdui.org/" rel="external" target="_blank">Material Design User Interface</a></li>
+			<li><a href="https://jquery.com/" rel="external" target="_blank">jQuery JavaScript library</a></li>
+			<li><a href="https://developers.google.com/fonts" rel="external" target="_blank">Typsnitt från Google</a></li>
+			<li><a href="https://unsplash.com/" rel="external" target="_blank">Bilder från Unsplash</a></li>
+		</ul>
+	</p>
+
+	<p class="x-small">
+		All kod tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a>
+	</p>
+
+	<p class="x-small">
+		Copyright &copy; 2025 Markus Edemalm<br>
+		Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a>
+	</p>
+
+	<mdui-button class="button-close-dialog" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 
 <mdui-dialog id="dialog-reset-warning" close-on-overlay-click headline="Bekräfta rensning">
