@@ -139,8 +139,8 @@ div.flex-container {
 div.left-container,
 div.right-container {
 	background-color: rgb(var(--mdui-color-surface));
-	flex-basis: 0;
-	flex-grow: 1;
+	flex-basis: 100%;
+	flex: 1;
 }
 
 @media only screen and (min-width: 1025px) {
@@ -178,25 +178,18 @@ div.right-container {
 	}
 }
 
-@media only screen and (min-width: 1441px) {}
-
 div.fullpage-content {
 	background-color: rgb(var(--mdui-color-surface));
-	padding: 1.5rem 1rem;
+	padding: 1rem;
 	user-select: text;
 }
 
 div.form-section {
 	background-color: rgb(var(--mdui-color-surface));
 	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));;
-	padding: 1.5rem 1rem;
+	padding: var(--gap);
 }
-@media only screen and (min-width: 641px) {
-	div.fullpage-content,
-	div.form-section {
-		padding: 3rem 2rem;
-	}
-}
+
 @media only screen and (min-width: 1025px) {
 	div.left-container .form-section:last-child,
 	div.right-container .form-section:last-child {
@@ -207,11 +200,11 @@ div.form-section {
 	div.fullpage-content {
 		border-bottom-left-radius: var(--mdui-shape-corner-large);
 		border-bottom-right-radius: var(--mdui-shape-corner-large);
-		padding-bottom: calc(3rem - var(--mdui-shape-corner-large));
+		padding-bottom: calc(var(--gap) - var(--mdui-shape-corner-large));
 	}
 	div.left-container .form-section:last-child,
 	div.right-container .form-section:last-child {
-		padding-bottom: calc(3rem - var(--mdui-shape-corner-large));
+		padding-bottom: calc(var(--gap) - var(--mdui-shape-corner-large));
 	}
 }
 
@@ -233,17 +226,16 @@ div.control-right {
 	div.controls-container-center,
 	div.controls-container-right {
 		flex-direction: row;
-		padding: 1.5rem 2rem;
+		padding: 1.5rem var(--gap);
 	}
 	div.controls-container-left { justify-content: left; }
 	div.controls-container-center { justify-content: center; }
 	div.controls-container-right { justify-content: right; }
 
-	div.control-left { flex-grow: 1; padding-right: 1rem; text-align: left; }
+	div.control-left { flex-grow: 1; padding-right: var(--gap); text-align: left; }
 	div.control-center { flex-grow: 0; text-align: center; }
-	div.control-right { flex-grow: 0; padding-left: 1rem; text-align: right; }
+	div.control-right { flex-grow: 0; padding-left: var(--gap); text-align: right; }
 }
-
 
 
 #viewport {
@@ -312,24 +304,16 @@ h3.headline-dynamic {
 
 #div-artikeldata {
 	/* Make it Windows and Outlook friendly */
-	background-color: #ff0000;
-	color: #ffff00;
-	font-family: "Consolas", "Roboto Mono", monospace;
+	background-color: #ffffff;
+	color: #000000;
+	font-family: "Roboto Mono", monospace;
 	font-size: 12pt; /* 16px or 1em */
 	font-weight: normal;
 	letter-spacing: normal;
-	line-height: 150%;
-	user-select: text;
+	line-height: 125%;
 }
 
 #content-to-copy {
-	background-color: #00ff00;
-	color: #000000;
-	font-family: "Courier New", "Roboto Mono", monospace;
-	font-size: 12pt; /* 16px or 1em */
-	font-weight: normal;
-	letter-spacing: normal;
-	line-height: 150%;
 	user-select: text;
 }
 
@@ -351,17 +335,9 @@ mdui-checkbox.with-tooltip {
 	vertical-align: middle;
 }
 
-.switch-container {
-	padding: calc(var(--app-space) / 2) 0;
-}
-
 .checkbox-container {
 	height: 48px;
 	padding-top: 8px;
-}
-
-.space-below {
-	margin-bottom: var(--app-space);
 }
 
 .switch-wrapper,
@@ -372,7 +348,6 @@ mdui-checkbox.with-tooltip {
 	justify-content: flex-start;
 	align-items: center;
 	align-content: stretch;
-	margin-bottom: var(--app-space);
 }
 .switch-wrapper .text,
 .radio-wrapper .text {
@@ -391,7 +366,7 @@ mdui-checkbox.with-tooltip {
 	flex-basis: auto;
 	align-self: auto;
 	order: 0;
-	padding-left: var(--app-space);
+	padding-left: var(--gap);
 }
 
 div.switch-label,

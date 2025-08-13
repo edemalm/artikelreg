@@ -4,8 +4,8 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-13 13:30';
-	window.debug = 'No'; // "Yes" to enable
+	window.update = '2025-08-13 15:30';
+	window.debug = 'Yes'; // "Yes" to enable
 
 	window.artikelansvar = '';
 	window.artikeldata = '';
@@ -55,14 +55,11 @@ $(document).ready(function() {
 
 	// Debug
 	if (debug == 'Yes') {
-		if (/\bCrOS\b/.test(navigator.userAgent)) {
-			// Only for ChromeOS :)
-			$('.debug').removeClass('hidden');
+		$('.debug').removeClass('hidden');
+		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
+		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
-			$(window).resize(function() {
-				$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
-			});
-		}
+		});
 	}
 
 	const d = new Date();

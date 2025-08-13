@@ -30,30 +30,22 @@ $(document).ready(function() {
 	});
 
 
+	/*
 	$('#button-copy-div').click(function() {
 		console.log('#button-copy-div clicked');
-		// get text in div
-		//let textToCopy = document.querySelector(".text-to-copy").innerHTML;
-		//let tempElement = document.querySelector(".text-to-copy");
-
 		const range = document.createRange();
 		range.selectNode( document.querySelector("#content-to-copy") );
-		// Copy the selected HTML content to the clipboard
 		const selection = window.getSelection();
 		selection.removeAllRanges();
 		selection.addRange(range);
 		document.execCommand("copy");
-		selection.removeAllRanges();
-	
+		selection.removeAllRanges();	
 		mdui.snackbar({ message: 'Artikeluppgifterna (från div) har kopierats och kan klistras in med CTRL+V' });
 	});
-
-
+	*/
 
 	$('#button-copy-artikeldata').click(function() {
 		console.log('#button-copy-artikeldata clicked');
-		// $('#textarea-artikeldata').selectText();
-		// document.execCommand('copy');
 		navigator.clipboard.writeText(artikeldata);
 		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
 	});
