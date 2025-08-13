@@ -262,13 +262,6 @@ div.control-right {
 @media screen and (min-width: 1025px) and (max-width: 1280px) { .bp-l { display: inline !important; } }
 @media screen and (min-width: 1281px) { .bp-xl { display: inline !important; } }
 
-#content-to-copy {
-	background-color: #ffffff;
-	color: #000000;
-	font-family: "Roboto Mono", "Aptos Mono", monospace;
-	font-size: 16px;
-}
-
 code, kbd, pre, samp, tt {
 	font-family: "Roboto Mono", monospace !important;
 }
@@ -318,13 +311,14 @@ h3.headline-dynamic {
 }
 
 #div-artikeldata {
-	/*
-	font-family: "Roboto Mono", monospace;
-	font-size: var(--mdui-typescale-body-medium-size);
-	font-weight: var(--mdui-typescale-body-medium-weight); 
-	letter-spacing: var(--mdui-typescale-body-medium-tracking);
-	line-height: var(--mdui-typescale-body-medium-line-height);
-	*/
+	/* Make it Windows and Outlook friendly */
+	background-color: #ffffff;
+	color: #000000;
+	font-family: "Aptos Mono", Consolas, "Courier New", monospace;
+	font-size: 16px;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 125%;
 	user-select: text;
 }
 
