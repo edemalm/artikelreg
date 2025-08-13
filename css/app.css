@@ -183,6 +183,7 @@ div.right-container {
 div.fullpage-content {
 	background-color: rgb(var(--mdui-color-surface));
 	padding: 1.5rem 1rem;
+	user-select: text;
 }
 
 div.form-section {
@@ -320,6 +321,7 @@ h3.headline-dynamic {
 	letter-spacing: var(--mdui-typescale-body-medium-tracking);
 	line-height: var(--mdui-typescale-body-medium-line-height);
 	padding: 1rem;
+	user-select: text;
 }
 
 mdui-icon.tooltip {
