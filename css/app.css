@@ -201,17 +201,6 @@ div.form-section {
 @media only screen and (min-width: 641px) {
 	div.fullpage-content, div.form-section { padding: var(--double-row-gap) var(--double-column-gap); }
 }
-/*
-@media only screen and (min-width: 801px) {
-	div.fullpage-content, div.form-section { padding: var(--double-row-gap) var(--double-column-gap); }
-}
-@media only screen and (min-width: 1025px) {
-	div.fullpage-content, div.form-section { padding: var(--double-row-gap) var(--double-column-gap); }
-}
-@media only screen and (min-width: 1281px) {
-	div.fullpage-content, div.form-section { padding: var(--double-row-gap) var(--double-column-gap); }
-}
-*/
 @media only screen and (min-width: 1441px) {
 	div.fullpage-content, div.form-section { padding: var(--triple-row-gap) var(--triple-column-gap); }
 }
@@ -271,18 +260,6 @@ div.control-right {
 	div.control-center { flex-grow: 0; text-align: center; }
 	div.control-right { flex-grow: 0; padding-left: var(--column-gap); text-align: right; }
 }
-/*
-@media only screen and (min-width: 641px), (min-width: 1025px) {
-	div.controls-container-left, div.controls-container-center, div.controls-container-right {
-		padding: var(--row-gap) var(--double-column-gap);
-	}
-}
-@media only screen and (min-width: 801px), (min-width: 1281px) {
-	div.controls-container-left, div.controls-container-center, div.controls-container-right {
-		padding: var(--row-gap) var(--double-column-gap);
-	}
-}
-*/
 @media only screen and (min-width: 1441px) {
 	div.controls-container-left, div.controls-container-center, div.controls-container-right {
 		padding: var(--double-row-gap) var(--triple-column-gap);
