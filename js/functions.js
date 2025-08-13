@@ -369,7 +369,7 @@ function createArtikeldata() {
 	}
 
 	// Add artikeldata to #div-artikeldata
-	$('#div-artikeldata').html('<pre class="text-to-copy">' + artikeldata + '</pre>');
+	$('#div-artikeldata').html('<pre id="content-to-copy">' + artikeldata + '</pre>');
 
 	// Update href mailto link
 	var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');

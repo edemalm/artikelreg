@@ -37,7 +37,7 @@ $(document).ready(function() {
 		//let tempElement = document.querySelector(".text-to-copy");
 
 		const range = document.createRange();
-		range.selectNode( document.querySelector(".text-to-copy") );
+		range.selectNode( document.querySelector("#content-to-copy") );
 		// Copy the selected HTML content to the clipboard
 		const selection = window.getSelection();
 		selection.removeAllRanges();
