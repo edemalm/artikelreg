@@ -1,20 +1,46 @@
 @charset "UTF-8";
 
 :root {
-	--gap: 2rem;
+	--row-gap: 1rem;
+	--column-gap: 1rem;
+	--double-row-gap: 2rem;
+	--double-column-gap: 2rem;
+	--triple-row-gap: 3rem;
+	--triple-column-gap: 3rem;
 }
-@media only screen and (min-width: 641px)  { :root { --gap: 3rem; } }
-
-/* Varför fungerar inte detta?
-@media only screen and (min-width: 1281px) { :root { --gap: 4rem; } }
-*/
 
 .row {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	column-gap: var(--gap);
-	row-gap: calc(var(--gap) / 2);
+	column-gap: var(--column-gap);
+	row-gap: var(--double-row-gap);
+	max-width: 100%;
 }
+@media only screen and (min-width: 641px) {
+	.row {
+		column-gap: var(--column-gap);
+		row-gap: var(--double-row-gap);
+	}
+}
+@media only screen and (min-width: 801px) {
+	.row {
+		column-gap: var(--double-column-gap);
+		row-gap: var(--double-row-gap);
+	}
+}
+@media only screen and (min-width: 1025px) {
+	.row {
+		column-gap: var(--column-gap);
+		row-gap: var(--double-row-gap);
+	}
+}
+@media only screen and (min-width: 1281px) {
+	.row {
+		column-gap: var(--double-column-gap);
+		row-gap: var(--double-row-gap);
+	}
+}
+
 
 .row .s1 { grid-column: auto/span 1; }
 .row .s2 { grid-column: auto/span 2; }

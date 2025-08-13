@@ -106,660 +106,676 @@
 
 <!-- PAGE CONTENT ---------------------------------------------------------- -->
 
-<mdui-layout-main>
+<mdui-layout-main class="mdui-prose">
 
 <!-- FORMULÄR -->
 
-<div id="content-formular" class="outer-container mdui-prose">
+<div id="content-formular" class="outer-container">
 	<div class="inner-container">
 		<div class="upper-container">
-			<div class="row form-section">
-				<div class="s12">
-
-					<div id="viewport" class="debug hidden">
-						<span id="viewport-size"></span>
-						<span class="bp bp-s"> / Grid class: S (0-640)</span>
-						<span class="bp bp-m"> / Grid class: M (641-1024)</span>
-						<span class="bp bp-l"> / Grid class: L (1025-1280)</span>
-						<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
+			<div class="form-section">
+				<div class="row">
+					<div class="s12">
+						<div id="viewport" class="debug hidden">
+							<span id="viewport-size"></span>
+							<span class="bp bp-s"> / Grid class: S (0-640)</span>
+							<span class="bp bp-m"> / Grid class: M (641-1024)</span>
+							<span class="bp bp-l"> / Grid class: L (1025-1280)</span>
+							<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
+						</div>
+						<div class="form-title">
+							<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
+							<div class="form-title-text"><h3 class="headline-dynamic">1. Artikelbenämning och produktnamn</h3></div>
+						</div>
 					</div>
-
-					<div class="form-title">
-						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
-						<div class="form-title-text"><h3 class="headline-dynamic">1. Artikelbenämning och produktnamn</h3></div>
+					<div class="s12">
+						<!-- ARTIKELBENÄMNING -->
+						<mdui-text-field id="text-artikelbenamning"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="done"
+							helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
+							inputmode="text"
+							label="Artikelbenämning"
+							maxlength="250"
+							name="artikelbenamning"
+							variant="outlined"
+							clearable counter required></mdui-text-field>
 					</div>
-				</div>
-				<div class="s12">
-					<!-- ARTIKELBENÄMNING -->
-					<mdui-text-field id="text-artikelbenamning"
-						autocomplete="off"
-						autocorrect="off"
-						enterkeyhint="done"
-						helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
-						inputmode="text"
-						label="Artikelbenämning"
-						maxlength="250"
-						name="artikelbenamning"
-						variant="outlined"
-						clearable counter required></mdui-text-field>
-				</div>
-				<div id="div-produktnamn" class="s12 m6 huvudprodukt">
-					<!-- PRODUKTNAMN -->
-					<mdui-text-field id="text-huvudprodukt"
-						autocomplete="off"
-						autocorrect="off"
-						enterkeyhint="done"
-						inputmode="text"
-						label="Produktnamn"
-						name="huvudprodukt"
-						variant="outlined"
-						clearable required></mdui-text-field>
-				</div>
-					<!-- FLER PRODUKTNAMN -->
-				<div id="div-fler-produktnamn" class="s12 m6">
-					<mdui-button id="button-fler-produktnamn"
-						icon="add"
-						variant="text">Fler produktnamn</mdui-button>
-				</div>
-				<div class="s12 m6 xl3 hidden extraprodukt">
-					<!-- PRODUKTNAMN 2 -->
-					<mdui-text-field id="text-produkt2"
-						autocomplete="off"
-						autocorrect="off"
-						enterkeyhint="done"
-						inputmode="text"
-						label="Extra Produktnamn"
-						name="produkt2"
-						variant="outlined"
-						clearable></mdui-text-field>
-				</div>
-				<div class="s12 m6 xl3 hidden extraprodukt">
-					<!-- PRODUKTNAMN 3 -->
-					<mdui-text-field id="text-produkt3"
-						autocomplete="off"
-						autocorrect="off"
-						enterkeyhint="done"
-						inputmode="text"
-						label="Extra Produktnamn"
-						name="produkt3"
-						variant="outlined"
-						clearable></mdui-text-field>
-				</div>
-				<div class="s12 m6 xl3 hidden extraprodukt">
-					<!-- PRODUKTNAMN 4 -->
-					<mdui-text-field id="text-produkt4"
-						autocomplete="off"
-						autocorrect="off"
-						enterkeyhint="done"
-						inputmode="text"
-						label="Extra Produktnamn"
-						name="produkt4"
-						variant="outlined"
-						clearable></mdui-text-field>
-				</div>
+					<div id="div-produktnamn" class="s12 m6 huvudprodukt">
+						<!-- PRODUKTNAMN -->
+						<mdui-text-field id="text-huvudprodukt"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="done"
+							inputmode="text"
+							label="Produktnamn"
+							name="huvudprodukt"
+							variant="outlined"
+							clearable required></mdui-text-field>
+					</div>
+						<!-- FLER PRODUKTNAMN -->
+					<div id="div-fler-produktnamn" class="s12 m6">
+						<mdui-button id="button-fler-produktnamn"
+							icon="add"
+							variant="text">Fler produktnamn</mdui-button>
+					</div>
+					<div class="s12 m6 xl3 hidden extraprodukt">
+						<!-- PRODUKTNAMN 2 -->
+						<mdui-text-field id="text-produkt2"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="done"
+							inputmode="text"
+							label="Extra Produktnamn"
+							name="produkt2"
+							variant="outlined"
+							clearable></mdui-text-field>
+					</div>
+					<div class="s12 m6 xl3 hidden extraprodukt">
+						<!-- PRODUKTNAMN 3 -->
+						<mdui-text-field id="text-produkt3"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="done"
+							inputmode="text"
+							label="Extra Produktnamn"
+							name="produkt3"
+							variant="outlined"
+							clearable></mdui-text-field>
+					</div>
+					<div class="s12 m6 xl3 hidden extraprodukt">
+						<!-- PRODUKTNAMN 4 -->
+						<mdui-text-field id="text-produkt4"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="done"
+							inputmode="text"
+							label="Extra Produktnamn"
+							name="produkt4"
+							variant="outlined"
+							clearable></mdui-text-field>
+					</div>
+				</div><!-- .row -->
 			</div>
-
 		</div><!-- .upper-container -->
 		<div class="flex-container">
 			<div class="left-container">
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="factory"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">2. Leverantör</h3></div>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="factory"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">2. Leverantör</h3></div>
+							</div>
 						</div>
-					</div>
-					<div class="s12 m6">
-						<!-- LEVERANTÖR -->
-						<mdui-text-field id="text-leverantor"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							inputmode="text"
-							label="Leverantörens namn"
-							name="leverantor"
-							variant="outlined"
-							clearable required></mdui-text-field>
-					</div>
-					<div class="s12 m6">
-						<!-- LEVERANTÖRENS ART.NR. -->
-						<mdui-text-field id="text-levartnr"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							inputmode="text"
-							label="Leverantörens art.nr."
-							name="levartnr"
-							variant="outlined"
-							clearable required></mdui-text-field>
-					</div>
-					<div class="s12">
-						<!-- HJÄLPMEDELSTJÄNSTEN -->
-						<div>
-							<mdui-checkbox id="checkbox-ht" checked>Artikeln finns i Hjälpmedelstjänsten med aktuell prislista</mdui-checkbox>
+						<div class="s12 m6">
+							<!-- LEVERANTÖR -->
+							<mdui-text-field id="text-leverantor"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="done"
+								inputmode="text"
+								label="Leverantörens namn"
+								name="leverantor"
+								variant="outlined"
+								clearable required></mdui-text-field>
 						</div>
-						<!-- UPPHANDLAD -->
-						<div>
-							<mdui-checkbox id="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
+						<div class="s12 m6">
+							<!-- LEVERANTÖRENS ART.NR. -->
+							<mdui-text-field id="text-levartnr"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="done"
+								inputmode="text"
+								label="Leverantörens art.nr."
+								name="levartnr"
+								variant="outlined"
+								clearable required></mdui-text-field>
 						</div>
-					</div>
-					<div id="ejht-pris" class="s12 m4 l12 xl4 hidden">
-						<!-- INKÖPSPRIS -->
-						<mdui-text-field id="text-pris"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							inputmode="decimal"
-							label="Inköpspris"
-							name="pris"
-							suffix="&nbsp;kr"
-							type="text"
-							variant="outlined"
-							clearable disabled end-aligned></mdui-text-field>
-					</div>
-					<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
-						<!-- GARANTITID -->
-						<mdui-text-field id="text-garanti"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							inputmode="numeric"
-							label="Garantitid"
-							name="garanti"
-							suffix="&nbsp;dagar"
-							type="number"
-							variant="outlined"
-							clearable disabled end-aligned></mdui-text-field>
-					</div>
-					<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
-						<!-- ISO-KOD -->
-						<mdui-text-field id="text-isokod"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							inputmode="numeric"
-							label="ISO-kod"
-							maxlength="6"
-							minlength="6"
-							name="isokod"
-							type="number"
-							variant="outlined"
-							clearable disabled></mdui-text-field>
-					</div>
+						<div class="s12">
+							<!-- HJÄLPMEDELSTJÄNSTEN -->
+							<div>
+								<mdui-checkbox id="checkbox-ht" checked>Artikeln finns i Hjälpmedelstjänsten med aktuell prislista</mdui-checkbox>
+							</div>
+							<!-- UPPHANDLAD -->
+							<div>
+								<mdui-checkbox id="checkbox-upphandlad">Artikeln är upphandlad</mdui-checkbox>
+							</div>
+						</div>
+						<div id="ejht-pris" class="s12 m4 l12 xl4 hidden">
+							<!-- INKÖPSPRIS -->
+							<mdui-text-field id="text-pris"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="done"
+								inputmode="decimal"
+								label="Inköpspris"
+								name="pris"
+								suffix="&nbsp;kr"
+								type="text"
+								variant="outlined"
+								clearable disabled end-aligned></mdui-text-field>
+						</div>
+						<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
+							<!-- GARANTITID -->
+							<mdui-text-field id="text-garanti"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="done"
+								inputmode="numeric"
+								label="Garantitid"
+								name="garanti"
+								suffix="&nbsp;dagar"
+								type="number"
+								variant="outlined"
+								clearable disabled end-aligned></mdui-text-field>
+						</div>
+						<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
+							<!-- ISO-KOD -->
+							<mdui-text-field id="text-isokod"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="done"
+								inputmode="numeric"
+								label="ISO-kod"
+								maxlength="6"
+								minlength="6"
+								name="isokod"
+								type="number"
+								variant="outlined"
+								clearable disabled></mdui-text-field>
+						</div>
+					</div><!-- .row -->
 				</div>
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="payments"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">3. Ekonomi</h3></div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- ARTIKELANSVAR -->
-						<mdui-select id="select-artikelansvar"
-							end-icon="arrow_drop_down"
-							label="Artikelansvar"
-							name="artikelansvar"
-							variant="outlined"
-							required>
-							<mdui-menu-item value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
-							<mdui-menu-item value="R" icon="recycling">Retursortiment</mdui-menu-item>
-							<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
-							<mdui-menu-item value="S" icon="remove_red_eye">Syncentralen</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12">
-						<!-- ARTIKELTYP -->
-						<mdui-select id="select-artikeltyp"
-							end-icon="arrow_drop_down"
-							helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten."
-							label="Artikeltyp"
-							name="artikeltyp"
-							variant="outlined"
-							disabled required>
-							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
-							<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
-							<mdui-menu-item id="artikeltyp-menu-item-r" value="R" icon="build">Reservdel</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12">
-						<!-- DEBITERINGSFORM -->
-						<mdui-select id="select-debiteringsform"
-							end-icon="arrow_drop_down"
-							label="Debiteringsform"
-							name="debiteringsform"
-							variant="outlined"
-							disabled required>
-							<mdui-menu-item id="debiteringsform-menu-item-m" value="M">Månadshyra</mdui-menu-item>
-							<mdui-menu-item id="debiteringsform-menu-item-a" value="A">Köp</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12">
-						<!-- INDIVIDARTIKEL -->
-						<div class="switch-wrapper">
-							<div id="label-individartikel" class="text disabled">
-								<div class="switch-label">Individartikel</div>
-								<div class="switch-helper">Ett individartikel är spårbar, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-individartikel" disabled></mdui-switch>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="payments"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">3. Ekonomi</h3></div>
 							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- INVENTARIUM -->
-						<div class="switch-wrapper">
-							<div id="label-inventarium" class="text disabled">
-								<div class="switch-label">Inventarium</div>
-								<div class="switch-helper">Ett individmärkt huvudhjälpmedel för uthyrning vars anskaffningskostnad fördelas under dess avskrivningstid på tre eller fem år</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-inventarium" disabled></mdui-switch>
+						<div class="s12">
+							<!-- ARTIKELANSVAR -->
+							<mdui-select id="select-artikelansvar"
+								end-icon="arrow_drop_down"
+								label="Artikelansvar"
+								name="artikelansvar"
+								variant="outlined"
+								required>
+								<mdui-menu-item value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
+								<mdui-menu-item value="R" icon="recycling">Retursortiment</mdui-menu-item>
+								<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
+								<mdui-menu-item value="S" icon="remove_red_eye">Syncentralen</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12">
+							<!-- ARTIKELTYP -->
+							<mdui-select id="select-artikeltyp"
+								end-icon="arrow_drop_down"
+								helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten."
+								label="Artikeltyp"
+								name="artikeltyp"
+								variant="outlined"
+								disabled required>
+								<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
+								<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
+								<mdui-menu-item id="artikeltyp-menu-item-r" value="R" icon="build">Reservdel</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12">
+							<!-- DEBITERINGSFORM -->
+							<mdui-select id="select-debiteringsform"
+								end-icon="arrow_drop_down"
+								label="Debiteringsform"
+								name="debiteringsform"
+								variant="outlined"
+								disabled required>
+								<mdui-menu-item id="debiteringsform-menu-item-m" value="M">Månadshyra</mdui-menu-item>
+								<mdui-menu-item id="debiteringsform-menu-item-a" value="A">Köp</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12">
+							<!-- INDIVIDARTIKEL -->
+							<div class="switch-wrapper">
+								<div id="label-individartikel" class="text disabled">
+									<div class="switch-label">Individartikel</div>
+									<div class="switch-helper">Ett individartikel är spårbar, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-individartikel" disabled></mdui-switch>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- AVSKRIVNINGSTID -->
-						<div class="radio-wrapper">
-							<div id="label-avskrivningstid" class="text disabled">
-								<div class="radio-label">Avskrivningstid</div>
-								<div class="radio-helper">Välj inventariens avskrivningstid</div>
-							</div>
-							<div class="radio">
-								<mdui-radio-group id="radio-avskrivningstid"
-									name="avskrivningstid"
-									disabled
-									required>
-									<mdui-radio value="3">3 år</mdui-radio>
-									<mdui-radio value="5">5 år</mdui-radio>
-								</mdui-radio-group>
+						<div class="s12">
+							<!-- INVENTARIUM -->
+							<div class="switch-wrapper">
+								<div id="label-inventarium" class="text disabled">
+									<div class="switch-label">Inventarium</div>
+									<div class="switch-helper">Ett individmärkt huvudhjälpmedel för uthyrning vars anskaffningskostnad fördelas under dess avskrivningstid på tre eller fem år</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-inventarium" disabled></mdui-switch>
+								</div>
 							</div>
 						</div>
-					</div>
+						<div class="s12">
+							<!-- AVSKRIVNINGSTID -->
+							<div class="radio-wrapper">
+								<div id="label-avskrivningstid" class="text disabled">
+									<div class="radio-label">Avskrivningstid</div>
+									<div class="radio-helper">Välj inventariens avskrivningstid</div>
+								</div>
+								<div class="radio">
+									<mdui-radio-group id="radio-avskrivningstid"
+										name="avskrivningstid"
+										disabled
+										required>
+										<mdui-radio value="3">3 år</mdui-radio>
+										<mdui-radio value="5">5 år</mdui-radio>
+									</mdui-radio-group>
+								</div>
+							</div>
+						</div>
+					</div><!-- .row -->
 				</div>
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">4. Inställningar för webSesam</h3></div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- PUBLICERAD WEBSESAM -->
-						<div class="switch-wrapper">
-							<div id="label-ws-pub" class="text">
-								<div class="switch-label">Publicerad i webSesam</div>
-								<div id="ws-pub-helper" class="switch-helper">Artikel visas inte</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-ws-pub"></mdui-switch>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">4. Inställningar för webSesam</h3></div>
 							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- BESTÄLLNINGSBAR WEBSESAM -->
-						<div class="switch-wrapper">
-							<div id="label-ws-bb" class="text">
-								<div class="switch-label">Beställningsbar i webSesam</div>
-								<div id="ws-bb-helper" class="switch-helper">Artikeln kan ej beställas. Uttag från eget kundlager kan ej registreras.</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-ws-bb"></mdui-switch>
-							</div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- INGÅR I SORTIMENT -->
-						<div class="switch-wrapper">
-							<div id="label-ws-sort" class="text">
-								<div class="switch-label">Sortimentsartikel</div>
-								<div id="ws-sort-helper" class="switch-helper">Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsökning</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-ws-sort"></mdui-switch>
+						<div class="s12">
+							<!-- PUBLICERAD WEBSESAM -->
+							<div class="switch-wrapper">
+								<div id="label-ws-pub" class="text">
+									<div class="switch-label">Publicerad i webSesam</div>
+									<div id="ws-pub-helper" class="switch-helper">Artikel visas inte</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-ws-pub"></mdui-switch>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- KOMPONENT -->
-						<div class="switch-wrapper">
-							<div id="label-ws-komp" class="text disabled">
-								<div class="switch-label">Kan vara komponent</div>
-								<div id="ws-komp-helper" class="switch-helper">Artikeln kan ej beställas som komponent till ett huvudhjälpmedel</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-ws-komp" disabled></mdui-switch>
-							</div>
-						</div>
-					</div>
-					<div class="s12">
-						<!--- XXX -->
-						<div class="switch-wrapper">
-							<div id="label-ws-xxx" class="text disabled">
-								<div class="switch-label">Något mer?</div>
-								<div class="switch-helper">Någon ytterligare parameter</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-ws-xxx" disabled></mdui-switch>
+						<div class="s12">
+							<!-- BESTÄLLNINGSBAR WEBSESAM -->
+							<div class="switch-wrapper">
+								<div id="label-ws-bb" class="text">
+									<div class="switch-label">Beställningsbar i webSesam</div>
+									<div id="ws-bb-helper" class="switch-helper">Artikeln kan ej beställas. Uttag från eget kundlager kan ej registreras.</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-ws-bb"></mdui-switch>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- ARTIKELINFO WEBSESAM -->
-						<mdui-text-field id="textarea-ws-info"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange extra artikelinformation som visas för artikeln i webSesam"
-							inputmode="text"
-							label="Extra artikelinformation"
-							name="ws-info"
-							rows="2"
-							type="text"
-							variant="outlined"
-							autosize disabled></mdui-text-field>
-					</div>
+						<div class="s12">
+							<!-- INGÅR I SORTIMENT -->
+							<div class="switch-wrapper">
+								<div id="label-ws-sort" class="text">
+									<div class="switch-label">Sortimentsartikel</div>
+									<div id="ws-sort-helper" class="switch-helper">Artikeln tillhör övrigt sortiment och visas inte som standard vid artikelsökning</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-ws-sort"></mdui-switch>
+								</div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- KOMPONENT -->
+							<div class="switch-wrapper">
+								<div id="label-ws-komp" class="text disabled">
+									<div class="switch-label">Kan vara komponent</div>
+									<div id="ws-komp-helper" class="switch-helper">Artikeln kan ej beställas som komponent till ett huvudhjälpmedel</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-ws-komp" disabled></mdui-switch>
+								</div>
+							</div>
+						</div>
+						<div class="s12">
+							<!--- XXX -->
+							<div class="switch-wrapper">
+								<div id="label-ws-xxx" class="text disabled">
+									<div class="switch-label">Något mer?</div>
+									<div class="switch-helper">Någon ytterligare parameter</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-ws-xxx" disabled></mdui-switch>
+								</div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- ARTIKELINFO WEBSESAM -->
+							<mdui-text-field id="textarea-ws-info"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Vid behov, ange extra artikelinformation som visas för artikeln i webSesam"
+								inputmode="text"
+								label="Extra artikelinformation"
+								name="ws-info"
+								rows="2"
+								type="text"
+								variant="outlined"
+								autosize disabled></mdui-text-field>
+						</div>
+					</div><!-- .row -->
 				</div>
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">5. Information</h3></div>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">5. Information</h3></div>
+							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- INTERN KUNDORDERINFO -->
-						<mdui-text-field id="textarea-iki"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
-							inputmode="text"
-							label="Intern kundorderinformation"
-							name="iki"
-							placeholder="Exempel: Skall alltid handläggas av konsulent"
-							rows="2"
-							variant="outlined"
-							autosize clearable></mdui-text-field>
-					</div>
-					<div class="s12">
-						<!-- INTERN PLOCKINFO -->
-						<mdui-text-field id="textarea-ipi"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
-							inputmode="text"
-							label="Intern plockinformation"
-							name="ipi"
-							placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
-							rows="2"
-							variant="outlined"
-							autosize clearable></mdui-text-field>
-					</div>
-					<div class="s12">
-						<!-- RETURTAGNINGSINFO -->
-						<mdui-text-field id="textarea-iri"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
-							inputmode="text"
-							label="Returtagningsinformation"
-							name="iri"
-							placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
-							rows="2"
-							variant="outlined"
-							autosize clearable disabled></mdui-text-field>
-					</div>
-				</div><!-- .row -->
+						<div class="s12">
+							<!-- INTERN KUNDORDERINFO -->
+							<mdui-text-field id="textarea-iki"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Vid behov, ange en kortfattad text som visas som information för orderhandläggaren vid registrering av orderrad"
+								inputmode="text"
+								label="Intern kundorderinformation"
+								name="iki"
+								placeholder="Exempel: Skall alltid handläggas av konsulent"
+								rows="2"
+								variant="outlined"
+								autosize clearable></mdui-text-field>
+						</div>
+						<div class="s12">
+							<!-- INTERN PLOCKINFO -->
+							<mdui-text-field id="textarea-ipi"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Vid behov, ange en kortfattad text som visas som information för lagerpersonalen vid plockning"
+								inputmode="text"
+								label="Intern plockinformation"
+								name="ipi"
+								placeholder="Exempel: Hjälpmedlet behöver laddas före utleverans"
+								rows="2"
+								variant="outlined"
+								autosize clearable></mdui-text-field>
+						</div>
+						<div class="s12">
+							<!-- RETURTAGNINGSINFO -->
+							<mdui-text-field id="textarea-iri"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Vid behov, ange en kortfattad text som visas som information för returpersonalen vid returtagning"
+								inputmode="text"
+								label="Returtagningsinformation"
+								name="iri"
+								placeholder="Exempel: Returneras till lager 6XX. Rekond av XXX."
+								rows="2"
+								variant="outlined"
+								autosize clearable disabled></mdui-text-field>
+						</div>
+					</div><!-- .row -->
+				</div>
 			</div><!-- .left-container -->
 			<div class="right-container">
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">6. Ansvarigt team</h3></div>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">6. Ansvarigt team</h3></div>
+							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- TEAM -->
-						<mdui-select id="select-team"
-							end-icon="arrow_drop_down"
-							label="Team"
-							name="team"
-							variant="outlined"
-							required>
-							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
-							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
-							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
-							<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
-							<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
-							<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
-							<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
-							<mdui-menu-item value="11">11 - SST behandling och träning</mdui-menu-item>
-							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
-						</mdui-select>
-					</div>
+						<div class="s12">
+							<!-- TEAM -->
+							<mdui-select id="select-team"
+								end-icon="arrow_drop_down"
+								label="Team"
+								name="team"
+								variant="outlined"
+								required>
+								<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
+								<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
+								<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
+								<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
+								<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
+								<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
+								<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
+								<mdui-menu-item value="11">11 - SST behandling och träning</mdui-menu-item>
+								<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
+							</mdui-select>
+						</div>
+					</div><!-- .row -->
 				</div>
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">7. Lagerhållning</h3></div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- HUVUDLAGER -->
-						<mdui-select id="select-huvudlager"
-							variant="outlined"
-							label="Huvudlager"
-							name="huvudlager"
-							end-icon="arrow_drop_down">
-							<mdui-menu-item value="200">200 - Västermalmsvägen Falun</mdui-menu-item>
-							<mdui-menu-item value="400">400 - Syncentralen Skomakargatan</mdui-menu-item>
-							<mdui-menu-item value="688">688 - Taklyftar LOGFAB Borlänge</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12 m8">
-						<!-- INKÖPSHANTERING -->
-						<mdui-select id="select-inkopshantering"
-							variant="outlined"
-							label="Inköpshantering"
-							name="inkopshantering"
-							end-icon="arrow_drop_down"
-							helper="Ange en rekommenderad inköpshantering. Denna kan ändras i framtiden beroende på inköpsbehov.">
-							<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
-							<mdui-menu-item value="Nettobehov">Nettobehov (lagerlagd)</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12 m4">
-						<!-- LIGGPLATS -->
-						<mdui-text-field id="text-liggplats"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							name="liggplats"
-							variant="outlined"
-							inputmode="text"
-							label="Liggplats"
-							helper="Ange en liggplats om den är känd i förväg"></mdui-text-field>
-					</div>
-					<div class="s12">
-						<div class="slider-label disabled">Uppskattad förbrukning</div>
-						<div class="slider-helper disabled">Dra i reglaged för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
-						<mdui-slider id="slider-forbrukning"
-							min="0"
-							max="500"
-							step="25" disabled></mdui-slider>
-						<div class="slider-helper disabled"><strong><span id="slider-msg">Endast relevant för inköpshantering Nettobehov</span></strong></div>
-					</div>
-					<div class="s12">
-						<!-- BUFFERTLAGER -->
-						<mdui-text-field id="textarea-bufferlager"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
-							inputmode="text"
-							label="Eventuella buffertlager"
-							name="buffertlager"
-							placeholder="Exempel: Lager 220, 3 st, 31-A-123"
-							rows="2"
-							variant="outlined"
-							autosize></mdui-text-field>
-					</div>
-				</div><!-- .row -->
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">8. Hantering vid ankomst</h3></div>
-						</div>
-					</div>
-					<div class="s12">
-						<!-- GODSMOTTAGNINGSINSTRUKTION -->
-						<mdui-text-field id="textarea-gmi"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							variant="outlined"
-							rows="2"
-							inputmode="text"
-							label="Godsmottagningsinstruktion"
-							name="gmi"
-							placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet."
-							helper="Ange en kortfattad text som visas som information för lagerpersonalen vid godsmottagning"
-							autosize></mdui-text-field>
-					</div>
-					<div class="s12">
-						<!-- KVALITETSKONTROLL -->
-						<div class="switch-wrapper">
-							<div id="label-kk" class="text disabled">
-								<div class="switch-label">Kvalitetskontroll</div>
-								<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-kk" disabled></mdui-switch>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">7. Lagerhållning</h3></div>
 							</div>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- KVALITETSKONTROLL, BESKRIVNING -->
-						<mdui-text-field id="textarea-kkb"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll."
-							inputmode="text"
-							label="Kvalitetskontroll, beskrivning"
-							name="kkb"
-							placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
-							rows="2"
-							variant="outlined"
-							autosize clearable disabled></mdui-text-field>
-					</div>
-				</div><!-- .row -->
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">9. Service och underhåll</h3></div>
+						<div class="s12">
+							<!-- HUVUDLAGER -->
+							<mdui-select id="select-huvudlager"
+								variant="outlined"
+								label="Huvudlager"
+								name="huvudlager"
+								end-icon="arrow_drop_down">
+								<mdui-menu-item value="200">200 - Västermalmsvägen Falun</mdui-menu-item>
+								<mdui-menu-item value="400">400 - Syncentralen Skomakargatan</mdui-menu-item>
+								<mdui-menu-item value="688">688 - Taklyftar LOGFAB Borlänge</mdui-menu-item>
+							</mdui-select>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- SERVICEGRAD -->
-						<mdui-select id="select-servicegrad"
-							end-icon="arrow_drop_down"
-							label="Servicegrad"
-							name="servicegrad"
-							variant="outlined"
-							disabled>
-							<mdui-menu-item value="00">00 - Inget AU, inget FU</mdui-menu-item>
-							<mdui-menu-item value="10">10 - AU hos brukare, inget FU</mdui-menu-item>
-							<mdui-menu-item value="11">11 - AU hos brukare, FU hos brukare</mdui-menu-item>
-							<mdui-menu-item value="12">12 - AU hos brukare, FU på närverkstad</mdui-menu-item>
-							<mdui-menu-item value="13">13 - AU hos brukare, FU på central verkstad</mdui-menu-item>
-							<mdui-menu-item value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
-							<mdui-menu-item value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
-							<mdui-menu-item value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
-							<mdui-menu-item id="servicegrad-menu-item-44" value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12 m6 l12 xl6">
-						<!-- BESIKTNINGSINTERVALL -->
-						<mdui-select id="select-besiktningsintervall"
-							end-icon="arrow_drop_down"
-							label="Besiktningsintervall"
-							name="besiktningsintervall"
-							variant="outlined"
-							disabled>
-							<mdui-menu-item value="bi90">90 dagar</mdui-menu-item>
-							<mdui-menu-item value="bi185">185 dagar</mdui-menu-item>
-							<mdui-menu-item value="bi365">365 dagar</mdui-menu-item>
-							<mdui-menu-item value="bi730">730 dagar</mdui-menu-item>
-							<mdui-menu-item value="bi1095">1095 dagar</mdui-menu-item>
-							<mdui-menu-item value="bi365stå">Stårullstol 365 dagar</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12 m6 l12 xl6">
-						<!-- FU-INTERVALL -->
-						<mdui-select id="select-fu-intervall"
-							end-icon="arrow_drop_down"
-							label="FU-intervall"
-							name="fu-intervall"
-							variant="outlined"
-							disabled>
-							<mdui-menu-item value="fu360">360 dagar</mdui-menu-item>
-							<mdui-menu-item value="fu365">365 dagar (1 år)</mdui-menu-item>
-							<mdui-menu-item value="fu545">545 dagar (1,5 år)</mdui-menu-item>
-							<mdui-menu-item value="fu730">730 dagar (2 år)</mdui-menu-item>
-							<mdui-menu-item value="fu30">30 dagar</mdui-menu-item>
-							<mdui-menu-item value="fu180">180 dagar</mdui-menu-item>
-							<mdui-menu-item value="fu1065">1065 dagar</mdui-menu-item>
-							<mdui-menu-item value="fu1095">1095 dagar (3 år)</mdui-menu-item>
-							<mdui-menu-item value="fu1460">1460 dagar (4 år)</mdui-menu-item>
-							<mdui-menu-item value="fu1825">1825 dagar (5 år)</mdui-menu-item>
-							<mdui-menu-item value="fu7300">7300 dagar (20 år)</mdui-menu-item>
-							<mdui-menu-item value="fu365">365 dagar efter senaste FU</mdui-menu-item>
-						</mdui-select>
-					</div>
-					<div class="s12">
-						<!-- DRIFTTIDSMÄTARE -->
-						<div class="switch-wrapper">
-							<div id="label-dtm" class="text disabled">
-								<div class="switch-label">Drifttidsmätare</div>
-								<div id="dtm-helper" class="switch-helper">Artikel har ej drifttidsmätare</div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-dtm" disabled></mdui-switch>
+						<div class="s12 m8">
+							<!-- INKÖPSHANTERING -->
+							<mdui-select id="select-inkopshantering"
+								variant="outlined"
+								label="Inköpshantering"
+								name="inkopshantering"
+								end-icon="arrow_drop_down"
+								helper="Ange en rekommenderad inköpshantering. Denna kan ändras i framtiden beroende på inköpsbehov.">
+								<mdui-menu-item value="Kundorder">Kundorder (beställningsvara)</mdui-menu-item>
+								<mdui-menu-item value="Nettobehov">Nettobehov (lagerlagd)</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12 m4">
+							<!-- LIGGPLATS -->
+							<mdui-text-field id="text-liggplats"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="done"
+								name="liggplats"
+								variant="outlined"
+								inputmode="text"
+								label="Liggplats"
+								helper="Ange en liggplats om den är känd i förväg"></mdui-text-field>
+						</div>
+						<div class="s12">
+							<div class="slider-label disabled">Uppskattad förbrukning</div>
+							<div class="slider-helper disabled">Dra i reglaged för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
+							<mdui-slider id="slider-forbrukning"
+								min="0"
+								max="500"
+								step="25" disabled></mdui-slider>
+							<div class="slider-helper disabled"><strong><span id="slider-msg">Endast relevant för inköpshantering Nettobehov</span></strong></div>
+						</div>
+						<div class="s12">
+							<!-- BUFFERTLAGER -->
+							<mdui-text-field id="textarea-bufferlager"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret"
+								inputmode="text"
+								label="Eventuella buffertlager"
+								name="buffertlager"
+								placeholder="Exempel: Lager 220, 3 st, 31-A-123"
+								rows="2"
+								variant="outlined"
+								autosize></mdui-text-field>
+						</div>
+					</div><!-- .row -->
+				</div>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">8. Hantering vid ankomst</h3></div>
 							</div>
 						</div>
-					</div>
-				</div><!-- .row -->
-				<div class="row form-section">
-					<div class="s12">
-						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="chat"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-dynamic">10. Övriga upplysningar</h3></div>
+						<div class="s12">
+							<!-- GODSMOTTAGNINGSINSTRUKTION -->
+							<mdui-text-field id="textarea-gmi"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								variant="outlined"
+								rows="2"
+								inputmode="text"
+								label="Godsmottagningsinstruktion"
+								name="gmi"
+								placeholder="Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet."
+								helper="Ange en kortfattad text som visas som information för lagerpersonalen vid godsmottagning"
+								autosize></mdui-text-field>
 						</div>
-					</div>
-					<div class="s12">
-						<!-- ÖVRIGA UPPLYSNINGAR -->
-						<mdui-text-field id="textarea-upplysningar"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="enter"
-							helper="Vid behov, ange övrig information till inköpspersonalen"
-							inputmode="text"
-							label="Övriga upplysningar"
-							name="upplysningar"
-							rows="2"
-							variant="outlined"
-							autosize clearable></mdui-text-field>
-					</div>
-				</div><!-- .row -->
-
+						<div class="s12">
+							<!-- KVALITETSKONTROLL -->
+							<div class="switch-wrapper">
+								<div id="label-kk" class="text disabled">
+									<div class="switch-label">Kvalitetskontroll</div>
+									<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-kk" disabled></mdui-switch>
+								</div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- KVALITETSKONTROLL, BESKRIVNING -->
+							<mdui-text-field id="textarea-kkb"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på underlaget till kvalitetskontroll."
+								inputmode="text"
+								label="Kvalitetskontroll, beskrivning"
+								name="kkb"
+								placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
+								rows="2"
+								variant="outlined"
+								autosize clearable disabled></mdui-text-field>
+						</div>
+					</div><!-- .row -->
+				</div>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">9. Service och underhåll</h3></div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- SERVICEGRAD -->
+							<mdui-select id="select-servicegrad"
+								end-icon="arrow_drop_down"
+								label="Servicegrad"
+								name="servicegrad"
+								variant="outlined"
+								disabled>
+								<mdui-menu-item value="00">00 - Inget AU, inget FU</mdui-menu-item>
+								<mdui-menu-item value="10">10 - AU hos brukare, inget FU</mdui-menu-item>
+								<mdui-menu-item value="11">11 - AU hos brukare, FU hos brukare</mdui-menu-item>
+								<mdui-menu-item value="12">12 - AU hos brukare, FU på närverkstad</mdui-menu-item>
+								<mdui-menu-item value="13">13 - AU hos brukare, FU på central verkstad</mdui-menu-item>
+								<mdui-menu-item value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
+								<mdui-menu-item value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
+								<mdui-menu-item value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
+								<mdui-menu-item id="servicegrad-menu-item-44" value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12 m6 l12 xl6">
+							<!-- BESIKTNINGSINTERVALL -->
+							<mdui-select id="select-besiktningsintervall"
+								end-icon="arrow_drop_down"
+								label="Besiktningsintervall"
+								name="besiktningsintervall"
+								variant="outlined"
+								disabled>
+								<mdui-menu-item value="bi90">90 dagar</mdui-menu-item>
+								<mdui-menu-item value="bi185">185 dagar</mdui-menu-item>
+								<mdui-menu-item value="bi365">365 dagar</mdui-menu-item>
+								<mdui-menu-item value="bi730">730 dagar</mdui-menu-item>
+								<mdui-menu-item value="bi1095">1095 dagar</mdui-menu-item>
+								<mdui-menu-item value="bi365stå">Stårullstol 365 dagar</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12 m6 l12 xl6">
+							<!-- FU-INTERVALL -->
+							<mdui-select id="select-fu-intervall"
+								end-icon="arrow_drop_down"
+								label="FU-intervall"
+								name="fu-intervall"
+								variant="outlined"
+								disabled>
+								<mdui-menu-item value="fu360">360 dagar</mdui-menu-item>
+								<mdui-menu-item value="fu365">365 dagar (1 år)</mdui-menu-item>
+								<mdui-menu-item value="fu545">545 dagar (1,5 år)</mdui-menu-item>
+								<mdui-menu-item value="fu730">730 dagar (2 år)</mdui-menu-item>
+								<mdui-menu-item value="fu30">30 dagar</mdui-menu-item>
+								<mdui-menu-item value="fu180">180 dagar</mdui-menu-item>
+								<mdui-menu-item value="fu1065">1065 dagar</mdui-menu-item>
+								<mdui-menu-item value="fu1095">1095 dagar (3 år)</mdui-menu-item>
+								<mdui-menu-item value="fu1460">1460 dagar (4 år)</mdui-menu-item>
+								<mdui-menu-item value="fu1825">1825 dagar (5 år)</mdui-menu-item>
+								<mdui-menu-item value="fu7300">7300 dagar (20 år)</mdui-menu-item>
+								<mdui-menu-item value="fu365">365 dagar efter senaste FU</mdui-menu-item>
+							</mdui-select>
+						</div>
+						<div class="s12">
+							<!-- DRIFTTIDSMÄTARE -->
+							<div class="switch-wrapper">
+								<div id="label-dtm" class="text disabled">
+									<div class="switch-label">Drifttidsmätare</div>
+									<div id="dtm-helper" class="switch-helper">Artikel har ej drifttidsmätare</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-dtm" disabled></mdui-switch>
+								</div>
+							</div>
+						</div>
+					</div><!-- .row -->
+				</div>
+				<div class="form-section">
+					<div class="row">
+						<div class="s12">
+							<div class="form-title">
+								<div class="form-title-icon"><mdui-icon name="chat"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-dynamic">10. Övriga upplysningar</h3></div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- ÖVRIGA UPPLYSNINGAR -->
+							<mdui-text-field id="textarea-upplysningar"
+								autocomplete="off"
+								autocorrect="off"
+								enterkeyhint="enter"
+								helper="Vid behov, ange övrig information till inköpspersonalen"
+								inputmode="text"
+								label="Övriga upplysningar"
+								name="upplysningar"
+								rows="2"
+								variant="outlined"
+								autosize clearable></mdui-text-field>
+						</div>
+					</div><!-- .row -->
+				</div>
 			</div><!-- .right-container -->
 		</div><!-- .flex-container -->
 		<div class="buttom-container">
@@ -777,7 +793,7 @@
 
 <!-- Artikeldata -->
 
-<div id="content-artikeldata" class="outer-container mdui-prose hidden">
+<div id="content-artikeldata" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
 			<div class="fullpage-content">
@@ -811,7 +827,7 @@
 
 <!-- Hjälp artikelbenämning -->
 
-<div id="content-help-artikelbenamning" class="outer-container mdui-prose hidden">
+<div id="content-help-artikelbenamning" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
 			<div class="fullpage-content">
@@ -828,7 +844,7 @@
 
 <!-- Hjälp produkt -->
 
-<div id="content-help-produkt" class="outer-container mdui-prose hidden">
+<div id="content-help-produkt" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
 			<div class="fullpage-content">
@@ -843,17 +859,11 @@
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
 
-<div id="content-help-iso-koder" class="outer-container mdui-prose hidden">
+<div id="content-help-iso-koder" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
 			<div class="fullpage-content">
-				<!--
 				<div id="inc-iso-koder"></div>
-				-->
-				<table>
-					<thead><tr><th>Hej</th></tr></thead>
-					<tbody><tr><td>Bla bla</td></tr></tbody>
-				</table>
 			</div>
 		</div>
 		<div class="buttom-container">
@@ -866,7 +876,7 @@
 
 <!-- Hjälp liggplats -->
 
-<div id="content-help-liggplats" class="outer-container mdui-prose hidden">
+<div id="content-help-liggplats" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
 			<div class="fullpage-content">
@@ -883,7 +893,7 @@
 
 <!-- Hjälp plockområde -->
 
-<div id="content-help-plockomrade" class="outer-container mdui-prose hidden">
+<div id="content-help-plockomrade" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container">
 			<div class="fullpage-content">
