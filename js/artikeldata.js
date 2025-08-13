@@ -33,8 +33,18 @@ $(document).ready(function() {
 	$('#button-copy-div').click(function() {
 		console.log('#button-copy-div clicked');
 		// get text in div
-		let textToCopy = document.querySelector(".text-to-copy").innerHTML;
-		navigator.clipboard.writeText(textToCopy);
+		//let textToCopy = document.querySelector(".text-to-copy").innerHTML;
+		//let tempElement = document.querySelector(".text-to-copy");
+
+		const range = document.createRange();
+		range.selectNode( document.querySelector(".text-to-copy") );
+		// Copy the selected HTML content to the clipboard
+		const selection = window.getSelection();
+		selection.removeAllRanges();
+		selection.addRange(range);
+		document.execCommand("copy");
+		selection.removeAllRanges();
+	
 		mdui.snackbar({ message: 'Artikeluppgifterna (från div) har kopierats och kan klistras in med CTRL+V' });
 	});
 
