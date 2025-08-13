@@ -312,15 +312,27 @@ h3.headline-dynamic {
 
 #div-artikeldata {
 	/* Make it Windows and Outlook friendly */
-	background-color: #ffffff;
-	color: #000000;
-	font-family: "Aptos Mono", Consolas, "Courier New", monospace;
-	font-size: 16px;
+	background-color: #ff0000;
+	color: #ffff00;
+	font-family: "Consolas", "Roboto Mono", monospace;
+	font-size: 12pt; /* 16px or 1em */
 	font-weight: normal;
 	letter-spacing: normal;
-	line-height: 125%;
+	line-height: 150%;
 	user-select: text;
 }
+
+#content-to-copy {
+	background-color: #00ff00;
+	color: #000000;
+	font-family: "Courier New", "Roboto Mono", monospace;
+	font-size: 12pt; /* 16px or 1em */
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 150%;
+	user-select: text;
+}
+
 
 mdui-icon.tooltip {
 	font-size: 1rem;

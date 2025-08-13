@@ -168,7 +168,7 @@ function createArtikeldata() {
 	artikeldata += "KLASSIFICERING\n\n";
 
 	// Artikeltyp
-	artikeldata += "Artikeltyp: ";
+	artikeldata += "     Artikeltyp: ";
 	if ( artikeltyp.length > 0 ) {
 		switch ( artikeltyp ) {
 			case 'H':
@@ -183,7 +183,7 @@ function createArtikeldata() {
 	}
 
 	// Artikelansvar
-	artikeldata += "Artikelansvar: ";
+	artikeldata += "  Artikelansvar: ";
 	if ( artikelansvar.length > 0 ) {
 		switch ( artikelansvar ) {
 			case 'L':
@@ -237,7 +237,7 @@ function createArtikeldata() {
 	}
 
 	// Sektor
-	artikeldata += "Sektor: ";
+	artikeldata += "         Sektor: ";
 	if ( team.length > 0 ) {
 		artikeldata += team + "\n";
 	} else {
@@ -249,12 +249,12 @@ function createArtikeldata() {
 
 	// Individartikel
 	if ( artikeltyp == 'H' ) {
-		artikeldata += "Individartikel: " + individartikel + "\n";
+		artikeldata += " Individartikel: " + individartikel + "\n";
 	}
 
 	// Inventarium
 	if ( artikeltyp == 'H' ) {
-		artikeldata += "Inventarium: " + inventarium + "\n";
+		artikeldata += "   Inventarium: " + inventarium + "\n";
 	}
 
 	// Drifttidsmätare
@@ -268,7 +268,7 @@ function createArtikeldata() {
 	}
 
 	// Status
-	artikeldata += "Status: " + ( inkopshantering == 'Nettobehov' ? "Ny" : "Aktiv" ) + "\n\n";
+	artikeldata += "          Status: " + ( inkopshantering == 'Nettobehov' ? "Ny" : "Aktiv" ) + "\n\n";
 
 	// INSTRUKTIONER
 	if ( gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0 ) {
@@ -285,7 +285,7 @@ function createArtikeldata() {
 	artikeldata += "VISMA WEBSESAM\n\n";
 
 	// Publicera
-	artikeldata += "Publicera: " + ws_pub + "\n";
+	artikeldata += "     Publicera: " + ws_pub + "\n";
 
 	// Beställningsbar
 	artikeldata += "Beställningsbar: " + ws_bb + "\n";
