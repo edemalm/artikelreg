@@ -263,9 +263,10 @@ div.control-right {
 @media screen and (min-width: 1281px) { .bp-xl { display: inline !important; } }
 
 #content-to-copy {
-	background-color: transparent;
-	color: revert;
+	background-color: #ffffff;
+	color: #000000;
 	font-family: "Roboto Mono", "Aptos Mono", monospace;
+	font-size: 16px;
 }
 
 code, kbd, pre, samp, tt {
@@ -318,15 +319,12 @@ h3.headline-dynamic {
 
 #div-artikeldata {
 	/*
-	background-color: rgb(var(--mdui-color-background));
-	border-radius: var(--mdui-shape-corner-large);
-	*/
 	font-family: "Roboto Mono", monospace;
 	font-size: var(--mdui-typescale-body-medium-size);
 	font-weight: var(--mdui-typescale-body-medium-weight); 
 	letter-spacing: var(--mdui-typescale-body-medium-tracking);
 	line-height: var(--mdui-typescale-body-medium-line-height);
-	padding: 1rem;
+	*/
 	user-select: text;
 }
 
