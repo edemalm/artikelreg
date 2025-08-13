@@ -1,16 +1,19 @@
 @charset "UTF-8";
 
 :root {
-	--gap: 1rem;
+	--gap: 2rem;
 }
-@media only screen and (min-width: 641px)  { :root { --gap: 2rem; } }
-@media only screen and (min-width: 1281px) { :root { --gap: 3rem; } }
+@media only screen and (min-width: 641px)  { :root { --gap: 3rem; } }
+
+/* Varför fungerar inte detta?
+@media only screen and (min-width: 1281px) { :root { --gap: 4rem; } }
+*/
 
 .row {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	column-gap: var(--gap);
-	row-gap: var(--gap);
+	row-gap: calc(var(--gap) / 2);
 }
 
 .row .s1 { grid-column: auto/span 1; }

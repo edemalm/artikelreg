@@ -139,8 +139,9 @@ div.flex-container {
 div.left-container,
 div.right-container {
 	background-color: rgb(var(--mdui-color-surface));
-	flex-basis: 100%;
-	flex: 1;
+	flex-basis: 50%;
+	flex-grow: 0;
+	flex-shrink: 0;
 }
 
 @media only screen and (min-width: 1025px) {
