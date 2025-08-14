@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
-	<meta name="renderer" content="webkit"/>
+	<!-- meta name="renderer" content="webkit"/ -->
 	<meta name="robots" content="noindex, nofollow">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -15,9 +15,6 @@
 	<!-- CSS served from CDNs online -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!--
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/2.1.3/mdui.min.css" integrity="sha512-VKWvZIrq1VZ9C+74DI7IPPwf76qTIxJGqFD2TsYsU7nAhZMPMEwU2GjqoB3pbvWuJyBsXlCQhndSlflxSvPkjA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-	-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap">
@@ -36,11 +33,6 @@
 	<link rel="stylesheet" href="css/mdui-typography.css">
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/app.css">
-
-	<!-- Load JS from CDN
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/2.1.3/mdui.global.min.js" integrity="sha512-C1VQxCVjRmmzP5h0sxkAnadbf5/IJjvA9O0zKpg6oFtNwfN+xsfUfvyA310GVQD8JUklLQGu4JVHPZkWKgTWEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	-->
 
 	<!-- Load JS from local file system -->
 	<script src="js/mdui-2.1.4.hack.js"></script>
@@ -124,7 +116,7 @@
 							<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
 						</div>
 						<div class="form-title">
-							<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
+							<div class="form-title-icon badge"><mdui-icon name="edit"></mdui-icon></div>
 							<div class="form-title-text"><h3 class="headline-dynamic">1. Artikelbenämning och produktnamn</h3></div>
 						</div>
 					</div>
@@ -795,13 +787,15 @@
 
 <div id="content-artikeldata" class="outer-container hidden">
 	<div class="inner-container">
-		<div class="fullpage-container">
+		<div class="fullpage-container star">
 			<div class="fullpage-content">
 				<h2 class="display-large">Nästan klart!</h2>
 				<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
 				<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
 				<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-				<div id="div-artikeldata"></div>
+				<mdui-card variant="filled">
+					<div id="div-artikeldata" class="hidden"></div>
+				</mdui-card>
 			</div>
 		</div>
 		<div class="buttom-container">

@@ -126,6 +126,7 @@ div.inner-container {
 }
 
 div.fullpage-container {
+	overflow: hidden;
 	background-color: rgb(var(--mdui-color-surface));
 }
 div.upper-container,
@@ -188,7 +189,7 @@ div.right-container {
 
 
 div.fullpage-content {
-	background-color: rgb(var(--mdui-color-surface));
+	/* background-color: rgb(var(--mdui-color-surface)); */
 	padding: var(--row-gap) var(--column-gap);
 	user-select: text;
 }
@@ -331,14 +332,9 @@ h3.headline-dynamic {
 }
 
 #div-artikeldata {
-	/* Make it Windows and Outlook friendly */
-	background-color: #ffffff;
-	color: #000000;
 	font-family: "Roboto Mono", monospace;
-	font-size: 12pt; /* 16px or 1em */
-	font-weight: normal;
-	letter-spacing: normal;
 	line-height: 125%;
+	padding: var(--row-gap) var(--column-gap);
 }
 
 #content-to-copy {
@@ -485,37 +481,64 @@ url encoded: rgb%2874%2C68%2C88%29
 }
 */
 
+
+.mdui-theme-light .star {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path fill="rgb%28232%2C222%2C248%29" d="m921 555 79-55-79-55 62-74-91-33 41-88-96-8 17-95-95 16-9-96-87 41-34-91-74 62-55-79-55 79-74-62-33 91-88-41-8 96-95-17 16 96-96 8 41 88-91 33 62 74-79 55 79 55-62 74 91 33-41 88 96 9-17 95 96-17 8 96 88-41 33 91 74-62 55 79 55-79 74 62 33-91 88 41 9-96 95 17-17-95 96-9-41-87 91-34-62-74z"/></svg>');
+}
+.mdui-theme-dark .star {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path fill="rgb%2874%2C68%2C88%29" d="m921 555 79-55-79-55 62-74-91-33 41-88-96-8 17-95-95 16-9-96-87 41-34-91-74 62-55-79-55 79-74-62-33 91-88-41-8 96-95-17 16 96-96 8 41 88-91 33 62 74-79 55 79 55-62 74 91 33-41 88 96 9-17 95 96-17 8 96 88-41 33 91 74-62 55 79 55-79 74 62 33-91 88 41 9-96 95 17-17-95 96-9-41-87 91-34-62-74z"/></svg>');
+}
+.star {
+	background-origin: border-box;
+	background-position: -12vw -12vw;
+	background-repeat: no-repeat;
+	background-size: 70vw;
+}
+@media only screen and (min-width: 641px) { .star { background-position: -10vw -10vw; background-size: 65vw; } }
+@media only screen and (min-width: 801px) { .star { background-position: -9vw -9vw; background-size: 50vw; } }
+@media only screen and (min-width: 1025px) { .star { background-position: -7vw -7vw; background-size: 40vw; } }
+@media only screen and (min-width: 1281px) { .star { background-position: -6vw -6vw; background-size: 35vw; } }
+@media only screen and (min-width: 1441px) { .star { background-position: -5vw -5vw; background-size: 30vw; } }
+
+
 div.form-title {
 	display: flex;
 }
 
 div.form-title-icon {
 	align-self: center;
+	/*
 	background-color: rgb(var(--mdui-color-primary-container));
 	border-radius: var(--mdui-shape-corner-full);
+	*/
 	color: rgb(var(--mdui-color-on-primary-container));
-	height: 1.5rem;
+	height: 1rem;
 	line-height: 1;
 	margin-right: 1rem;
-	padding: 1rem;
+	padding: 0.75rem;
 	text-align: center;
-	width: 1.5rem;
+	width: 1rem;
+
+}
+.mdui-theme-light div.form-title-icon {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 899 899"><path fill="rgb%28232%2C222%2C248%29" d="M449 898a77 77 0 0 1-62-31 79 79 0 0 0-93-25 78 78 0 0 1-107-62 79 79 0 0 0-68-68c-25-3-46-17-58-38a77 77 0 0 1-4-69 79 79 0 0 0-25-94 77 77 0 0 1 0-124 79 79 0 0 0 25-93 77 77 0 0 1 4-69 77 77 0 0 1 58-38 79 79 0 0 0 68-68 78 78 0 0 1 107-62 79 79 0 0 0 93-25 77 77 0 0 1 124 0 79 79 0 0 0 94 25 78 78 0 0 1 107 62 79 79 0 0 0 68 68c24 3 45 17 58 38a77 77 0 0 1 4 69 79 79 0 0 0 25 93 78 78 0 0 1 0 124 79 79 0 0 0-25 94c10 22 8 47-4 69a77 77 0 0 1-58 38 79 79 0 0 0-68 68 78 78 0 0 1-107 62 78 78 0 0 0-94 25 77 77 0 0 1-62 31z"/></svg>');
+}
+.mdui-theme-dark div.form-title-icon {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 899 899"><path fill="rgb%2874%2C68%2C88%29" d="M449 898a77 77 0 0 1-62-31 79 79 0 0 0-93-25 78 78 0 0 1-107-62 79 79 0 0 0-68-68c-25-3-46-17-58-38a77 77 0 0 1-4-69 79 79 0 0 0-25-94 77 77 0 0 1 0-124 79 79 0 0 0 25-93 77 77 0 0 1 4-69 77 77 0 0 1 58-38 79 79 0 0 0 68-68 78 78 0 0 1 107-62 79 79 0 0 0 93-25 77 77 0 0 1 124 0 79 79 0 0 0 94 25 78 78 0 0 1 107 62 79 79 0 0 0 68 68c24 3 45 17 58 38a77 77 0 0 1 4 69 79 79 0 0 0 25 93 78 78 0 0 1 0 124 79 79 0 0 0-25 94c10 22 8 47-4 69a77 77 0 0 1-58 38 79 79 0 0 0-68 68 78 78 0 0 1-107 62 78 78 0 0 0-94 25 77 77 0 0 1-62 31z"/></svg>');
 }
 div.form-title-icon mdui-icon {
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
-
-@media only screen and (max-width: 640px) {
+@media only screen and (min-width: 641px) {
 	div.form-title-icon {
-		height: 1rem;
-		padding: 0.75rem;
-		width: 1rem;
+		height: 1.5rem;
+		padding: 1rem;
+		width: 1.5rem;
 	}
 	div.form-title-icon mdui-icon {
-		font-size: 1rem;
+		font-size: 1.5rem;
 	}
 }
-
 div.form-title-text {
 	align-self: center;
 	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
@@ -527,5 +550,5 @@ div.form-title-text h3.headline-dynamic {
 }
 
 mdui-slider {
-	margin: 0.5rem 0;
+	margin: var(--row-gap) 0;
 }
