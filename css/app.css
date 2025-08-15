@@ -284,7 +284,7 @@ div.control-right {
 @media screen and (min-width: 1281px) { .bp-xl { display: inline !important; } }
 
 code, kbd, pre, samp, tt {
-	font-family: "Roboto Mono", monospace !important;
+	font-family: "Roboto Mono", monospace;
 }
 pre {
 	white-space: pre-wrap;
@@ -329,12 +329,6 @@ h3.headline-dynamic {
 
 #button-fler-produktnamn {
 	margin: .5rem 0; /* align with input fields */
-}
-
-#div-artikeldata {
-	font-family: "Roboto Mono", monospace;
-	line-height: 125%;
-	padding: var(--row-gap) var(--column-gap);
 }
 
 #content-to-copy {

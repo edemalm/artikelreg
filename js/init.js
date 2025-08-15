@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-15-0740';
+	window.update = '2025-08-15-1100';
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';

@@ -482,4 +482,11 @@ $(document).ready(function() {
 		console.log('Calling createArtikeldata()');
 		createArtikeldata()
 	});
+
+	/* Visa artikeldata */
+	$('#button-dialog-artikeldata').click(function() {
+		console.log('<mdui-button #button-dialog-artikeldata> clicked');
+		$('#dialog-artikeldata').attr('open', true);
+	});
+
 });

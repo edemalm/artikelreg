@@ -788,14 +788,12 @@
 <div id="content-artikeldata" class="outer-container hidden">
 	<div class="inner-container">
 		<div class="fullpage-container star">
-			<div class="fullpage-content">
+			<div class="fullpage-content body-large">
 				<h2 class="display-large">Nästan klart!</h2>
-				<p class="body-large">Nu ska uppgifterna skickas till inköpspersonalen. Gör så här:</p>
-				<p class="body-large">1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna (tryck Ctrl+V) och skicka!</p>
-				<p class="body-large">Vi återkommer med ny artikel fortast möjligt. Tack för att du använder artikelregistreringsunderlaget!</p>
-				<mdui-card variant="filled">
-					<div id="div-artikeldata" class="hidden"></div>
-				</mdui-card>
+				<p>Skicka artikeluppgifterna till inköpspersonalen. Använd knapparna nedan. Gör så här:</p>
+				<p>1. Kopiera artikeluppgifterna<br>2. Skapa ett nytt epostmeddelande<br>3. Klistra in uppgifterna och skicka!</p>
+				<p>Vi återkommer med ny artikel fortast möjligt.</p>
+				<p>Tack för att du använder artikelregistreringsunderlaget!</p>
 			</div>
 		</div>
 		<div class="buttom-container">
@@ -808,6 +806,9 @@
 						<mdui-button id="button-copy-div" icon="content_copy" variant="filled">Kopiera uppgifter inkl. formattering</mdui-button>
 					</div>
 					-->
+					<div class="control-right">
+						<mdui-button id="button-dialog-artikeldata" variant="text">Visa artikeluppgifter</mdui-button>
+					</div>
 					<div class="control-right">
 						<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
 					</div>
@@ -953,6 +954,16 @@
 		slot="action"
 		variant="filled">Rensa</mdui-button>
 </mdui-dialog>
+
+<mdui-dialog id="dialog-artikeldata"
+	close-on-overlay-click
+	headline="Artikeluppgifter">
+	<div id="div-artikeldata" class="body-small"></div>
+	<mdui-button class="button-close-dialog"
+		slot="action"
+		variant="text">Stäng</mdui-button>
+</mdui-dialog>
+
 
 </body>
 <script src="js/jquery.inactivity.min.js"></script>
