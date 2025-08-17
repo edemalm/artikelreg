@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-15-1100';
+	window.update = '2025-08-17';
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';
@@ -158,15 +158,6 @@ $(document).ready(function() {
 	$('#menu-collapse-group2').on('close', function() {
 		console.log('The close event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
-	});
-
-	$('#menu-formular, .button-back-to-form').click(function() {
-		console.log('#menu-formular or .button-back-to-form clicked');
-		$('.outer-container').addClass('hidden'); /* hide all content */
-		$('#content-formular').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active');
-		$('#menu-formular').attr('active','');
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
 	$('#menu-help-artikelbenamning').click(function() {

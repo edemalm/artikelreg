@@ -89,15 +89,22 @@ body {
 
 	#filter-layer {
 		backdrop-filter: blur(5px);
+		/*
 		background: linear-gradient(180deg,
 						rgba(var(--mdui-color-background),0.5) 0%,
 						rgba(var(--mdui-color-background),0.5) 100%),
 					linear-gradient(180deg,
-						rgba(var(--mdui-color-primary),0.5) 0%,
-						rgba(var(--mdui-color-primary),1) 100%);
-		/*
-		background-color: rgba(var(--mdui-color-background),0.75);
+						rgba(var(--mdui-color-secondary),0.5) 0%,
+						rgba(var(--mdui-color-secondary),1) 100%);
 		*/
+
+		background: linear-gradient(180deg,
+						rgba(var(--mdui-color-secondary-container),.75) 0%,
+						rgba(var(--mdui-color-secondary-container),.75) 100%),
+					linear-gradient(180deg,
+						rgba(var(--mdui-color-scrim),1) 0%,
+						rgba(var(--mdui-color-scrim),1) 100%);
+
 		display: block;
 		top: 0;
 		left: 0;

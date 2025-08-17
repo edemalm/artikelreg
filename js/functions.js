@@ -377,7 +377,11 @@ function createArtikeldata() {
 	$('#button-send-email').attr('href', hrefcontent);
 
 	/* Change page */
-	$('.outer-container').addClass('hidden'); /* hide all content */
-	$('#content-artikeldata').removeClass('hidden');
+	// $('.outer-container').addClass('hidden'); /* hide all content */
+	// $('#content-artikeldata').removeClass('hidden');
+
+	/* Change page */
+	$('.outer-container').fadeOut();
+	$('#content-artikeldata').delay(400).fadeIn();
 
 }

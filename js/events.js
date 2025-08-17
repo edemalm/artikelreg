@@ -489,4 +489,23 @@ $(document).ready(function() {
 		$('#dialog-artikeldata').attr('open', true);
 	});
 
+	$('.button-back-to-form').click(function() {
+		console.log('<mdui-button .button-back-to-form> clicked');
+		$('.outer-container').fadeOut(); /* hide all content */
+		$('#content-formular').delay(400).fadeIn();
+
+	});
+
+	$('#menu-formular').click(function() {
+		console.log('<mdui-button #menu-formular> clicked');
+		if ($('#content-formular').css('display') == 'none') {
+			$('.outer-container').fadeOut(); /* hide all content */
+			$('#content-formular').delay(400).fadeIn();
+
+			$('mdui-list-item').removeAttr('active');
+			$('#menu-formular').attr('active','');
+		}
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	});
+
 });
