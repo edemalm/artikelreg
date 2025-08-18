@@ -1,6 +1,73 @@
 $(document).ready(function() {
-
 	console.log('Loading events.js');
+
+	// Menu events
+	// <mdui-navigation-drawer #navigation-drawer>
+
+	$('#button-close-menu').click(function() {
+		console.log('<mdui-button-icon #button-close-menu> clicked');
+		$('#navigation-drawer').removeAttr('open');
+	});
+
+	$('#menu-formular').click(function() {
+		console.log('<mdui-button #menu-formular> clicked');
+		changeContent('#content-formular', '#menu-formular');
+	});
+
+	$('#menu-help-artikelbenamning').click(function() {
+		console.log('<mdui-list-item #menu-help-artikelbenamning> clicked');
+		changeContent('#content-help-artikelbenamning', '#menu-help-artikelbenamning');
+	});
+
+	$('#menu-help-produkt').click(function() {
+		console.log('<mdui-list-item #menu-help-produkt> clicked');
+		changeContent('#content-help-produkt', '#menu-help-produkt');
+	});
+
+	$('#menu-help-iso-koder').click(function() {
+		console.log('<mdui-list-item #menu-help-iso-koder> clicked');
+		changeContent('#content-help-iso-koder', '#menu-help-iso-koder');
+	});
+
+	$('#menu-help-liggplats').click(function() {
+		console.log('<mdui-list-item #menu-help-liggplats> clicked');
+		changeContent('#content-help-liggplats', '#menu-help-liggplats');
+	});
+
+	$('#menu-help-plockomrade').click(function() {
+		console.log('<mdui-list-item #menu-help-plockomrade> clicked');
+		changeContent('#content-help-plockomrade', '#menu-help-plockomrade');
+	});
+
+	// Top bar events
+	// <mdui-top-app-bar #top-app-bar>
+
+	$('#button-open-menu').click(function() {
+		console.log('<mdui-button-icon #button-open-menu> clicked');
+		$('#navigation-drawer').attr('open', true);
+	});
+
+	$('#button-about').click(function() {
+		console.log('<mdui-button-icon #button-about> clicked');
+		$('#dialog-about').attr('open', true);
+	});
+
+	// Dialog events
+	// <mdui-dialog #dialog-about>
+
+	$('#a-show-about-more').click(function(event) {
+		console.log('<a #a-show-about-more> clicked');
+		event.preventDefault;
+		$('#p-more-details').hide();
+		$('#div-about-more').slideDown();
+	});
+
+	$('#button-close-about').click(function() {
+		console.log('<mdui-button #button-close-about> clicked');
+		$('#p-more-details').show();
+		$('#div-about-more').hide();
+		$('mdui-dialog').removeAttr('open');
+	});
 
 	// 1. Artikelbenämning och produktnamn
 	// -----------------------------------
@@ -491,21 +558,7 @@ $(document).ready(function() {
 
 	$('.button-back-to-form').click(function() {
 		console.log('<mdui-button .button-back-to-form> clicked');
-		$('.outer-container').fadeOut(); /* hide all content */
-		$('#content-formular').delay(400).fadeIn();
-
-	});
-
-	$('#menu-formular').click(function() {
-		console.log('<mdui-button #menu-formular> clicked');
-		if ($('#content-formular').css('display') == 'none') {
-			$('.outer-container').fadeOut(); /* hide all content */
-			$('#content-formular').delay(400).fadeIn();
-
-			$('mdui-list-item').removeAttr('active');
-			$('#menu-formular').attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
+		changeContent('#content-formular', '#menu-formular');
 	});
 
 });

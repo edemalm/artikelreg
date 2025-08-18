@@ -1,3 +1,14 @@
+function changeContent(contentId, menuItemId) {
+	console.log(' -- changeContent()');
+		if ($(contentId).css('display') == 'none') {
+			$('.outer-container').fadeOut(200); /* hide all content */
+			$(contentId).delay(200).fadeIn(200);
+			$('mdui-list-item').removeAttr('active');
+			$(menuItemId).attr('active','');
+		}
+		$('#navigation-drawer').removeAttr('open'); /* close menu */
+}
+
 function enableSelectArtikeltyp() {
 	console.log(' -- enableSelectArtikeltyp()');
 	$('#select-artikeltyp').val('').attr('disabled', false); // unselect and enable
@@ -377,11 +388,5 @@ function createArtikeldata() {
 	$('#button-send-email').attr('href', hrefcontent);
 
 	/* Change page */
-	// $('.outer-container').addClass('hidden'); /* hide all content */
-	// $('#content-artikeldata').removeClass('hidden');
-
-	/* Change page */
-	$('.outer-container').fadeOut();
-	$('#content-artikeldata').delay(400).fadeIn();
-
+	changeContent('#content-artikeldata', '#menu-formular');
 }

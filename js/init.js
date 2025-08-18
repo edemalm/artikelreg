@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-17';
+	window.update = '2025-08-19';
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';
@@ -128,16 +128,6 @@ $(document).ready(function() {
 		// $('#navigation-drawer').removeAttr('open');
 	});
 
-	/* Top bar help */
-	$('#button-help').click(function() {
-		console.log('#button-help clicked');
-		$('#dialog-info').attr('open', true);
-	});
-	$('#button-close-dialog-info').click(function() {
-		console.log('#button-close-dialog-info');
-		$('#dialog-info').removeAttr('open');
-	});
-
 	// Catch the "open" event of <mdui-collapse-item> #menu-collapse-group1
 	$('#menu-collapse-group1').on('open', function() {
 		console.log('The open event fired on #menu-collapse-group1');
@@ -160,76 +150,6 @@ $(document).ready(function() {
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
 	});
 
-	$('#menu-help-artikelbenamning').click(function() {
-		console.log('#menu-help-artikelbenamning clicked');
-		if ($('#content-help-artikelbenamning').css('display') == 'none') {
-			$('.outer-container').fadeOut(); /* hide all content */
-			$('#content-help-artikelbenamning').delay(400).fadeIn();
-			$('mdui-list-item').removeAttr('active');
-			$('#menu-help-artikelbenamning').attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
-	});
-
-	$('#menu-help-produkt').click(function() {
-		console.log('#menu-help-produkt clicked');
-		if ($('#content-help-produkt').css('display') == 'none') {
-			$('.outer-container').fadeOut(); /* hide all content */
-			$('#content-help-produkt').delay(400).fadeIn();
-			$('mdui-list-item').removeAttr('active');
-			$('#menu-help-produkt').attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
-	});
-
-	$('#menu-help-iso-koder').click(function() {
-		console.log('#menu-help-iso-koder clicked');
-		if ($('#content-help-iso-koder').css('display') == 'none') {
-			$('.outer-container').fadeOut(); /* hide all content */
-			$('#content-help-iso-koder').delay(400).fadeIn();
-			$('mdui-list-item').removeAttr('active');
-			$('#menu-help-iso-koder').attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
-	});
-
-	$('#menu-help-liggplats').click(function() {
-		console.log('#menu-help-liggplats clicked');
-		if ($('#content-help-liggplats').css('display') == 'none') {
-			$('.outer-container').fadeOut(); /* hide all content */
-			$('#content-help-liggplats').delay(400).fadeIn();
-			$('mdui-list-item').removeAttr('active');
-			$('#menu-help-liggplats').attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
-	});
-
-	$('#menu-help-plockomrade').click(function() {
-		console.log('#menu-help-plockomrade clicked');
-		if ($('#content-help-plockomrade').css('display') == 'none') {
-			$('.outer-container').fadeOut(); /* hide all content */
-			$('#content-help-plockomrade').delay(400).fadeIn();
-			$('mdui-list-item').removeAttr('active');
-			$('#menu-help-plockomrade').attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
-	});
-
-	$('#button-open-menu').click(function(){
-		console.log('Button #button-open-menu clicked');
-		if ( $('#navigation-drawer').attr('open') ) {
-			console.log('Closing #navigation-drawer');
-			$('#navigation-drawer').removeAttr('open');
-		} else {
-			console.log('Opening #navigation-drawer');
-			$('#navigation-drawer').attr('open', true);
-		}
-	});
-
-	$('#button-close-menu').click(function(){
-		console.log('Button #button-close-menu clicked');
-		$('#navigation-drawer').removeAttr('open');
-	});
 
 	// Include HTML from files
 	// Note: The load function is not included in the slim verion of jQuery
