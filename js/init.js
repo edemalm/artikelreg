@@ -162,46 +162,56 @@ $(document).ready(function() {
 
 	$('#menu-help-artikelbenamning').click(function() {
 		console.log('#menu-help-artikelbenamning clicked');
-		$('.outer-container').addClass('hidden'); /* hide all content */
-		$('#content-help-artikelbenamning').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-artikelbenamning').attr('active','');
+		if ($('#content-help-artikelbenamning').css('display') == 'none') {
+			$('.outer-container').fadeOut(); /* hide all content */
+			$('#content-help-artikelbenamning').delay(400).fadeIn();
+			$('mdui-list-item').removeAttr('active');
+			$('#menu-help-artikelbenamning').attr('active','');
+		}
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
 	$('#menu-help-produkt').click(function() {
 		console.log('#menu-help-produkt clicked');
-		$('.outer-container').addClass('hidden'); /* hide all content */
-		$('#content-help-produkt').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-produkt').attr('active','');
+		if ($('#content-help-produkt').css('display') == 'none') {
+			$('.outer-container').fadeOut(); /* hide all content */
+			$('#content-help-produkt').delay(400).fadeIn();
+			$('mdui-list-item').removeAttr('active');
+			$('#menu-help-produkt').attr('active','');
+		}
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
 	$('#menu-help-iso-koder').click(function() {
 		console.log('#menu-help-iso-koder clicked');
-		$('.outer-container').addClass('hidden'); /* hide all content */
-		$('#content-help-iso-koder').removeClass('hidden');
-		$('mdui-list-item').removeAttr('active'); /* remove active class from all list items */
-		$('#menu-help-iso-koder').attr('active','');
+		if ($('#content-help-iso-koder').css('display') == 'none') {
+			$('.outer-container').fadeOut(); /* hide all content */
+			$('#content-help-iso-koder').delay(400).fadeIn();
+			$('mdui-list-item').removeAttr('active');
+			$('#menu-help-iso-koder').attr('active','');
+		}
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
 	$('#menu-help-liggplats').click(function() {
 		console.log('#menu-help-liggplats clicked');
-		$('.outer-container').addClass('hidden'); /* hide all content */
-		$('#content-help-liggplats').removeClass('hidden');
-		$('mdui-list-item').attr('active', false); /* remove active class from all list items */
-		$('#menu-help-liggplats').attr('active',true);
+		if ($('#content-help-liggplats').css('display') == 'none') {
+			$('.outer-container').fadeOut(); /* hide all content */
+			$('#content-help-liggplats').delay(400).fadeIn();
+			$('mdui-list-item').removeAttr('active');
+			$('#menu-help-liggplats').attr('active','');
+		}
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
 	$('#menu-help-plockomrade').click(function() {
 		console.log('#menu-help-plockomrade clicked');
-		$('.outer-container').addClass('hidden'); /* hide all content */
-		$('#content-help-plockomrade').removeClass('hidden');
-		$('mdui-list-item').attr('active', false); /* remove active class from all list items */
-		$('#menu-help-plockomrade').attr('active',true);
+		if ($('#content-help-plockomrade').css('display') == 'none') {
+			$('.outer-container').fadeOut(); /* hide all content */
+			$('#content-help-plockomrade').delay(400).fadeIn();
+			$('mdui-list-item').removeAttr('active');
+			$('#menu-help-plockomrade').attr('active','');
+		}
 		$('#navigation-drawer').removeAttr('open'); /* close menu */
 	});
 
