@@ -88,7 +88,7 @@ $(document).ready(function() {
 
 	// update placeholder when mdui-text-field #text-artikelbenamning is cleared
 	$('#text-artikelbenamning').on('clear', function() {
-		console.log('mdui-text-field #text-artikelbenamning cleared')
+		console.log('<mdui-text-field #text-artikelbenamning> cleared')
 		var randomNumber = Math.floor(Math.random()*textArray.length);
 		$('#text-artikelbenamning').attr('placeholder', 'Exempel: ' + textArray[randomNumber]);
 	});
@@ -229,10 +229,8 @@ $(document).ready(function() {
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'H') {
 					enableSwitchIndividartikel();
 					$('#switch-individartikel').attr('checked', true); // checked
-					console.log(' -- Väljer individartikel');
 					enableSwitchInventarium();
 					$('#switch-inventarium').attr('checked', true); // checked
-					console.log(' -- Väljer inventarium');
 					enableRadioAvskrivningstid();
 					enableServiceOchUnderhall();
 					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
@@ -254,7 +252,7 @@ $(document).ready(function() {
 	$('#switch-individartikel').on('change', function() {
 		console.log('<mdui-switch #switch-individartikel> changed');
 		individartikel = (this.checked === true) ? 'Ja' : 'Nej';
-		console.log(' -- Individartikel = ' + individartikel);
+		console.log('Individartikel = ' + individartikel);
 		switch (individartikel) {
 			case 'Ja':
 			break;
@@ -266,7 +264,7 @@ $(document).ready(function() {
 						confirmText: "Jag förstår"
 					});
 					$('#switch-individartikel').attr('checked', true); // re-checked
-					console.log(' -- Väljer individartikel');
+					individartikel = 'Ja';
 				}
 			break;
 		}
@@ -276,7 +274,7 @@ $(document).ready(function() {
 	$('#switch-inventarium').on('change', function() {
 		console.log('<mdui-switch #switch-inventarium> changed');
 		inventarium = (this.checked === true) ? "Ja" : "Nej";
-		console.log(' -- Inventarium = ' + inventarium );
+		console.log('Inventarium = ' + inventarium );
 		switch (inventarium) {
 			case 'Ja':
 			break;
@@ -288,7 +286,7 @@ $(document).ready(function() {
 						confirmText: "Jag förstår"
 					});
 					$('#switch-inventarium').attr('checked', true); // re-checked
-					console.log(' -- Väljer inventarium');
+					inventarium = 'Ja';
 				}
 			break;
 		}
@@ -296,18 +294,18 @@ $(document).ready(function() {
 
 	// mdui-select #raio-avskrivningstid changes
 	$('#radio-avskrivningstid').on('change', function() {
-		console.log('mdui-radio #radio-avskrivningstid changed');
+		console.log('<mdui-radio #radio-avskrivningstid> changed');
 		avskrivningstid = this.value;
-		console.log('Selected avskrivningstid: ' + avskrivningstid );
+		console.log('Avskrivningstid: ' + avskrivningstid );
 	});
 
 	// 4. Ansvarigt team
 
 	// mdui-select #select-team changes
 	$('#select-team').on('change', function() {
-		console.log('mdui-select #select-team changed');
+		console.log('<mdui-select #select-team> changed');
 		team = this.value;
-		console.log('Selected team: ' + team );
+		console.log('Team: ' + team );
 		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
 			console.log('Avdelning: Rörelse');
 			avd = "R";
@@ -336,7 +334,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-ws-pub changes
 	$('#switch-ws-pub').on('change', function() {
-		console.log('mdui-switch #switch-ws-pub changed');
+		console.log('<mdui-switch #switch-ws-pub> changed');
 		if ($('#switch-ws-pub').prop("checked")) {
 			// on
 			$('#ws-pub-helper').html('Artikeln visas och är sökbar');
@@ -350,7 +348,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-ws-bb changes
 	$('#switch-ws-bb').on('change', function() {
-		console.log('mdui-switch #switch-ws-bb changed');
+		console.log('<mdui-switch #switch-ws-bb> changed');
 		if ($('#switch-ws-bb').prop("checked")) {
 			// on
 			$('#ws-bb-helper').html('Artikeln kan beställas. Uttag från eget kundlager kan registreras.');
@@ -362,7 +360,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-ws-komp changes
 	$('#switch-ws-komp').on('change', function() {
-		console.log('mdui-switch #switch-ws-komp changed');
+		console.log('<mdui-switch #switch-ws-komp> changed');
 		if ($('#switch-ws-komp').prop("checked")) {
 			// on
 			$('#ws-komp-helper').html('Artikeln kan beställas som komponent till ett huvudhjälpmedel');
@@ -374,7 +372,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-ws-sort changes
 	$('#switch-ws-sort').on('change', function() {
-		console.log('mdui-switch #switch-ws-sort changed');
+		console.log('<mdui-switch #switch-ws-sort> changed');
 		if ($('#switch-ws-sort').prop("checked")) {
 			// on
 			sortimentsartikel = "Ja";
@@ -390,9 +388,9 @@ $(document).ready(function() {
 
 	// mdui-select #select-huvudlager changes
 	$('#select-huvudlager').on('change', function() {
-		console.log('mdui-select #select-huvudlager changed');
+		console.log('<mdui-select #select-huvudlager> changed');
 		huvudlager = this.value;
-		console.log('Selected huvudlager: ' + huvudlager );
+		console.log('Huvudlager: ' + huvudlager );
 		switch( huvudlager) {
 		case '200':
 			$('#text-liggplats').attr('placeholder', 'P?-01-?-???');
@@ -459,7 +457,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-kvalitetskontroll changes
 	$('#switch-kk').on('change', function() {
-		console.log('mdui-switch #switch-kk changed');
+		console.log('<mdui-switch #switch-kk> changed');
 		if ($('#switch-kk').prop("checked")) {
 			// is checked
 			$('#textarea-kkb').attr('disabled', false).attr('required', true); // enable
@@ -470,19 +468,21 @@ $(document).ready(function() {
 	});
 
 	$('#button-reset-form-warning').click(function() {
-		console.log('Button #button-reset-form-warning clicked');
+		console.log('<mdui-button #button-reset-form-warning> clicked');
 		$('#dialog-reset-warning').attr('open', true);
 	});
 
 	$('#button-reset-form').click(function() {
-		// console.log('Button #button-reset-form clicked');
-		// resetForm();
+		console.log('<mdui-button #button-reset-form> clicked');
+		/*
 		if ( window.location.search.indexOf('?reload=') == -1 ) {
 			window.location.search += '?reload=1';
 		} else {
 			location.reload();
 		}
-
+		*/
+		setURLParam('reload', 1);
+		location.reload();
 	});
 
 	$('.button-close-dialog').click(function() {
@@ -494,7 +494,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-dtm changes
 	$('#switch-dtm').on('change', function() {
-		console.log('mdui-switch #switch-dtm changed');
+		console.log('<mdui-switch #switch-dtm> changed');
 		if ($('#switch-dtm').prop("checked")) {
 			// on
 			$('#dtm-helper').html('Artikeln har drifttidsmätare (enhet timmar)');
@@ -507,7 +507,7 @@ $(document).ready(function() {
 	// Skapa artikeluppgifter
 
 	$('#button-create-artikeldata').click(function() {
-		console.log('mdui-button #button-create-artikeldata clicked');
+		console.log('<mdui-button #button-create-artikeldata> clicked');
 
 		if ( $('#button-create-artikeldata').attr('validate-input') == "yes" ) {
 			console.log('Input validation enabled');

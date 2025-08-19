@@ -35,6 +35,7 @@ $(document).ready(function() {
 	window.servicegrad = '';
 	window.sortimentsartikel = '';
 	window.team = '';
+	window.theme = '';
 	window.upplysningar = '';
 	window.ws_bb = '';
 	window.ws_pub = '';
@@ -42,16 +43,47 @@ $(document).ready(function() {
 	window.ws_komp = '';
 	window.ws_sort = '';
 
-	/* Set theme class on html element, set icon on theme toggle button */
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		console.log('System prefers dark mode');
+	// Check for 'theme' parameter in URL
+	let params = new URLSearchParams(window.location.search);
+	if (params.get('theme') == 'dark') {
+		theme = 'dark';
+		console.log('Requested theme: ' + theme);
+	} else if (params.get('theme') == 'light') {
+		theme = 'light';
+		console.log('Requested theme: ' + theme);
+	} else {
+		console.log('No theme requested');
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			theme = 'dark';
+			console.log('System preferred theme: ' + theme);
+		} else {
+			theme = 'light';
+			console.log('System preferred theme: ' + theme);
+		}
+	}
+	if (theme == 'dark') {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
 	} else {
-		console.log('System prefers light mode');
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	}
+	setURLParam('theme', theme);
+
+	// Toggle theme
+	$('#button-toggle-theme').click(function() {
+		console.log('<mdui-button #button-toggle-theme> clicked');
+		if ( $('html').hasClass('mdui-theme-light') ) {
+			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
+			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
+			theme = 'dark';
+		} else {
+			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
+			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
+			theme = 'light';
+		}
+		setURLParam('theme', theme);
+	});
 
 	// Debug
 	if (debug == 'Yes') {
@@ -115,19 +147,6 @@ $(document).ready(function() {
 	$('#main-site').html('<a href="' + deploy1 + '/">' + deploy1 + '</a>');
 	$('#backup-site').html('<a href="' + deploy2 + '/">' + deploy2 + '</a>');
 
-	/* Toggle theme */
-	$('#button-toggle-theme').click(function() {
-		console.log('#button-toggle-theme clicked');
-		if ( $('html').hasClass('mdui-theme-light') ) {
-			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
-			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
-		} else {
-			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
-			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
-		}
-		// $('#navigation-drawer').removeAttr('open');
-	});
-
 	// Catch the "open" event of <mdui-collapse-item> #menu-collapse-group1
 	$('#menu-collapse-group1').on('open', function() {
 		console.log('The open event fired on #menu-collapse-group1');
@@ -173,8 +192,19 @@ $(document).ready(function() {
 	const urlParams = new URLSearchParams(queryString);
 	if (urlParams.has('reload')) {
 		console.log('Page reload detected');
+		/*
 		const url = location.protocol + '//' + location.host + location.pathname;
 		window.history.pushState(null, '', url);
+		*/
+		let params = new URLSearchParams(window.location.search);
+		console.log('Query string (before):' + params);
+		params.delete('reload');
+		console.log('Query string (after):' + params);
+		let url = location.protocol + '//' + location.host + location.pathname + '?' + params;
+		console.log(url);
+		window.history.pushState(null, '', url);
+
+
 		mdui.snackbar({ message: 'Formuläret är rensat' });
 	}
 

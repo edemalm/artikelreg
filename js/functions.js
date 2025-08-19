@@ -1,3 +1,10 @@
+function setURLParam(key, value) {
+	console.log(' -- setURLParam()');
+	const url = new URL(window.location);
+	url.searchParams.set(key, value);
+	history.pushState(null, '', url);
+}
+
 function changeContent(contentId, menuItemId) {
 	console.log(' -- changeContent()');
 		if ($(contentId).css('display') == 'none') {
@@ -130,8 +137,10 @@ function createArtikeldata() {
 	artikelbenamning = $('#text-artikelbenamning').val();
 	artikeltyp = $('#select-artikeltyp').val();
 	avskrivningstid = $('#radio-avskrivningstid').val();
+	besiktningsintervall = $('#select-besiktningsintervall').val();
 	debiteringsform = $('#select-debiteringsform').val();
 	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
+	fu_intervall = $('#select-fu-intervall').val();
 	gmi = $('#textarea-gmi').val();
 	huvudlager = $('#select-huvudlager').val();
 	huvudprodukt = $('#text-huvudprodukt').val();
@@ -183,11 +192,14 @@ function createArtikeldata() {
 	if ( artikeltyp.length > 0 ) {
 		switch ( artikeltyp ) {
 			case 'H':
-				artikeldata += "Huvudhjälpmedel\n"; break;
+				artikeldata += "Huvudhjälpmedel\n";
+				break;
 			case 'T':
-				artikeldata += "Tillbehör\n"; break;
+				artikeldata += "Tillbehör\n";
+				break;
 			case 'R':
-				artikeldata += "Reservdel\n"; break;
+				artikeldata += "Reservdel\n";
+				break;
 		}
 	} else {
 		artikeldata += "Uppgift saknas\n";
@@ -198,13 +210,17 @@ function createArtikeldata() {
 	if ( artikelansvar.length > 0 ) {
 		switch ( artikelansvar ) {
 			case 'L':
-				artikeldata += "L (Region eller kommun)\n"; break;
+				artikeldata += "L (Region eller kommun)\n";
+				break;
 			case 'R':
-				artikeldata += "R (Retursortiment)\n"; break;
+				artikeldata += "R (Retursortiment)\n";
+				break;
 			case 'E':
-				artikeldata += "E (Egenansvar)\n"; break;
+				artikeldata += "E (Egenansvar)\n";
+				break;
 			case 'S':
-				artikeldata += "S (Syncentralen)\n"; break;
+				artikeldata += "S (Syncentralen)\n";
+				break;
 		}
 	} else {
 		artikeldata += "Uppgift saknas\n";
@@ -337,23 +353,66 @@ function createArtikeldata() {
 
 	// Prisgrupp
 	artikeldata += "Prisgrupp:  ";
-	if ( team == '02' ) artikeldata += "R eller RERST\n";
-	if ( team == '03' ) artikeldata += "R, RMRST eller ReturBarn\n";
-	if ( team == '05' ) artikeldata += "KLOK\n";
-	if ( team == '07' ) artikeldata += "PMB\n";
-	if ( team == '08' ) artikeldata += "R eller RMRST\n";
-	if ( team == '09' ) artikeldata += "R\n";
-	if ( team == '10' ) artikeldata += "R, ReturVuxen eller ReturVRoll\n";
-	if ( team == '11' ) artikeldata += "R\n";
-	if ( team == '40' ) artikeldata += "SYN eller SPEC\n";
+	switch ( team ) {
+		case '02':
+			artikeldata += "R eller RERST\n";
+			break;
+		case '03':
+			artikeldata += "R, RMRST eller ReturBarn\n";
+			break;
+		case '05':
+			artikeldata += "KLOK\n";
+			break;
+		case '07':
+			artikeldata += "PMB\n";
+			break;
+		case '08':
+			artikeldata += "R eller RMRST\n";
+			break;
+		case '09':
+			artikeldata += "R\n";
+			break;
+		case '10':
+			artikeldata += "R, ReturVuxen eller ReturVRoll\n";
+			break;
+		case '11':
+			artikeldata += "R\n";
+			break;
+		case '40':
+			artikeldata += "SYN eller SPEC\n";
+			break;
+		default:
+			artikeldata += "Uppgift saknas\n";
+	}
 
 	// Kalkylprocent
 	if ( debiteringsform == 'M') artikeldata += "Kalkylprocent: Se tabell från IT-stödet\n";
 
 	// Servicegrad
-	if ( artikeltyp == 'H' && debiteringsform == 'M' ) artikeldata += "Servicegrad:  " + servicegrad + "\n";
-	if ( artikeltyp == 'T' && debiteringsform == 'M' ) artikeldata += "Servicegrad: 44\n";
-	artikeldata += "\n";
+	if ( artikeltyp == 'H' && debiteringsform == 'M' ) {
+		artikeldata += "Servicegrad:  ";
+		if ( servicegrad.length < 0 ) {
+			artikeldata += servicegrad + "\n";
+		} else {
+			artikeldata += "Uppgift saknas\n";
+		}
+		artikeldata += "\n";
+	}
+	if ( artikeltyp == 'T' && debiteringsform == 'M' ) artikeldata += "Servicegrad: 44\n\n";
+
+	// AKTIVITETSTYPSCHEMAN
+	if ( artikeltyp == 'H' && individartikel == 'Ja'  ) {
+		if ( besiktningsintervall.length > 0 || fu_intervall.length > 0 ) {
+			artikeldata += "AKTIVITETSTYPSCHEMAN\n\n";
+			if ( besiktningsintervall.length > 0 ) {
+				artikeldata += "Besiktningsintervall: " + besiktningsintervall + "\n";
+			}
+			if (fu_intervall.length > 0 ) {
+				artikeldata += "FU-intervall: " + fu_intervall + "\n";
+			}
+			artikeldata += "\n";
+		}
+	}
 
 	// ÖVRIGT
 	let counter = 0;
