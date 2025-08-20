@@ -481,6 +481,7 @@ $(document).ready(function() {
 			location.reload();
 		}
 		*/
+		setURLParam('theme', theme);
 		setURLParam('reload', 1);
 		location.reload();
 	});

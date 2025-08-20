@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-19';
+	window.update = '2025-08-21';
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';
@@ -68,7 +68,6 @@ $(document).ready(function() {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	}
-	setURLParam('theme', theme);
 
 	// Toggle theme
 	$('#button-toggle-theme').click(function() {
@@ -82,7 +81,6 @@ $(document).ready(function() {
 			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 			theme = 'light';
 		}
-		setURLParam('theme', theme);
 	});
 
 	// Debug
@@ -193,9 +191,6 @@ $(document).ready(function() {
 	if (urlParams.has('reload')) {
 		console.log('Page reload detected');
 		/*
-		const url = location.protocol + '//' + location.host + location.pathname;
-		window.history.pushState(null, '', url);
-		*/
 		let params = new URLSearchParams(window.location.search);
 		console.log('Query string (before):' + params);
 		params.delete('reload');
@@ -204,7 +199,9 @@ $(document).ready(function() {
 		console.log(url);
 		window.history.pushState(null, '', url);
 
-
+		*/
+		const url = location.protocol + '//' + location.host + location.pathname;
+		window.history.pushState(null, '', url);
 		mdui.snackbar({ message: 'Formuläret är rensat' });
 	}
 
