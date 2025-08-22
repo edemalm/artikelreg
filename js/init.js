@@ -8,11 +8,14 @@ $(document).ready(function() {
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';
+	window.artikelbenamning = '';
+	window.artikelbenamning_firstword = '';
 	window.artikeldata = '';
 	window.artikeltyp = '';
 	window.avd = '';
 	window.avdelning = '';
 	window.avskrivningstid = '';
+	window.buffertlager = '';
 	window.debiteringsform = '';
 	window.dtm = '';
 	window.forbrukning = '';
@@ -27,6 +30,7 @@ $(document).ready(function() {
 	window.kk = '';
 	window.kkb = '';
 	window.leverantor = '';
+	window.liggplats = '';
 	window.huvudlager = '';
 	window.huvudprodukt = '';
 	window.produkt2 = '';
@@ -55,10 +59,10 @@ $(document).ready(function() {
 		console.log('No theme requested');
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			theme = 'dark';
-			console.log('System preferred theme: ' + theme);
+			console.log('System theme: ' + theme);
 		} else {
 			theme = 'light';
-			console.log('System preferred theme: ' + theme);
+			console.log('System theme: ' + theme);
 		}
 	}
 	if (theme == 'dark') {

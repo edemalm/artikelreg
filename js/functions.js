@@ -87,6 +87,13 @@ function disableSwitchWSKomp() {
 	$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
 }
 
+function enableTextReturtagningsinformation() {
+	$('#textarea-iri').attr('disabled', false); // enable
+}
+function disableTextReturtagningsinformation() {
+	$('#textarea-iri').val('').attr('disabled', true); // clear and disable
+}
+
 function enalbeSliderForbrukning() {
 	console.log(' -- enableSliderForbrukning()');
 	$('#slider-forbrukning').val('').attr('disabled', false); // clear and enable
@@ -126,20 +133,22 @@ function disableServiceOchUnderhall() {
 function createArtikeldata() {
 
 	// console.log('form #form-artikeldata submitted');
-	console.log('createArtikeldata() executed');
+	console.log(' -- createArtikeldata()');
 
-	console.log('resetting artikeldata');
+	// Reset artikeldata
 	artikeldata = '';
 
-	// Cancel default browser submit action
-	event.preventDefault();
+	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();
 	artikelbenamning = $('#text-artikelbenamning').val();
+	artikelbenamning_firstword = artikelbenamning.match(/\s*([^\s]+)/)[1];
 	artikeltyp = $('#select-artikeltyp').val();
 	avskrivningstid = $('#radio-avskrivningstid').val();
 	besiktningsintervall = $('#select-besiktningsintervall').val();
+	buffertlager = $('#textarea-buffertlager').val();
 	debiteringsform = $('#select-debiteringsform').val();
 	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
+	forbrukning = $('#slider-forbrukning').val();
 	fu_intervall = $('#select-fu-intervall').val();
 	gmi = $('#textarea-gmi').val();
 	huvudlager = $('#select-huvudlager').val();
@@ -396,9 +405,10 @@ function createArtikeldata() {
 		} else {
 			artikeldata += "Uppgift saknas\n";
 		}
-		artikeldata += "\n";
 	}
-	if ( artikeltyp == 'T' && debiteringsform == 'M' ) artikeldata += "Servicegrad: 44\n\n";
+	if ( artikeltyp == 'T' && debiteringsform == 'M' ) artikeldata += "Servicegrad: 44\n";
+	artikeldata += "\n";
+
 
 	// AKTIVITETSTYPSCHEMAN
 	if ( artikeltyp == 'H' && individartikel == 'Ja'  ) {
@@ -413,6 +423,46 @@ function createArtikeldata() {
 			artikeldata += "\n";
 		}
 	}
+
+	// LAGER
+	artikeldata += "LAGER\n\n";
+
+	// Huvudlager
+	artikeldata += "Huvudlager: ";
+	if ( huvudlager.length > 0 ) {
+		artikeldata += huvudlager + "\n";
+	} else {
+		artikeldata += "Uppgift saknas\n";
+	}
+
+	// Inköpshantering
+	artikeldata += "Inköpshantering: ";
+	if ( inkopshantering.length > 0 ) {
+		artikeldata += inkopshantering + "\n";
+		if ( inkopshantering == 'Nettobehov' && forbrukning_msg.length > 0 ) {
+			artikeldata += "Uppskattad förbrukning: " + forbrukning_msg + "\n";
+		}
+	} else {
+		artikeldata += "Uppgift saknas\n";
+	}
+
+	// Liggplats
+	artikeldata += "Liggplats: ";
+	if ( inkopshantering == 'Nettobehov') {
+		if ( liggplats.length > 0 ) {
+			artikeldata += liggplats + " (kontrollera plockområde)\n";
+		} else {
+			artikeldata += "P?-Ny-liggplats (kontrollera plockområde)\n";
+		}
+	} else {
+		artikeldata += "P?-ejdef (kontrollera plockområde)\n";
+	}
+
+	// Buffertlager
+	if ( buffertlager.length > 0 ) {
+		artikeldata += "Buffertlager: " + buffertlager + "\n";
+	}
+	artikeldata += "\n";
 
 	// ÖVRIGT
 	let counter = 0;
@@ -443,7 +493,12 @@ function createArtikeldata() {
 
 	// Update href mailto link
 	var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
-	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent('Upplägg av ny artikel i Sesam');
+	var mailsub = "Upplägg av ";
+	if ( artikeltyp == 'H') mailsub += "nytt huvudhjälpmedel";
+	if ( artikeltyp == 'T') mailsub += "nytt tillbehör";
+	if ( artikeltyp == 'R') mailsub += "ny reservdel";
+	mailsub += " (" + artikelbenamning_firstword.toLowerCase() + ") i Sesam";
+	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
 	$('#button-send-email').attr('href', hrefcontent);
 
 	/* Change page */

@@ -188,11 +188,13 @@ $(document).ready(function() {
 		disableSwitchIndividartikel();
 		disableSwitchInventarium();
 		disableRadioAvskrivningstid();
+		disableTextReturtagningsinformation();
 
 		switch (artikeltyp) {
 			case 'H':
 				$('#select-artikeltyp').attr('helper','Ett huvudjälpmedel är ett komplett fungerande hjälpmedel');
 				enableSelectDebiteringsform();
+				enableTextReturtagningsinformation();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
 					$('#select-debiteringsform').val('A'); // select option 'A' (Köp)
@@ -444,13 +446,17 @@ $(document).ready(function() {
 			forbrukning_msg += forbrukning + '. Mindre än 1 per vecka.';
 			slider.labelFormatter = (value) => `${value}`;
 		} else if (forbrukning == 500) {
-			forbrukning_msg += '500 eller mer. Minst 10 per vecka. Vänligen skriv en kommentar och förtydliga behovet.';
+			forbrukning_msg += '500 eller mer. 10 per vecka eller mer.';
 			slider.labelFormatter = (value) => `${value}`;
 		} else {
 			forbrukning_msg += forbrukning + '. Ungefär ' + veckobehov + ' per vecka.';
 			slider.labelFormatter = (value) => `${value}`;
 		}
-		$('#slider-msg').html(forbrukning_msg);
+		if (forbrukning == 500) {
+			$('#slider-msg').html(forbrukning_msg + ' Vänligen skriv en kommentar och förtydliga det stora behovet.');
+		} else {
+			$('#slider-msg').html(forbrukning_msg);
+		}
 	});
 
 	// 7. Hantering vid ankomst
@@ -512,40 +518,28 @@ $(document).ready(function() {
 
 		if ( $('#button-create-artikeldata').attr('validate-input') == "yes" ) {
 			console.log('Input validation enabled');
+
 			// validate input
 			// vanilla javascript
+			/*
 			for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
 				if (!el.reportValidity()) {
 					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
 					return;
 				}
 			}
-			
-			//for (const el of $('[required]')) {
-			//	if (!el.reportValidity()) {
-			//		mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
-			//		return;
-			//	}
-			//}
+			*/
+
+			for (const el of $('[required]')) {
+				if (!el.reportValidity()) {
+					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+					return;
+				}
+			}
 		} else {
 			console.log('Input validation disabled');
 			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
 		}
-
-
-/*
-		if ( $('#button-create-artikeldata').attr('validate-input') == "custom" ) {
-			console.log('Custom input validation enabled');
-
-		$('#select-artikelansvar').required = true;
-		document.getElementById("select-artikelansvar").reportValidity();
-
-		} else {
-			console.log('Custom nput validation disabled');
-			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
-		}
-*/
-
 
 		console.log('Calling createArtikeldata()');
 		createArtikeldata()
