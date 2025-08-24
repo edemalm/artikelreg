@@ -4,6 +4,7 @@ $(document).ready(function() {
 
 	// https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
 	// https://jsfiddle.net/edelman/KcX6A/1506/
+	/*
 	jQuery.fn.selectText = function() {
 		var doc = document, element = this[0], range, selection;
 		if (doc.body.createTextRange) {
@@ -18,16 +19,12 @@ $(document).ready(function() {
 			selection.addRange(range);
 		}
 	};
+	*/
 
 	/* $('#form-artikeldata').submit(function(event) { */
 
 
 
-	// mdui-button #button-show-artikeldata clicked
-	$('#button-show-artikeldata').click(function() {
-		$('#button-show-artikeldata').addClass('hidden');
-		$('#div-artikeldata').removeClass('hidden');
-	});
 
 
 	/*
@@ -44,11 +41,6 @@ $(document).ready(function() {
 	});
 	*/
 
-	$('#button-copy-artikeldata').click(function() {
-		console.log('#button-copy-artikeldata clicked');
-		navigator.clipboard.writeText(artikeldata);
-		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
-	});
 
 
 });

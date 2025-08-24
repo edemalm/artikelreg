@@ -1,3 +1,5 @@
+console.log('Loading functions.js');
+
 function setURLParam(key, value) {
 	console.log(' -- setURLParam()');
 	const url = new URL(window.location);
@@ -65,12 +67,12 @@ function disableSwitchInventarium() {
 
 function enableRadioAvskrivningstid() {
 	console.log(' -- enableRadioAvskrivningstid()');
-	$('#radio-avskrivningstid').val('').attr('disabled', false); // clear and enable
+	$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and require
 	$('#label-avskrivningstid').removeClass('disabled'); // remove .disabled
 }
 function disableRadioAvskrivningstid() {
 	console.log(' -- disableRadioAvskrivningstid()');
-	$('#radio-avskrivningstid').val('').attr('disabled', true); // clear and disable
+	$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear disable and don't require
 	$('#label-avskrivningstid').addClass('disabled'); // add .disabled
 }
 
@@ -109,7 +111,31 @@ function disableSliderForbrukning() {
 	$('.slider-helper').addClass('disabled'); // add .disabled
 	forbrukning = ''; // reset
 	forbrukning_msg = 'Endast relevant för inköpshantering Nettobehov'; // reset to default msg
-	$('#slider-msg').html(forbrukning_msg); // update displayd msg
+	$('#slider-msg').html(forbrukning_msg); // update displayed msg
+}
+
+function enableSwitchKvalitetskontroll() {
+	console.log(' -- enableSwitchKvalitetskontroll()');
+	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-kk').removeClass('disabled'); // remove .disabled
+}
+function disableSwitchKvalitetskontroll() {
+	console.log(' -- disableSwitchKvalitetskontroll()');
+	$('#switch-kk').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-kk').addClass('disabled'); // add .disabled
+	kk = 'Nej';
+}
+
+function enableTextKvalitetskontroll() {
+	console.log(' -- enableTextKvalitetskontroll()');
+	$('#textarea-kkb').attr('disabled', false); // enable
+	$('#switch-kk-helper').html('Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.');
+}
+function disableTextKvalitetskontroll() {
+	console.log(' -- disableTextKvalitetskontroll()');
+	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
+	$('#switch-kk-helper').html('Artikeln har ej kvalitetskontroll');
+	kkb = '';
 }
 
 function enableServiceOchUnderhall() {
@@ -136,30 +162,30 @@ function createArtikeldata() {
 	console.log(' -- createArtikeldata()');
 
 	// Reset artikeldata
-	artikeldata = '';
+	artikeldata = "Hej!\nJag önskar få följande artikel registrerad i Sesam.\n\n";
 
 	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();
 	artikelbenamning = $('#text-artikelbenamning').val();
-	artikelbenamning_firstword = artikelbenamning.match(/\s*([^\s]+)/)[1];
+	artikelbenamning_firstword = (artikelbenamning.length > 0 ? artikelbenamning.match(/\s*([^\s]+)/)[1] : '(uppgift saknas)');
 	artikeltyp = $('#select-artikeltyp').val();
 	avskrivningstid = $('#radio-avskrivningstid').val();
 	besiktningsintervall = $('#select-besiktningsintervall').val();
 	buffertlager = $('#textarea-buffertlager').val();
 	debiteringsform = $('#select-debiteringsform').val();
-	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej" );
+	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej");
 	forbrukning = $('#slider-forbrukning').val();
 	fu_intervall = $('#select-fu-intervall').val();
 	gmi = $('#textarea-gmi').val();
 	huvudlager = $('#select-huvudlager').val();
-	huvudprodukt = $('#text-huvudprodukt').val();
+	standardprodukt = $('#text-standardprodukt').val();
 	iki = $('#textarea-iki').val();
 	ipi = $('#textarea-ipi').val();
 	iri = $('#textarea-iri').val();
-	individartikel = ( $('#switch-individartikel').prop("checked") ? "Ja" : "Nej" );
+	individartikel = ($('#switch-individartikel').prop("checked") ? "Ja" : "Nej");
 	inkopshantering = $('#select-inkopshantering').val();
-	inventarium = ( $('#switch-inventarium').prop("checked") ? "Ja" : "Nej" );
-	kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej" );
+	inventarium = ($('#switch-inventarium').prop("checked") ? "Ja" : "Nej");
+	kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej");
 	kkb = $('#textarea-kkb').val();
 	leverantor = $('#text-leverantor').val();
 	levartnr = $('#text-levartnr').val();
@@ -169,37 +195,38 @@ function createArtikeldata() {
 	servicegrad = $('#select-servicegrad').val();
 	team = $('#select-team').val();
 	upplysningar = $('#textarea-upplysningar').val();
-	ws_bb = ($('#switch-ws-bb').prop("checked") ? "Ja" : "Nej" );
+	ws_bb = ($('#switch-ws-bb').prop("checked") ? "Ja" : "Nej");
 	ws_info = $('#textarea-ws-info').val();
-	ws_komp = ($('#switch-ws-komp').prop("checked") ? "Ja" : "Nej" );
-	ws_pub = ($('#switch-ws-pub').prop("checked") ? "Ja" : "Nej" );
-	ws_sort = ( $('#switch-ws-sort').prop("checked") ? "Ja" : "Nej" );
+	ws_komp = ($('#switch-ws-komp').prop("checked") ? "Ja" : "Nej");
+	ws_pub = ($('#switch-ws-pub').prop("checked") ? "Ja" : "Nej");
+	ws_sort = ($('#switch-ws-sort').prop("checked") ? "Ja" : "Nej");
 
 	// Leverantör + lev. art.nr.
 	artikeldata += "Leverantör:  " + leverantor + "\nArtikelnummer:  " + levartnr + "\n\n";
 
 	// Hjälpmedelstjänsten, avtal, mallartikel
-	if ( $('#checkbox-ht').attr('checked') ) {
+	if ($('#checkbox-ht').attr('checked')) {
 		artikeldata += "Artikeln finns i Hjälpmedelstjänsten";
-		if ( $('#checkbox-upphandlad').attr('checked') ) artikeldata +=" och är upphandlad";
+		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" och är upphandlad";
 		// Mallartikel
-		artikeldata += ". Sök mallartikel som börjar med '" + avd + artikeltyp + "' vid import";
+		artikeldata += ". Vid import använd mallartikel som börjar med \"" + avd + artikeltyp + "\"";
 	} else {
 		artikeldata += "Artikeln saknas tyvärr i Hjälpmedelstjänsten";
-		if ( $('#checkbox-upphandlad').attr('checked') ) artikeldata +=" men är upphandlad";
+		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" men är upphandlad";
 	}
-	artikeldata += ".\n\n";
+	artikeldata += ".\n";
 
-	// ARTIKELBENÄMNING
-	artikeldata += "ARTIKELBENÄMNING\n\n" + artikelbenamning + "\n\n";
+	// ARTIKEL
+	artikeldata += "\nARTIKEL\n\n"
+	artikeldata += "Artikelbenämning:  " + artikelbenamning + "\n";
 
 	// KLASSIFICERING
-	artikeldata += "KLASSIFICERING\n\n";
+	artikeldata += "\nKLASSIFICERING\n\n";
 
 	// Artikeltyp
 	artikeldata += "Artikeltyp:  ";
-	if ( artikeltyp.length > 0 ) {
-		switch ( artikeltyp ) {
+	if (artikeltyp.length > 0) {
+		switch (artikeltyp) {
 			case 'H':
 				artikeldata += "Huvudhjälpmedel\n";
 				break;
@@ -211,13 +238,13 @@ function createArtikeldata() {
 				break;
 		}
 	} else {
-		artikeldata += "Uppgift saknas\n";
+		artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Artikelansvar
 	artikeldata += "Artikelansvar:  ";
-	if ( artikelansvar.length > 0 ) {
-		switch ( artikelansvar ) {
+	if (artikelansvar.length > 0) {
+		switch (artikelansvar) {
 			case 'L':
 				artikeldata += "L (Region eller kommun)\n";
 				break;
@@ -232,7 +259,7 @@ function createArtikeldata() {
 				break;
 		}
 	} else {
-		artikeldata += "Uppgift saknas\n";
+		artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Konteringsgrupp
@@ -249,76 +276,75 @@ function createArtikeldata() {
 	// S     SC ej inventarie
 	// SI3   SC inventarie 3 års avskrivning
 	// SI5   SC inventarie 5 års avskrivning
-	if ( avd.length > 0 ) {
+	if (avd.length > 0) {
 		artikeldata += avd;
 	} else {
-		artikeldata += "(avd saknas)";
+		artikeldata += "(uppgift saknas)";
 	}
 
-	if ( inventarium == 'Ja' && avskrivningstid == '3' ) {
+	if (inventarium == 'Ja' && avskrivningstid == '3') {
 		artikeldata += "I3";
-	} else if ( inventarium == 'Ja' && avskrivningstid == '5' ) {
+	} else if (inventarium == 'Ja' && avskrivningstid == '5') {
 		artikeldata += "I5";
 	}
 	artikeldata += "\n";
 
 	// Avskrivningstid
-	if ( inventarium == 'Ja' ) {
+	if (inventarium == 'Ja') {
 		artikeldata += "Avskrivningstid:  ";
-		if ( avskrivningstid.length > 0 ) {
+		if (avskrivningstid.length > 0) {
 			artikeldata += avskrivningstid + " år\n";
 		} else {
-			artikeldata += "Uppgift saknas\n";
+			artikeldata += "(uppgift saknas)\n";
 		}
 	}
 
 	// Sektor
 	artikeldata += "Sektor:  ";
-	if ( team.length > 0 ) {
+	if (team.length > 0) {
 		artikeldata += team + "\n";
 	} else {
-		artikeldata += "Uppgift saknas\n";
+		artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Sortimentsartikel
 	artikeldata += "Ingår i sortimentet:  " + ws_sort + "\n";
 
 	// Individartikel
-	if ( artikeltyp == 'H' ) {
+	if (artikeltyp == 'H') {
 		artikeldata += "Individartikel:  " + individartikel + "\n";
 	}
 
 	// Inventarium
-	if ( artikeltyp == 'H' ) {
+	if (artikeltyp == 'H') {
 		artikeldata += "Inventarium:  " + inventarium + "\n";
 	}
 
 	// Drifttidsmätare
-	if ( individartikel == 'Ja' && dtm == 'Ja' ) {
+	if (individartikel == 'Ja' && dtm == 'Ja') {
 		artikeldata += "Drifttidsmätare:  " + dtm + " (enhet: timmar)\n";
 	}
 
 	// Kvalitetskontroll
-	if ( kk == 'Ja' ) {
+	if (kk == 'Ja') {
 		artikeldata += "Kvalitetskontroll:  " + kk + "\n";
 	}
 
 	// Status
-	artikeldata += "Status:  " + ( inkopshantering == 'Nettobehov' ? "Ny" : "Aktiv" ) + "\n\n";
+	artikeldata += "Status:  " + (inkopshantering == 'Nettobehov' ? "Ny" : "Aktiv") + "\n";
 
 	// INSTRUKTIONER
-	if ( gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0 ) {
-		artikeldata += "INSTRUKTIONER\n\n";
-		if ( gmi.length > 0 ) artikeldata += "Godsmottagningsinstruktion:  " + gmi + "\n";
-		if ( kkb.length > 0 ) artikeldata += "Kvalitetskontroll, beskrivning:  " + kkb + "\n";
-		if ( iki.length > 0 ) artikeldata += "Intern kundorderinformation:  " + iki + "\n";
-		if ( ipi.length > 0 ) artikeldata += "Intern plockinformation:  " + ipi + "\n";
-		if ( iri.length > 0 ) artikeldata += "Intern returtagningsinformation:  " + iri + "\n";
-		artikeldata += "\n";
+	if (gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0) {
+		artikeldata += "\nINSTRUKTIONER\n\n";
+		if (gmi.length > 0) artikeldata += "Godsmottagningsinstruktion:  " + gmi + "\n";
+		if (kkb.length > 0) artikeldata += "Kvalitetskontroll, beskrivning:  " + kkb + "\n";
+		if (iki.length > 0) artikeldata += "Intern kundorderinformation:  " + iki + "\n";
+		if (ipi.length > 0) artikeldata += "Intern plockinformation:  " + ipi + "\n";
+		if (iri.length > 0) artikeldata += "Intern returtagningsinformation:  " + iri + "\n";
 	}
 
 	// VISMA WEBSESAM
-	artikeldata += "VISMA WEBSESAM\n\n";
+	artikeldata += "\nVISMA WEBSESAM\n\n";
 
 	// Publicera
 	artikeldata += "Publicera:  " + ws_pub + "\n";
@@ -327,47 +353,45 @@ function createArtikeldata() {
 	artikeldata += "Beställningsbar:  " + ws_bb + "\n";
 
 	// Kan vara komponent
-	if ( artikeltyp == 'T' ) {
+	if (artikeltyp == 'T') {
 		artikeldata += "Kan vara komponent:  " + ws_komp + "\n";
 	}
 
 	// Extra artikelinformation
-	if ( ws_info.length > 0 ) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
-	artikeldata += "\n";
+	if (ws_info.length > 0) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
 
 	// PRODUKT
-	artikeldata += "PRODUKT\n\n";
-
-	// Huvudprodukt
-	artikeldata += huvudprodukt;
-	if ( produkt2.length > 0 || produkt3.length > 0 || produkt4.length > 0 ) artikeldata += " (huvudprodukt)";
-	if ( produkt2.length > 0 ) artikeldata += "\n" + produkt2;
-	if ( produkt3.length > 0 ) artikeldata += "\n" + produkt3;
-	if ( produkt4.length > 0 ) artikeldata += "\n" + produkt4;
-	artikeldata += "\n\n";
+	artikeldata += "\nPRODUKT\n\n";
+	artikeldata += "Standardprodukt:  " + standardprodukt + "\n";
+	if (produkt2.length > 0) artikeldata += "Extra produkt:  " + produkt2 + "\n";
+	if (produkt3.length > 0) artikeldata += "Extra produkt:  " + produkt3 + "\n";
+	if (produkt4.length > 0) artikeldata += "Extra produkt:  " + produkt4 + "\n";
 
 	// PRISPARAMETRAR
-	artikeldata += "PRISPARAMETRAR\n\n";
+	artikeldata += "\nPRISPARAMETRAR\n\n";
 
 	// Debiteringsform
 	artikeldata += "Debiteringsform:  ";
-	if ( debiteringsform == 'A' ) {
-		artikeldata += "Köp";
-	} else if ( debiteringsform == 'M' ) {
-		artikeldata += "Hyra";
+	if (debiteringsform == 'A') {
+		artikeldata += "Köp\n";
+	} else if (debiteringsform == 'M') {
+		artikeldata += "Hyra\n";
 	} else {
-		artikeldata += "Uppgift saknas";
+		artikeldata += "(uppgift saknas)\n";
 	}
-	artikeldata += "\n";
 
 	// Prisgrupp
 	artikeldata += "Prisgrupp:  ";
-	switch ( team ) {
+	switch (team) {
 		case '02':
 			artikeldata += "R eller RERST\n";
 			break;
 		case '03':
-			artikeldata += "R, RMRST eller ReturBarn\n";
+			if (artikelansvar == 'R') {
+				artikeldata += "ReturBarn\n";
+			} else {
+				artikeldata += "R eller RMRST\n";
+			}
 			break;
 		case '05':
 			artikeldata += "KLOK\n";
@@ -382,7 +406,11 @@ function createArtikeldata() {
 			artikeldata += "R\n";
 			break;
 		case '10':
-			artikeldata += "R, ReturVuxen eller ReturVRoll\n";
+			if (artikelansvar == 'R') {
+				artikeldata += "ReturVuxen eller ReturVRoll\n";
+			} else {
+				artikeldata += "R\n";
+			}
 			break;
 		case '11':
 			artikeldata += "R\n";
@@ -391,65 +419,62 @@ function createArtikeldata() {
 			artikeldata += "SYN eller SPEC\n";
 			break;
 		default:
-			artikeldata += "Uppgift saknas\n";
+			artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Kalkylprocent
-	if ( debiteringsform == 'M') artikeldata += "Kalkylprocent: Se tabell från IT-stödet\n";
+	if (debiteringsform == 'M') artikeldata += "Kalkylprocent: Se tabell från IT-stödet\n";
 
 	// Servicegrad
-	if ( artikeltyp == 'H' && debiteringsform == 'M' ) {
+	if (artikeltyp == 'H' && debiteringsform == 'M') {
 		artikeldata += "Servicegrad:  ";
-		if ( servicegrad.length < 0 ) {
+		if (servicegrad.length > 0) {
 			artikeldata += servicegrad + "\n";
 		} else {
-			artikeldata += "Uppgift saknas\n";
+			artikeldata += "(uppgift saknas)\n";
 		}
 	}
-	if ( artikeltyp == 'T' && debiteringsform == 'M' ) artikeldata += "Servicegrad: 44\n";
-	artikeldata += "\n";
-
+	if (artikeltyp == 'T' && debiteringsform == 'M') artikeldata += "Servicegrad: 44\n";
 
 	// AKTIVITETSTYPSCHEMAN
-	if ( artikeltyp == 'H' && individartikel == 'Ja'  ) {
-		if ( besiktningsintervall.length > 0 || fu_intervall.length > 0 ) {
-			artikeldata += "AKTIVITETSTYPSCHEMAN\n\n";
-			if ( besiktningsintervall.length > 0 ) {
-				artikeldata += "Besiktningsintervall: " + besiktningsintervall + "\n";
+	if (artikeltyp == 'H' && individartikel == 'Ja') {
+		if (besiktningsintervall.length > 0 || fu_intervall.length > 0) {
+			artikeldata += "\nAKTIVITETSTYPSCHEMAN\n\n";
+			if (besiktningsintervall.length > 0) {
+				artikeldata += "Besiktningsintervall:  " + besiktningsintervall + "\n";
 			}
-			if (fu_intervall.length > 0 ) {
-				artikeldata += "FU-intervall: " + fu_intervall + "\n";
+			if (fu_intervall.length > 0) {
+				artikeldata += "FU-intervall:  " + fu_intervall + "\n";
 			}
-			artikeldata += "\n";
 		}
 	}
 
 	// LAGER
-	artikeldata += "LAGER\n\n";
+	artikeldata += "\nLAGER\n\n";
 
 	// Huvudlager
-	artikeldata += "Huvudlager: ";
-	if ( huvudlager.length > 0 ) {
+	artikeldata += "Huvudlager:  ";
+	if (huvudlager.length > 0) {
 		artikeldata += huvudlager + "\n";
 	} else {
-		artikeldata += "Uppgift saknas\n";
+		artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Inköpshantering
-	artikeldata += "Inköpshantering: ";
-	if ( inkopshantering.length > 0 ) {
+	artikeldata += "Inköpshantering:  ";
+	if (inkopshantering.length > 0) {
 		artikeldata += inkopshantering + "\n";
-		if ( inkopshantering == 'Nettobehov' && forbrukning_msg.length > 0 ) {
-			artikeldata += "Uppskattad förbrukning: " + forbrukning_msg + "\n";
+		if (inkopshantering == 'Nettobehov' && forbrukning_msg.length > 0) {
+			artikeldata += "Uppskattad förbrukning:  " + forbrukning_msg + "\n";
 		}
 	} else {
-		artikeldata += "Uppgift saknas\n";
+		artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Liggplats
-	artikeldata += "Liggplats: ";
-	if ( inkopshantering == 'Nettobehov') {
-		if ( liggplats.length > 0 ) {
+	artikeldata += "Liggplats:  ";
+	if (inkopshantering == 'Nettobehov') {
+		if (liggplats.length > 0) {
 			artikeldata += liggplats + " (kontrollera plockområde)\n";
 		} else {
 			artikeldata += "P?-Ny-liggplats (kontrollera plockområde)\n";
@@ -459,32 +484,31 @@ function createArtikeldata() {
 	}
 
 	// Buffertlager
-	if ( buffertlager.length > 0 ) {
-		artikeldata += "Buffertlager: " + buffertlager + "\n";
+	if (buffertlager.length > 0) {
+		artikeldata += "Buffertlager:  " + buffertlager + "\n";
 	}
-	artikeldata += "\n";
 
 	// ÖVRIGT
 	let counter = 0;
 	let extratext = '';
-	if ( upplysningar.length > 0 ) {
+	if (upplysningar.length > 0) {
 		counter++;
 		extratext += "Övriga upplysningar:  " + upplysningar + "\n";
 	}
-	if ( artikeltyp == 'H' && artikelbenamning.startsWith('Elrullstol') ) {
+	if (artikeltyp == 'H' && artikelbenamning.startsWith('Elrullstol')) {
 		counter++;
-		extratext += "Kom ihåg: Elrullstolar skall ha uppföljning. Lägg till artikeln i Uppföljningsorsaker.\n";
+		extratext += "Kom ihåg att elrullstolar skall ha uppföljning. Lägg till artikeln i Uppföljningsorsaker.\n";
 	}
-	if ( artikelansvar == 'R' ) {
+	if (artikelansvar == 'R') {
 		counter++;
-		extratext += "Kom ihåg: Retursortiment har olika prisgrupper för barn och vuxna.";
-		if ( artikelbenamning.startsWith('Rollator') ) {
+		extratext += "Kom ihåg att retursortiment har olika prisgrupper för barn och vuxna.";
+		if (artikelbenamning.startsWith('Rollator')) {
 			extratext += " Rollatorer för vuxna har dessutom en egen prisgrupp.";
 		}
 		extratext += " Kontrollera noga att det blir rätt.\n"
 	}
-	if ( counter > 0 ) {
-		artikeldata += "ÖVRIGT\n\n";
+	if (counter > 0) {
+		artikeldata += "\nÖVRIGT\n\n";
 		artikeldata += extratext;
 	}
 
@@ -494,9 +518,13 @@ function createArtikeldata() {
 	// Update href mailto link
 	var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
 	var mailsub = "Upplägg av ";
-	if ( artikeltyp == 'H') mailsub += "nytt huvudhjälpmedel";
-	if ( artikeltyp == 'T') mailsub += "nytt tillbehör";
-	if ( artikeltyp == 'R') mailsub += "ny reservdel";
+	if (artikeltyp.length > 0) {
+		if (artikeltyp == 'H') mailsub += "nytt huvudhjälpmedel";
+		if (artikeltyp == 'T') mailsub += "nytt tillbehör";
+		if (artikeltyp == 'R') mailsub += "ny reservdel";
+	} else {
+		mailsub += "ny artikel";
+	}
 	mailsub += " (" + artikelbenamning_firstword.toLowerCase() + ") i Sesam";
 	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
 	$('#button-send-email').attr('href', hrefcontent);

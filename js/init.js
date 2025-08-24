@@ -1,10 +1,10 @@
 $(document).ready(function() {
-
 	console.log('Loading init.js');
+
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-22';
+	window.update = '2025-08-24';
 	window.debug = 'No'; // "Yes" to enable
 
 	window.artikelansvar = '';
@@ -32,12 +32,12 @@ $(document).ready(function() {
 	window.leverantor = '';
 	window.liggplats = '';
 	window.huvudlager = '';
-	window.huvudprodukt = '';
 	window.produkt2 = '';
 	window.produkt3 = '';
 	window.produkt4 = '';
 	window.servicegrad = '';
 	window.sortimentsartikel = '';
+	window.standardprodukt = '';
 	window.team = '';
 	window.theme = '';
 	window.upplysningar = '';
@@ -94,6 +94,9 @@ $(document).ready(function() {
 		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		});
+		// Enable button 'Visa artikeldata'
+		// $('#div-dialog-artikeldata').show();
+
 	}
 
 	const d = new Date();
@@ -186,8 +189,8 @@ $(document).ready(function() {
 	console.log('Loading inc/liggplats.html');
 	$('#inc-liggplats').load('inc/liggplats.html');
 
-	console.log('Loading inc/plockomrade.html');
-	$('#inc-plockomrade').load('inc/plockomrade.html');
+	console.log('Loading inc/plockomraden.html');
+	$('#inc-plockomrade').load('inc/plockomraden.html');
 
 	// Page was reloaded
 	const queryString = window.location.search;

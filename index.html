@@ -16,7 +16,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
@@ -39,6 +39,14 @@
 	<script src="js/jquery-3.7.1.min.js"></script>
 
 	<title>Artikelregistreringsunderlag</title>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-D0EQ18178Y"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-D0EQ18178Y');
+	</script>
 </head>
 <body>
 
@@ -128,7 +136,7 @@
 						</div>
 						<div class="form-title">
 							<div class="form-title-icon badge"><mdui-icon name="edit"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">1. Artikelbenämning och produktnamn</h3></div>
+							<div class="form-title-text"><h3 class="headline-small">1. Artikelbenämning och produkt</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -145,56 +153,56 @@
 							variant="outlined"
 							clearable counter required></mdui-text-field>
 					</div>
-					<div id="div-produktnamn" class="s12 m6 huvudprodukt">
-						<!-- PRODUKTNAMN -->
-						<mdui-text-field id="text-huvudprodukt"
+					<div id="div-produkt" class="s12 m6 standardprodukt">
+						<!-- PRODUKT -->
+						<mdui-text-field id="text-standardprodukt"
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
 							inputmode="text"
-							label="Produktnamn"
-							name="huvudprodukt"
+							label="Produkt"
+							name="standardprodukt"
 							variant="outlined"
 							clearable required></mdui-text-field>
 					</div>
-						<!-- FLER PRODUKTNAMN -->
-					<div id="div-fler-produktnamn" class="s12 m6">
-						<mdui-button id="button-fler-produktnamn"
+						<!-- FLER PRODUKTER -->
+					<div id="div-fler-produkter" class="s12 m6">
+						<mdui-button id="button-fler-produkter"
 							icon="add"
-							variant="text">Fler produktnamn</mdui-button>
+							variant="text">Fler produkter</mdui-button>
 					</div>
 					<div class="s12 m6 xl3 hidden extraprodukt">
-						<!-- PRODUKTNAMN 2 -->
+						<!-- PRODUKT 2 -->
 						<mdui-text-field id="text-produkt2"
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
 							inputmode="text"
-							label="Extra Produktnamn"
+							label="Extra produkt"
 							name="produkt2"
 							variant="outlined"
 							clearable></mdui-text-field>
 					</div>
 					<div class="s12 m6 xl3 hidden extraprodukt">
-						<!-- PRODUKTNAMN 3 -->
+						<!-- PRODUKT 3 -->
 						<mdui-text-field id="text-produkt3"
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
 							inputmode="text"
-							label="Extra Produktnamn"
+							label="Extra produkt"
 							name="produkt3"
 							variant="outlined"
 							clearable></mdui-text-field>
 					</div>
 					<div class="s12 m6 xl3 hidden extraprodukt">
-						<!-- PRODUKTNAMN 4 -->
+						<!-- PRODUKT 4 -->
 						<mdui-text-field id="text-produkt4"
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
 							inputmode="text"
-							label="Extra Produktnamn"
+							label="Extra produkt"
 							name="produkt4"
 							variant="outlined"
 							clearable></mdui-text-field>
@@ -258,7 +266,7 @@
 								suffix="&nbsp;kr"
 								type="text"
 								variant="outlined"
-								clearable disabled end-aligned required></mdui-text-field>
+								clearable disabled end-aligned></mdui-text-field>
 						</div>
 						<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
 							<!-- ISO-KOD -->
@@ -273,7 +281,7 @@
 								name="isokod"
 								type="number"
 								variant="outlined"
-								clearable disabled required></mdui-text-field>
+								clearable disabled></mdui-text-field>
 						</div>
 						<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
 							<!-- GARANTITID -->
@@ -373,8 +381,7 @@
 								<div class="radio">
 									<mdui-radio-group id="radio-avskrivningstid"
 										name="avskrivningstid"
-										disabled
-										required>
+										disabled>
 										<mdui-radio value="3">3 år</mdui-radio>
 										<mdui-radio value="5">5 år</mdui-radio>
 									</mdui-radio-group>
@@ -654,7 +661,7 @@
 							<div class="switch-wrapper">
 								<div id="label-kk" class="text disabled">
 									<div class="switch-label">Kvalitetskontroll</div>
-									<div class="switch-helper">Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.</div>
+									<div id="switch-kk-helper" class="switch-helper">Artikeln har ej kvalitetskontroll</div>
 								</div>
 								<div class="switch">
 									<mdui-switch id="switch-kk" disabled></mdui-switch>
@@ -674,7 +681,7 @@
 								placeholder="Exempel: Till SST-tekniker för kontroll av svetsfogar"
 								rows="2"
 								variant="outlined"
-								autosize clearable disabled></mdui-text-field>
+								autosize clearable disabled required></mdui-text-field>
 						</div>
 					</div><!-- .grid -->
 				</div>
@@ -831,7 +838,7 @@
 						<mdui-button id="button-copy-div" icon="content_copy" variant="filled">Kopiera uppgifter inkl. formattering</mdui-button>
 					</div>
 					-->
-					<div class="control-right">
+					<div class="control-right debug hidden">
 						<mdui-button id="button-dialog-artikeldata" variant="text">Visa artikeluppgifter</mdui-button>
 					</div>
 					<!--
@@ -940,15 +947,15 @@
 <!-- ----------------------------------------------------------------------- -->
 
 
-<mdui-dialog id="dialog-about" class="body-small"
+<mdui-dialog id="dialog-about" class="body-medium"
 	headline="Artikelregistreringsunderlag"
 	close-on-esc
 	close-on-overlay-click>
 	<p class="label-small"><span id="version"></span></p>
-	<p class="title-small">Detta verktyp används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
-	<p class="title-small">All inmatad information lagras tillfälligt i webbläsaren och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
-	<p class="title-small">Primär webbadress:<br><span id="main-site"></span></p>
-	<p class="title-small">Backupadress:<br><span id="backup-site"></p>
+	<p>Detta verktyp används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
+	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
+	<p>Primär webbadress:<br><span id="main-site"></span></p>
+	<p>Backupadress:<br><span id="backup-site"></p>
 	<mdui-divider></mdui-divider>
 
 	<p id="p-more-details" class="label-small"><a id="a-show-about-more" href="#">Visa mer detaljer</a></span></p>
@@ -968,12 +975,10 @@
 		<p>All kod finns tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a>.</p>
 		<mdui-divider></mdui-divider>
 	</div>
-
 	<p>
 		Copyright &copy; 2025 Markus Edemalm<br>
 		Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a>
 	</p>
-
 	<mdui-button id="button-close-about" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 
@@ -1002,16 +1007,4 @@
 <script src="js/functions.js"></script>
 <script src="js/init.js"></script>
 <script src="js/events.js"></script>
-<script src="js/artikeldata.js"></script>
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D0EQ18178Y"></script>
-<script>
-	/*
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-D0EQ18178Y');
-	*/
-</script>
--->
 </html>

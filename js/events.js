@@ -69,8 +69,8 @@ $(document).ready(function() {
 		$('mdui-dialog').removeAttr('open');
 	});
 
-	// 1. Artikelbenämning och produktnamn
-	// -----------------------------------
+	// 1. Artikelbenämning och produkt
+	// -------------------------------
 
 /*
 	// mdui-text-field #text-artikelbenamning set random placeholder text
@@ -94,13 +94,13 @@ $(document).ready(function() {
 	});
 */
 
-	// mdui-button #button-fler-produktnamn clicked
-	$('#button-fler-produktnamn').click(function() {
-		console.log('<mdui-button #button-fler-produktnamn> clicked');
-		$('#div-fler-produktnamn').addClass('hidden');
-		$('#text-huvudprodukt').attr('label', 'Huvudproduktnamn');
-		$('#text-huvudprodukt').attr('helper', 'Endast huvudprodukt visas i sökresultat');
-		$('.huvudprodukt').addClass('xl3');
+	// mdui-button #button-fler-produkter clicked
+	$('#button-fler-produkter').click(function() {
+		console.log('<mdui-button #button-fler-produkter> clicked');
+		$('#div-fler-produkter').addClass('hidden');
+		$('#text-standardprodukt').attr('label', 'Standardprodukt');
+		$('#text-standardprodukt').attr('helper', 'Endast standardprodukt visas i sökresultat');
+		$('.standardprodukt').addClass('xl3');
 		$('.extraprodukt').removeClass('hidden');
 	});
 
@@ -189,12 +189,15 @@ $(document).ready(function() {
 		disableSwitchInventarium();
 		disableRadioAvskrivningstid();
 		disableTextReturtagningsinformation();
+		disableSwitchKvalitetskontroll();
+		disableTextKvalitetskontroll();
 
 		switch (artikeltyp) {
 			case 'H':
 				$('#select-artikeltyp').attr('helper','Ett huvudjälpmedel är ett komplett fungerande hjälpmedel');
 				enableSelectDebiteringsform();
 				enableTextReturtagningsinformation();
+				enableSwitchKvalitetskontroll();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
 					$('#select-debiteringsform').val('A'); // select option 'A' (Köp)
@@ -466,10 +469,10 @@ $(document).ready(function() {
 		console.log('<mdui-switch #switch-kk> changed');
 		if ($('#switch-kk').prop("checked")) {
 			// is checked
-			$('#textarea-kkb').attr('disabled', false).attr('required', true); // enable
+			enableTextKvalitetskontroll();
 		} else {
 			// not checked
-			$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
+			disableTextKvalitetskontroll();
 		}
 	});
 
@@ -541,14 +544,20 @@ $(document).ready(function() {
 			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
 		}
 
-		console.log('Calling createArtikeldata()');
-		createArtikeldata()
+		createArtikeldata();
 	});
 
 	/* Visa artikeldata */
 	$('#button-dialog-artikeldata').click(function() {
 		console.log('<mdui-button #button-dialog-artikeldata> clicked');
 		$('#dialog-artikeldata').attr('open', true);
+	});
+
+	/* Kopiera artikeldata*/
+	$('#button-copy-artikeldata').click(function() {
+		console.log('<mdui-button #button-copy-artikeldata> clicked');
+		navigator.clipboard.writeText(artikeldata);
+		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
 	});
 
 	$('.button-back-to-form').click(function() {
