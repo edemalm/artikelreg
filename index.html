@@ -446,8 +446,8 @@
 								</div>
 							</div>
 						</div>
+						<!--
 						<div class="s12">
-							<!--- XXX -->
 							<div class="switch-wrapper">
 								<div id="label-ws-xxx" class="text disabled">
 									<div class="switch-label">Något mer?</div>
@@ -458,6 +458,7 @@
 								</div>
 							</div>
 						</div>
+						-->
 						<div class="s12">
 							<!-- ARTIKELINFO WEBSESAM -->
 							<mdui-text-field id="textarea-ws-info"
@@ -796,60 +797,12 @@
 					<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
 				</div>
 				<div class="control-right">
-					<mdui-button id="button-create-artikeldata" validate-input="yes" end-icon="arrow_forward" variant="filled">Skicka underlag</mdui-button>
+					<mdui-button id="button-dialog-copy-artikeldata"
+						icon="content_copy"
+						variant="filled">Kopiera underlag</mdui-button>
 				</div>
+
 			</div><!-- .controls -->
-		</div><!-- .buttom-container -->
-	</div><!-- .inner-container -->
-</div><!-- .outer-container -->
-
-<!-- Artikeldata -->
-
-<div id="content-artikeldata" class="outer-container hidden">
-	<div class="inner-container">
-		<div class="fullpage-container">
-			<div class="fullpage-content body-large">
-				<h2 class="display-medium">Nästan klart!</h2>
-				<p class="body-large">Alla nödvändiga uppgifter är ifyllda och kan skickas till inköpspersonalen.</p>
-				<div class="surface-lowest">
-					<div class="steps-container">
-						<div class="flex-item title-medium"><div class="ball">1</div>Kopiera artikeluppgifterna</div>
-						<div class="flex-item"><mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button></div>
-					</div><!-- .steps-container -->
-					<div class="steps-container">
-						<div class="flex-item title-medium"><div class="ball">2</div>Skapa ett nytt epostmeddelande</div>
-						<div class="flex-item"><mdui-button id="button-send-email" icon="email" variant="filled">Skapa epost</mdui-button></div>
-					</div><!-- .steps-container -->
-					<div class="steps-container">
-						<div class="flex-item title-medium"><div class="ball">3</div>Klistra in uppgifterna i meddelandet och skicka!</div>
-					</div><!-- .steps-container -->
-				</div>
-				<p class="body-large">Vi återkommer med ny artikel fortast möjligt.<br>
-					Tack för att du använder artikelregistreringsunderlaget!</p>
-			</div>
-		</div>
-		<div class="buttom-container">
-			<div class="controls-container-center">
-					<div class="control-left">
-						<mdui-button class="button-back-to-form" icon="arrow_back" variant="text">Tillbaka till formulär</mdui-button>
-					</div>
-					<!--
-					<div class="control-right">
-						<mdui-button id="button-copy-div" icon="content_copy" variant="filled">Kopiera uppgifter inkl. formattering</mdui-button>
-					</div>
-					-->
-					<div class="control-right debug hidden">
-						<mdui-button id="button-dialog-artikeldata" variant="text">Visa artikeluppgifter</mdui-button>
-					</div>
-					<!--
-					<div class="control-right">
-						<mdui-button id="button-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
-					</div>
-					<div class="control-right">
-						<mdui-button id="button-send-email" icon="email" variant="filled">Skapa epost</mdui-button>
-					</div>
-					-->
-			</div>
 		</div><!-- .buttom-container -->
 	</div><!-- .inner-container -->
 </div><!-- .outer-container -->
@@ -948,19 +901,17 @@
 
 
 <mdui-dialog id="dialog-about" class="body-medium"
-	headline="Artikelregistreringsunderlag"
 	close-on-esc
-	close-on-overlay-click>
-	<p class="label-small"><span id="version"></span></p>
-	<p>Detta verktyp används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.</p>
-	<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
-	<p>Primär webbadress:<br><span id="main-site"></span></p>
-	<p>Backupadress:<br><span id="backup-site"></p>
+	close-on-overlay-click
+	headline="Om verktyget"
+	description="Detta verktyp används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam.">
+	<div class="dialog-body">
+		<p>All inmatad information lagras tillfälligt i din webbläsare och går förlorad när du stänger fönstret. Ingen data skickas till extern part.</p>
+		<p>Primär webbadress:<br><span id="main-site"></span></p>
+		<p>Backupadress:<br><span id="backup-site"></p>
+	</div>
 	<mdui-divider></mdui-divider>
-
-	<p id="p-more-details" class="label-small"><a id="a-show-about-more" href="#">Visa mer detaljer</a></span></p>
-
-	<div id="div-about-more" class="hidden">
+	<div id="div-about-more" class="dialog-body hidden">
 		<p>Verktyget är skapat med hjälp av följande fria programvaror, bilder och tjänster:</p>
 		<p>
 			<ul>
@@ -975,15 +926,20 @@
 		<p>All kod finns tillgänglig på <a href="https://github.com/edemalm/artikelreg" rel="external" target="_blank">GitHub</a>.</p>
 		<mdui-divider></mdui-divider>
 	</div>
-	<p>
-		Copyright &copy; 2025 Markus Edemalm<br>
-		Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a>
-	</p>
+	<p class="body-small"><span id="version"></span></p>
+	<div class="dialog-body">
+		<p>Copyright &copy; 2025 Markus Edemalm<br>
+			Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
+		<p id="p-more-details" class="label-small"><a id="a-show-about-more" href="javascript:void(0);">Visa mer</a></span></p>
+	</div>
 	<mdui-button id="button-close-about" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 
-<mdui-dialog id="dialog-reset-warning" close-on-overlay-click headline="Bekräfta rensning">
-	<p>All ifylld information går förlorad</p>
+<mdui-dialog id="dialog-reset-warning"
+	close-on-esc
+	close-on-overlay-click
+	headline="Bekräfta rensning"
+	description="All ifylld information går förlorad.">
 	<mdui-button class="button-close-dialog"
 		slot="action"
 		variant="text">Avbryt</mdui-button>
@@ -992,15 +948,24 @@
 		variant="filled">Rensa</mdui-button>
 </mdui-dialog>
 
-<mdui-dialog id="dialog-artikeldata"
+<mdui-dialog id="dialog-copy-artikeldata"
+	close-on-esc
 	close-on-overlay-click
-	headline="Artikeluppgifter">
-	<div id="div-artikeldata" class="body-small"></div>
+	headline="Artikeluppgifter kopierade"
+	description="Alla nödvändiga uppgifter är ifyllda och kopierade till datorns urklipp.">
+	<div class="dialog-body">
+		<p>Du kan nu skicka uppgifterna till inköpspersonalen med e-post. Klistra in uppgifterna i meddelandet genom att trycka CTRL+V.</p>
+		<p>Vi återkommer snarast med ny artikel. Tack för att du använder detta verktyg!</p>
+	</div>
+	<div id="div-artikeldata" class="dialog-body debug hidden"></div>
 	<mdui-button class="button-close-dialog"
 		slot="action"
 		variant="text">Stäng</mdui-button>
+	<mdui-button id="button-send-email"
+		icon="email"
+		slot="action"
+		variant="filled">Skapa e-postmeddelande</mdui-button>
 </mdui-dialog>
-
 
 </body>
 <script src="js/jquery.inactivity.min.js"></script>

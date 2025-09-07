@@ -4,8 +4,9 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-08-24';
-	window.debug = 'No'; // "Yes" to enable
+	window.update = '2025-09-07';	// Last commit date
+	window.debug = 'No';			// "Yes" to enable
+	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
 	window.artikelbenamning = '';
@@ -94,9 +95,6 @@ $(document).ready(function() {
 		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		});
-		// Enable button 'Visa artikeldata'
-		// $('#div-dialog-artikeldata').show();
-
 	}
 
 	const d = new Date();

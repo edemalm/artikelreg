@@ -517,7 +517,7 @@ div.form-title-text {
 	align-self: center;
 	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
 }
-div.form-title-text h3.headline-dynamic {
+div.form-title-text h3 {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -527,60 +527,10 @@ mdui-slider {
 	margin: var(--row-gap) 0;
 }
 
-div.surface-lowest {
-	background-color: rgb(var(--mdui-color-surface-container-lowest));
-	/* border: 1px solid rgb(var(--mdui-color-outline-variant)); */
-	border-radius: var(--mdui-shape-corner-medium);
-	box-shadow: var(--mdui-elevation-level1);
-	padding: var(--row-gap) var(--column-gap);
-}
-.steps-container {
-	display: flex;
-	flex-direction: column;
-	padding-bottom: var(--row-gap);
-}
-.steps-container:last-child {
-	padding-bottom: 0;
-} 
-.flex-item {
-	align-self: flex-start;
-}
-.flex-item:nth-child(1) {
-	flex-grow: 1;
-	flex-shrink: 1;
-}
-
-.flex-item:nth-child(2) {
-	flex-grow: 0;
-	flex-shrink: 1;
-	line-height: 1;
-	padding-left: 4rem;
-}
-@media only screen and (min-width: 801px) {
-	div.surface-lowest {
-		max-width: 800px;
-		padding: var(--double-row-gap) var(--double-column-gap);
-	}
-	.steps-container {
-		flex-direction: row;
-		padding-bottom: var(--double-row-gap);
-	}
-	.flex-item {
-		align-self: center;
-	}
-}
-
-div.ball {
-	background-color: rgb(var(--mdui-color-primary-container));
-	border-radius: var(--mdui-shape-corner-full);
-	color: rgb(var(--mdui-color-on-primary-container));
-	display: inline-block;
-	font-size: 1rem;
-	font-weight: 500;
-	height: 1rem;
-	line-height: 1;
-	margin-right: var(--column-gap);
-	padding: 1rem;
-	text-align: center;
-	width: 1rem;
+.dialog-body {
+	color: rgb(var(--mdui-color-on-surface-variant));
+	font-size: var(--mdui-typescale-body-medium-size);
+	font-weight: var(--mdui-typescale-body-medium-weight);
+	letter-spacing: var(--mdui-typescale-body-medium-tracking);
+	line-height: var(--mdui-typescale-body-medium-line-height);
 }

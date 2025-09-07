@@ -185,6 +185,7 @@ $(document).ready(function() {
 
 		// reset
 		disableSelectDebiteringsform();
+		disableSwitchWSKomp();
 		disableSwitchIndividartikel();
 		disableSwitchInventarium();
 		disableRadioAvskrivningstid();
@@ -206,6 +207,7 @@ $(document).ready(function() {
 			case 'T':
 				$('#select-artikeltyp').attr('helper','Ett tillbehör tillför en extra funktion till ett huvudhjälpmedel');
 				enableSelectDebiteringsform();
+				enableSwitchWSKomp();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
 					$('#select-debiteringsform').val('A'); // select option 'A' (Köp)
@@ -514,25 +516,46 @@ $(document).ready(function() {
 		}
 	});
 
-	// Skapa artikeluppgifter
+//	// Skapa artikeluppgifter
+//
+//	$('#button-create-artikeldata').click(function() {
+//		console.log('<mdui-button #button-create-artikeldata> clicked');
+//
+//		if ( $('#button-create-artikeldata').attr('validate-input') == "yes" ) {
+//			console.log('Input validation enabled');
+//
+//			// validate input
+//			// vanilla javascript
+//			/*
+//			for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
+//				if (!el.reportValidity()) {
+//					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+//					return;
+//				}
+//			}
+//			*/
+//
+//			for (const el of $('[required]')) {
+//				if (!el.reportValidity()) {
+//					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+//					return;
+//				}
+//			}
+//		} else {
+//			console.log('Input validation disabled');
+//			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
+//		}
+//
+//		createArtikeldata();
+//	});
 
-	$('#button-create-artikeldata').click(function() {
-		console.log('<mdui-button #button-create-artikeldata> clicked');
+	$('#button-dialog-copy-artikeldata').click(function() {
+		console.log('<mdui-button #button-dialog-copy-artikeldata> clicked');
 
-		if ( $('#button-create-artikeldata').attr('validate-input') == "yes" ) {
+		if ( validate_input == 'Yes' ) {
 			console.log('Input validation enabled');
 
 			// validate input
-			// vanilla javascript
-			/*
-			for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
-				if (!el.reportValidity()) {
-					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
-					return;
-				}
-			}
-			*/
-
 			for (const el of $('[required]')) {
 				if (!el.reportValidity()) {
 					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
@@ -545,6 +568,10 @@ $(document).ready(function() {
 		}
 
 		createArtikeldata();
+
+		navigator.clipboard.writeText(artikeldata);
+
+		$('#dialog-copy-artikeldata').attr('open', true);
 	});
 
 	/* Visa artikeldata */
@@ -553,12 +580,12 @@ $(document).ready(function() {
 		$('#dialog-artikeldata').attr('open', true);
 	});
 
-	/* Kopiera artikeldata*/
-	$('#button-copy-artikeldata').click(function() {
-		console.log('<mdui-button #button-copy-artikeldata> clicked');
-		navigator.clipboard.writeText(artikeldata);
-		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
-	});
+	/* XXXXX Kopiera artikeldata*/
+//	$('#button-copy-artikeldata').click(function() {
+//		console.log('<mdui-button #button-copy-artikeldata> clicked');
+//		navigator.clipboard.writeText(artikeldata);
+//		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
+//	});
 
 	$('.button-back-to-form').click(function() {
 		console.log('<mdui-button .button-back-to-form> clicked');

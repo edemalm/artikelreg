@@ -529,6 +529,6 @@ function createArtikeldata() {
 	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
 	$('#button-send-email').attr('href', hrefcontent);
 
-	/* Change page */
-	changeContent('#content-artikeldata', '#menu-formular');
+	/* XXXXX Change page */
+	// changeContent('#content-artikeldata', '#menu-formular');
 }
