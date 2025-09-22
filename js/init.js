@@ -4,7 +4,7 @@ $(document).ready(function() {
 	//console.log('window.location.protocol: ' + window.location.protocol);
 
 	// Global variables
-	window.update = '2025-09-07';	// Last commit date
+	window.update = '2025-09-22';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 

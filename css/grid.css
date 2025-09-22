@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 :root {
-	--row-gap: 1rem;
-	--column-gap: 1rem;
-	--double-row-gap: 2rem;
-	--double-column-gap: 2rem;
-	--triple-row-gap: 3rem;
+	--row-gap: 0.75rem;			/* 12px */
+	--column-gap: 0.75rem;
+	--double-row-gap: 1.5rem;	/* 24px */
+	--double-column-gap: 1.5rem;
+	--triple-row-gap: 3rem;		/* 48px */
 	--triple-column-gap: 3rem;
 }
 
