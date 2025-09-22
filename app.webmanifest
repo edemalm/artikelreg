@@ -2,8 +2,8 @@
 	"name":"Artikelregistreringsunderlag DHC",
 	"short_name":"Artikelreg",
 	"start_url":"/",
-	"display": "standalone",
-	"description":"Detta formulär används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam",
+	"display":"standalone",
+	"description":"Detta verktyp används för att generera ett underlag med nödvändiga uppgifter för upplägg av nya artiklar i Sesam",
 	"icons": [
 		{
 			"src":"img/favicon/android-chrome-192x192.png",

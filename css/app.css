@@ -120,14 +120,9 @@ div.outer-container {
 div.inner-container {
 	display: flex;
 	flex-direction: column;
-	padding: var(--double-row-gap) 0 0 0;
+	padding: var(--double-row-gap) var(--column-gap);
 }
 
-@media only screen and (min-width: 641px) {
-	div.inner-container {
-		padding: var(--double-row-gap) var(--column-gap) var(--row-gap) var(--column-gap);
-	}
-}
 @media only screen and (min-width: 1281px) {
 	div.inner-container {
 		padding: var(--double-row-gap) var(--double-column-gap);
@@ -266,21 +261,19 @@ div.right-container div.form-section:last-child {
 	}
 }
 
-/* XXX */
-
 div.controls-container-left,
 div.controls-container-center,
 div.controls-container-right {
 	display: flex;
 	flex-direction: column;
-	padding: var(--row-gap) var(--double-column-gap);
+	padding: var(--row-gap) 0 0 0;
 }
 div.control-left,
 div.control-center,
 div.control-right {
 	text-align: right;
 	line-height: 0;
-	padding: var(--row-gap) 0;
+	padding: var(--row-gap) 0 0 0;
 }
 
 @media only screen and (min-width: 641px) {
@@ -288,7 +281,7 @@ div.control-right {
 	div.controls-container-center,
 	div.controls-container-right {
 		flex-direction: row;
-		padding: var(--double-row-gap) var(--column-gap) var(--row-gap) var(--column-gap);
+		padding: var(--double-row-gap) 0 0 0;
 	}
 	div.controls-container-left { justify-content: left; }
 	div.controls-container-center { justify-content: center; }
@@ -297,21 +290,6 @@ div.control-right {
 	div.control-left { flex-grow: 1; padding: 0 var(--column-gap) 0 0; text-align: left; }
 	div.control-center { flex-grow: 0; padding: 0; text-align: center; }
 	div.control-right { flex-grow: 0; padding: 0 0 0 var(--column-gap); text-align: right; }
-}
-@media only screen and (min-width: 1281px) {
-	div.controls-container-left, div.controls-container-center, div.controls-container-right {
-		padding: var(--double-row-gap) 0 0 0;
-	}
-
-	/*
-	div.control-left,
-	div.control-center,
-	div.control-right {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-	*/
-
 }
 
 #viewport {

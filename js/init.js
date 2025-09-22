@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	console.log('Loading init.js');
 
-	//console.log('window.location.protocol: ' + window.location.protocol);
-
 	// Global variables
 	window.update = '2025-09-22';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable

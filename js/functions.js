@@ -525,7 +525,7 @@ function createArtikeldata() {
 	} else {
 		mailsub += "ny artikel";
 	}
-	mailsub += " (" + artikelbenamning_firstword.toLowerCase() + ") i Sesam";
+	mailsub += " i Sesam (" + artikelbenamning_firstword + " / " + standardprodukt + ")";
 	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
 	$('#button-send-email').attr('href', hrefcontent);
 
