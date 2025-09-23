@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 :root {
+	--small-row-gap: 0.5rem;	/* 8px */
+	--small-column-gap: 0.5rem;
 	--row-gap: 0.75rem;			/* 12px */
 	--column-gap: 0.75rem;
 	--double-row-gap: 1.5rem;	/* 24px */

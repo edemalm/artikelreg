@@ -55,17 +55,8 @@ $(document).ready(function() {
 	// Dialog events
 	// <mdui-dialog #dialog-about>
 
-	$('#a-show-about-more').click(function(event) {
-		console.log('<a #a-show-about-more> clicked');
-		event.preventDefault;
-		$('#p-more-details').hide();
-		$('#div-about-more').slideDown();
-	});
-
 	$('#button-close-about').click(function() {
 		console.log('<mdui-button #button-close-about> clicked');
-		$('#p-more-details').show();
-		$('#div-about-more').hide();
 		$('mdui-dialog').removeAttr('open');
 	});
 
