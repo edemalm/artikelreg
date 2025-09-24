@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-09-24';	// Last commit date
+	window.update = '2025-09-24-2';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
@@ -55,15 +55,16 @@ $(document).ready(function() {
 		theme = 'light';
 		console.log('Requested theme: ' + theme);
 	} else {
-		console.log('No theme requested');
+		console.log('No theme requested in URL parameter');
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			theme = 'dark';
-			console.log('System theme: ' + theme);
 		} else {
 			theme = 'light';
-			console.log('System theme: ' + theme);
 		}
+		console.log('System preferred theme: ' + theme);
 	}
+
+	// Set theme class
 	if (theme == 'dark') {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
@@ -95,47 +96,55 @@ $(document).ready(function() {
 		});
 	}
 
+	// Set background image class
 	const d = new Date();
 	let month = d.getMonth();
 
 	if ( month == 0 || month == 1 || month == 2 ) {
+		// Jan, Feb, Mar
 		console.log("I believe it's winter");
 		const bgclasses = ['winter-0','winter-1','winter-2','winter-3','winter-4','winter-5','winter-6','winter-7','winter-8'];
 		const random = Math.floor(Math.random() * bgclasses.length);
 		$('body').addClass(bgclasses[random]);
 	}
 	if ( month == 3 || month == 4 ) {
+		// Apr, May
 		console.log("I believe it's spring");
 		const bgclasses = ['spring-0','spring-1','spring-2','spring-3','spring-4','spring-5','spring-6', 'spring-7'];
 		const random = Math.floor(Math.random() * bgclasses.length);
 		$('body').addClass(bgclasses[random]);
 	}
 	if ( month == 5 || month == 6 || month == 7 ) {
+		// Jun, Jul, Aug
 		console.log("I believe it's summer");
 		const bgclasses = ['summer-0','summer-1','summer-2','summer-3','summer-4','summer-5','summer-6','summer-7','summer-8','summer-9','summer-10','summer-11','summer-12','summer-13','summer-14','summer-15','summer-16'];
 		const random = Math.floor(Math.random() * bgclasses.length);
 		$('body').addClass(bgclasses[random]);
 	}
 	if ( month == 8 || month == 9 || month == 10 ) {
+		// Sep, Oct, Nov
 		console.log("I believe it's fall");
 		const bgclasses = ['fall-0','fall-1','fall-2','fall-3','fall-4','fall-5','fall-6','fall-7','fall-8','fall-9','fall-10','fall-11','fall-12','fall-13','fall-14','fall-15','fall-16','fall-17','fall-18','fall-19','fall-20','fall-21'];
 		const random = Math.floor(Math.random() * bgclasses.length);
 		$('body').addClass(bgclasses[random]);
 	}
 	if ( month == 11 ) {
+		// Dec
 		console.log("I believe it's christmas");
 		const bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
 		const random = Math.floor(Math.random() * bgclasses.length);
 		$('body').addClass(bgclasses[random]);
 	}
 
+	// Inactivity plugin
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 60000 });
+	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
+		console.log('Activity detected');
 		$('#filter-layer, .outer-container').removeClass('inactive')
 	});
 	$(document).on("inactivity", function() {
-		console.log('function that fires on inactivity');
+		console.log('Inactivity detected');
 		$('#filter-layer, .outer-container').addClass('inactive')
 	});
 
@@ -148,28 +157,26 @@ $(document).ready(function() {
 	$('#main-site').html('<a href="' + deploy1 + '/">' + deploy1 + '</a>');
 	$('#backup-site').html('<a href="' + deploy2 + '/">' + deploy2 + '</a>');
 
-	// Catch the "open" event of <mdui-collapse-item> #menu-collapse-group1
+	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group1>
 	$('#menu-collapse-group1').on('open', function() {
 		console.log('The open event fired on #menu-collapse-group1');
 		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_up')
 	});
-	// Catch the "open" event of <mdui-collapse-item> #menu-collapse-group2
+	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group2>
 	$('#menu-collapse-group2').on('open', function() {
 		console.log('The open event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_up')
 	});
-
-	// Catch the "close" event of <mdui-collapse-item> #menu-collapse-group1
+	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group1>
 	$('#menu-collapse-group1').on('close', function() {
 		console.log('The close event fired on #menu-collapse-group1');
 		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_down')
 	});
-	// Catch the "close" event of <mdui-collapse-item> #menu-collapse-group2
+	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group2>
 	$('#menu-collapse-group2').on('close', function() {
 		console.log('The close event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
 	});
-
 
 	// Include HTML from files
 	// Note: The load function is not included in the slim verion of jQuery
