@@ -16,6 +16,11 @@ body {
 	user-select: none;
 }
 
+/* hide page scrollbar */
+html { scrollbar-width: none; } /* Firefox */
+body { -ms-overflow-style: none; } /* IE and Edge */
+body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Chrome */
+
 @media screen and (min-width: 1025px) {
 	.winter-0 { background-image: url('../img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
 	.winter-1 { background-image: url('../img/bg/winter/birger-strahl-6YZgnYaPD5s-unsplash.jpg') }
