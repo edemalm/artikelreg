@@ -16,11 +16,6 @@ body {
 	user-select: none;
 }
 
-/* hide page scrollbar */
-html { scrollbar-width: none; } /* Firefox */
-body { -ms-overflow-style: none; } /* IE and Edge */
-body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Chrome */
-
 @media screen and (min-width: 1025px) {
 	.winter-0 { background-image: url('../img/bg/winter/anita-austvika-NuLis-vR87s-unsplash.jpg') }
 	.winter-1 { background-image: url('../img/bg/winter/birger-strahl-6YZgnYaPD5s-unsplash.jpg') }
@@ -87,14 +82,9 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Ch
 	.christmas-2 { background-image: url('../img/bg/christmas/hert-niks-m3L1AStgkyw-unsplash.jpg') }
 	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
-	/*
-	backdrop-filter: blur(1rem);
-	background: linear-gradient(180deg,rgba(var(--mdui-color-scrim),0.1) 0%, rgba(var(--mdui-color-scrim),0.9) 100%);
-	*/
-
 	#filter-layer {
-		backdrop-filter: blur(8px);
-		background-color: rgba(var(--mdui-color-background),0.5);
+		backdrop-filter: blur(12px);
+		background-color: rgba(var(--mdui-color-background),.25);
 		display: block;
 		top: 0;
 		left: 0;
@@ -102,7 +92,7 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Ch
 		height: 100%;
 		overflow: auto;
 		position: fixed;
-		transition: all 0.5s;
+		transition: all .4s;
 	}
 	#filter-layer.inactive {
 		backdrop-filter: none;
@@ -110,7 +100,12 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Ch
 		opacity: 0%;
 		transition: all 2s;
 	}
-	.outer-container.inactive {
+	mdui-layout-main,
+	mdui-dialog {
+		transition: all .4s;
+	}
+	mdui-layout-main.inactive,
+	mdui-dialog.inactive {
 		opacity: 0%;
 		transition: all 2s;
 	}

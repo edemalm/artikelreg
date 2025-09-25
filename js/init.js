@@ -2,13 +2,12 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-09-24-3';	// Last commit date
+	window.update = '2025-09-25';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
 	window.artikelbenamning = '';
-	window.artikelbenamning_firstword = '';
 	window.artikeldata = '';
 	window.artikeltyp = '';
 	window.avd = '';
@@ -141,11 +140,11 @@ $(document).ready(function() {
 	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
 		console.log('Activity detected');
-		$('#filter-layer, .outer-container').removeClass('inactive')
+		$('#filter-layer, mdui-layout-main, mdui-dialog').removeClass('inactive')
 	});
 	$(document).on("inactivity", function() {
 		console.log('Inactivity detected');
-		$('#filter-layer, .outer-container').addClass('inactive')
+		$('#filter-layer, mdui-layout-main, mdui-dialog').addClass('inactive')
 	});
 
 	// Set date in version

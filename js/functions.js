@@ -10,8 +10,8 @@ function setURLParam(key, value) {
 function changeContent(contentId, menuItemId) {
 	console.log(' -- changeContent()');
 		if ($(contentId).css('display') == 'none') {
-			$('.outer-container').fadeOut(200); /* hide all content */
-			$(contentId).delay(200).fadeIn(200);
+			$('.outer-container').fadeOut(400); /* hide all content */
+			$(contentId).delay(400).fadeIn(400);
 			$('mdui-list-item').removeAttr('active');
 			$(menuItemId).attr('active','');
 		}
@@ -167,7 +167,6 @@ function createArtikeldata() {
 	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();
 	artikelbenamning = $('#text-artikelbenamning').val();
-	artikelbenamning_firstword = (artikelbenamning.length > 0 ? artikelbenamning.match(/\s*([^\s]+)/)[1] : '(uppgift saknas)');
 	artikeltyp = $('#select-artikeltyp').val();
 	avskrivningstid = $('#radio-avskrivningstid').val();
 	besiktningsintervall = $('#select-besiktningsintervall').val();
@@ -209,7 +208,7 @@ function createArtikeldata() {
 		artikeldata += "Artikeln finns i Hjälpmedelstjänsten";
 		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" och är upphandlad";
 		// Mallartikel
-		artikeldata += ". Vid import använd mallartikel som börjar med \"" + avd + artikeltyp + "\"";
+		artikeldata += ". Vid import använd mallartikel som börjar med \"" + avd.substring(0,1) + artikeltyp + "\"";
 	} else {
 		artikeldata += "Artikeln saknas tyvärr i Hjälpmedelstjänsten";
 		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" men är upphandlad";
@@ -516,8 +515,9 @@ function createArtikeldata() {
 	$('#div-artikeldata').html('<pre id="content-to-copy">' + artikeldata + '</pre>');
 
 	// Update href mailto link
-	var mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
-	var mailsub = "Upplägg av ";
+	let mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
+	let artikelbenamning_firstword = (artikelbenamning.length > 0 ? artikelbenamning.match(/\s*([^\s]+)/)[1] : '(uppgift saknas)');
+	mailsub = "Registrering av ";
 	if (artikeltyp.length > 0) {
 		if (artikeltyp == 'H') mailsub += "nytt huvudhjälpmedel";
 		if (artikeltyp == 'T') mailsub += "nytt tillbehör";
@@ -525,7 +525,7 @@ function createArtikeldata() {
 	} else {
 		mailsub += "ny artikel";
 	}
-	mailsub += " i Sesam (" + artikelbenamning_firstword + " / " + standardprodukt + ")";
+	mailsub += " (" + artikelbenamning_firstword.toLowerCase() + " från " + leverantor + ")";
 	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
 	$('#button-send-email').attr('href', hrefcontent);
 
