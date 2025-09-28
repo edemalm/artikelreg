@@ -76,6 +76,21 @@ function disableRadioAvskrivningstid() {
 	$('#label-avskrivningstid').addClass('disabled'); // add .disabled
 }
 
+function enableSwitchHarAldrigKomp() {
+	console.log(' -- enableSwitchHarAldrigKomp()');
+	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-har-aldrig-komp').removeClass('disabled'); // remove .disabled
+	$('#har-aldrig-komp-helper').html('Det är möjligt att koppla tillbehör som komponenter till detta huvudhjälpmedel');
+	haraldrigkomp = "Nej";
+}
+function disableSwitchHarAldrigKomp() {
+	console.log(' -- disableSwitchHarAldrigKomp()');
+	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-har-aldrig-komp').addClass('disabled'); // add .disabled
+	$('#har-aldrig-komp-helper').html('Det är möjligt att koppla tillbehör som komponenter till detta huvudhjälpmedel');
+	haraldrigkomp = "Nej";
+}
+
 function enableSwitchWSKomp() {
 	console.log(' -- enableSwitchWSKomp()');
 	$('#switch-ws-komp').attr('checked', true).attr('disabled', false); // check and enable
@@ -140,7 +155,7 @@ function disableTextKvalitetskontroll() {
 
 function enableServiceOchUnderhall() {
 	console.log(' -- enableServiceOchUnderhall()');
-	$('#select-servicegrad').val('').attr('disabled', false); // reset and enable
+	$('#select-servicegrad').val('').attr('disabled', false).attr('readonly', false); // reset, enable and not readonly	
 	$('#select-besiktningsintervall').val('').attr('disabled', false); // reset and enable
 	$('#select-fu-intervall').val('').attr('disabled', false); // reset and enable
 	$('#switch-dtm').attr('checked', false).attr('disabled', false); // uncheck and disable
@@ -176,6 +191,7 @@ function createArtikeldata() {
 	forbrukning = $('#slider-forbrukning').val();
 	fu_intervall = $('#select-fu-intervall').val();
 	gmi = $('#textarea-gmi').val();
+	haraldrigkomp = ($('#switch-har-aldrig-komp').prop("checked") ? "Ja" : "Nej");
 	huvudlager = $('#select-huvudlager').val();
 	standardprodukt = $('#text-standardprodukt').val();
 	iki = $('#textarea-iki').val();
@@ -216,11 +232,11 @@ function createArtikeldata() {
 	artikeldata += ".\n";
 
 	// ARTIKEL
-	artikeldata += "\nARTIKEL\n\n"
+	artikeldata += "\n● ARTIKEL\n\n"
 	artikeldata += "Artikelbenämning:  " + artikelbenamning + "\n";
 
 	// KLASSIFICERING
-	artikeldata += "\nKLASSIFICERING\n\n";
+	artikeldata += "\n● KLASSIFICERING\n\n";
 
 	// Artikeltyp
 	artikeldata += "Artikeltyp:  ";
@@ -319,6 +335,11 @@ function createArtikeldata() {
 		artikeldata += "Inventarium:  " + inventarium + "\n";
 	}
 
+	// Har aldrig komponenter
+	if (haraldrigkomp == 'Ja') {
+		artikeldata += "Har aldrig komponenter:  " + haraldrigkomp + " ⇐ OBS!\n";
+	}
+
 	// Drifttidsmätare
 	if (individartikel == 'Ja' && dtm == 'Ja') {
 		artikeldata += "Drifttidsmätare:  " + dtm + " (enhet: timmar)\n";
@@ -334,7 +355,7 @@ function createArtikeldata() {
 
 	// INSTRUKTIONER
 	if (gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0) {
-		artikeldata += "\nINSTRUKTIONER\n\n";
+		artikeldata += "\n● INSTRUKTIONER\n\n";
 		if (gmi.length > 0) artikeldata += "Godsmottagningsinstruktion:  " + gmi + "\n";
 		if (kkb.length > 0) artikeldata += "Kvalitetskontroll, beskrivning:  " + kkb + "\n";
 		if (iki.length > 0) artikeldata += "Intern kundorderinformation:  " + iki + "\n";
@@ -343,7 +364,7 @@ function createArtikeldata() {
 	}
 
 	// VISMA WEBSESAM
-	artikeldata += "\nVISMA WEBSESAM\n\n";
+	artikeldata += "\n● VISMA WEBSESAM\n\n";
 
 	// Publicera
 	artikeldata += "Publicera:  " + ws_pub + "\n";
@@ -360,14 +381,14 @@ function createArtikeldata() {
 	if (ws_info.length > 0) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
 
 	// PRODUKT
-	artikeldata += "\nPRODUKT\n\n";
+	artikeldata += "\n● PRODUKT\n\n";
 	artikeldata += "Standardprodukt:  " + standardprodukt + "\n";
 	if (produkt2.length > 0) artikeldata += "Extra produkt:  " + produkt2 + "\n";
 	if (produkt3.length > 0) artikeldata += "Extra produkt:  " + produkt3 + "\n";
 	if (produkt4.length > 0) artikeldata += "Extra produkt:  " + produkt4 + "\n";
 
 	// PRISPARAMETRAR
-	artikeldata += "\nPRISPARAMETRAR\n\n";
+	artikeldata += "\n● PRISPARAMETRAR\n\n";
 
 	// Debiteringsform
 	artikeldata += "Debiteringsform:  ";
@@ -438,7 +459,7 @@ function createArtikeldata() {
 	// AKTIVITETSTYPSCHEMAN
 	if (artikeltyp == 'H' && individartikel == 'Ja') {
 		if (besiktningsintervall.length > 0 || fu_intervall.length > 0) {
-			artikeldata += "\nAKTIVITETSTYPSCHEMAN\n\n";
+			artikeldata += "\n● AKTIVITETSTYPSCHEMAN\n\n";
 			if (besiktningsintervall.length > 0) {
 				artikeldata += "Besiktningsintervall:  " + besiktningsintervall + "\n";
 			}
@@ -449,7 +470,7 @@ function createArtikeldata() {
 	}
 
 	// LAGER
-	artikeldata += "\nLAGER\n\n";
+	artikeldata += "\n● LAGER\n\n";
 
 	// Huvudlager
 	artikeldata += "Huvudlager:  ";
@@ -492,22 +513,22 @@ function createArtikeldata() {
 	let extratext = '';
 	if (upplysningar.length > 0) {
 		counter++;
-		extratext += "Övriga upplysningar:  " + upplysningar + "\n";
+		extratext += "☝ " + upplysningar + "\n";
 	}
 	if (artikeltyp == 'H' && artikelbenamning.startsWith('Elrullstol')) {
 		counter++;
-		extratext += "Kom ihåg att elrullstolar skall ha uppföljning. Lägg till artikeln i Uppföljningsorsaker.\n";
+		extratext += "☝ Kom ihåg att elrullstolar skall ha uppföljning. Lägg till artikeln i Uppföljningsorsaker.\n";
 	}
 	if (artikelansvar == 'R') {
 		counter++;
-		extratext += "Kom ihåg att retursortiment har olika prisgrupper för barn och vuxna.";
+		extratext += "☝ Kom ihåg att retursortiment har olika prisgrupper för barn och vuxna.";
 		if (artikelbenamning.startsWith('Rollator')) {
 			extratext += " Rollatorer för vuxna har dessutom en egen prisgrupp.";
 		}
 		extratext += " Kontrollera noga att det blir rätt.\n"
 	}
 	if (counter > 0) {
-		artikeldata += "\nÖVRIGT\n\n";
+		artikeldata += "\n● ÖVRIGT\n\n";
 		artikeldata += extratext;
 	}
 
@@ -517,7 +538,8 @@ function createArtikeldata() {
 	// Update href mailto link
 	let mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
 	let artikelbenamning_firstword = (artikelbenamning.length > 0 ? artikelbenamning.match(/\s*([^\s]+)/)[1] : '(uppgift saknas)');
-	mailsub = "Registrering av ";
+	let mailsub = "Registrering av ";
+	let mailbody = "(Sudda denna rad. Tryck sedan Ctrl+V för att klista in uppgifter.)\n";
 	if (artikeltyp.length > 0) {
 		if (artikeltyp == 'H') mailsub += "nytt huvudhjälpmedel";
 		if (artikeltyp == 'T') mailsub += "nytt tillbehör";
@@ -526,9 +548,9 @@ function createArtikeldata() {
 		mailsub += "ny artikel";
 	}
 	mailsub += " (" + artikelbenamning_firstword.toLowerCase() + " från " + leverantor + ")";
-	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
+
+	// var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub);
+	var hrefcontent = 'mailto:' + mailrec + '?subject=' + encodeURIComponent(mailsub) + '&body=' + encodeURIComponent(mailbody);
 	$('#button-send-email').attr('href', hrefcontent);
 
-	/* XXXXX Change page */
-	// changeContent('#content-artikeldata', '#menu-formular');
 }

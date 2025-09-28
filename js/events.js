@@ -126,7 +126,7 @@ $(document).ready(function() {
 
 	});
 
-	// 3. Grundläggande parametrar
+	// 3. Ekonomi
 
 	// mdui-select #select-artikelansvar changes
 	$('#select-artikelansvar').on('change', function() {
@@ -176,6 +176,7 @@ $(document).ready(function() {
 
 		// reset
 		disableSelectDebiteringsform();
+		// disableSwitchHarAldrigKomp();
 		disableSwitchWSKomp();
 		disableSwitchIndividartikel();
 		disableSwitchInventarium();
@@ -186,8 +187,9 @@ $(document).ready(function() {
 
 		switch (artikeltyp) {
 			case 'H':
-				$('#select-artikeltyp').attr('helper','Ett huvudjälpmedel är ett komplett fungerande hjälpmedel');
+				$('#select-artikeltyp').attr('helper','Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel');
 				enableSelectDebiteringsform();
+				// enableSwitchHarAldrigKomp();
 				enableTextReturtagningsinformation();
 				enableSwitchKvalitetskontroll();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
@@ -221,6 +223,7 @@ $(document).ready(function() {
 		disableSwitchIndividartikel();
 		disableSwitchInventarium();
 		disableRadioAvskrivningstid();
+		disableSwitchHarAldrigKomp();
 		disableServiceOchUnderhall();
 		switch (debiteringsform) {
 			case 'M':
@@ -230,14 +233,14 @@ $(document).ready(function() {
 					enableSwitchInventarium();
 					$('#switch-inventarium').attr('checked', true); // checked
 					enableRadioAvskrivningstid();
+					enableSwitchHarAldrigKomp();
 					enableServiceOchUnderhall();
 					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
 				}
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'T') {
 					$('#select-servicegrad').val('44').attr('disabled', false).attr('readonly', true); // reset and enable
 				}
-	
-		break;
+			break;
 			case 'A':
 				if (artikeltyp == 'H') {
 					enableSwitchIndividartikel();
@@ -297,38 +300,21 @@ $(document).ready(function() {
 		console.log('Avskrivningstid: ' + avskrivningstid );
 	});
 
-	// 4. Ansvarigt team
+	// 4. Komponenthantering
 
-	// mdui-select #select-team changes
-	$('#select-team').on('change', function() {
-		console.log('<mdui-select #select-team> changed');
-		team = this.value;
-		console.log('Team: ' + team );
-		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
-			console.log('Avdelning: Rörelse');
-			avd = "R";
-			avdelning = "Rörelse";
-		} else if ( team == '05' ) {
-			console.log('Avdelning: KLOK');
-			avd = "K";
-			avdelning = "KLOK";
-		} else if ( team == '07' ) {
-			console.log('Avdelning: PMB');
-			avd = "PMB";
-			avdelning = "PMB";
-		} else if ( team == '40' ) {
-			console.log('Avdelning: Syncentralen');
-			avd = "S";
-			avdelning = "Syncentralen";
+	// mdui-switch #switch-har-aldrig-komp changes
+	$('#switch-har-aldrig-komp').on('change', function() {
+		console.log('<mdui-switch #switch-har-aldrig-komp> changed');
+		if ($('#switch-har-aldrig-komp').prop("checked")) {
+			// on
+			$('#har-aldrig-komp-helper').html('Tillbehör kan aldrig kopplas som komponenter till detta huvudhjälpmedel');
 		} else {
-			console.log('Avdelning: Kan ej fastställas baserat på team');
-			avd = "(avd saknas)";
-			avdelning = "(avdelning saknas)";
+			// off
+			$('#har-aldrig-komp-helper').html('Det är möjligt att koppla tillbehör som komponenter till detta huvudhjälpmedel');
 		}
-
 	});
 
-	// 5. Inställningar för webSesam
+	// 5. Visma webSesam
 
 	// mdui-switch #switch-ws-pub changes
 	$('#switch-ws-pub').on('change', function() {
@@ -382,7 +368,41 @@ $(document).ready(function() {
 		}
 	});
 
-	// 6. Lagerhållning
+	// 6. Informationstexter
+	// no events
+
+	// 7. Ansvarigt team
+
+	// mdui-select #select-team changes
+	$('#select-team').on('change', function() {
+		console.log('<mdui-select #select-team> changed');
+		team = this.value;
+		console.log('Team: ' + team );
+		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
+			console.log('Avdelning: Rörelse');
+			avd = "R";
+			avdelning = "Rörelse";
+		} else if ( team == '05' ) {
+			console.log('Avdelning: KLOK');
+			avd = "K";
+			avdelning = "KLOK";
+		} else if ( team == '07' ) {
+			console.log('Avdelning: PMB');
+			avd = "PMB";
+			avdelning = "PMB";
+		} else if ( team == '40' ) {
+			console.log('Avdelning: Syncentralen');
+			avd = "S";
+			avdelning = "Syncentralen";
+		} else {
+			console.log('Avdelning: Kan ej fastställas baserat på team');
+			avd = "(avd saknas)";
+			avdelning = "(avdelning saknas)";
+		}
+
+	});
+
+	// 8. Lagerhållning
 
 	// mdui-select #select-huvudlager changes
 	$('#select-huvudlager').on('change', function() {
@@ -455,7 +475,7 @@ $(document).ready(function() {
 		}
 	});
 
-	// 7. Hantering vid ankomst
+	// 9. Hantering vid ankomst
 
 	// mdui-switch #switch-kvalitetskontroll changes
 	$('#switch-kk').on('change', function() {
@@ -493,7 +513,7 @@ $(document).ready(function() {
 		$('mdui-dialog').removeAttr('open');
 	});
 
-	// 8. Service and underhåll
+	// 10. Service and underhåll
 
 	// mdui-switch #switch-dtm changes
 	$('#switch-dtm').on('change', function() {
