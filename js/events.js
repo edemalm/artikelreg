@@ -307,10 +307,22 @@ $(document).ready(function() {
 		console.log('<mdui-switch #switch-har-aldrig-komp> changed');
 		if ($('#switch-har-aldrig-komp').prop("checked")) {
 			// on
-			$('#har-aldrig-komp-helper').html('Tillbehör kan aldrig kopplas som komponenter till detta huvudhjälpmedel');
+			$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel har aldrig tillbehör kopplade som komponenter');
 		} else {
 			// off
-			$('#har-aldrig-komp-helper').html('Det är möjligt att koppla tillbehör som komponenter till detta huvudhjälpmedel');
+			$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter');
+		}
+	});
+
+	// mdui-switch #switch-ws-komp changes
+	$('#switch-ws-komp').on('change', function() {
+		console.log('<mdui-switch #switch-ws-komp> changed');
+		if ($('#switch-ws-komp').prop("checked")) {
+			// on
+			$('#ws-komp-helper').html('Detta tillbehör kan beställas som komponent till ett huvudhjälpmedel');
+		} else {
+			// off
+			$('#ws-komp-helper').html('Detta tillbehör kan inte beställas som komponent till ett huvudhjälpmedel');
 		}
 	});
 
@@ -339,18 +351,6 @@ $(document).ready(function() {
 		} else {
 			// off
 			$('#ws-bb-helper').html('Artikeln kan ej beställas. Uttag från eget kundlager kan ej registreras.');
-		}
-	});
-
-	// mdui-switch #switch-ws-komp changes
-	$('#switch-ws-komp').on('change', function() {
-		console.log('<mdui-switch #switch-ws-komp> changed');
-		if ($('#switch-ws-komp').prop("checked")) {
-			// on
-			$('#ws-komp-helper').html('Artikeln kan beställas som komponent till ett huvudhjälpmedel');
-		} else {
-			// off
-			$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
 		}
 	});
 

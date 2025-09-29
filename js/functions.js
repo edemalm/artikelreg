@@ -80,14 +80,14 @@ function enableSwitchHarAldrigKomp() {
 	console.log(' -- enableSwitchHarAldrigKomp()');
 	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
 	$('#label-har-aldrig-komp').removeClass('disabled'); // remove .disabled
-	$('#har-aldrig-komp-helper').html('Det är möjligt att koppla tillbehör som komponenter till detta huvudhjälpmedel');
+	$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter');
 	haraldrigkomp = "Nej";
 }
 function disableSwitchHarAldrigKomp() {
 	console.log(' -- disableSwitchHarAldrigKomp()');
 	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
 	$('#label-har-aldrig-komp').addClass('disabled'); // add .disabled
-	$('#har-aldrig-komp-helper').html('Det är möjligt att koppla tillbehör som komponenter till detta huvudhjälpmedel');
+	$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter');
 	haraldrigkomp = "Nej";
 }
 
@@ -95,13 +95,13 @@ function enableSwitchWSKomp() {
 	console.log(' -- enableSwitchWSKomp()');
 	$('#switch-ws-komp').attr('checked', true).attr('disabled', false); // check and enable
 	$('#label-ws-komp').removeClass('disabled'); // remove .disabled
-	$('#ws-komp-helper').html('Artikeln kan beställas som komponent till ett huvudhjälpmedel');
+	$('#ws-komp-helper').html('Detta tillbehör kan beställas som komponent till ett huvudhjälpmedel');
 }
 function disableSwitchWSKomp() {
 	console.log(' -- disableSwitchWSKomp()');
 	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
 	$('#label-ws-komp').addClass('disabled'); // add .disabled
-	$('#ws-komp-helper').html('Artikeln kan ej beställas som komponent till ett huvudhjälpmedel');
+	$('#ws-komp-helper').html('Detta tillbehör kan inte beställas som komponent till ett huvudhjälpmedel');
 }
 
 function enableTextReturtagningsinformation() {
