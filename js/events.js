@@ -177,19 +177,19 @@ $(document).ready(function() {
 		// reset
 		disableSelectDebiteringsform();
 		// disableSwitchHarAldrigKomp();
-		disableSwitchWSKomp();
-		disableSwitchIndividartikel();
 		disableSwitchInventarium();
 		disableRadioAvskrivningstid();
+		disableSwitchIndividartikel();
+		disableSwitchSerienummer();
+		disableSwitchWSKomp();
 		disableTextReturtagningsinformation();
 		disableSwitchKvalitetskontroll();
 		disableTextKvalitetskontroll();
 
 		switch (artikeltyp) {
 			case 'H':
-				$('#select-artikeltyp').attr('helper','Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel');
+				$('#select-artikeltyp').attr('helper', helper_artikeltyp_h);
 				enableSelectDebiteringsform();
-				// enableSwitchHarAldrigKomp();
 				enableTextReturtagningsinformation();
 				enableSwitchKvalitetskontroll();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
@@ -198,7 +198,7 @@ $(document).ready(function() {
 				}
 			break;
 			case 'T':
-				$('#select-artikeltyp').attr('helper','Ett tillbehör tillför en extra funktion till ett huvudhjälpmedel');
+				$('#select-artikeltyp').attr('helper', helper_artikeltyp_t);
 				enableSelectDebiteringsform();
 				enableSwitchWSKomp();
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
@@ -207,7 +207,7 @@ $(document).ready(function() {
 				}
 			break;
 			case 'R':
-				$('#select-artikeltyp').attr('helper','En reservdel används för att reparera eller underhålla ett huvudhjälpmedel eller tillbehör');
+				$('#select-artikeltyp').attr('helper', helper_artikeltyp_r);
 				enableSelectDebiteringsform();
 				$('#select-debiteringsform').val('A'); // select 'A' (köp)
 				$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (månadshyra)
@@ -221,6 +221,7 @@ $(document).ready(function() {
 		debiteringsform = this.value;
 		console.log('Debiteringsform = ' + debiteringsform );
 		disableSwitchIndividartikel();
+		disableSwitchSerienummer();
 		disableSwitchInventarium();
 		disableRadioAvskrivningstid();
 		disableSwitchHarAldrigKomp();
@@ -228,10 +229,16 @@ $(document).ready(function() {
 		switch (debiteringsform) {
 			case 'M':
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'H') {
-					enableSwitchIndividartikel();
-					$('#switch-individartikel').attr('checked', true); // checked
 					enableSwitchInventarium();
 					$('#switch-inventarium').attr('checked', true); // checked
+
+					enableSwitchIndividartikel();
+					$('#switch-individartikel').attr('checked', true); // checked
+					$('#label-individartikel .switch-helper').html(helper_individartikel_on);
+
+					enableSwitchSerienummer();
+					$('#switch-serienummer').attr('checked', true); // checked
+
 					enableRadioAvskrivningstid();
 					enableSwitchHarAldrigKomp();
 					enableServiceOchUnderhall();
@@ -242,30 +249,11 @@ $(document).ready(function() {
 				}
 			break;
 			case 'A':
+				disableSwitchSerienummer;
 				if (artikeltyp == 'H') {
 					enableSwitchIndividartikel();
-				}
-			break;
-		}
-	});
+					$('#switch-individartikel').attr('checked', false); // unchecked
 
-	// mdui-switch #switch-individartikel changes
-	$('#switch-individartikel').on('change', function() {
-		console.log('<mdui-switch #switch-individartikel> changed');
-		individartikel = (this.checked === true) ? 'Ja' : 'Nej';
-		console.log('Individartikel = ' + individartikel);
-		switch (individartikel) {
-			case 'Ja':
-			break;
-			case 'Nej':
-				if (artikeltyp == 'H' && debiteringsform == 'M') {
-					mdui.alert({
-						headline: "Ej tillåtet",
-						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
-						confirmText: "Jag förstår"
-					});
-					$('#switch-individartikel').attr('checked', true); // re-checked
-					individartikel = 'Ja';
 				}
 			break;
 		}
@@ -300,17 +288,71 @@ $(document).ready(function() {
 		console.log('Avskrivningstid: ' + avskrivningstid );
 	});
 
-	// 4. Komponenthantering
+	// 4. Inställningar
+
+	// mdui-switch #switch-individartikel changes
+	$('#switch-individartikel').on('change', function() {
+		console.log('<mdui-switch #switch-individartikel> changed');
+		individartikel = (this.checked === true) ? 'Ja' : 'Nej';
+		console.log('Individartikel = ' + individartikel);
+		switch (individartikel) {
+			case 'Ja':
+				$('#label-individartikel .switch-helper').html(helper_individartikel_on);
+				enableSwitchSerienummer();
+			break;
+			case 'Nej':
+				if (artikeltyp == 'H' && debiteringsform == 'M') {
+					mdui.alert({
+						headline: "Ej tillåtet",
+						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
+						confirmText: "Jag förstår"
+					});
+					$('#switch-individartikel').attr('checked', true); // re-checked
+					$('#label-individartikel .switch-helper').html(helper_individartikel_on);
+					individartikel = 'Ja';
+				} else {
+					$('#label-individartikel .switch-helper').html(helper_individartikel_off);
+					disableSwitchSerienummer();
+				}
+			break;
+		}
+	});
+
+	// mdui-switch #switch-serienummer changes
+	$('#switch-serienummer').on('change', function() {
+		console.log('<mdui-switch #switch-serienummer> changed');
+		serienummer = (this.checked === true) ? 'Ja' : 'Nej';
+		console.log('Serienummer obligatoriskt = ' + serienummer);
+		switch (serienummer) {
+			case 'Ja':
+				$('#label-serienummer .switch-helper').html(helper_serienummer_on);
+			break;
+			case 'Nej':
+				$('#label-serienummer .switch-helper').html(helper_serienummer_off);
+				mdui.alert({
+					headline: "Varning!",
+					description: "Avmarkera denna inställning endast om du med säkerhet vet att hjälpmedlet saknar serienummer.",
+					confirmText: "Jag förstår"
+				});
+			break;
+		}
+	});
+
+
+
+
 
 	// mdui-switch #switch-har-aldrig-komp changes
 	$('#switch-har-aldrig-komp').on('change', function() {
 		console.log('<mdui-switch #switch-har-aldrig-komp> changed');
 		if ($('#switch-har-aldrig-komp').prop("checked")) {
 			// on
-			$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel har aldrig tillbehör kopplade som komponenter');
+			// $('#har-aldrig-komp-helper').html('Komponenter går ej att koppla till detta huvudhjälpmedel');
+			$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_on);
 		} else {
 			// off
-			$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter');
+			// $('#har-aldrig-komp-helper').html('Komponenter kan kopplas till detta huvudhjälpmedel');
+			$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
 		}
 	});
 

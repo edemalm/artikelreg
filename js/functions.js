@@ -48,9 +48,37 @@ function enableSwitchIndividartikel() {
 function disableSwitchIndividartikel() {
 	console.log(' -- disableSwitchIndividartikel()');
 	$('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-individartikel .switch-helper').html(helper_individartikel_off);
 	$('#label-individartikel').addClass('disabled'); // add .disabled
 	individartikel = "Nej";
 }
+
+
+
+function enableSwitchSerienummer() {
+	console.log(' -- enableSwitchSerienummer()');
+	$('#switch-serienummer').attr('checked', true).attr('disabled', false); // check and enable
+	$('#label-serienummer .switch-helper').html(helper_serienummer_on); // default is on when enabled
+	$('#label-serienummer').removeClass('disabled'); // remove .disabled
+	serienummer = "Ja";
+}
+function disableSwitchSerienummer() {
+	console.log(' -- disableSwitchSerienummer()');
+	$('#switch-serienummer').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-serienummer .switch-helper').html(helper_serienummer_off);
+	$('#label-serienummer').addClass('disabled'); // add .disabled
+	serienummer = "Nej";
+}
+
+
+
+
+
+
+
+
+
+
 
 function enableSwitchInventarium() {
 	console.log(' -- enableSwitchInventarium()');
@@ -79,15 +107,15 @@ function disableRadioAvskrivningstid() {
 function enableSwitchHarAldrigKomp() {
 	console.log(' -- enableSwitchHarAldrigKomp()');
 	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
+	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_on);
 	$('#label-har-aldrig-komp').removeClass('disabled'); // remove .disabled
-	$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter');
 	haraldrigkomp = "Nej";
 }
 function disableSwitchHarAldrigKomp() {
 	console.log(' -- disableSwitchHarAldrigKomp()');
 	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
+	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
 	$('#label-har-aldrig-komp').addClass('disabled'); // add .disabled
-	$('#har-aldrig-komp-helper').html('Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter');
 	haraldrigkomp = "Nej";
 }
 
@@ -207,6 +235,7 @@ function createArtikeldata() {
 	produkt2 = $('#text-produkt2').val();
 	produkt3 = $('#text-produkt3').val();
 	produkt4 = $('#text-produkt4').val();
+	serienummer = ($('#switch-serienummer').prop("checked") ? "Ja" : "Nej");
 	servicegrad = $('#select-servicegrad').val();
 	team = $('#select-team').val();
 	upplysningar = $('#textarea-upplysningar').val();
@@ -224,19 +253,20 @@ function createArtikeldata() {
 		artikeldata += "Artikeln finns i Hjälpmedelstjänsten";
 		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" och är upphandlad";
 		// Mallartikel
-		artikeldata += ". Vid import använd mallartikel som börjar med \"" + avd.substring(0,1) + artikeltyp + "\"";
+		artikeldata += ".\nVid import använd mallartikel som börjar med: " + avd.substring(0,1) + artikeltyp;
 	} else {
 		artikeldata += "Artikeln saknas tyvärr i Hjälpmedelstjänsten";
 		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" men är upphandlad";
+		artikeldata += ".";
 	}
-	artikeldata += ".\n";
+	artikeldata += "\n";
 
 	// ARTIKEL
-	artikeldata += "\n● ARTIKEL\n\n"
+	artikeldata += "\n■ ARTIKEL\n\n"
 	artikeldata += "Artikelbenämning:  " + artikelbenamning + "\n";
 
 	// KLASSIFICERING
-	artikeldata += "\n● KLASSIFICERING\n\n";
+	artikeldata += "\n■ KLASSIFICERING\n\n";
 
 	// Artikeltyp
 	artikeldata += "Artikeltyp:  ";
@@ -330,6 +360,11 @@ function createArtikeldata() {
 		artikeldata += "Individartikel:  " + individartikel + "\n";
 	}
 
+	// Serienummer obligatoriskt
+	if (serienummer == 'Nej') {
+		artikeldata += "Serienummer obligatoriskt:  " + serienummer + " ◄ OBS❗\n";
+	}
+
 	// Inventarium
 	if (artikeltyp == 'H') {
 		artikeldata += "Inventarium:  " + inventarium + "\n";
@@ -337,7 +372,7 @@ function createArtikeldata() {
 
 	// Har aldrig komponenter
 	if (haraldrigkomp == 'Ja') {
-		artikeldata += "Har aldrig komponenter:  " + haraldrigkomp + " ⇐ OBS!\n";
+		artikeldata += "Har aldrig komponenter:  " + haraldrigkomp + " ◄ OBS❗\n";
 	}
 
 	// Drifttidsmätare
@@ -355,7 +390,7 @@ function createArtikeldata() {
 
 	// INSTRUKTIONER
 	if (gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0) {
-		artikeldata += "\n● INSTRUKTIONER\n\n";
+		artikeldata += "\n■ INSTRUKTIONER\n\n";
 		if (gmi.length > 0) artikeldata += "Godsmottagningsinstruktion:  " + gmi + "\n";
 		if (kkb.length > 0) artikeldata += "Kvalitetskontroll, beskrivning:  " + kkb + "\n";
 		if (iki.length > 0) artikeldata += "Intern kundorderinformation:  " + iki + "\n";
@@ -364,7 +399,7 @@ function createArtikeldata() {
 	}
 
 	// VISMA WEBSESAM
-	artikeldata += "\n● VISMA WEBSESAM\n\n";
+	artikeldata += "\n■ VISMA WEBSESAM\n\n";
 
 	// Publicera
 	artikeldata += "Publicera:  " + ws_pub + "\n";
@@ -381,14 +416,14 @@ function createArtikeldata() {
 	if (ws_info.length > 0) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
 
 	// PRODUKT
-	artikeldata += "\n● PRODUKT\n\n";
+	artikeldata += "\n■ PRODUKT\n\n";
 	artikeldata += "Standardprodukt:  " + standardprodukt + "\n";
 	if (produkt2.length > 0) artikeldata += "Extra produkt:  " + produkt2 + "\n";
 	if (produkt3.length > 0) artikeldata += "Extra produkt:  " + produkt3 + "\n";
 	if (produkt4.length > 0) artikeldata += "Extra produkt:  " + produkt4 + "\n";
 
 	// PRISPARAMETRAR
-	artikeldata += "\n● PRISPARAMETRAR\n\n";
+	artikeldata += "\n■ PRISPARAMETRAR\n\n";
 
 	// Debiteringsform
 	artikeldata += "Debiteringsform:  ";
@@ -459,7 +494,7 @@ function createArtikeldata() {
 	// AKTIVITETSTYPSCHEMAN
 	if (artikeltyp == 'H' && individartikel == 'Ja') {
 		if (besiktningsintervall.length > 0 || fu_intervall.length > 0) {
-			artikeldata += "\n● AKTIVITETSTYPSCHEMAN\n\n";
+			artikeldata += "\n■ AKTIVITETSTYPSCHEMAN\n\n";
 			if (besiktningsintervall.length > 0) {
 				artikeldata += "Besiktningsintervall:  " + besiktningsintervall + "\n";
 			}
@@ -470,7 +505,7 @@ function createArtikeldata() {
 	}
 
 	// LAGER
-	artikeldata += "\n● LAGER\n\n";
+	artikeldata += "\n■ LAGER\n\n";
 
 	// Huvudlager
 	artikeldata += "Huvudlager:  ";
@@ -528,7 +563,7 @@ function createArtikeldata() {
 		extratext += " Kontrollera noga att det blir rätt.\n"
 	}
 	if (counter > 0) {
-		artikeldata += "\n● ÖVRIGT\n\n";
+		artikeldata += "\n■ ÖVRIGT\n\n";
 		artikeldata += extratext;
 	}
 

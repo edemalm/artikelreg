@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-09-29';	// Last commit date
+	window.update = '2025-09-30';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
@@ -34,6 +34,7 @@ $(document).ready(function() {
 	window.produkt2 = '';
 	window.produkt3 = '';
 	window.produkt4 = '';
+	window.serienummer = '';
 	window.servicegrad = '';
 	window.sortimentsartikel = '';
 	window.standardprodukt = '';
@@ -45,6 +46,14 @@ $(document).ready(function() {
 	window.ws_info = '';
 	window.ws_komp = '';
 	window.ws_sort = '';
+
+	$('#text-artikelbenamning').attr('helper', helper_artikelbenamning);
+	$('#text-standardprodukt').attr('helper', helper_standardprodukt);
+	$('#select-artikeltyp').attr('helper', helper_artikeltyp);
+	$('#label-inventarium .switch-helper').html(helper_inventarium);
+	$('#label-individartikel .switch-helper').html(helper_individartikel_off);
+	$('#label-serienummer .switch-helper').html(helper_serienummer_off);
+	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
 
 	// Check for 'theme' parameter in URL
 	let params = new URLSearchParams(window.location.search);

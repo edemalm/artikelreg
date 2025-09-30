@@ -145,7 +145,6 @@
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
-							helper="Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information."
 							inputmode="text"
 							label="Artikelbenämning"
 							maxlength="250"
@@ -159,7 +158,6 @@
 							autocomplete="off"
 							autocorrect="off"
 							enterkeyhint="done"
-							helper="Se hjälpavsnitt för mer information."
 							inputmode="text"
 							label="Produkt"
 							name="standardprodukt"
@@ -326,7 +324,6 @@
 							<!-- ARTIKELTYP -->
 							<mdui-select id="select-artikeltyp"
 								end-icon="arrow_drop_down"
-								helper="Ange artikeltyp hos DHC. Artikeltypen kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten."
 								label="Artikeltyp"
 								name="artikeltyp"
 								variant="outlined"
@@ -349,23 +346,11 @@
 							</mdui-select>
 						</div>
 						<div class="s12">
-							<!-- INDIVIDARTIKEL -->
-							<div class="switch-wrapper">
-								<div id="label-individartikel" class="text disabled">
-									<div class="switch-label">Individartikel</div>
-									<div class="switch-helper">Ett individartikel är spårbar, kan sökas via sitt serienummer samt har en egen transaktionshistorik</div>
-								</div>
-								<div class="switch">
-									<mdui-switch id="switch-individartikel" disabled></mdui-switch>
-								</div>
-							</div>
-						</div>
-						<div class="s12">
 							<!-- INVENTARIUM -->
 							<div class="switch-wrapper">
 								<div id="label-inventarium" class="text disabled">
 									<div class="switch-label">Inventarium</div>
-									<div class="switch-helper">Ett individmärkt huvudhjälpmedel för uthyrning vars anskaffningskostnad fördelas under dess avskrivningstid på tre eller fem år</div>
+									<div class="switch-helper"></div>
 								</div>
 								<div class="switch">
 									<mdui-switch id="switch-inventarium" disabled></mdui-switch>
@@ -395,8 +380,32 @@
 					<div class="grid">
 						<div class="s12">
 							<div class="form-title">
-								<div class="form-title-icon"><mdui-icon name="link"></mdui-icon></div>
-								<div class="form-title-text"><h3 class="headline-small">4. Komponenthantering</h3></div>
+								<div class="form-title-icon"><mdui-icon name="settings"></mdui-icon></div>
+								<div class="form-title-text"><h3 class="headline-small">4. Inställningar</h3></div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- INDIVIDARTIKEL -->
+							<div class="switch-wrapper">
+								<div id="label-individartikel" class="text disabled">
+									<div class="switch-label">Individartikel</div>
+									<div class="switch-helper"></div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-individartikel" disabled></mdui-switch>
+								</div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- SERIENUMMER -->
+							<div class="switch-wrapper">
+								<div id="label-serienummer" class="text disabled">
+									<div class="switch-label">Serienummer obligatoriskt</div>
+									<div id="serienummer-helper" class="switch-helper"></div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-serienummer" disabled></mdui-switch>
+								</div>
 							</div>
 						</div>
 						<div class="s12">
@@ -404,22 +413,10 @@
 							<div class="switch-wrapper">
 								<div id="label-har-aldrig-komp" class="text disabled">
 									<div class="switch-label">Har aldrig komponenter</div>
-									<div id="har-aldrig-komp-helper" class="switch-helper">Detta huvudhjälpmedel kan ha tillbehör kopplade som komponenter</div>
+									<div id="har-aldrig-komp-helper" class="switch-helper"></div>
 								</div>
 								<div class="switch">
 									<mdui-switch id="switch-har-aldrig-komp" disabled></mdui-switch>
-								</div>
-							</div>
-						</div>
-						<div class="s12">
-							<!-- KOMPONENT -->
-							<div class="switch-wrapper">
-								<div id="label-ws-komp" class="text disabled">
-									<div class="switch-label">Kan vara komponent</div>
-									<div id="ws-komp-helper" class="switch-helper">Detta tillbehör kan inte beställas som komponent till ett huvudhjälpmedel</div>
-								</div>
-								<div class="switch">
-									<mdui-switch id="switch-ws-komp" disabled></mdui-switch>
 								</div>
 							</div>
 						</div>
@@ -466,6 +463,18 @@
 								</div>
 								<div class="switch">
 									<mdui-switch id="switch-ws-sort"></mdui-switch>
+								</div>
+							</div>
+						</div>
+						<div class="s12">
+							<!-- KOMPONENT -->
+							<div class="switch-wrapper">
+								<div id="label-ws-komp" class="text disabled">
+									<div class="switch-label">Kan vara komponent i webSesam</div>
+									<div id="ws-komp-helper" class="switch-helper">Detta tillbehör kan inte beställas som komponent till ett huvudhjälpmedel</div>
+								</div>
+								<div class="switch">
+									<mdui-switch id="switch-ws-komp" disabled></mdui-switch>
 								</div>
 							</div>
 						</div>
@@ -977,6 +986,7 @@
 
 </body>
 <script src="js/jquery.inactivity.min.js"></script>
+<script src="js/strings.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/init.js"></script>
 <script src="js/events.js"></script>
