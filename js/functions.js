@@ -205,7 +205,7 @@ function createArtikeldata() {
 	console.log(' -- createArtikeldata()');
 
 	// Reset artikeldata
-	artikeldata = "Hej!\nJag önskar få följande artikel registrerad i Sesam.\n\n";
+	artikeldata = "Hej!\nJag önskar att följande artikel registreras i Sesam.\n\n";
 
 	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();
@@ -230,6 +230,7 @@ function createArtikeldata() {
 	inventarium = ($('#switch-inventarium').prop("checked") ? "Ja" : "Nej");
 	kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej");
 	kkb = $('#textarea-kkb').val();
+	liggplats = $('#text-liggplats').val();
 	leverantor = $('#text-leverantor').val();
 	levartnr = $('#text-levartnr').val();
 	produkt2 = $('#text-produkt2').val();
@@ -253,20 +254,21 @@ function createArtikeldata() {
 		artikeldata += "Artikeln finns i Hjälpmedelstjänsten";
 		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" och är upphandlad";
 		// Mallartikel
-		artikeldata += ".\nVid import använd mallartikel som börjar med: " + avd.substring(0,1) + artikeltyp;
+		artikeldata += ".\n\n";
+		artikeldata += "👉 Använd mallartikel som börjar med " + avd.substring(0,1) + artikeltyp + " vid import.\n";
 	} else {
 		artikeldata += "Artikeln saknas tyvärr i Hjälpmedelstjänsten";
 		if ($('#checkbox-upphandlad').attr('checked')) artikeldata +=" men är upphandlad";
-		artikeldata += ".";
+		artikeldata += ".\n";
 	}
-	artikeldata += "\n";
 
 	// ARTIKEL
-	artikeldata += "\n■ ARTIKEL\n\n"
+	artikeldata += "\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\n";
+	artikeldata += "\n⬤ ARTIKEL\n\n"
 	artikeldata += "Artikelbenämning:  " + artikelbenamning + "\n";
 
 	// KLASSIFICERING
-	artikeldata += "\n■ KLASSIFICERING\n\n";
+	artikeldata += "\n⬤ KLASSIFICERING\n\n";
 
 	// Artikeltyp
 	artikeldata += "Artikeltyp:  ";
@@ -361,8 +363,8 @@ function createArtikeldata() {
 	}
 
 	// Serienummer obligatoriskt
-	if (serienummer == 'Nej') {
-		artikeldata += "Serienummer obligatoriskt:  " + serienummer + " ◄ OBS❗\n";
+	if (individartikel == 'Ja' && serienummer == 'Nej') {
+		artikeldata += "Serienummer obligatoriskt:  " + serienummer + " 👈 Obs!\n";
 	}
 
 	// Inventarium
@@ -371,8 +373,8 @@ function createArtikeldata() {
 	}
 
 	// Har aldrig komponenter
-	if (haraldrigkomp == 'Ja') {
-		artikeldata += "Har aldrig komponenter:  " + haraldrigkomp + " ◄ OBS❗\n";
+	if (individartikel == 'Ja' && haraldrigkomp == 'Ja') {
+		artikeldata += "Har aldrig komponenter:  " + haraldrigkomp + " 👈 Obs!\n";
 	}
 
 	// Drifttidsmätare
@@ -390,7 +392,7 @@ function createArtikeldata() {
 
 	// INSTRUKTIONER
 	if (gmi.length > 0 || kkb.length > 0 || iki.length > 0 || ipi.length > 0 || iri.length > 0) {
-		artikeldata += "\n■ INSTRUKTIONER\n\n";
+		artikeldata += "\n⬤ INSTRUKTIONER\n\n";
 		if (gmi.length > 0) artikeldata += "Godsmottagningsinstruktion:  " + gmi + "\n";
 		if (kkb.length > 0) artikeldata += "Kvalitetskontroll, beskrivning:  " + kkb + "\n";
 		if (iki.length > 0) artikeldata += "Intern kundorderinformation:  " + iki + "\n";
@@ -399,7 +401,7 @@ function createArtikeldata() {
 	}
 
 	// VISMA WEBSESAM
-	artikeldata += "\n■ VISMA WEBSESAM\n\n";
+	artikeldata += "\n⬤ VISMA WEBSESAM\n\n";
 
 	// Publicera
 	artikeldata += "Publicera:  " + ws_pub + "\n";
@@ -409,21 +411,23 @@ function createArtikeldata() {
 
 	// Kan vara komponent
 	if (artikeltyp == 'T') {
-		artikeldata += "Kan vara komponent:  " + ws_komp + "\n";
+		artikeldata += "Kan vara komponent:  " + ws_komp;
+		if (ws_komp == 'Nej') artikeldata += " 👈 Obs!";
 	}
+	artikeldata += "\n";
 
 	// Extra artikelinformation
 	if (ws_info.length > 0) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
 
 	// PRODUKT
-	artikeldata += "\n■ PRODUKT\n\n";
+	artikeldata += "\n⬤ PRODUKT\n\n";
 	artikeldata += "Standardprodukt:  " + standardprodukt + "\n";
 	if (produkt2.length > 0) artikeldata += "Extra produkt:  " + produkt2 + "\n";
 	if (produkt3.length > 0) artikeldata += "Extra produkt:  " + produkt3 + "\n";
 	if (produkt4.length > 0) artikeldata += "Extra produkt:  " + produkt4 + "\n";
 
 	// PRISPARAMETRAR
-	artikeldata += "\n■ PRISPARAMETRAR\n\n";
+	artikeldata += "\n⬤ PRISPARAMETRAR\n\n";
 
 	// Debiteringsform
 	artikeldata += "Debiteringsform:  ";
@@ -436,46 +440,42 @@ function createArtikeldata() {
 	}
 
 	// Prisgrupp
-	artikeldata += "Prisgrupp:  ";
+	let pg = '';
 	switch (team) {
 		case '02':
-			artikeldata += "R eller RERST\n";
+			pg = "RERST (eller R om artikeln inte tillhör elrullstol)\n";
 			break;
 		case '03':
-			if (artikelansvar == 'R') {
-				artikeldata += "ReturBarn\n";
-			} else {
-				artikeldata += "R eller RMRST\n";
-			}
+			pg = "R";
 			break;
 		case '05':
-			artikeldata += "KLOK\n";
+			pg = "KLOK";
 			break;
 		case '07':
-			artikeldata += "PMB\n";
+			pg = "PMB";
 			break;
 		case '08':
-			artikeldata += "R eller RMRST\n";
+			pg = "R (eller RMRST om artikeln tillhör manuell rullstol)\n";
 			break;
 		case '09':
-			artikeldata += "R\n";
+			pg = "R";
 			break;
 		case '10':
-			if (artikelansvar == 'R') {
-				artikeldata += "ReturVuxen eller ReturVRoll\n";
-			} else {
-				artikeldata += "R\n";
-			}
+			pg = "R";
 			break;
 		case '11':
-			artikeldata += "R\n";
+			pg = "R";
 			break;
 		case '40':
-			artikeldata += "SYN eller SPEC\n";
+			pg = "SYN eller SPEC";
 			break;
 		default:
-			artikeldata += "(uppgift saknas)\n";
+			pg = "(uppgift saknas)\n";
 	}
+	if (team == '03' && artikelansvar == 'R') pg = "ReturBarn";
+	if (team != '03' && artikelansvar == 'R') pg = "ReturVuxen";
+	if (team == '10' && artikelansvar == 'R') pg = "ReturVuxen eller ReturVRoll";
+	artikeldata += "Beräknad prisgrupp:  " + pg + "\n";
 
 	// Kalkylprocent
 	if (debiteringsform == 'M') artikeldata += "Kalkylprocent: Se tabell från IT-stödet\n";
@@ -494,7 +494,7 @@ function createArtikeldata() {
 	// AKTIVITETSTYPSCHEMAN
 	if (artikeltyp == 'H' && individartikel == 'Ja') {
 		if (besiktningsintervall.length > 0 || fu_intervall.length > 0) {
-			artikeldata += "\n■ AKTIVITETSTYPSCHEMAN\n\n";
+			artikeldata += "\n⬤ AKTIVITETSTYPSCHEMAN\n\n";
 			if (besiktningsintervall.length > 0) {
 				artikeldata += "Besiktningsintervall:  " + besiktningsintervall + "\n";
 			}
@@ -505,7 +505,7 @@ function createArtikeldata() {
 	}
 
 	// LAGER
-	artikeldata += "\n■ LAGER\n\n";
+	artikeldata += "\n⬤ LAGER\n\n";
 
 	// Huvudlager
 	artikeldata += "Huvudlager:  ";
@@ -519,23 +519,136 @@ function createArtikeldata() {
 	artikeldata += "Inköpshantering:  ";
 	if (inkopshantering.length > 0) {
 		artikeldata += inkopshantering + "\n";
-		if (inkopshantering == 'Nettobehov' && forbrukning_msg.length > 0) {
-			artikeldata += "Uppskattad förbrukning:  " + forbrukning_msg + "\n";
-		}
 	} else {
 		artikeldata += "(uppgift saknas)\n";
 	}
 
 	// Liggplats
-	artikeldata += "Liggplats:  ";
-	if (inkopshantering == 'Nettobehov') {
+	let lp_ejdef = '';
+	let lp_ny = '';
+	let po_info = '';
+	if (huvudlager == '200') {
+		switch (team) {
+			case "02":
+				lp_ejdef = 'P11-ejdef';
+				lp_ny = 'P11-Ny-liggplats';
+				po_info = 'Samtliga artiklar som tillhör elrullstolsteamet bör ha en liggplats inom plockområde 11.';
+			break;
+			case "03":
+				if (artikeltyp == 'H') {
+					lp_ejdef = 'P2-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Huvudhjälpmedel som tillhör habteamet bör ha en liggplats inom plockområde 2 eller 7.';
+				}
+				if (artikeltyp == 'T') {
+					lp_ejdef = 'P2-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Tillbehör som tillhör habteamet bör ha en liggplats inom plockområde 2 eller 7.';
+				}
+				if (artikeltyp == 'R') {
+					lp_ejdef = 'P1-ejdef';
+					lp_ny = 'P1-Ny-liggplats';
+					po_info = 'Reservdelar som tillhör habteamet bör ha en liggplats inom plockområde 1.';
+				}
+			break;
+			case "05":
+				lp_ejdef = 'P13-ejdef';
+				lp_ny = 'P13-Ny-liggplats';
+				po_info = 'Samtliga artiklar som tillhör KLOK bör ha en liggplats inom plockområde 13.';
+			break;
+			case "07":
+				lp_ejdef = 'P8-ejdef';
+				lp_ny = 'P8-Ny-liggplats';
+				po_info = 'Samtliga artiklar som tillhör PMB bör ha en liggplats inom plockområde 8.';
+			break;
+			case "08":
+				if (artikeltyp == 'H') {
+					lp_ejdef = 'P3-ejdef eller P7-ejdef';
+					lp_ny = 'P3-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Huvudhjälpmedel som tillhör SST bör ha en liggplats inom plockområde 3 eller 7.';
+				}
+				if (artikeltyp == 'T') {
+					lp_ejdef = 'P3-ejdef eller P7-ejdef';
+					lp_ny = 'P3-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Tillbehör som tillhör SST bör ha en liggplats inom plockområde 3 eller 7.';					}
+				if (artikeltyp == 'R') {
+					lp_ejdef = 'P1-ejdef';
+					lp_ny = 'P1-Ny-liggplats';
+					po_info = 'Reservdelar som tillhör SST bör ha en liggplats inom plockområde 1.';
+				}
+			break;
+			case "09":
+				if (artikeltyp == 'H') {
+					lp_ejdef = 'P2-ejdef, P6-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats, P6-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Huvudhjälpmedel som tillhör ADL (säng/lyft) bör ha en liggplats inom plockområde 2, 6 eller 7.';
+				}
+				if (artikeltyp == 'T') {
+					lp_ejdef = 'P2-ejdef, P6-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats, P6-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Tillbehör som tillhör ADL (säng/lyft) bör ha en liggplats inom plockområde 2, 6 eller 7.';
+				}
+				if (artikeltyp == 'R') {
+					lp_ejdef = 'P1-ejdef';
+					lp_ny = 'P1-Ny-liggplats';
+					po_info = 'Reservdelar som tillhör ADL bör ha en liggplats inom plockområde 1.';
+				}
+			break;
+			case "10":
+				if (artikeltyp == 'H') {
+					lp_ejdef = 'P2-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Huvudhjälpmedel som tillhör ADL (gång/hygien) bör ha en liggplats inom plockområde 2 eller 7.';
+				}
+				if (artikeltyp == 'T') {
+					lp_ejdef = 'P2-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Tillbehör som tillhör ADL (gång/hygien) bör ha en liggplats inom plockområde 2 eller 7.';
+				}
+				if (artikeltyp == 'R') {
+					lp_ejdef = 'P1-ejdef';
+					lp_ny = 'P1-Ny-liggplats';
+					po_info = 'Reservdelar som tillhör ADL bör ha en liggplats inom plockområde 1.';
+				}
+			break;
+			case "11":
+				if (artikeltyp == 'H') {
+					lp_ejdef = 'P2-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Huvudhjälpmedel som tillhör SST (behandling/träning) bör ha en liggplats inom plockområde 2 eller 7.';
+				}
+				if (artikeltyp == 'T') {
+					lp_ejdef = 'P2-ejdef eller P7-ejdef';
+					lp_ny = 'P2-Ny-liggplats eller P7-Ny-liggplats';
+					po_info = 'Tillbehör som tillhör SST (behandling/träning) bör ha en liggplats inom plockområde 2 eller 7.';
+				}
+				if (artikeltyp == 'R') {
+					lp_ejdef = 'P1-ejdef';
+					lp_ny = 'P1-Ny-liggplats';
+					po_info = 'Reservdelar som tillhör SST bör ha en liggplats inom plockområde 1.';
+				}
+			break;
+		}
 		if (liggplats.length > 0) {
-			artikeldata += liggplats + " (kontrollera plockområde)\n";
+			artikeldata += "Angiven liggplats:  " + liggplats;
 		} else {
-			artikeldata += "P?-Ny-liggplats (kontrollera plockområde)\n";
+			if (inkopshantering == 'Nettobehov') artikeldata += "Beräknad liggplats:  " + lp_ny;
+			if (inkopshantering == 'Kundorder') artikeldata += "Beräknad liggplats:  " + lp_ejdef;
 		}
 	} else {
-		artikeldata += "P?-ejdef (kontrollera plockområde)\n";
+		// Huvudlager är inte 200
+		if (liggplats.length > 0) {
+			artikeldata += "Angiven liggplats:  " + liggplats;
+		} else {
+			if (inkopshantering == 'Nettobehov') artikeldata += "Liggplats:  Ny-liggplats";
+			if (inkopshantering == 'Kundorder') artikeldata += "Liggplats:  ejdef";
+		}
+	}
+	artikeldata += "\n";
+
+	// Uppskattad förbrukning
+	if (inkopshantering == 'Nettobehov' && forbrukning_msg.length > 0) {
+		artikeldata += "Uppskattad förbrukning:  " + forbrukning_msg + "\n";
 	}
 
 	// Buffertlager
@@ -543,28 +656,34 @@ function createArtikeldata() {
 		artikeldata += "Buffertlager:  " + buffertlager + "\n";
 	}
 
+	artikeldata += "\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\n";
+
 	// ÖVRIGT
 	let counter = 0;
 	let extratext = '';
+
+	if (huvudlager == '200') {
+		counter++;
+		extratext += "👉 " + po_info + "\n\n";
+	}
 	if (upplysningar.length > 0) {
 		counter++;
-		extratext += "☝ " + upplysningar + "\n";
+		extratext += "👉 Övriga upplysningar:  " + upplysningar + "\n\n";
 	}
 	if (artikeltyp == 'H' && artikelbenamning.startsWith('Elrullstol')) {
 		counter++;
-		extratext += "☝ Kom ihåg att elrullstolar skall ha uppföljning. Lägg till artikeln i Uppföljningsorsaker.\n";
+		extratext += "👉 Kom ihåg att elrullstolar skall ha uppföljning. Lägg till artikeln i Uppföljningsorsaker.\n\n";
 	}
 	if (artikelansvar == 'R') {
 		counter++;
-		extratext += "☝ Kom ihåg att retursortiment har olika prisgrupper för barn och vuxna.";
+		extratext += "👉 Kom ihåg att retursortiment har olika prisgrupper för barn och vuxna.";
 		if (artikelbenamning.startsWith('Rollator')) {
 			extratext += " Rollatorer för vuxna har dessutom en egen prisgrupp.";
 		}
-		extratext += " Kontrollera noga att det blir rätt.\n"
+		extratext += "\n\n"
 	}
 	if (counter > 0) {
-		artikeldata += "\n■ ÖVRIGT\n\n";
-		artikeldata += extratext;
+		artikeldata += "\n" + extratext;
 	}
 
 	// Add artikeldata to #div-artikeldata
