@@ -53,8 +53,6 @@ function disableSwitchIndividartikel() {
 	individartikel = "Nej";
 }
 
-
-
 function enableSwitchSerienummer() {
 	console.log(' -- enableSwitchSerienummer()');
 	$('#switch-serienummer').attr('checked', true).attr('disabled', false); // check and enable
@@ -69,16 +67,6 @@ function disableSwitchSerienummer() {
 	$('#label-serienummer').addClass('disabled'); // add .disabled
 	serienummer = "Nej";
 }
-
-
-
-
-
-
-
-
-
-
 
 function enableSwitchInventarium() {
 	console.log(' -- enableSwitchInventarium()');
@@ -107,16 +95,14 @@ function disableRadioAvskrivningstid() {
 function enableSwitchHarAldrigKomp() {
 	console.log(' -- enableSwitchHarAldrigKomp()');
 	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_on);
+	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
 	$('#label-har-aldrig-komp').removeClass('disabled'); // remove .disabled
-	haraldrigkomp = "Nej";
 }
 function disableSwitchHarAldrigKomp() {
 	console.log(' -- disableSwitchHarAldrigKomp()');
 	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
 	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
 	$('#label-har-aldrig-komp').addClass('disabled'); // add .disabled
-	haraldrigkomp = "Nej";
 }
 
 function enableSwitchWSKomp() {
@@ -204,9 +190,6 @@ function createArtikeldata() {
 	// console.log('form #form-artikeldata submitted');
 	console.log(' -- createArtikeldata()');
 
-	// Reset artikeldata
-	artikeldata = "Hej!\nJag önskar att följande artikel registreras i Sesam.\n\n";
-
 	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();
 	artikelbenamning = $('#text-artikelbenamning').val();
@@ -246,16 +229,19 @@ function createArtikeldata() {
 	ws_pub = ($('#switch-ws-pub').prop("checked") ? "Ja" : "Nej");
 	ws_sort = ($('#switch-ws-sort').prop("checked") ? "Ja" : "Nej");
 
+	// Create artikeldata
+	artikeldata = "Hej!\n\nJag önskar att följande artikel registreras i Sesam.";
+
 	// Hjälpmedelstjänsten, avtal, mallartikel
 	if ($('#checkbox-ht').attr('checked')) {
-		artikeldata += "Artikeln finns i Hjälpmedelstjänsten";
+		artikeldata += " Artikeln finns i Hjälpmedelstjänsten";
 		artikeldata += ($('#checkbox-upphandlad').attr('checked') ? " och är upphandlad.\n" : ".\n" );
 	} else {
-		artikeldata += "Artikeln saknas i Hjälpmedelstjänsten";
-		artikeldata += ($('#checkbox-upphandlad').attr('checked') ? " men är upphandlad.\n" : ".\n" );
+		artikeldata += " Artikeln saknas i Hjälpmedelstjänsten";
+		artikeldata += ($('#checkbox-upphandlad').attr('checked') ? ", men är upphandlad.\n" : ".\n" );
 	}
 
-	// Leverantör + lev. art.nr.
+	// Leverantör, lev. art.nr. och mallartikel
 	artikeldata += "\nLeverantör:  " + leverantor + "\nLev. art.nr:  " + levartnr + "\n";
 	artikeldata += "Mallartikel:  " + avd.substring(0,1) + artikeltyp + "\n";
 
@@ -578,12 +564,12 @@ function createArtikeldata() {
 				if (artikeltyp == 'H') {
 					lp_ejdef = 'P2-ejdef, P6-ejdef eller P7-ejdef';
 					lp_ny = 'P2-Ny-liggplats, P6-Ny-liggplats eller P7-Ny-liggplats';
-					po_info = 'Huvudhjälpmedel som tillhör ADL (säng/lyft) bör ha en liggplats inom plockområde 2, 6 eller 7.';
+					po_info = 'Huvudhjälpmedel som tillhör ADL (säng/lyft/pos) bör ha en liggplats inom plockområde 2, 6 eller 7.';
 				}
 				if (artikeltyp == 'T') {
 					lp_ejdef = 'P2-ejdef, P6-ejdef eller P7-ejdef';
 					lp_ny = 'P2-Ny-liggplats, P6-Ny-liggplats eller P7-Ny-liggplats';
-					po_info = 'Tillbehör som tillhör ADL (säng/lyft) bör ha en liggplats inom plockområde 2, 6 eller 7.';
+					po_info = 'Tillbehör som tillhör ADL (säng/lyft/pos) bör ha en liggplats inom plockområde 2, 6 eller 7.';
 				}
 				if (artikeltyp == 'R') {
 					lp_ejdef = 'P1-ejdef';
