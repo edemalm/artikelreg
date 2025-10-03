@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-03-2';	// Last commit date
+	window.update = '2025-10-04';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
@@ -50,10 +50,12 @@ $(document).ready(function() {
 	$('#text-artikelbenamning').attr('helper', helper_artikelbenamning);
 	$('#text-standardprodukt').attr('helper', helper_standardprodukt);
 	$('#select-artikeltyp').attr('helper', helper_artikeltyp);
+	$('#select-debiteringsform').attr('helper', helper_debiteringsform);
 	$('#label-inventarium .switch-helper').html(helper_inventarium);
 	$('#label-individartikel .switch-helper').html(helper_individartikel_off);
 	$('#label-serienummer .switch-helper').html(helper_serienummer_off);
 	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
+	$('#label-dtm .switch-helper').html(helper_dtm_off);
 
 	// Check for 'theme' parameter in URL
 	let params = new URLSearchParams(window.location.search);

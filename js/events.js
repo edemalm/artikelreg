@@ -63,27 +63,18 @@ $(document).ready(function() {
 	// 1. Artikelbenämning och produkt
 	// -------------------------------
 
-/*
-	// mdui-text-field #text-artikelbenamning set random placeholder text
-	var textArray = [
-		'Rullstol SpeedKing sb45 sd50 silver inkl arm- o benstöd',
-		'Personlyft HaulMaster 250kg exkl lyftbygel',
-		'Hygienstol PoopEasy tb55 130kg inkl stänkskydd',
-		'Sittdyna SuperSoft 45x45 inkl hygienöverdrag',
-		'Inhalator AirMan portabel 12V/220V',
-		'Kalender HandyPad 24 timmar talande',
-		'Rollator SpeedStepper fyra stora hjul exkl korg',
-	];
-	var randomNumber = Math.floor(Math.random()*textArray.length);
-	$('#text-artikelbenamning').attr('placeholder', 'Exempel: ' + textArray[randomNumber]);
-
-	// update placeholder when mdui-text-field #text-artikelbenamning is cleared
-	$('#text-artikelbenamning').on('clear', function() {
-		console.log('<mdui-text-field #text-artikelbenamning> cleared')
-		var randomNumber = Math.floor(Math.random()*textArray.length);
-		$('#text-artikelbenamning').attr('placeholder', 'Exempel: ' + textArray[randomNumber]);
+	// mdui-text-field #text-artikelbenamning gains focus or being cleared
+	$('#text-artikelbenamning').on('focus clear', function() {
+		console.log('<mdui-text-field #text-artikelbenamning> focus/clear')
+		var random = Math.floor(Math.random()*helper_artikelbenamning_array.length);
+		$('#text-artikelbenamning').attr('helper', 'Exempel: ' + helper_artikelbenamning_array[random]);
 	});
-*/
+
+	// mdui-text-field #text-artikelbenamning loses focus
+	$('#text-artikelbenamning').on('blur', function() {
+		console.log('<mdui-text-field #text-artikelbenamning> blur')
+		$('#text-artikelbenamning').attr('helper', helper_artikelbenamning);
+	});
 
 	// mdui-button #button-fler-produkter clicked
 	$('#button-fler-produkter').click(function() {
@@ -228,6 +219,8 @@ $(document).ready(function() {
 		disableServiceOchUnderhall();
 		switch (debiteringsform) {
 			case 'M':
+				$('#select-debiteringsform').attr('helper', helper_debiteringsform_m);
+
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'H') {
 					enableSwitchInventarium();
 					$('#switch-inventarium').attr('checked', true); // checked
@@ -249,11 +242,11 @@ $(document).ready(function() {
 				}
 			break;
 			case 'A':
-				disableSwitchSerienummer;
+				$('#select-debiteringsform').attr('helper', helper_debiteringsform_a);
+				disableSwitchSerienummer();
 				if (artikeltyp == 'H') {
 					enableSwitchIndividartikel();
 					$('#switch-individartikel').attr('checked', false); // unchecked
-
 				}
 			break;
 		}
@@ -270,9 +263,11 @@ $(document).ready(function() {
 			case 'Nej':
 				if (artikeltyp == 'H' && debiteringsform == 'M') {
 					mdui.alert({
-						headline: "Ej tillåtet",
+						closeOnEsc: true,
+						closeOnOverlayClick: true,
+						confirmText: "Jag förstår",
 						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
-						confirmText: "Jag förstår"
+						headline: "Ej tillåtet"
 					});
 					$('#switch-inventarium').attr('checked', true); // re-checked
 					inventarium = 'Ja';
@@ -303,9 +298,11 @@ $(document).ready(function() {
 			case 'Nej':
 				if (artikeltyp == 'H' && debiteringsform == 'M') {
 					mdui.alert({
-						headline: "Ej tillåtet",
+						closeOnEsc: true,
+						closeOnOverlayClick: true,
+						confirmText: "Jag förstår",
 						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
-						confirmText: "Jag förstår"
+						headline: "Ej tillåtet"
 					});
 					$('#switch-individartikel').attr('checked', true); // re-checked
 					$('#label-individartikel .switch-helper').html(helper_individartikel_on);
@@ -330,17 +327,15 @@ $(document).ready(function() {
 			case 'Nej':
 				$('#label-serienummer .switch-helper').html(helper_serienummer_off);
 				mdui.alert({
-					headline: "Varning!",
+					closeOnEsc: true,
+					closeOnOverlayClick: true,
+					confirmText: "Jag förstår",
 					description: "Avmarkera denna inställning endast om du med säkerhet vet att hjälpmedlet saknar serienummer.",
-					confirmText: "Jag förstår"
+					headline: "Varning!"
 				});
 			break;
 		}
 	});
-
-
-
-
 
 	// mdui-switch #switch-har-aldrig-komp changes
 	$('#switch-har-aldrig-komp').on('change', function() {
@@ -561,46 +556,11 @@ $(document).ready(function() {
 	$('#switch-dtm').on('change', function() {
 		console.log('<mdui-switch #switch-dtm> changed');
 		if ($('#switch-dtm').prop("checked")) {
-			// on
-			$('#dtm-helper').html('Artikeln har drifttidsmätare (enhet timmar)');
+			$('#label-dtm .switch-helper').html(helper_dtm_on);
 		} else {
-			// off
-			$('#dtm-helper').html('Artikel har ej drifttidsmätare');
+			$('#label-dtm .switch-helper').html(helper_dtm_off);
 		}
 	});
-
-//	// Skapa artikeluppgifter
-//
-//	$('#button-create-artikeldata').click(function() {
-//		console.log('<mdui-button #button-create-artikeldata> clicked');
-//
-//		if ( $('#button-create-artikeldata').attr('validate-input') == "yes" ) {
-//			console.log('Input validation enabled');
-//
-//			// validate input
-//			// vanilla javascript
-//			/*
-//			for (const el of document.getElementById('content-formular').querySelectorAll('[required]')) {
-//				if (!el.reportValidity()) {
-//					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
-//					return;
-//				}
-//			}
-//			*/
-//
-//			for (const el of $('[required]')) {
-//				if (!el.reportValidity()) {
-//					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
-//					return;
-//				}
-//			}
-//		} else {
-//			console.log('Input validation disabled');
-//			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
-//		}
-//
-//		createArtikeldata();
-//	});
 
 	$('#button-dialog-copy-artikeldata').click(function() {
 		console.log('<mdui-button #button-dialog-copy-artikeldata> clicked');

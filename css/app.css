@@ -83,8 +83,8 @@ body {
 	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
 	#filter-layer {
-		backdrop-filter: blur(12px);
-		background-color: rgba(var(--mdui-color-background),.25);
+		/* backdrop-filter: blur(12px); */
+		background-color: rgba(var(--mdui-color-background),.5);
 		display: block;
 		top: 0;
 		left: 0;
