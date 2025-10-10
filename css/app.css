@@ -4,14 +4,14 @@ body {
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 	-webkit-tap-highlight-color: transparent;
 	background-attachment: fixed;
-	background-color: rgb(var(--mdui-color-surface-container)) !important;
+	background-color: rgb(var(--mdui-color-surface-container));
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	box-sizing: border-box;
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	margin: 0;
-	min-height: 101vh; /* Test, force scroll */
+	min-height: 100vh;
 	padding: 0;
 	user-select: none;
 }
