@@ -11,7 +11,7 @@ body {
 	box-sizing: border-box;
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	margin: 0;
-	min-height: 100vh;
+	min-height: 101vh; /* Test, force scroll */
 	padding: 0;
 	user-select: none;
 }
@@ -84,12 +84,12 @@ body {
 
 	#filter-layer {
 		backdrop-filter: blur(16px);
-		background-color: rgba(var(--mdui-color-background),.25);
+		/* background-color: rgba(var(--mdui-color-background),.25); */
 		display: block;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
 		overflow: auto;
 		position: fixed;
 		transition: all .4s;
