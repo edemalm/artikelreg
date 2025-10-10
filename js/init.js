@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-04';	// Last commit date
+	window.update = '2025-10-10';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
@@ -41,21 +41,58 @@ $(document).ready(function() {
 	window.team = '';
 	window.theme = '';
 	window.upplysningar = '';
-	window.ws_bb = '';
-	window.ws_pub = '';
-	window.ws_info = '';
-	window.ws_komp = '';
-	window.ws_sort = '';
+	window.wsbb = '';
+	window.wspub = '';
+	window.wsinfo = '';
+	window.wskomp = '';
+	window.wssort = '';
 
-	$('#text-artikelbenamning').attr('helper', helper_artikelbenamning);
-	$('#text-standardprodukt').attr('helper', helper_standardprodukt);
-	$('#select-artikeltyp').attr('helper', helper_artikeltyp);
-	$('#select-debiteringsform').attr('helper', helper_debiteringsform);
-	$('#label-inventarium .switch-helper').html(helper_inventarium);
-	$('#label-individartikel .switch-helper').html(helper_individartikel_off);
-	$('#label-serienummer .switch-helper').html(helper_serienummer_off);
-	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
-	$('#label-dtm .switch-helper').html(helper_dtm_off);
+	// 1. Artikelbenämning och produkt
+	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);	// OK
+	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);		// OK
+
+	// 2. Leverantör
+
+	// 3. Ansvarigt team
+
+	// 4. Ekonomi
+	setSelect('artikeltyp', 'disabled', '', helper_artikeltyp);					// OK
+	setSelect('debiteringsform', 'disabled', '', helper_debiteringsform);		// OK
+	setSwitch('inventarium', 'disabled', 'off', helper_inventarium_off);		// OK
+	setRadio('avskrivningstid', 'disabled', '', helper_avskrivningstid_off);	// OK
+
+	// 5. Individinställningar
+	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);		// OK
+	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);			// OK
+	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);		// OK
+	setSwitch('dtm', 'disabled', 'off', helper_dtm);							// OK
+
+	// 6. Visma webSesam
+	setSwitch('wspub', 'enabled', 'off', helper_wspub_off);						// OK
+	setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);						// OK
+	setSwitch('wssort', 'enabled', 'off', helper_wssort_off);					// OK
+	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
+	setTextField('wsinfo', 'disabled', '', helper_wsinfo);
+
+	// 7. Lagerhållning
+	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);		// OK
+	setTextField('liggplats', 'enabled', '', helper_liggplats);					// OK
+	setTextField('buffertlager', 'enabled', placeholder_buffertlager, helper_buffertlager);	// OK
+
+	// 8. Hantering vid ankomst
+	setTextField('gmi', 'enabled', placeholder_gmi, helper_gmi);				// OK
+	setSwitch('kk', 'disabled', 'off', helper_kk_off);							// OK
+	setTextField('kkb', 'disabled', placeholder_kkb, helper_kkb);				// OK
+
+	// 9. Service och underhåll
+
+	// 10. Informationstexter
+	setTextField('iki', 'enabled', placeholder_iki, helper_iki);				// OK
+	setTextField('ipi', 'enabled', placeholder_ipi, helper_ipi);				// OK
+	setTextField('iri', 'disabled', placeholder_iri, helper_iri);				// OK
+
+	// 11. Övriga upplysningar
+	setTextField('upplysningar', 'enabled', '', helper_upplysningar);			// OK
 
 	// Check for 'theme' parameter in URL
 	let params = new URLSearchParams(window.location.search);
@@ -84,23 +121,9 @@ $(document).ready(function() {
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	}
 
-	// Toggle theme
-	$('#button-toggle-theme').click(function() {
-		console.log('<mdui-button #button-toggle-theme> clicked');
-		if ( $('html').hasClass('mdui-theme-light') ) {
-			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
-			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
-			theme = 'dark';
-		} else {
-			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
-			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
-			theme = 'light';
-		}
-	});
-
 	// Debug
 	if (debug == 'Yes') {
-		$('.debug').removeClass('hidden');
+		$('#viewport').show();
 		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
@@ -152,11 +175,11 @@ $(document).ready(function() {
 	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
 		console.log('Activity detected');
-		$('#filter-layer, mdui-layout-main, mdui-dialog').removeClass('inactive')
+		$('#filter-layer, mdui-layout-main, mdui-dialog').removeClass('inactive');
 	});
 	$(document).on("inactivity", function() {
 		console.log('Inactivity detected');
-		$('#filter-layer, mdui-layout-main, mdui-dialog').addClass('inactive')
+		$('#filter-layer, mdui-layout-main, mdui-dialog').addClass('inactive');
 	});
 
 	// Set date in version
@@ -167,27 +190,6 @@ $(document).ready(function() {
 	var deploy2 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLm5ldGxpZnkuYXBw');
 	$('#main-site').html('<a href="' + deploy1 + '/">' + deploy1 + '</a>');
 	$('#backup-site').html('<a href="' + deploy2 + '/">' + deploy2 + '</a>');
-
-	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group1>
-	$('#menu-collapse-group1').on('open', function() {
-		console.log('The open event fired on #menu-collapse-group1');
-		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_up')
-	});
-	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group2>
-	$('#menu-collapse-group2').on('open', function() {
-		console.log('The open event fired on #menu-collapse-group2');
-		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_up')
-	});
-	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group1>
-	$('#menu-collapse-group1').on('close', function() {
-		console.log('The close event fired on #menu-collapse-group1');
-		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_down')
-	});
-	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group2>
-	$('#menu-collapse-group2').on('close', function() {
-		console.log('The close event fired on #menu-collapse-group2');
-		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
-	});
 
 	// Include HTML from files
 	// Note: The load function is not included in the slim verion of jQuery
@@ -211,16 +213,6 @@ $(document).ready(function() {
 	const urlParams = new URLSearchParams(queryString);
 	if (urlParams.has('reload')) {
 		console.log('Page reload detected');
-		/*
-		let params = new URLSearchParams(window.location.search);
-		console.log('Query string (before):' + params);
-		params.delete('reload');
-		console.log('Query string (after):' + params);
-		let url = location.protocol + '//' + location.host + location.pathname + '?' + params;
-		console.log(url);
-		window.history.pushState(null, '', url);
-
-		*/
 		const url = location.protocol + '//' + location.host + location.pathname;
 		window.history.pushState(null, '', url);
 		mdui.snackbar({ message: 'Formuläret är rensat' });

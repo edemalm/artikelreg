@@ -83,8 +83,8 @@ body {
 	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
 	#filter-layer {
-		/* backdrop-filter: blur(12px); */
-		background-color: rgba(var(--mdui-color-background),.5);
+		backdrop-filter: blur(16px);
+		background-color: rgba(var(--mdui-color-background),.25);
 		display: block;
 		top: 0;
 		left: 0;
@@ -112,144 +112,143 @@ body {
 
 }
 
-div.outer-container {
+
+div.content-container {
 	background-color: rgb(var(--mdui-color-surface-container));
 }
-
-div.inner-container {
-	display: flex;
-	flex-direction: column;
-	padding: var(--double-row-gap) var(--small-column-gap);
+@media only screen and (min-width: 1025px) {
+	div.content-container {
+		margin: 0 auto !important;
+		max-width: 1280px;
+		padding: var(--double-row-gap) var(--double-column-gap);
+	}
 }
-
 @media only screen and (min-width: 1281px) {
-	div.inner-container {
-		padding: var(--row-gap) var(--column-gap);
+	div.content-container {
+		border-radius: var(--mdui-shape-corner-extra-large);
+		box-shadow: var(--mdui-elevation-level1);
+		margin: var(--double-row-gap) auto !important;
 	}
 }
 
-div.fullpage-container {
-	border-radius: var(--mdui-shape-corner-medium);
-	overflow: hidden;
-}
+
 div.fullpage-content {
 	background-color: rgb(var(--mdui-color-surface));
 	padding: var(--double-row-gap) var(--column-gap);
 	user-select: text;
 }
-
-
-div.upper-container {
-	border-top-left-radius: var(--mdui-shape-corner-medium);
-	border-top-right-radius: var(--mdui-shape-corner-medium);
-	overflow: hidden;
+@media only screen and (min-width: 641px) {
+	div.fullpage-content {
+		padding: var(--double-row-gap) var(--double-column-gap);
+	}
+}
+@media only screen and (min-width: 1025px) {
+	div.fullpage-content {
+		border-radius: var(--mdui-shape-corner-medium);
+		overflow: hidden;
+		padding: var(--triple-row-gap) var(--quadruple-column-gap);
+	}
 }
 
 
-div.upper-container,
-div.middle-container,
+@media only screen and (min-width: 1025px) {
+	div.upper-container {
+		border-top-left-radius: var(--mdui-shape-corner-medium);
+		border-top-right-radius: var(--mdui-shape-corner-medium);
+		overflow: hidden;
+	}
+}
+
+
 div.buttom-container {
-	background-color: rgb(var(--mdui-color-surface-container));
+	padding: var(--double-row-gap) var(--column-gap);
 }
-div.buttom-container {
-	padding: var(--double-row-gap) 0 0 0;
+@media only screen and (min-width: 641px) {
+	div.buttom-container {
+		padding: var(--double-row-gap) var(--double-column-gap);
+	}
 }
+@media only screen and (min-width: 641px) {
+	div.buttom-container {
+		padding: var(--double-row-gap) 0 0 0;
+	}
+}
+
 
 div.flex-container {
 	display: flex;
 	flex-direction: column;
 }
+@media only screen and (min-width: 1025px) {
+	div.flex-container {
+		flex-direction: row;
+	}
+}
+
+
 div.left-container,
 div.right-container {
 	background-color: rgb(var(--mdui-color-surface));
 	flex: 1;
 	overflow: hidden;
 }
-
-div.right-container {
-	border-bottom-left-radius: var(--mdui-shape-corner-medium);
-	border-bottom-right-radius: var(--mdui-shape-corner-medium);
-}
-
 @media only screen and (min-width: 1025px) {
-	div.flex-container {
-		flex-direction: row;
-	}
 	div.left-container {
 		border-right: 0.125rem solid rgb(var(--mdui-color-surface-container));
 		border-bottom-left-radius: var(--mdui-shape-corner-medium);
 	}
 	div.right-container {
 		border-left: 0.125rem solid rgb(var(--mdui-color-surface-container));
-		border-bottom-left-radius: unset;
+		border-bottom-right-radius: var(--mdui-shape-corner-medium);
 	}
 }
 
-@media only screen and (min-width: 1281px) {
-	div.outer-container {
-		border-radius: var(--mdui-shape-corner-large);
-		box-shadow: var(--mdui-elevation-level1);
-		margin: var(--double-row-gap) auto !important;
-		max-width: 1280px;
-		overflow: hidden;
-	}
-	div.buttom-container {
-		padding: var(--double-row-gap) 0 var(--row-gap) 0;
-	}
-}
 
 div.form-section {
 	background-color: rgb(var(--mdui-color-surface));
-	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));;
+	border-bottom: 0.25rem solid rgb(var(--mdui-color-surface-container));
 	padding: var(--double-row-gap) var(--column-gap);
 }
-
 div.right-container div.form-section:last-child {
 	border-bottom: unset;
 }
+@media only screen and (min-width: 641px) {
+	div.form-section {
+		padding: var(--double-row-gap) var(--double-column-gap);
+	}
+}
 @media only screen and (min-width: 1025px) {
+	div.form-section {
+		padding: var(--triple-row-gap) var(--quadruple-column-gap);
+	}
+	div.left-container .form-section:last-child {
+		border-bottom: 0;
+	}
 	div.right-container div.form-section:last-child {
+		border-bottom: 0;
 		border-bottom-left-radius: unset;
 		border-bottom-right-radius: unset;
 	}
 }
 
-@media only screen and (min-width: 641px) {
-	div.fullpage-content, div.form-section { padding: var(--double-row-gap) var(--double-column-gap); }
-}
-@media only screen and (min-width: 1281px) {
-	div.fullpage-content, div.form-section { padding: var(--triple-row-gap) var(--triple-column-gap); }
-}
 
-@media only screen and (min-width: 1025px) {
-	div.left-container .form-section:last-child,
-	div.right-container .form-section:last-child {
-		border-bottom: 0;
-	}
-}
-
-div.controls-container-left,
-div.controls-container-center,
-div.controls-container-right {
+div.controls-container {
 	display: flex;
 	flex-direction: row;
+	justify-content: right;
 }
-div.controls-container-left { justify-content: left; }
-div.controls-container-center { justify-content: center; }
-div.controls-container-right { justify-content: right; }
 
-div.control-left,
-div.control-center,
 div.control-right {
+	flex-grow: 0;
 	line-height: 0;
+	padding: 0 0 0 var(--column-gap);
+	text-align: right;
 }
-div.control-left { flex-grow: 1; padding: 0 var(--column-gap) 0 0; text-align: left; }
-div.control-center { flex-grow: 0; padding: 0; text-align: center; }
-div.control-right { flex-grow: 0; padding: 0 0 0 var(--column-gap); text-align: right; }
 
 #viewport {
 	background-color: rgb(var(--mdui-color-surface));
 	color: rgb(var(--mdui-color-on-surface));
+	display: none;
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
 	letter-spacing: var(--mdui-typescale-body-small-tracking);

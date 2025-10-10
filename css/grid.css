@@ -7,8 +7,11 @@
 	--column-gap: 0.75rem;
 	--double-row-gap: 1.5rem;	/* 24px */
 	--double-column-gap: 1.5rem;
-	--triple-row-gap: 3rem;		/* 48px */
-	--triple-column-gap: 3rem;
+	--triple-row-gap: 2.25rem;	/* 36px */
+	--triple-column-gap: 2.25rem;
+	--quadruple-row-gap: 3rem;	/* 48px */
+	--quadruple-column-gap: 3rem;
+
 }
 
 .grid {
@@ -32,14 +35,14 @@
 }
 @media only screen and (min-width: 1025px) {
 	.grid {
-		column-gap: var(--column-gap);
+		column-gap: var(--double-column-gap);
 		row-gap: var(--double-row-gap);
 	}
 }
 @media only screen and (min-width: 1281px) {
 	.grid {
 		column-gap: var(--double-column-gap);
-		row-gap: var(--double-row-gap);
+		row-gap: var(--triple-row-gap);
 	}
 }
 

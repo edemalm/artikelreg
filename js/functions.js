@@ -1,21 +1,121 @@
 console.log('Loading functions.js');
 
+/**
+ * Add a search parameter to current URL
+ * @param {string} key		- Name of search key (i.e. "theme").
+ * @param {string} value	- Value of search key (i.e. "dark").
+ */
 function setURLParam(key, value) {
-	console.log(' -- setURLParam()');
+	console.log('setURLParam("' + key + '","' + value + '")');
 	const url = new URL(window.location);
 	url.searchParams.set(key, value);
 	history.pushState(null, '', url);
 }
 
+/**
+ * Change visible page content
+ * @param {string} contentId	- Element ID of page content (i.e. #content-formular).
+ * @param {string} menuItemId	- Element ID of active menu item (i.e. #menu-formular).
+ */
 function changeContent(contentId, menuItemId) {
-	console.log(' -- changeContent()');
-		if ($(contentId).css('display') == 'none') {
-			$('.outer-container').fadeOut(400); /* hide all content */
-			$(contentId).delay(400).fadeIn(400);
-			$('mdui-list-item').removeAttr('active');
-			$(menuItemId).attr('active','');
-		}
-		$('#navigation-drawer').removeAttr('open'); /* close menu */
+	console.log('changeContent("' + contentId + '","' + menuItemId + '")');
+	if ($(contentId).css('display') == 'none') {
+		$('.content-container').fadeOut(400); /* hide all content */
+		$(contentId).delay(400).fadeIn(400);
+		$('mdui-list-item').removeAttr('active');
+		$(menuItemId).attr('active','');
+	}
+	$('#navigation-drawer').removeAttr('open'); /* close menu */
+}
+
+/**
+ * Set mode of a text field and its palceholder and label
+ * @param {string} paramId		- Text field element ID part (i.e. foo in #text-foo).
+ * @param {string} mode			- Set "enabled" or "disabled".
+ * @param {string} placeholder	- Placeholder text.
+ * @param {string} helper		- Helper text.
+ */
+function setTextField(paramId, mode, placeholder, helper) {
+	console.log('setTextField("' + paramId + '","' + mode + '","' + placeholder + '","' + helper + '")');
+	if (mode == 'enabled') {
+		$('#text-' + paramId).attr('disabled', false);
+	} else {
+		$('#text-' + paramId).attr('disabled', true);
+	}
+	if (placeholder.length > 0) $('#text-' + paramId).attr('placeholder', placeholder);
+	if (helper.length > 0) $('#text-' + paramId).attr('helper', helper);
+	window[paramId] = $('#text-' + paramId).val();
+	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+}
+
+/**
+ * Set <mdui-select> attributes and value
+ * @param {string} paramId	- Select element ID part (i.e. foo in #select-foo)
+ * @param {string} mode		- Set "enabled" or "disabled".
+ * @param {string} value	- Selected value, or '' to reset
+ * @param {string} helper	- Helper text.
+ */
+function setSelect(paramId, mode, value, helper) {
+	console.log('setSelect("' + paramId + '","' + mode + '","' + value + '","' + helper + '")');
+	if (mode == 'enabled') {
+		$('#select-' + paramId).attr('disabled', false);
+	} else {
+		$('#select-' + paramId).attr('disabled', true);
+	}
+	$('#select-' + paramId).val(value);
+	if (helper.length > 0) $('#select-' + paramId).attr('helper', helper);
+	window[paramId] = $('#select-' + paramId).val();
+	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+}
+
+/**
+ * Set mode and state of a switch button and its label.
+ * @param {string} paramId	- Element ID part (i.e. foo #label-foo and #switch-foo).
+ * @param {string} mode		- Set "enabled" or "disabled".
+ * @param {string} state	- Set "on" or "off" state of switch.
+ * @param {string} helper	- Helper text.
+ */
+function setSwitch(paramId, mode, state, helper) {
+	console.log('setSwitch("' + paramId + '","' + mode + '","' + state + '","' + helper + '")');
+	if (mode == "enabled") {
+		$('#label-' + paramId).removeClass('disabled');
+		$('#switch-' + paramId).attr('disabled', false);
+	} else {
+		$('#label-' + paramId).addClass('disabled');
+		$('#switch-' + paramId).attr('disabled', true);
+	}
+	if (state == 'on') {
+		if (helper.length > 0) $('#label-' + paramId + ' .switch-helper').html(helper);
+		$('#switch-' + paramId).attr('checked', true);
+	} else {
+		if (helper.length > 0) $('#label-' + paramId + ' .switch-helper').html(helper);
+		$('#switch-' + paramId).attr('checked', false);
+	}
+	window[paramId] = ($('#switch-' + paramId).prop("checked") ? "Ja" : "Nej");
+	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+}
+
+/**
+ * Set mode of radio buttons and their label.
+ * @param {string} paramId	- Element ID part (i.e. foo in #label-foo and #radio-foo).
+ * @param {string} mode		- "enabled" or "disabled".
+ * @param {string} selected	- selected radio button, or '' to reset.
+ * @param {string} helper	- Helper text
+ */
+function setRadio(paramId, mode, selected, helper) {
+	console.log('setRadio("' + paramId + '","' + mode + '","' + selected + '","' + helper + '")');
+	if (mode == "enabled") {
+		$('#label-' + paramId).removeClass('disabled');
+		$('#radio-' + paramId).val(selected);
+		$('#radio-' + paramId).attr('disabled', false); // enable
+	} else {
+		$('#label-' + paramId).addClass('disabled');
+		$('#radio-' + paramId).val(''); // clear
+		$('#radio-' + paramId).attr('disabled', true); // disable
+	}
+	if (helper.length > 0) $('#label-' + paramId + ' .radio-helper').html(helper);
+	window[paramId] = $('#radio-' + paramId).val();
+	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 function enableSelectArtikeltyp() {
@@ -39,94 +139,18 @@ function disableSelectDebiteringsform() {
 	$('#select-debiteringsform').val('').attr('disabled', true); // unselect and disable
 }
 
-function enableSwitchIndividartikel() {
-	console.log(' -- enableSwitchIndividartikel()');
-	$('#switch-individartikel').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-individartikel').removeClass('disabled'); // remove .disabled
-	individartikel = "Nej";
-}
-function disableSwitchIndividartikel() {
-	console.log(' -- disableSwitchIndividartikel()');
-	$('#switch-individartikel').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-individartikel .switch-helper').html(helper_individartikel_off);
-	$('#label-individartikel').addClass('disabled'); // add .disabled
-	individartikel = "Nej";
-}
 
-function enableSwitchSerienummer() {
-	console.log(' -- enableSwitchSerienummer()');
-	$('#switch-serienummer').attr('checked', true).attr('disabled', false); // check and enable
-	$('#label-serienummer .switch-helper').html(helper_serienummer_on); // default is on when enabled
-	$('#label-serienummer').removeClass('disabled'); // remove .disabled
-	serienummer = "Ja";
-}
-function disableSwitchSerienummer() {
-	console.log(' -- disableSwitchSerienummer()');
-	$('#switch-serienummer').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-serienummer .switch-helper').html(helper_serienummer_off);
-	$('#label-serienummer').addClass('disabled'); // add .disabled
-	serienummer = "Nej";
-}
 
-function enableSwitchInventarium() {
-	console.log(' -- enableSwitchInventarium()');
-	$('#switch-inventarium').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-inventarium').removeClass('disabled'); // remove .disabled
-	inventarium = "Nej";
-}
-function disableSwitchInventarium() {
-	console.log(' -- disableSwitchInventarium()');
-	$('#switch-inventarium').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-inventarium').addClass('disabled'); // add .disabled
-	inventarium = "Nej";
-}
-
-function enableRadioAvskrivningstid() {
-	console.log(' -- enableRadioAvskrivningstid()');
-	$('#radio-avskrivningstid').val('').attr('disabled', false).attr('required', true); // clear, enable and require
-	$('#label-avskrivningstid').removeClass('disabled'); // remove .disabled
-}
-function disableRadioAvskrivningstid() {
-	console.log(' -- disableRadioAvskrivningstid()');
-	$('#radio-avskrivningstid').val('').attr('disabled', true).attr('required', false); // clear disable and don't require
-	$('#label-avskrivningstid').addClass('disabled'); // add .disabled
-}
-
-function enableSwitchHarAldrigKomp() {
-	console.log(' -- enableSwitchHarAldrigKomp()');
-	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
-	$('#label-har-aldrig-komp').removeClass('disabled'); // remove .disabled
-}
-function disableSwitchHarAldrigKomp() {
-	console.log(' -- disableSwitchHarAldrigKomp()');
-	$('#switch-har-aldrig-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-har-aldrig-komp .switch-helper').html(helper_har_aldrig_komp_off);
-	$('#label-har-aldrig-komp').addClass('disabled'); // add .disabled
-}
-
-function enableSwitchWSKomp() {
-	console.log(' -- enableSwitchWSKomp()');
-	$('#switch-ws-komp').attr('checked', true).attr('disabled', false); // check and enable
-	$('#label-ws-komp').removeClass('disabled'); // remove .disabled
-	$('#ws-komp-helper').html('Detta tillbehör kan beställas som komponent till ett huvudhjälpmedel');
-}
-function disableSwitchWSKomp() {
-	console.log(' -- disableSwitchWSKomp()');
-	$('#switch-ws-komp').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-ws-komp').addClass('disabled'); // add .disabled
-	$('#ws-komp-helper').html('Detta tillbehör kan inte beställas som komponent till ett huvudhjälpmedel');
-}
 
 function enableTextReturtagningsinformation() {
-	$('#textarea-iri').attr('disabled', false); // enable
+	$('#text-iri').attr('disabled', false); // enable
 }
 function disableTextReturtagningsinformation() {
-	$('#textarea-iri').val('').attr('disabled', true); // clear and disable
+	$('#text-iri').val('').attr('disabled', true); // clear and disable
 }
 
 function enalbeSliderForbrukning() {
-	console.log(' -- enableSliderForbrukning()');
+	console.log('enableSliderForbrukning()');
 	$('#slider-forbrukning').val('').attr('disabled', false); // clear and enable
 	$('.slider-label').removeClass('disabled'); // remove .disabled
 	$('.slider-helper').removeClass('disabled'); // remove .disabled
@@ -134,13 +158,26 @@ function enalbeSliderForbrukning() {
 	$('#slider-msg').html(forbrukning_msg); // update displayd msg
 }
 function disableSliderForbrukning() {
-	console.log(' -- disableSliderForbrukning()');
+	console.log('disableSliderForbrukning()');
 	$('#slider-forbrukning').val('').attr('disabled', true); // clear and disable
 	$('.slider-label').addClass('disabled'); // add .disabled
 	$('.slider-helper').addClass('disabled'); // add .disabled
 	forbrukning = ''; // reset
 	forbrukning_msg = 'Endast relevant för inköpshantering Nettobehov'; // reset to default msg
 	$('#slider-msg').html(forbrukning_msg); // update displayed msg
+}
+
+/*
+function enableTextKvalitetskontroll() {
+	console.log(' -- enableTextKvalitetskontroll()');
+	$('#textarea-kkb').attr('disabled', false); // enable
+	$('#switch-kk-helper').html('Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.');
+}
+function disableTextKvalitetskontroll() {
+	console.log(' -- disableTextKvalitetskontroll()');
+	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
+	$('#switch-kk-helper').html('Artikeln har ej kvalitetskontroll');
+	kkb = '';
 }
 
 function enableSwitchKvalitetskontroll() {
@@ -154,18 +191,7 @@ function disableSwitchKvalitetskontroll() {
 	$('#label-kk').addClass('disabled'); // add .disabled
 	kk = 'Nej';
 }
-
-function enableTextKvalitetskontroll() {
-	console.log(' -- enableTextKvalitetskontroll()');
-	$('#textarea-kkb').attr('disabled', false); // enable
-	$('#switch-kk-helper').html('Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.');
-}
-function disableTextKvalitetskontroll() {
-	console.log(' -- disableTextKvalitetskontroll()');
-	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
-	$('#switch-kk-helper').html('Artikeln har ej kvalitetskontroll');
-	kkb = '';
-}
+*/
 
 function enableServiceOchUnderhall() {
 	console.log(' -- enableServiceOchUnderhall()');
@@ -196,23 +222,23 @@ function createArtikeldata() {
 	artikeltyp = $('#select-artikeltyp').val();
 	avskrivningstid = $('#radio-avskrivningstid').val();
 	besiktningsintervall = $('#select-besiktningsintervall').val();
-	buffertlager = $('#textarea-buffertlager').val();
+	buffertlager = $('#text-buffertlager').val();
 	debiteringsform = $('#select-debiteringsform').val();
 	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej");
 	forbrukning = $('#slider-forbrukning').val();
 	fu_intervall = $('#select-fu-intervall').val();
-	gmi = $('#textarea-gmi').val();
+	gmi = $('#text-gmi').val();
 	haraldrigkomp = ($('#switch-har-aldrig-komp').prop("checked") ? "Ja" : "Nej");
 	huvudlager = $('#select-huvudlager').val();
 	standardprodukt = $('#text-standardprodukt').val();
-	iki = $('#textarea-iki').val();
-	ipi = $('#textarea-ipi').val();
-	iri = $('#textarea-iri').val();
+	iki = $('#text-iki').val();
+	ipi = $('#text-ipi').val();
+	iri = $('#text-iri').val();
 	individartikel = ($('#switch-individartikel').prop("checked") ? "Ja" : "Nej");
 	inkopshantering = $('#select-inkopshantering').val();
 	inventarium = ($('#switch-inventarium').prop("checked") ? "Ja" : "Nej");
 	kk = ($('#switch-kk').prop("checked") ? "Ja" : "Nej");
-	kkb = $('#textarea-kkb').val();
+	kkb = $('#text-kkb').val();
 	liggplats = $('#text-liggplats').val();
 	leverantor = $('#text-leverantor').val();
 	levartnr = $('#text-levartnr').val();
@@ -222,12 +248,12 @@ function createArtikeldata() {
 	serienummer = ($('#switch-serienummer').prop("checked") ? "Ja" : "Nej");
 	servicegrad = $('#select-servicegrad').val();
 	team = $('#select-team').val();
-	upplysningar = $('#textarea-upplysningar').val();
-	ws_bb = ($('#switch-ws-bb').prop("checked") ? "Ja" : "Nej");
-	ws_info = $('#textarea-ws-info').val();
-	ws_komp = ($('#switch-ws-komp').prop("checked") ? "Ja" : "Nej");
-	ws_pub = ($('#switch-ws-pub').prop("checked") ? "Ja" : "Nej");
-	ws_sort = ($('#switch-ws-sort').prop("checked") ? "Ja" : "Nej");
+	upplysningar = $('#text-upplysningar').val();
+	ws_bb = ($('#switch-wsbb').prop("checked") ? "Ja" : "Nej");
+	ws_info = $('#text-wsinfo').val();
+	ws_komp = ($('#switch-wskomp').prop("checked") ? "Ja" : "Nej");
+	ws_pub = ($('#switch-wspub').prop("checked") ? "Ja" : "Nej");
+	ws_sort = ($('#switch-wssort').prop("checked") ? "Ja" : "Nej");
 
 	// Create artikeldata
 	artikeldata = "Hej!\n\nJag önskar att följande artikel registreras i Sesam.";
