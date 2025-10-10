@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-10-4';	// Last commit date
+	window.update = '2025-10-10-5';	// Last commit date
 	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	// 6. Visma webSesam
 	setSwitch('wspub', 'enabled', 'off', helper_wspub_off);						// OK
 	setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);						// OK
-	setSwitch('wssort', 'enabled', 'off', helper_wssort_off);					// OK
+	setSwitch('wssort', 'enabled', 'on', helper_wssort_on);						// OK
 	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
 	setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 

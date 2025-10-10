@@ -167,32 +167,6 @@ function disableSliderForbrukning() {
 	$('#slider-msg').html(forbrukning_msg); // update displayed msg
 }
 
-/*
-function enableTextKvalitetskontroll() {
-	console.log(' -- enableTextKvalitetskontroll()');
-	$('#textarea-kkb').attr('disabled', false); // enable
-	$('#switch-kk-helper').html('Inleverans görs i två steg. Först registreras godsmottagning av lagerpersonalen. Därefter kontrolleras artikeln, oftast av ansvarig tekniker. Efter genomförd kontroll registreras kvalitetskontrollen i Sesam. Därefter blir artikeln tillgänglig och leverantörsfakturan kan betalas.');
-}
-function disableTextKvalitetskontroll() {
-	console.log(' -- disableTextKvalitetskontroll()');
-	$('#textarea-kkb').val('').attr('disabled', true); // clear and disable
-	$('#switch-kk-helper').html('Artikeln har ej kvalitetskontroll');
-	kkb = '';
-}
-
-function enableSwitchKvalitetskontroll() {
-	console.log(' -- enableSwitchKvalitetskontroll()');
-	$('#switch-kk').attr('checked', false).attr('disabled', false); // uncheck and enable
-	$('#label-kk').removeClass('disabled'); // remove .disabled
-}
-function disableSwitchKvalitetskontroll() {
-	console.log(' -- disableSwitchKvalitetskontroll()');
-	$('#switch-kk').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-kk').addClass('disabled'); // add .disabled
-	kk = 'Nej';
-}
-*/
-
 function enableServiceOchUnderhall() {
 	console.log(' -- enableServiceOchUnderhall()');
 	$('#select-servicegrad').val('').attr('disabled', false).attr('readonly', false); // reset, enable and not readonly	
