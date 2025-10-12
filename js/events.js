@@ -264,33 +264,31 @@ $(document).ready(function() {
 		console.log('Artikeltyp = ' + artikeltyp );
 
 		// reset
-		// disableSelectDebiteringsform();
 		$('#debiteringsform-menu-item-m').attr('disabled', false); // re-enable option 'M' (månadshyra)
 		$('#debiteringsform-menu-item-a').attr('disabled', false); // re-enable option 'A' (köp)
 		setSelect('debiteringsform', 'disabled', '', helper_debiteringsform);
 
-		setSwitch('inventarium','disabled','off',helper_inventarium_off);
-		setRadio('avskrivningstid','disabled','',helper_avskrivningstid_off);
-		setSwitch('individartikel','disabled','off',helper_individartikel);
-		setSwitch('serienummer','disabled','off',helper_serienummer);
-		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
+		setSwitch('inventarium', 'disabled', 'off', helper_inventarium_off);
+		setRadio('avskrivningstid', 'disabled', '', helper_avskrivningstid_off);
+
+		setSwitch('individartikel', 'disabled', 'off', helper_individartikel);
+		setSwitch('serienummer', 'disabled', 'off', helper_serienummer);
+		setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);
+
+		setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
+		setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
+		setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);
 		setSwitch('wskomp','disabled','off',helper_wskomp);
 
 		setSwitch('kk', 'disabled', 'off', helper_kk_off);
 		setTextField('kkb', 'disabled', '', helper_kkb);
 		setTextField('iri', 'disabled', '', helper_iri);
 
-
 		switch (artikeltyp) {
 			case 'H':
-				// $('#select-artikeltyp').attr('helper', helper_artikeltyp_h);
 				setSelect('artikeltyp', 'enabled', 'H', helper_artikeltyp_h);
-
-				// enableSelectDebiteringsform();
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
-
-				setSwitch('individartikel','disabled','off',helper_individartikel_off);
-				setSwitch('kk','enabled','off',helper_kk_off);
+				setSwitch('kk', 'enabled', 'off', helper_kk_off);
 				setTextField('iri', 'enabled', placeholder_iri, helper_iri);
 
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
@@ -299,12 +297,8 @@ $(document).ready(function() {
 				}
 			break;
 			case 'T':
-				// $('#select-artikeltyp').attr('helper', helper_artikeltyp_t);
 				setSelect('artikeltyp', 'enabled', 'T', helper_artikeltyp_t);
-
-				// enableSelectDebiteringsform();
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
-
 				setSwitch('wskomp','enabled','on',helper_wskomp_on);
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
@@ -312,7 +306,6 @@ $(document).ready(function() {
 				}
 			break;
 			case 'R':
-				// $('#select-artikeltyp').attr('helper', helper_artikeltyp_r);
 				setSelect('artikeltyp', 'enabled', 'R', helper_artikeltyp_r);
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform_a);
 				$('#select-debiteringsform').val('A'); // select 'A' (köp)
@@ -331,7 +324,10 @@ $(document).ready(function() {
 		setSwitch('serienummer','disabled','off',helper_serienummer);
 		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
 		setSwitch('dtm','enabled','off',helper_haraldrigkomp);
-		disableServiceOchUnderhall();
+		setSelect('servicegrad', 'disabled', '', '');
+		setSelect('besiktningsintervall', 'disabled', '', '');
+		setSelect('fuintervall', 'disabled', '', '');
+
 		switch (debiteringsform) {
 			case 'M':
 				$('#select-debiteringsform').attr('helper', helper_debiteringsform_m);
@@ -343,7 +339,9 @@ $(document).ready(function() {
 					setSwitch('serienummer','enabled','on',helper_serienummer_on);
 					setSwitch('haraldrigkomp','enabled','off',helper_haraldrigkomp_off);
 					setSwitch('dtm','enabled','off',helper_dtm_off);
-					enableServiceOchUnderhall();
+					setSelect('servicegrad', 'enabled', '', '');
+					setSelect('besiktningsintervall', 'enabled', '', '');
+					setSelect('fuintervall', 'enabled', '', '');
 					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
 				}
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'T') {

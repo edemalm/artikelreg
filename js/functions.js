@@ -167,24 +167,6 @@ function disableSliderForbrukning() {
 	$('#slider-msg').html(forbrukning_msg); // update displayed msg
 }
 
-function enableServiceOchUnderhall() {
-	console.log(' -- enableServiceOchUnderhall()');
-	$('#select-servicegrad').val('').attr('disabled', false).attr('readonly', false); // reset, enable and not readonly	
-	$('#select-besiktningsintervall').val('').attr('disabled', false); // reset and enable
-	$('#select-fu-intervall').val('').attr('disabled', false); // reset and enable
-	$('#switch-dtm').attr('checked', false).attr('disabled', false); // uncheck and disable
-	$('#label-dtm').removeClass('disabled'); // remove .disabled
-}
-function disableServiceOchUnderhall() {
-	console.log(' -- disableServiceOchUnderhall()');
-	$('#servicegrad-menu-item-44').attr('disabled', false); // re-enable option '44'
-	$('#select-servicegrad').val('').attr('disabled', true); // reset and disable
-	$('#select-besiktningsintervall').val('').attr('disabled', true); // reset and disable
-	$('#select-fu-intervall').val('').attr('disabled', true); // reset and disable
-	$('#switch-dtm').attr('checked', false).attr('disabled', true); // uncheck and disable
-	$('#label-dtm').addClass('disabled'); // add .disabled
-}
-
 function createArtikeldata() {
 
 	// console.log('form #form-artikeldata submitted');
@@ -200,7 +182,7 @@ function createArtikeldata() {
 	debiteringsform = $('#select-debiteringsform').val();
 	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej");
 	forbrukning = $('#slider-forbrukning').val();
-	fu_intervall = $('#select-fu-intervall').val();
+	fuintervall = $('#select-fuintervall').val();
 	gmi = $('#text-gmi').val();
 	haraldrigkomp = ($('#switch-har-aldrig-komp').prop("checked") ? "Ja" : "Nej");
 	huvudlager = $('#select-huvudlager').val();

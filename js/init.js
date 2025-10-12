@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-10-5';	// Last commit date
+	window.update = '2025-10-12';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -17,6 +17,7 @@ $(document).ready(function() {
 	window.dtm = '';
 	window.forbrukning = '';
 	window.forbrukning_msg = '';
+	window.fuintervall = '';
 	window.gmi = '';
 	window.iki = '';
 	window.iri = '';
