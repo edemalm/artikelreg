@@ -22,6 +22,7 @@ let helper_artikelbenamning_array = [
 // 3. Ansvarigt team
 
 // 4. Ekonomi
+
 let helper_artikeltyp = "Välj artikeltyp hos DHC. Denna kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten.";
 let helper_artikeltyp_h = "Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel";
 let helper_artikeltyp_t = "Tillbehör ger extra funktionalitet hos ett huvudhjälpmedel";
@@ -83,7 +84,7 @@ let helper_iki = "Vid behov, ange en kortfattad text som visas för orderhandlä
 let placeholder_iki ="Exempel: Skall alltid handläggas av konsulent";
 let helper_ipi = "Vid behov, ange en kortfattad text som visas för lagerpersonalen vid plockning";
 let placeholder_ipi = "Exempel: Hjälpmedlet behöver laddas före utleverans";
-let helper_iri = "Vid behov, ange en kortfattad text som visas för returpersonalen vid returtagning";
+let helper_iri = "Vid behov, ange en kortfattad text som visas för returpersonalen vid returtagning. Det är möjligt att formattera texten med avvikande färg och layout för ökad tydlighet. Se exempel i hjälpavsnittet.";
 let placeholder_iri ="Exempel: Returneras till lager 6XX. Rekond av XXX.";
 
 // 11. Övriga upplysningar

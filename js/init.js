@@ -3,7 +3,6 @@ $(document).ready(function() {
 
 	// Global variables
 	window.update = '2025-10-10-5';	// Last commit date
-	window.debug = 'No';			// "Yes" to enable
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -40,6 +39,7 @@ $(document).ready(function() {
 	window.standardprodukt = '';
 	window.team = '';
 	window.theme = '';
+	window.upphandlad = '';
 	window.upplysningar = '';
 	window.wsbb = '';
 	window.wspub = '';
@@ -69,8 +69,8 @@ $(document).ready(function() {
 
 	// 6. Visma webSesam
 	setSwitch('wspub', 'enabled', 'off', helper_wspub_off);						// OK
+	setSwitch('wssort', 'enabled', 'off', helper_wssort_off);					// OK
 	setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);						// OK
-	setSwitch('wssort', 'enabled', 'on', helper_wssort_on);						// OK
 	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
 	setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 
@@ -119,15 +119,6 @@ $(document).ready(function() {
 	} else {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
-	}
-
-	// Debug
-	if (debug == 'Yes') {
-		$('#viewport').show();
-		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
-		$(window).resize(function() {
-			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
-		});
 	}
 
 	// Set background image class
@@ -198,6 +189,9 @@ $(document).ready(function() {
 
 	console.log('Loading inc/produkt.html');
 	$('#inc-produkt').load('inc/produkt.html'); 
+
+	console.log('Loading inc/html.html');
+	$('#inc-html').load('inc/html.html'); 
 
 	console.log('Loading inc/iso-koder.html');
 	$('#inc-iso-koder').load('inc/iso-koder.html'); 

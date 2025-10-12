@@ -222,6 +222,7 @@ function createArtikeldata() {
 	serienummer = ($('#switch-serienummer').prop("checked") ? "Ja" : "Nej");
 	servicegrad = $('#select-servicegrad').val();
 	team = $('#select-team').val();
+	upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
 	upplysningar = $('#text-upplysningar').val();
 	ws_bb = ($('#switch-wsbb').prop("checked") ? "Ja" : "Nej");
 	ws_info = $('#text-wsinfo').val();
@@ -235,10 +236,10 @@ function createArtikeldata() {
 	// Hjälpmedelstjänsten, avtal, mallartikel
 	if ($('#checkbox-ht').attr('checked')) {
 		artikeldata += " Artikeln finns i Hjälpmedelstjänsten";
-		artikeldata += ($('#checkbox-upphandlad').attr('checked') ? " och är upphandlad.\n" : ".\n" );
+		artikeldata += (upphandlad == 'Ja' ? " och är upphandlad.\n" : ".\n" );
 	} else {
 		artikeldata += " Artikeln saknas i Hjälpmedelstjänsten";
-		artikeldata += ($('#checkbox-upphandlad').attr('checked') ? ", men är upphandlad.\n" : ".\n" );
+		artikeldata += (upphandlad == 'Ja' ? ", men är upphandlad.\n" : ".\n" );
 	}
 
 	// Leverantör, lev. art.nr. och mallartikel

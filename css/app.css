@@ -426,7 +426,7 @@ div.form-title-text {
 	align-self: center;
 	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
 }
-div.form-title-text h3 {
+div.form-title-text h2 {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -442,4 +442,11 @@ mdui-slider {
 	font-weight: var(--mdui-typescale-body-medium-weight);
 	letter-spacing: var(--mdui-typescale-body-medium-tracking);
 	line-height: var(--mdui-typescale-body-medium-line-height);
+}
+
+#activate-dev {
+	opacity: 0;
+}
+#activate-dev:hover {
+	cursor: pointer;
 }

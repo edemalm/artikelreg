@@ -94,6 +94,11 @@ mdui-top-app-bar {
 }
 */
 
+/* Temprary fix for mdui 2.1.4: Input counter doesn't change color when inactive */
+mdui-text-field[disabled]::part(counter) {
+	color: rgba(var(--mdui-color-on-surface), 38%);
+}
+
 /* make label background on outlined text fields match background */
 /*
 .elevated mdui-text-field,

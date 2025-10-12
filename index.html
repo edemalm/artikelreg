@@ -82,6 +82,7 @@
 					<div style="margin-left: 2.5rem">
 						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
 						<mdui-list-item id="menu-help-produkt" rounded>Produkt</mdui-list-item>
+						<mdui-list-item id="menu-help-html" rounded>Färgade informationstexter</mdui-list-item>
 						<mdui-list-item id="menu-help-iso-koder" rounded>ISO-koder</mdui-list-item>
 						<mdui-list-item id="menu-help-liggplats" rounded>Liggplatser</mdui-list-item>
 						<mdui-list-item id="menu-help-plockomrade" rounded>Plockområden</mdui-list-item>
@@ -98,6 +99,18 @@
 						<mdui-list-item href="https://www.hjalpmedelstjansten.se/" rel="external" target="_blank" end-icon="open_in_new--outlined" rounded>Hjälpmedelstjänsten</mdui-list-item>
 						<mdui-list-item href="https://vismawebsesam.ltdalarna.se/" rel="external" target="_blank" end-icon="open_in_new--outlined" rounded>Visma webSesam</mdui-list-item>
 						<mdui-list-item href="https://websesam.ltdalarna.se/" rel="external" target="_blank" end-icon="open_in_new--outlined" rounded>Gamla webSesam</mdui-list-item>
+					</div>
+				</mdui-collapse-item>
+
+				<mdui-collapse-item id="menu-collapse-group3" class="dev hidden">
+					<mdui-list-item
+						icon="developer_mode"
+						slot="header"
+						rounded>Dev<mdui-icon id="menu-group3-arrow" slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
+					</mdui-list-item>
+					<div style="margin-left: 2.5rem">
+						<mdui-list-item id="menu-dev-colors" rounded>Colors</mdui-list-item>
+						<mdui-list-item id="menu-dev-typography" rounded>Typography</mdui-list-item>
 					</div>
 				</mdui-collapse-item>
 
@@ -137,7 +150,7 @@
 					</div>
 					<div class="form-title">
 						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
-						<div class="form-title-text"><h3 class="headline-small">1. Artikelbenämning och produkt</h3></div>
+						<div class="form-title-text"><h2>1. Artikelbenämning och produkt</h2></div>
 					</div>
 				</div>
 				<div class="s12">
@@ -148,7 +161,7 @@
 						enterkeyhint="done"
 						inputmode="text"
 						label="Artikelbenämning"
-						maxlength="250"
+						maxlength="255"
 						name="artikelbenamning"
 						variant="outlined"
 						clearable counter required></mdui-text-field>
@@ -217,7 +230,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="factory"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">2. Leverantör</h3></div>
+							<div class="form-title-text"><h2>2. Leverantör</h2></div>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -307,7 +320,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">3. Ansvarigt team</h3></div>
+							<div class="form-title-text"><h2>3. Ansvarigt team</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -336,7 +349,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="payments"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">4. Ekonomi</h3></div>
+							<div class="form-title-text"><h2>4. Ekonomi</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -416,7 +429,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="settings"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">5. Individinställningar</h3></div>
+							<div class="form-title-text"><h2>5. Individinställningar</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -474,7 +487,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">6. Visma webSesam</h3></div>
+							<div class="form-title-text"><h2>6. Visma webSesam</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -490,18 +503,6 @@
 						</div>
 					</div>
 					<div class="s12">
-						<!-- BESTÄLLNINGSBAR WEBSESAM -->
-						<div class="switch-wrapper">
-							<div id="label-wsbb" class="text">
-								<div class="switch-label">Beställningsbar i webSesam</div>
-								<div id="wsbb-helper" class="switch-helper"></div>
-							</div>
-							<div class="switch">
-								<mdui-switch id="switch-wsbb"></mdui-switch>
-							</div>
-						</div>
-					</div>
-					<div class="s12">
 						<!-- INGÅR I SORTIMENT -->
 						<div class="switch-wrapper">
 							<div id="label-wssort" class="text">
@@ -510,6 +511,18 @@
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-wssort"></mdui-switch>
+							</div>
+						</div>
+					</div>
+					<div class="s12">
+						<!-- BESTÄLLNINGSBAR WEBSESAM -->
+						<div class="switch-wrapper">
+							<div id="label-wsbb" class="text">
+								<div class="switch-label">Beställningsbar i webSesam</div>
+								<div id="wsbb-helper" class="switch-helper"></div>
+							</div>
+							<div class="switch">
+								<mdui-switch id="switch-wsbb"></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -533,11 +546,12 @@
 							enterkeyhint="enter"
 							inputmode="text"
 							label="Extra artikelinformation"
+							maxlength="255"
 							name="wsinfo"
 							rows="2"
 							type="text"
 							variant="outlined"
-							autosize clearable disabled></mdui-text-field>
+							autosize clearable counter disabled></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
 			</div>
@@ -548,7 +562,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">7. Lagerhållning</h3></div>
+							<div class="form-title-text"><h2>7. Lagerhållning</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -589,7 +603,7 @@
 					</div>
 					<div class="s12">
 						<div class="slider-label disabled">Uppskattad förbrukning</div>
-						<div class="slider-helper disabled">Dra i reglaged för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
+						<div class="slider-helper disabled">Dra i reglaget för att välja en uppskattad årsförbrukning. Detta underlättar valet av inköpsparametrar innan historik finns.</div>
 						<mdui-slider id="slider-forbrukning"
 							min="0"
 							max="500"
@@ -616,7 +630,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">8. Hantering vid ankomst</h3></div>
+							<div class="form-title-text"><h2>8. Hantering vid ankomst</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -629,8 +643,9 @@
 							rows="2"
 							inputmode="text"
 							label="Godsmottagningsinstruktion"
+							maxlength="255"
 							name="gmi"
-							autosize clearable></mdui-text-field>
+							autosize clearable counter></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- KVALITETSKONTROLL -->
@@ -652,10 +667,11 @@
 							enterkeyhint="enter"
 							inputmode="text"
 							label="Kvalitetskontroll, beskrivning"
+							maxlength="255"
 							name="kkb"
 							rows="2"
 							variant="outlined"
-							autosize clearable disabled required></mdui-text-field>
+							autosize clearable counter disabled required></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
 			</div>
@@ -664,7 +680,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">9. Service och underhåll</h3></div>
+							<div class="form-title-text"><h2>9. Service och underhåll</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -731,7 +747,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">10. Informationstexter</h3></div>
+							<div class="form-title-text"><h2>10. Informationstexter</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -742,10 +758,11 @@
 							enterkeyhint="enter"
 							inputmode="text"
 							label="Intern kundorderinformation"
+							maxlength="255"
 							name="iki"
 							rows="2"
 							variant="outlined"
-							autosize clearable></mdui-text-field>
+							autosize clearable counter></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- INTERN PLOCKINFO -->
@@ -755,10 +772,11 @@
 							enterkeyhint="enter"
 							inputmode="text"
 							label="Intern plockinformation"
+							maxlength="255"
 							name="ipi"
 							rows="2"
 							variant="outlined"
-							autosize clearable></mdui-text-field>
+							autosize clearable counter></mdui-text-field>
 					</div>
 					<div class="s12">
 						<!-- RETURTAGNINGSINFO -->
@@ -768,10 +786,11 @@
 							enterkeyhint="enter"
 							inputmode="text"
 							label="Returtagningsinformation"
+							maxlength="255"
 							name="iri"
 							rows="2"
 							variant="outlined"
-							autosize clearable disabled></mdui-text-field>
+							autosize clearable counter disabled></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
 			</div>
@@ -780,7 +799,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="chat"></mdui-icon></div>
-							<div class="form-title-text"><h3 class="headline-small">11. Övriga upplysningar</h3></div>
+							<div class="form-title-text"><h2>11. Övriga upplysningar</h2></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -841,6 +860,21 @@
 	</div><!-- .buttom-container -->
 </div><!-- .content-container -->
 
+<!-- Hjälp färgade informationstexter -->
+
+<div id="content-help-html" class="content-container hidden">
+	<div class="fullpage-content">
+		<div id="inc-html"></div>
+	</div>
+	<div class="buttom-container">
+		<div class="controls-container">
+			<div class="control-right"><mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button></div>
+		</div>
+	</div><!-- .buttom-container -->
+</div><!-- .content-container -->
+
+<!-- Hjälp ISO-koder -->
+
 <div id="content-help-iso-koder" class="content-container hidden">
 	<div class="fullpage-content">
 		<div id="inc-iso-koder"></div>
@@ -878,6 +912,30 @@
 	</div><!-- .buttom-container -->
 </div><!-- .content-container -->
 
+<!-- Dev -->
+
+<div id="content-dev-colors" class="content-container hidden">
+	<div class="fullpage-content">
+		<div id="inc-colors"></div>
+	</div>
+	<div class="buttom-container">
+		<div class="controls-container">
+			<div class="control-right"><mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button></div>
+		</div>
+	</div><!-- .buttom-container -->
+</div><!-- .content-container -->
+
+<div id="content-dev-typography" class="content-container hidden">
+	<div class="fullpage-content">
+		<div id="inc-typography"></div>
+	</div>
+	<div class="buttom-container">
+		<div class="controls-container">
+			<div class="control-right"><mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button></div>
+		</div>
+	</div><!-- .buttom-container -->
+</div><!-- .content-container -->
+
 </mdui-layout-main>
 
 </mdui-layout>
@@ -902,7 +960,7 @@
 		<p>Verktyget är skapat med hjälp av följande fria programvaror, bilder och tjänster:</p>
 		<p>
 			<ul>
-				<li><a href="https://www.mdui.org/" rel="external" target="_blank">Material Design User Interface</a></li>
+				<li><a href="https://www.mdui.org/" rel="external" target="_blank">MDUI</a> av zdhxiong (<a href="https://github.com/zdhxiong/mdui" rel="external" target="_blank">GitHub</a>)</li>
 				<li><a href="https://jquery.com/" rel="external" target="_blank">jQuery JavaScript library</a></li>
 				<li><a href="https://developers.google.com/fonts" rel="external" target="_blank">Typsnitt från Google</a></li>
 				<li><a href="https://unsplash.com/" rel="external" target="_blank">Bilder från Unsplash</a></li>
@@ -917,6 +975,7 @@
 	<div class="body-small">
 		<p>Copyright &copy; 2025 Markus Edemalm<br>
 			Licensierad under <a href="https://github.com/edemalm/artikelreg/blob/main/LICENSE" rel="external" target="_blank">MIT License</a></p>
+		<p><mdui-icon id="activate-dev" name="developer_mode"></mdui-icon></p>
 	</div>
 	<mdui-button id="button-close-about" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>

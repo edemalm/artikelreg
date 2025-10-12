@@ -41,18 +41,21 @@
 	line-height: var(--mdui-typescale-headline-small-line-height) !important;
 }
 
+h2,
 .title-large {
 	font-size: var(--mdui-typescale-title-large-size) !important;
 	font-weight: var(--mdui-typescale-title-large-weight) !important;
 	letter-spacing: var(--mdui-typescale-title-large-tracking) !important;
 	line-height: var(--mdui-typescale-title-large-line-height) !important;
 }
+h3,
 .title-medium {
 	font-size: var(--mdui-typescale-title-medium-size) !important;
 	font-weight: var(--mdui-typescale-title-medium-weight) !important;
 	letter-spacing: var(--mdui-typescale-title-medium-tracking) !important;
 	line-height: var(--mdui-typescale-title-medium-line-height) !important;
 }
+h4,
 .title-small {
 	font-size: var(--mdui-typescale-title-small-size) !important;
 	font-weight: var(--mdui-typescale-title-small-weight) !important;

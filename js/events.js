@@ -30,6 +30,26 @@ $(document).ready(function() {
 		$('#dialog-about').attr('open', true);
 	});
 
+	// Dev activation
+	$('#activate-dev').click(function() {
+		console.log('Dev mode activated');
+		$('#activate-dev').css('opacity','1');
+		$('.dev').removeClass('hidden');
+
+		$('#viewport').show();
+		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
+		$(window).resize(function() {
+			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
+		});
+
+		console.log('Loading inc/colors.html');
+		$('#inc-colors').load('inc/colors.html'); 
+
+		console.log('Loading inc/typography.html');
+		$('#inc-typography').load('inc/typography.html'); 
+
+	});
+
 	// NAVIGATION DRAWER EVENTS
 	// <mdui-navigation-drawer id="navigation-drawer">
 
@@ -49,6 +69,11 @@ $(document).ready(function() {
 		console.log('The open event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_up')
 	});
+	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group3>
+	$('#menu-collapse-group3').on('open', function() {
+		console.log('The open event fired on #menu-collapse-group3');
+		$('#menu-group3-arrow').attr('name', 'keyboard_arrow_up')
+	});
 	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group1>
 	$('#menu-collapse-group1').on('close', function() {
 		console.log('The close event fired on #menu-collapse-group1');
@@ -58,6 +83,11 @@ $(document).ready(function() {
 	$('#menu-collapse-group2').on('close', function() {
 		console.log('The close event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
+	});
+	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group3>
+	$('#menu-collapse-group3').on('close', function() {
+		console.log('The close event fired on #menu-collapse-group3');
+		$('#menu-group3-arrow').attr('name', 'keyboard_arrow_down')
 	});
 
 	$('#menu-formular').click(function() {
@@ -75,6 +105,11 @@ $(document).ready(function() {
 		changeContent('#content-help-produkt', '#menu-help-produkt');
 	});
 
+	$('#menu-help-html').click(function() {
+		console.log('<mdui-list-item #menu-help-html> clicked');
+		changeContent('#content-help-html', '#menu-help-html');
+	});
+
 	$('#menu-help-iso-koder').click(function() {
 		console.log('<mdui-list-item #menu-help-iso-koder> clicked');
 		changeContent('#content-help-iso-koder', '#menu-help-iso-koder');
@@ -88,6 +123,16 @@ $(document).ready(function() {
 	$('#menu-help-plockomrade').click(function() {
 		console.log('<mdui-list-item #menu-help-plockomrade> clicked');
 		changeContent('#content-help-plockomrade', '#menu-help-plockomrade');
+	});
+
+	$('#menu-dev-colors').click(function() {
+		console.log('<mdui-list-item #menu-dev-colors> clicked');
+		changeContent('#content-dev-colors', '#menu-dev-colors');
+	});
+
+	$('#menu-dev-typography').click(function() {
+		console.log('<mdui-list-item #menu-dev-typography> clicked');
+		changeContent('#content-dev-typography', '#menu-dev-typography');
 	});
 
 	// DIALOG EVENTS
@@ -149,6 +194,14 @@ $(document).ready(function() {
 			$('#ejht-garanti').removeClass('hidden');
 			$('#ejht-isokod').removeClass('hidden');
 		}
+
+	});
+
+	// mdui-checkbox #checkbox-upphandlad changes
+	$('#checkbox-upphandlad').on('change', function() {
+		console.log('<mdui-checkbox #checkbox-upphandlad> changed');
+		upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
+		console.log(' * upphandlad = ' + upphandlad);
 	});
 
 	// 3. Ekonomi
@@ -180,6 +233,13 @@ $(document).ready(function() {
 			break;
 			case 'R':
 				// Retursortiment
+				mdui.alert({
+					closeOnEsc: true,
+					closeOnOverlayClick: true,
+					confirmText: "Jag förstår",
+					description: "Artiklar som ingår i retursortimentet säljs till ett rabatterat pris. Kunden förväntas returnera hjälpmedlet när behovet upphör. Nya och rekonditionerade exemplar förekommer. Service och underhåll utförs normalt inte, i stället ska ett nytt hjälpmedel beställas. Endast ofta förekommande hjälpmedel bör klassas som retursortiment.",
+					headline: "Retursortiment"
+				});
 				$('#artikeltyp-menu-item-r').attr('disabled', true); // disable option 'R' (Reservdel)
 				$('#select-huvudlager').val('200');
 			break;
@@ -216,12 +276,10 @@ $(document).ready(function() {
 		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
 		setSwitch('wskomp','disabled','off',helper_wskomp);
 
-		disableTextReturtagningsinformation();
+		setSwitch('kk', 'disabled', 'off', helper_kk_off);
+		setTextField('kkb', 'disabled', '', helper_kkb);
+		setTextField('iri', 'disabled', '', helper_iri);
 
-		// disableSwitchKvalitetskontroll();
-		setSwitch('kk','disabled','off',helper_kk_off);
-		// disableTextKvalitetskontroll();
-		setTextField('kkb','disabled','',helper_kkb);
 
 		switch (artikeltyp) {
 			case 'H':
@@ -233,6 +291,7 @@ $(document).ready(function() {
 
 				setSwitch('individartikel','disabled','off',helper_individartikel_off);
 				setSwitch('kk','enabled','off',helper_kk_off);
+				setTextField('iri', 'enabled', placeholder_iri, helper_iri);
 
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
@@ -419,7 +478,7 @@ $(document).ready(function() {
 		}
 	});
 
-	// 5. Visma webSesam
+	// 6. Visma webSesam
 
 	// mdui-switch #switch-wspub changes
 	$('#switch-wspub').on('change', function() {
@@ -436,10 +495,12 @@ $(document).ready(function() {
 				});
 			}
 			setSwitch('wspub','enabled','on',helper_wspub_on);
+			if (upphandlad == 'Ja') setSwitch('wssort', 'enabled', 'on', helper_wssort_on);
 			setTextField('wsinfo', 'enabled', '', helper_wsinfo);
 		} else {
 			// off
-			setSwitch('wspub','enabled','off',helper_wspub_off);
+			setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
+			setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
 			$('#text-wsinfo').val('').attr('disabled', true); // clear and disable
 		}
 	});
