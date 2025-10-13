@@ -5,9 +5,9 @@ body {
 	-webkit-tap-highlight-color: transparent;
 	background-attachment: fixed;
 	background-color: rgb(var(--mdui-color-surface-container));
-	background-position: center center;
+	background-position: left center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100vw auto;
 	box-sizing: border-box;
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	margin: 0;
@@ -83,8 +83,9 @@ body {
 	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
 	#filter-layer {
-		/* backdrop-filter: blur(16px); */
-		background-color: rgba(var(--mdui-color-scrim),.25);
+		backdrop-filter: blur(16px);
+		/* background-color: rgba(var(--mdui-color-scrim),.25); */
+		background-color: rgba(var(--mdui-color-background),.5);
 		display: block;
 		top: 0;
 		left: 0;
@@ -95,7 +96,7 @@ body {
 		transition: all .4s;
 	}
 	#filter-layer.inactive {
-		/* backdrop-filter: none; */
+		backdrop-filter: none;
 		background: none;
 		opacity: 0%;
 		transition: all 2s;
@@ -127,7 +128,7 @@ div.content-container {
 	div.content-container {
 		border-radius: var(--mdui-shape-corner-extra-large);
 		box-shadow: var(--mdui-elevation-level1);
-		margin: var(--double-row-gap) auto !important;
+		margin: var(--row-gap) auto !important;
 	}
 }
 
@@ -449,4 +450,16 @@ mdui-slider {
 }
 #activate-dev:hover {
 	cursor: pointer;
+}
+
+.sesam {
+	background-color: #fafafa;
+	border: 1px solid rgb(var(--mdui-color-outline));
+	display: inline-block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1;
+	margin-bottom: var(--row-gap);
+	padding: 1em;
 }

@@ -33,6 +33,7 @@ $(document).ready(function() {
 	// Dev activation
 	$('#activate-dev').click(function() {
 		console.log('Dev mode activated');
+		dev = "Yes";
 		$('#activate-dev').css('opacity','1');
 		$('.dev').removeClass('hidden');
 
