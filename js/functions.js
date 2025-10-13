@@ -459,13 +459,13 @@ function createArtikeldata() {
 
 	// AKTIVITETSTYPSCHEMAN
 	if (artikeltyp == 'H' && individartikel == 'Ja') {
-		if (besiktningsintervall.length > 0 || fu_intervall.length > 0) {
+		if (besiktningsintervall.length > 0 || fuintervall.length > 0) {
 			artikeldata += "\nAKTIVITETSTYPSCHEMAN\n\n";
 			if (besiktningsintervall.length > 0) {
 				artikeldata += "Besiktningsintervall:  " + besiktningsintervall + "\n";
 			}
-			if (fu_intervall.length > 0) {
-				artikeldata += "FU-intervall:  " + fu_intervall + "\n";
+			if (fuintervall.length > 0) {
+				artikeldata += "FU-intervall:  " + fuintervall + "\n";
 			}
 		}
 	}
