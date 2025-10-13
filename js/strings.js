@@ -84,8 +84,12 @@ let helper_iki = "Vid behov, ange en kortfattad text som visas för orderhandlä
 let placeholder_iki ="Exempel: Skall alltid handläggas av konsulent";
 let helper_ipi = "Vid behov, ange en kortfattad text som visas för lagerpersonalen vid plockning";
 let placeholder_ipi = "Exempel: Hjälpmedlet behöver laddas före utleverans";
-let helper_iri = "Vid behov, ange en kortfattad text som visas för returpersonalen vid returtagning. Det är möjligt att formattera texten med avvikande färg och layout för ökad tydlighet. Se exempel i hjälpavsnittet.";
-let placeholder_iri ="Exempel: Returneras till lager 6XX. Rekond av XXX.";
+let helper_iri_on = "Vid behov, ange en kortfattad text som visas för returpersonalen vid returtagning. Det är möjligt att formattera texten med avvikande färg och layout för ökad tydlighet. Se exempel i hjälpavsnittet.";
+let helper_iri_off = "Parametern gäller endast huvudhjälpmedel och tillbehör";
+let placeholder_iri ="Exempel: Skall bedömas av tekniker före eventuell rekonditionering.";
+let placeholder_iri_05 ="Exempel: Retur till lager 612. Rekonditioneras av KLOK.";
+let placeholder_iri_07 ="Exempel: Retur till lager 613. Rekonditioneras av PMB.";
 
 // 11. Övriga upplysningar
 let helper_upplysningar = "Vid behov, ange övrig information till inköpspersonalen";
+let placeholder_upplysningar = "Exempel: Artikeln ska ingå i ersättningsgrupp med ...";

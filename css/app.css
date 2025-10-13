@@ -4,7 +4,7 @@ body {
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 	-webkit-tap-highlight-color: transparent;
 	background-attachment: fixed;
-	background-color: rgb(var(--mdui-color-surface-container));
+	background-color: rgb(var(--mdui-color-surface));
 	background-position: left center;
 	background-repeat: no-repeat;
 	background-size: 100vw auto;
@@ -83,9 +83,9 @@ body {
 	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 
 	#filter-layer {
-		backdrop-filter: blur(16px);
+		backdrop-filter: blur(32px);
 		/* background-color: rgba(var(--mdui-color-scrim),.25); */
-		background-color: rgba(var(--mdui-color-background),.5);
+		/* background-color: rgba(var(--mdui-color-background),.25); */
 		display: block;
 		top: 0;
 		left: 0;
@@ -128,10 +128,14 @@ div.content-container {
 	div.content-container {
 		border-radius: var(--mdui-shape-corner-extra-large);
 		box-shadow: var(--mdui-elevation-level1);
-		margin: var(--row-gap) auto !important;
+		margin: var(--double-row-gap) auto !important;
 	}
 }
-
+@media only screen and (min-width: 1921px) {
+	div.content-container {
+		margin: var(--quadruple-row-gap) auto !important;
+	}
+}
 
 div.fullpage-content {
 	background-color: rgb(var(--mdui-color-surface));

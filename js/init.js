@@ -91,10 +91,10 @@ $(document).ready(function() {
 	// 10. Informationstexter
 	setTextField('iki', 'enabled', placeholder_iki, helper_iki);				// OK
 	setTextField('ipi', 'enabled', placeholder_ipi, helper_ipi);				// OK
-	setTextField('iri', 'disabled', placeholder_iri, helper_iri);				// OK
+	setTextField('iri', 'disabled', placeholder_iri, helper_iri_off);			// OK
 
 	// 11. Övriga upplysningar
-	setTextField('upplysningar', 'enabled', '', helper_upplysningar);			// OK
+	setTextField('upplysningar', 'enabled', placeholder_upplysningar, helper_upplysningar);	// OK
 
 	// Check for 'theme' parameter in URL
 	let params = new URLSearchParams(window.location.search);

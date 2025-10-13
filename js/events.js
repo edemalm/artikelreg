@@ -283,14 +283,21 @@ $(document).ready(function() {
 
 		setSwitch('kk', 'disabled', 'off', helper_kk_off);
 		setTextField('kkb', 'disabled', '', helper_kkb);
-		setTextField('iri', 'disabled', '', helper_iri);
+		setTextField('iri', 'disabled', '', helper_iri_off);
 
 		switch (artikeltyp) {
 			case 'H':
 				setSelect('artikeltyp', 'enabled', 'H', helper_artikeltyp_h);
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
 				setSwitch('kk', 'enabled', 'off', helper_kk_off);
-				setTextField('iri', 'enabled', placeholder_iri, helper_iri);
+
+				if (team == "05") {
+					setTextField('iri', 'enabled', placeholder_iri_05, helper_iri_on);
+				} else if (team == "07") {
+					setTextField('iri', 'enabled', placeholder_iri_07, helper_iri_on);
+				} else {
+					setTextField('iri', 'enabled', placeholder_iri, helper_iri_on);
+				}
 
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
@@ -301,6 +308,15 @@ $(document).ready(function() {
 				setSelect('artikeltyp', 'enabled', 'T', helper_artikeltyp_t);
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
 				setSwitch('wskomp','enabled','on',helper_wskomp_on);
+
+				if (team == "05") {
+					setTextField('iri', 'enabled', placeholder_iri_05, helper_iri_on);
+				} else if (team == "07") {
+					setTextField('iri', 'enabled', placeholder_iri_07, helper_iri_on);
+				} else {
+					setTextField('iri', 'enabled', placeholder_iri, helper_iri_on);
+				}
+
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
 					$('#select-debiteringsform').val('A'); // select option 'A' (Köp)
@@ -613,40 +629,52 @@ $(document).ready(function() {
 
 	// mdui-slider #slider-forbrukning focus
 	$('#slider-forbrukning').on('focus', function() {
-		console.log('<mdui-slider #slider-forbrukning> focus');
-		const slider = this;
-		forbrukning = this.value;
-		if (forbrukning == 0) {
-			slider.labelFormatter = (value) => `0-24`;
-		}
+			console.log('<mdui-slider #slider-forbrukning> focus');
+			const slider = this;
+			forbrukning = this.value;
+			if (forbrukning == 0) {
+					slider.labelFormatter = (value) => `0-24`;
+			}
 	});
 
 	// mdui-slider #slider-forbrukning changes
 	$('#slider-forbrukning').on('input', function() {
-		// console.log('<mdui-slider #slider-forbrukning> input');
-		const slider = this;
-		forbrukning = this.value;
-		forbrukning_msg = 'Årsbehov ';
-		// let veckobehov = Math.round((forbrukning*10)/52) / 10;
-		let veckobehov = Math.round(forbrukning/52);
-		if (forbrukning == 0) {
-			forbrukning_msg += '0-24. Mindre än 0.5 per vecka.';
-			slider.labelFormatter = (value) => `0-24`;
-		} else if (veckobehov < 1 ) {
-			forbrukning_msg += forbrukning + '. Mindre än 1 per vecka.';
-			slider.labelFormatter = (value) => `${value}`;
-		} else if (forbrukning == 500) {
-			forbrukning_msg += '500 eller mer. 10 per vecka eller mer.';
-			slider.labelFormatter = (value) => `${value}`;
-		} else {
-			forbrukning_msg += forbrukning + '. Ungefär ' + veckobehov + ' per vecka.';
-			slider.labelFormatter = (value) => `${value}`;
-		}
-		if (forbrukning == 500) {
-			$('#slider-msg').html(forbrukning_msg + ' Vänligen skriv en kommentar och förtydliga det stora behovet.');
-		} else {
+			// console.log('<mdui-slider #slider-forbrukning> input');
+			const slider = this;
+			forbrukning = this.value;
+			forbrukning_msg = 'Årsbehov ';
+			// let veckobehov = Math.round((forbrukning*10)/52) / 10;
+			let veckobehov = Math.round(forbrukning/52);
+			if (forbrukning == 0) {
+					forbrukning_msg += '0-24. Mindre än 0.5 per vecka.';
+					slider.labelFormatter = (value) => `0-24`;
+			} else if (veckobehov < 1 ) {
+					forbrukning_msg += forbrukning + '. Mindre än 1 per vecka.';
+					slider.labelFormatter = (value) => `${value}`;
+			} else if (forbrukning == 500) {
+					forbrukning_msg += '500 eller mer. 10 per vecka eller mer.';
+					slider.labelFormatter = (value) => `${value}`;
+			} else {
+					forbrukning_msg += forbrukning + '. Ungefär ' + veckobehov + ' per vecka.';
+					slider.labelFormatter = (value) => `${value}`;
+			}
+			/*
+			if (forbrukning == 500) {
+					$('#slider-msg').html(forbrukning_msg + ' Vänligen skriv en kommentar och förtydliga det stora behovet.');
+			} else {
+					$('#slider-msg').html(forbrukning_msg);
+			}
+			*/
 			$('#slider-msg').html(forbrukning_msg);
-		}
+			if (forbrukning == 500) {
+				mdui.alert({
+					closeOnEsc: true,
+					closeOnOverlayClick: true,
+					confirmText: "Stäng",
+					description: "Vänligen skriv en kommentar och förtydliga det stora behovet så att inköpsparametrarna kan ställas in på ett bra sätt.",
+					headline: "Årsbehov 500 eller mer"
+				});
+			}
 	});
 
 	// 9. Hantering vid ankomst
