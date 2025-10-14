@@ -106,9 +106,9 @@ $(document).ready(function() {
 		changeContent('#content-help-produkt', '#menu-help-produkt');
 	});
 
-	$('#menu-help-html').click(function() {
-		console.log('<mdui-list-item #menu-help-html> clicked');
-		changeContent('#content-help-html', '#menu-help-html');
+	$('#menu-help-infotext').click(function() {
+		console.log('<mdui-list-item #menu-help-infotext> clicked');
+		changeContent('#content-help-infotext', '#menu-help-infotext');
 	});
 
 	$('#menu-help-iso-koder').click(function() {

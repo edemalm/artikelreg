@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-13';	// Last commit date
+	window.update = '2025-10-14';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -192,8 +192,8 @@ $(document).ready(function() {
 	console.log('Loading inc/produkt.html');
 	$('#inc-produkt').load('inc/produkt.html'); 
 
-	console.log('Loading inc/html.html');
-	$('#inc-html').load('inc/html.html'); 
+	console.log('Loading inc/infotext.html');
+	$('#inc-infotext').load('inc/infotext.html'); 
 
 	console.log('Loading inc/iso-koder.html');
 	$('#inc-iso-koder').load('inc/iso-koder.html'); 

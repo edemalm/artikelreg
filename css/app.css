@@ -173,7 +173,7 @@ div.buttom-container {
 		padding: var(--double-row-gap) var(--double-column-gap);
 	}
 }
-@media only screen and (min-width: 641px) {
+@media only screen and (min-width: 1025px) {
 	div.buttom-container {
 		padding: var(--double-row-gap) 0 0 0;
 	}
