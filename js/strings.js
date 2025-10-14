@@ -1,4 +1,4 @@
-console.log('Loading strings.js');
+console.debug('Loading strings.js');
 
 // 1. Artikelbenämning och produkt
 let helper_artikelbenamning = "Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information.";
@@ -22,7 +22,6 @@ let helper_artikelbenamning_array = [
 // 3. Ansvarigt team
 
 // 4. Ekonomi
-
 let helper_artikeltyp = "Välj artikeltyp hos DHC. Denna kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten.";
 let helper_artikeltyp_h = "Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel";
 let helper_artikeltyp_t = "Tillbehör ger extra funktionalitet hos ett huvudhjälpmedel";

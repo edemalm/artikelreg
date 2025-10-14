@@ -1,18 +1,18 @@
 $(document).ready(function() {
-	console.log('Loading events.js');
+	console.debug('Loading events.js');
 
 	// TOP APP BAR EVENTS
 	// <mdui-top-app-bar #top-app-bar>
 
 	// Open navigation drawer
 	$('#button-open-menu').click(function() {
-		console.log('<mdui-button-icon #button-open-menu> clicked');
+		console.debug('<mdui-button-icon #button-open-menu> clicked');
 		$('#navigation-drawer').attr('open', true);
 	});
 
 	// Toggle theme
 	$('#button-toggle-theme').click(function() {
-		console.log('<mdui-button #button-toggle-theme> clicked');
+		console.debug('<mdui-button #button-toggle-theme> clicked');
 		if ( $('html').hasClass('mdui-theme-light') ) {
 			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
 			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
@@ -26,13 +26,13 @@ $(document).ready(function() {
 
 	// Open "about" dialog
 	$('#button-about').click(function() {
-		console.log('<mdui-button-icon #button-about> clicked');
+		console.debug('<mdui-button-icon #button-about> clicked');
 		$('#dialog-about').attr('open', true);
 	});
 
 	// Dev activation
 	$('#activate-dev').click(function() {
-		console.log('Dev mode activated');
+		console.debug('Dev mode activated');
 		dev = "Yes";
 		$('#activate-dev').css('opacity','1');
 		$('.dev').removeClass('hidden');
@@ -43,10 +43,10 @@ $(document).ready(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		});
 
-		console.log('Loading inc/colors.html');
+		console.debug('Loading inc/colors.html');
 		$('#inc-colors').load('inc/colors.html'); 
 
-		console.log('Loading inc/typography.html');
+		console.debug('Loading inc/typography.html');
 		$('#inc-typography').load('inc/typography.html'); 
 
 	});
@@ -56,83 +56,83 @@ $(document).ready(function() {
 
 	// Close navigation drawer
 	$('#button-close-menu').click(function() {
-		console.log('<mdui-button-icon #button-close-menu> clicked');
+		console.debug('<mdui-button-icon #button-close-menu> clicked');
 		$('#navigation-drawer').removeAttr('open');
 	});
 
 	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group1>
 	$('#menu-collapse-group1').on('open', function() {
-		console.log('The open event fired on #menu-collapse-group1');
+		console.debug('The open event fired on #menu-collapse-group1');
 		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_up')
 	});
 	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group2>
 	$('#menu-collapse-group2').on('open', function() {
-		console.log('The open event fired on #menu-collapse-group2');
+		console.debug('The open event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_up')
 	});
 	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group3>
 	$('#menu-collapse-group3').on('open', function() {
-		console.log('The open event fired on #menu-collapse-group3');
+		console.debug('The open event fired on #menu-collapse-group3');
 		$('#menu-group3-arrow').attr('name', 'keyboard_arrow_up')
 	});
 	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group1>
 	$('#menu-collapse-group1').on('close', function() {
-		console.log('The close event fired on #menu-collapse-group1');
+		console.debug('The close event fired on #menu-collapse-group1');
 		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_down')
 	});
 	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group2>
 	$('#menu-collapse-group2').on('close', function() {
-		console.log('The close event fired on #menu-collapse-group2');
+		console.debug('The close event fired on #menu-collapse-group2');
 		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
 	});
 	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group3>
 	$('#menu-collapse-group3').on('close', function() {
-		console.log('The close event fired on #menu-collapse-group3');
+		console.debug('The close event fired on #menu-collapse-group3');
 		$('#menu-group3-arrow').attr('name', 'keyboard_arrow_down')
 	});
 
 	$('#menu-formular').click(function() {
-		console.log('<mdui-button #menu-formular> clicked');
+		console.debug('<mdui-button #menu-formular> clicked');
 		changeContent('#content-formular', '#menu-formular');
 	});
 
 	$('#menu-help-artikelbenamning').click(function() {
-		console.log('<mdui-list-item #menu-help-artikelbenamning> clicked');
+		console.debug('<mdui-list-item #menu-help-artikelbenamning> clicked');
 		changeContent('#content-help-artikelbenamning', '#menu-help-artikelbenamning');
 	});
 
 	$('#menu-help-produkt').click(function() {
-		console.log('<mdui-list-item #menu-help-produkt> clicked');
+		console.debug('<mdui-list-item #menu-help-produkt> clicked');
 		changeContent('#content-help-produkt', '#menu-help-produkt');
 	});
 
 	$('#menu-help-infotext').click(function() {
-		console.log('<mdui-list-item #menu-help-infotext> clicked');
+		console.debug('<mdui-list-item #menu-help-infotext> clicked');
 		changeContent('#content-help-infotext', '#menu-help-infotext');
 	});
 
 	$('#menu-help-iso-koder').click(function() {
-		console.log('<mdui-list-item #menu-help-iso-koder> clicked');
+		console.debug('<mdui-list-item #menu-help-iso-koder> clicked');
 		changeContent('#content-help-iso-koder', '#menu-help-iso-koder');
 	});
 
 	$('#menu-help-liggplats').click(function() {
-		console.log('<mdui-list-item #menu-help-liggplats> clicked');
+		console.debug('<mdui-list-item #menu-help-liggplats> clicked');
 		changeContent('#content-help-liggplats', '#menu-help-liggplats');
 	});
 
 	$('#menu-help-plockomrade').click(function() {
-		console.log('<mdui-list-item #menu-help-plockomrade> clicked');
+		console.debug('<mdui-list-item #menu-help-plockomrade> clicked');
 		changeContent('#content-help-plockomrade', '#menu-help-plockomrade');
 	});
 
 	$('#menu-dev-colors').click(function() {
-		console.log('<mdui-list-item #menu-dev-colors> clicked');
+		console.debug('<mdui-list-item #menu-dev-colors> clicked');
 		changeContent('#content-dev-colors', '#menu-dev-colors');
 	});
 
 	$('#menu-dev-typography').click(function() {
-		console.log('<mdui-list-item #menu-dev-typography> clicked');
+		console.debug('<mdui-list-item #menu-dev-typography> clicked');
 		changeContent('#content-dev-typography', '#menu-dev-typography');
 	});
 
@@ -140,7 +140,7 @@ $(document).ready(function() {
 	// <mdui-dialog #dialog-about>
 
 	$('#button-close-about').click(function() {
-		console.log('<mdui-button #button-close-about> clicked');
+		console.debug('<mdui-button #button-close-about> clicked');
 		$('mdui-dialog').removeAttr('open');
 	});
 
@@ -152,20 +152,20 @@ $(document).ready(function() {
 
 	// mdui-text-field #text-artikelbenamning gains focus or being cleared
 	$('#text-artikelbenamning').on('focus clear', function() {
-		console.log('<mdui-text-field #text-artikelbenamning> focus/clear')
+		console.debug('<mdui-text-field #text-artikelbenamning> focus/clear')
 		var random = Math.floor(Math.random()*helper_artikelbenamning_array.length);
 		$('#text-artikelbenamning').attr('helper', 'Exempel: ' + helper_artikelbenamning_array[random]);
 	});
 
 	// mdui-text-field #text-artikelbenamning loses focus
 	$('#text-artikelbenamning').on('blur', function() {
-		console.log('<mdui-text-field #text-artikelbenamning> blur')
+		console.debug('<mdui-text-field #text-artikelbenamning> blur')
 		$('#text-artikelbenamning').attr('helper', helper_artikelbenamning);
 	});
 
 	// mdui-button #button-fler-produkter clicked
 	$('#button-fler-produkter').click(function() {
-		console.log('<mdui-button #button-fler-produkter> clicked');
+		console.debug('<mdui-button #button-fler-produkter> clicked');
 		$('#div-fler-produkter').hide();
 		$('#text-standardprodukt').attr('label', 'Standardprodukt');
 		$('#text-standardprodukt').attr('helper', 'Endast standardprodukt visas i sökresultat');
@@ -177,7 +177,7 @@ $(document).ready(function() {
 
 	// mdui-checkbox #checkbox-ht changes
 	$('#checkbox-ht').on('change', function() {
-		console.log('<mdui-checkbox #checkbox-ht> changed');
+		console.debug('<mdui-checkbox #checkbox-ht> changed');
 		if ($('#checkbox-ht').prop("checked")) {
 			// on
 			$('#ejht-pris').addClass('hidden');
@@ -200,16 +200,16 @@ $(document).ready(function() {
 
 	// mdui-checkbox #checkbox-upphandlad changes
 	$('#checkbox-upphandlad').on('change', function() {
-		console.log('<mdui-checkbox #checkbox-upphandlad> changed');
+		console.debug('<mdui-checkbox #checkbox-upphandlad> changed');
 		upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
-		console.log(' * upphandlad = ' + upphandlad);
+		console.info(' * upphandlad = ' + upphandlad);
 	});
 
 	// 3. Ekonomi
 
 	// mdui-select #select-artikelansvar changes
 	$('#select-artikelansvar').on('change', function() {
-		console.log('<mdui-select #select-artikelansvar> changed');
+		console.debug('<mdui-select #select-artikelansvar> changed');
 		artikelansvar = this.value;
 
 		// reset everything
@@ -255,14 +255,14 @@ $(document).ready(function() {
 				$('#select-huvudlager').val('400');
 			break;
 		}
-		console.log(' * artikelansvar = "' + artikelansvar + '"');
+		console.info(' * artikelansvar = "' + artikelansvar + '"');
 	});
 
 	// mdui-select #select-artikeltyp changes
 	$('#select-artikeltyp').on('change', function() {
-		console.log('<mdui-select #select-artikeltyp> changed');
+		console.debug('<mdui-select #select-artikeltyp> changed');
 		artikeltyp = this.value;
-		console.log('Artikeltyp = ' + artikeltyp );
+		console.info('Artikeltyp = ' + artikeltyp );
 
 		// reset
 		$('#debiteringsform-menu-item-m').attr('disabled', false); // re-enable option 'M' (månadshyra)
@@ -333,9 +333,9 @@ $(document).ready(function() {
 
 	// mdui-select #select-debiteringsform changes
 	$('#select-debiteringsform').on('change', function() {
-		console.log('<mdui-select #select-debiteringsform> changed');
+		console.debug('<mdui-select #select-debiteringsform> changed');
 		debiteringsform = this.value;
-		console.log('Debiteringsform = ' + debiteringsform );
+		console.info(' * debiteringsform = ' + debiteringsform );
 		setSwitch('inventarium','disabled','off',helper_inventarium_off);
 		setRadio('avskrivningstid','disabled','',helper_avskrivningstid_off);
 		setSwitch('serienummer','disabled','off',helper_serienummer);
@@ -377,7 +377,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-inventarium changes
 	$('#switch-inventarium').on('change', function() {
-		console.log('<mdui-switch #switch-inventarium> changed');
+		console.debug('<mdui-switch #switch-inventarium> changed');
 		inventarium = (this.checked === true) ? "Ja" : "Nej";
 		switch (inventarium) {
 			case 'Ja':
@@ -402,23 +402,21 @@ $(document).ready(function() {
 				}
 			break;
 		}
-		// console.log('Inventarium = ' + inventarium );
 	});
 
 	// mdui-select #raio-avskrivningstid changes
 	$('#radio-avskrivningstid').on('change', function() {
-		console.log('<mdui-radio #radio-avskrivningstid> changed');
+		console.debug('<mdui-radio #radio-avskrivningstid> changed');
 		avskrivningstid = this.value;
-		console.log(' * avskrivningstid: ' + avskrivningstid );
+		console.info(' * avskrivningstid: ' + avskrivningstid );
 	});
 
 	// 5. Individinställningar
 
 	// mdui-switch #switch-individartikel changes
 	$('#switch-individartikel').on('change', function() {
-		console.log('<mdui-switch #switch-individartikel> changed');
+		console.debug('<mdui-switch #switch-individartikel> changed');
 		individartikel = (this.checked === true) ? 'Ja' : 'Nej';
-		// console.log('Individartikel = ' + individartikel);
 		switch (individartikel) {
 			case 'Ja':
 				// $('#label-individartikel .switch-helper').html(helper_individartikel_on);
@@ -452,16 +450,13 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-serienummer changes
 	$('#switch-serienummer').on('change', function() {
-		console.log('<mdui-switch #switch-serienummer> changed');
+		console.debug('<mdui-switch #switch-serienummer> changed');
 		serienummer = (this.checked === true) ? 'Ja' : 'Nej';
-		// console.log('Serienummer obligatoriskt = ' + serienummer);
 		switch (serienummer) {
 			case 'Ja':
-				// $('#label-serienummer .switch-helper').html(helper_serienummer_on);
 				setSwitch('serienummer','enabled','on',helper_serienummer_on);
 			break;
 			case 'Nej':
-				// $('#label-serienummer .switch-helper').html(helper_serienummer_off);
 				mdui.alert({
 					closeOnEsc: true,
 					closeOnOverlayClick: true,
@@ -476,7 +471,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-haraldrigkomp changes
 	$('#switch-haraldrigkomp').on('change', function() {
-		console.log('<mdui-switch #switch-haraldrigkomp> changed');
+		console.debug('<mdui-switch #switch-haraldrigkomp> changed');
 		if ($('#switch-haraldrigkomp').prop("checked")) {
 			// on
 			mdui.alert({
@@ -497,7 +492,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-wspub changes
 	$('#switch-wspub').on('change', function() {
-		console.log('<mdui-switch #switch-wspub> changed');
+		console.debug('<mdui-switch #switch-wspub> changed');
 		if ($('#switch-wspub').prop("checked")) {
 			// on
 			if (artikeltyp == 'R') {
@@ -522,7 +517,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-wsbb changes
 	$('#switch-wsbb').on('change', function() {
-		console.log('<mdui-switch #switch-wsbb> changed');
+		console.debug('<mdui-switch #switch-wsbb> changed');
 		if ($('#switch-wsbb').prop("checked")) {
 			// on
 			setSwitch('wsbb','enabled','on',helper_wsbb_on);
@@ -534,7 +529,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-wssort changes
 	$('#switch-wssort').on('change', function() {
-		console.log('<mdui-switch #switch-wssort> changed');
+		console.debug('<mdui-switch #switch-wssort> changed');
 		if ($('#switch-wssort').prop("checked")) {
 			// on
 			setSwitch('wssort','enabled','on',helper_wssort_on);
@@ -546,7 +541,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-wskomp changes
 	$('#switch-wskomp').on('change', function() {
-		console.log('<mdui-switch #switch-wskomp> changed');
+		console.debug('<mdui-switch #switch-wskomp> changed');
 		if ($('#switch-wskomp').prop("checked")) {
 			// on
 			setSwitch('wskomp','enabled','on',helper_wskomp_on);
@@ -563,40 +558,36 @@ $(document).ready(function() {
 
 	// mdui-select #select-team changes
 	$('#select-team').on('change', function() {
-		console.log('<mdui-select #select-team> changed');
+		console.debug('<mdui-select #select-team> changed');
 		team = this.value;
-		console.log('Team: ' + team );
+		console.info(' * team: ' + team );
 		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
-			console.log('Avdelning: Rörelse');
 			avd = "R";
 			avdelning = "Rörelse";
 		} else if ( team == '05' ) {
-			console.log('Avdelning: KLOK');
 			avd = "K";
 			avdelning = "KLOK";
 		} else if ( team == '07' ) {
-			console.log('Avdelning: PMB');
 			avd = "PMB";
 			avdelning = "PMB";
 		} else if ( team == '40' ) {
-			console.log('Avdelning: Syncentralen');
 			avd = "S";
 			avdelning = "Syncentralen";
 		} else {
-			console.log('Avdelning: Kan ej fastställas baserat på team');
 			avd = "(avd saknas)";
 			avdelning = "(avdelning saknas)";
 		}
-
+		console.info(' * avd = ' + avd);
+		console.info(' * avdelning = ' + avdelning);
 	});
 
 	// 8. Lagerhållning
 
 	// mdui-select #select-huvudlager changes
 	$('#select-huvudlager').on('change', function() {
-		console.log('<mdui-select #select-huvudlager> changed');
+		console.debug('<mdui-select #select-huvudlager> changed');
 		huvudlager = this.value;
-		console.log('Huvudlager: ' + huvudlager );
+		console.info(' * huvudlager = ' + huvudlager );
 		switch( huvudlager) {
 		case '200':
 			$('#text-liggplats').attr('placeholder', 'P?-01-?-???');
@@ -612,9 +603,9 @@ $(document).ready(function() {
 
 	// mdui-select #select-inkopshantering changes
 	$('#select-inkopshantering').on('change', function() {
-		console.log('<mdui-select #select-inkopshantering> changed');
+		console.debug('<mdui-select #select-inkopshantering> changed');
 		inkopshantering = this.value;
-		console.log(' * inkopshantering: ' + inkopshantering );
+		console.info(' * inkopshantering: ' + inkopshantering );
 		switch( inkopshantering) {
 		case 'Kundorder':
 			setSelect('inkopshantering', 'enabled', 'Kundorder', helper_inkopshantering_k);
@@ -629,7 +620,7 @@ $(document).ready(function() {
 
 	// mdui-slider #slider-forbrukning focus
 	$('#slider-forbrukning').on('focus', function() {
-			console.log('<mdui-slider #slider-forbrukning> focus');
+			console.debug('<mdui-slider #slider-forbrukning> focus');
 			const slider = this;
 			forbrukning = this.value;
 			if (forbrukning == 0) {
@@ -639,7 +630,6 @@ $(document).ready(function() {
 
 	// mdui-slider #slider-forbrukning changes
 	$('#slider-forbrukning').on('input', function() {
-			// console.log('<mdui-slider #slider-forbrukning> input');
 			const slider = this;
 			forbrukning = this.value;
 			forbrukning_msg = 'Årsbehov ';
@@ -681,7 +671,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-kvalitetskontroll changes
 	$('#switch-kk').on('change', function() {
-		console.log('<mdui-switch #switch-kk> changed');
+		console.debug('<mdui-switch #switch-kk> changed');
 		if ($('#switch-kk').prop("checked")) {
 			mdui.alert({
 				closeOnEsc: true,
@@ -699,19 +689,19 @@ $(document).ready(function() {
 	});
 
 	$('#button-reset-form-warning').click(function() {
-		console.log('<mdui-button #button-reset-form-warning> clicked');
+		console.debug('<mdui-button #button-reset-form-warning> clicked');
 		$('#dialog-reset-warning').attr('open', true);
 	});
 
 	$('#button-reset-form').click(function() {
-		console.log('<mdui-button #button-reset-form> clicked');
+		console.debug('<mdui-button #button-reset-form> clicked');
 		setURLParam('theme', theme);
 		setURLParam('reload', 1);
 		location.reload();
 	});
 
 	$('.button-close-dialog').click(function() {
-		console.log('.button-close-dialog clicked');
+		console.debug('.button-close-dialog clicked');
 		$('mdui-dialog').removeAttr('open');
 	});
 
@@ -719,7 +709,7 @@ $(document).ready(function() {
 
 	// mdui-switch #switch-dtm changes
 	$('#switch-dtm').on('change', function() {
-		console.log('<mdui-switch #switch-dtm> changed');
+		console.debug('<mdui-switch #switch-dtm> changed');
 		if ($('#switch-dtm').prop("checked")) {
 			// on
 			setSwitch('dtm','enabled','on',helper_dtm_on);
@@ -730,10 +720,10 @@ $(document).ready(function() {
 	});
 
 	$('#button-dialog-copy-artikeldata').click(function() {
-		console.log('<mdui-button #button-dialog-copy-artikeldata> clicked');
+		console.debug('<mdui-button #button-dialog-copy-artikeldata> clicked');
 
 		if ( validate_input == 'Yes' ) {
-			console.log('Input validation enabled');
+			console.info('Input validation enabled');
 
 			// validate input
 			for (const el of $('[required]')) {
@@ -744,7 +734,7 @@ $(document).ready(function() {
 				}
 			}
 		} else {
-			console.log('Input validation disabled');
+			console.info('Input validation disabled');
 			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
 		}
 
@@ -757,19 +747,12 @@ $(document).ready(function() {
 
 	/* Visa artikeldata */
 	$('#button-dialog-artikeldata').click(function() {
-		console.log('<mdui-button #button-dialog-artikeldata> clicked');
+		console.debug('<mdui-button #button-dialog-artikeldata> clicked');
 		$('#dialog-artikeldata').attr('open', true);
 	});
 
-	/* XXXXX Kopiera artikeldata*/
-//	$('#button-copy-artikeldata').click(function() {
-//		console.log('<mdui-button #button-copy-artikeldata> clicked');
-//		navigator.clipboard.writeText(artikeldata);
-//		mdui.snackbar({ message: 'Artikeluppgifterna har kopierats och kan klistras in med CTRL+V' });
-//	});
-
 	$('.button-back-to-form').click(function() {
-		console.log('<mdui-button .button-back-to-form> clicked');
+		console.debug('<mdui-button .button-back-to-form> clicked');
 		changeContent('#content-formular', '#menu-formular');
 	});
 

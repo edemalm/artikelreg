@@ -1,4 +1,4 @@
-console.log('Loading functions.js');
+console.debug('Loading functions.js');
 
 /**
  * Add a search parameter to current URL
@@ -6,7 +6,7 @@ console.log('Loading functions.js');
  * @param {string} value	- Value of search key (i.e. "dark").
  */
 function setURLParam(key, value) {
-	console.log('setURLParam("' + key + '","' + value + '")');
+	console.debug('setURLParam("' + key + '","' + value + '")');
 	const url = new URL(window.location);
 	url.searchParams.set(key, value);
 	history.pushState(null, '', url);
@@ -18,7 +18,7 @@ function setURLParam(key, value) {
  * @param {string} menuItemId	- Element ID of active menu item (i.e. #menu-formular).
  */
 function changeContent(contentId, menuItemId) {
-	console.log('changeContent("' + contentId + '","' + menuItemId + '")');
+	console.debug('changeContent("' + contentId + '","' + menuItemId + '")');
 	if ($(contentId).css('display') == 'none') {
 		$('.content-container').fadeOut(400); /* hide all content */
 		$(contentId).delay(400).fadeIn(400);
@@ -36,7 +36,7 @@ function changeContent(contentId, menuItemId) {
  * @param {string} helper		- Helper text.
  */
 function setTextField(paramId, mode, placeholder, helper) {
-	console.log('setTextField("' + paramId + '","' + mode + '","' + placeholder + '","' + helper + '")');
+	console.debug('setTextField("' + paramId + '","' + mode + '","' + placeholder + '","' + helper + '")');
 	if (mode == 'enabled') {
 		$('#text-' + paramId).attr('disabled', false);
 	} else {
@@ -45,7 +45,7 @@ function setTextField(paramId, mode, placeholder, helper) {
 	if (placeholder.length > 0) $('#text-' + paramId).attr('placeholder', placeholder);
 	if (helper.length > 0) $('#text-' + paramId).attr('helper', helper);
 	window[paramId] = $('#text-' + paramId).val();
-	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 /**
@@ -56,7 +56,7 @@ function setTextField(paramId, mode, placeholder, helper) {
  * @param {string} helper	- Helper text.
  */
 function setSelect(paramId, mode, value, helper) {
-	console.log('setSelect("' + paramId + '","' + mode + '","' + value + '","' + helper + '")');
+	console.debug('setSelect("' + paramId + '","' + mode + '","' + value + '","' + helper + '")');
 	if (mode == 'enabled') {
 		$('#select-' + paramId).attr('disabled', false);
 	} else {
@@ -65,7 +65,7 @@ function setSelect(paramId, mode, value, helper) {
 	$('#select-' + paramId).val(value);
 	if (helper.length > 0) $('#select-' + paramId).attr('helper', helper);
 	window[paramId] = $('#select-' + paramId).val();
-	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 /**
@@ -76,7 +76,7 @@ function setSelect(paramId, mode, value, helper) {
  * @param {string} helper	- Helper text.
  */
 function setSwitch(paramId, mode, state, helper) {
-	console.log('setSwitch("' + paramId + '","' + mode + '","' + state + '","' + helper + '")');
+	console.debug('setSwitch("' + paramId + '","' + mode + '","' + state + '","' + helper + '")');
 	if (mode == "enabled") {
 		$('#label-' + paramId).removeClass('disabled');
 		$('#switch-' + paramId).attr('disabled', false);
@@ -92,7 +92,7 @@ function setSwitch(paramId, mode, state, helper) {
 		$('#switch-' + paramId).attr('checked', false);
 	}
 	window[paramId] = ($('#switch-' + paramId).prop("checked") ? "Ja" : "Nej");
-	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 /**
@@ -103,7 +103,7 @@ function setSwitch(paramId, mode, state, helper) {
  * @param {string} helper	- Helper text
  */
 function setRadio(paramId, mode, selected, helper) {
-	console.log('setRadio("' + paramId + '","' + mode + '","' + selected + '","' + helper + '")');
+	console.debug('setRadio("' + paramId + '","' + mode + '","' + selected + '","' + helper + '")');
 	if (mode == "enabled") {
 		$('#label-' + paramId).removeClass('disabled');
 		$('#radio-' + paramId).val(selected);
@@ -115,9 +115,10 @@ function setRadio(paramId, mode, selected, helper) {
 	}
 	if (helper.length > 0) $('#label-' + paramId + ' .radio-helper').html(helper);
 	window[paramId] = $('#radio-' + paramId).val();
-	console.log(" * " + paramId + ' = ' + '"' + window[paramId] + '"');
+	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
+/*
 function enableSelectArtikeltyp() {
 	console.log(' -- enableSelectArtikeltyp()');
 	$('#select-artikeltyp').val('').attr('disabled', false); // unselect and enable
@@ -138,7 +139,7 @@ function disableSelectDebiteringsform() {
 	$('#debiteringsform-menu-item-a').attr('disabled', false); // re-enable option 'A' (köp)
 	$('#select-debiteringsform').val('').attr('disabled', true); // unselect and disable
 }
-
+*/
 
 
 
@@ -150,7 +151,7 @@ function disableTextReturtagningsinformation() {
 }
 
 function enalbeSliderForbrukning() {
-	console.log('enableSliderForbrukning()');
+	console.debug('enableSliderForbrukning()');
 	$('#slider-forbrukning').val('').attr('disabled', false); // clear and enable
 	$('.slider-label').removeClass('disabled'); // remove .disabled
 	$('.slider-helper').removeClass('disabled'); // remove .disabled
@@ -158,7 +159,7 @@ function enalbeSliderForbrukning() {
 	$('#slider-msg').html(forbrukning_msg); // update displayd msg
 }
 function disableSliderForbrukning() {
-	console.log('disableSliderForbrukning()');
+	console.debug('disableSliderForbrukning()');
 	$('#slider-forbrukning').val('').attr('disabled', true); // clear and disable
 	$('.slider-label').addClass('disabled'); // add .disabled
 	$('.slider-helper').addClass('disabled'); // add .disabled
@@ -168,9 +169,7 @@ function disableSliderForbrukning() {
 }
 
 function createArtikeldata() {
-
-	// console.log('form #form-artikeldata submitted');
-	console.log(' -- createArtikeldata()');
+	console.debug('createArtikeldata()');
 
 	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();

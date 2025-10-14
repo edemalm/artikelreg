@@ -327,19 +327,20 @@
 						<!-- TEAM -->
 						<mdui-select id="select-team"
 							end-icon="arrow_drop_down"
+							helper="Detta val kallas Sektor i Sesam"
 							label="Team"
 							name="team"
 							variant="outlined"
 							required>
-							<mdui-menu-item value="02">02 - Elrullstolar</mdui-menu-item>
-							<mdui-menu-item value="03">03 - Habteamet</mdui-menu-item>
-							<mdui-menu-item value="05">05 - KLOK</mdui-menu-item>
-							<mdui-menu-item value="07">07 - PMB</mdui-menu-item>
-							<mdui-menu-item value="08">08 - SST rullstolar och arbetsstolar</mdui-menu-item>
-							<mdui-menu-item value="09">09 - ADL säng, lyft och positionering</mdui-menu-item>
-							<mdui-menu-item value="10">10 - ADL gång och hygien</mdui-menu-item>
-							<mdui-menu-item value="11">11 - SST behandling och träning</mdui-menu-item>
-							<mdui-menu-item value="40">40 - Syncentralen</mdui-menu-item>
+							<mdui-menu-item value="02">Team 02 - Elrullstolar</mdui-menu-item>
+							<mdui-menu-item value="03">Team 03 - Habteamet</mdui-menu-item>
+							<mdui-menu-item value="05">Team 05 - KLOK</mdui-menu-item>
+							<mdui-menu-item value="07">Team 07 - PMB</mdui-menu-item>
+							<mdui-menu-item value="08">Team 08 - Rullstolar och arbetsstolar (SST)</mdui-menu-item>
+							<mdui-menu-item value="09">Team 09 - Säng, lyft och positionering (ADL)</mdui-menu-item>
+							<mdui-menu-item value="10">Team 10 - Gång och hygien (ADL)</mdui-menu-item>
+							<mdui-menu-item value="11">Team 11 - Behandling och träning (SST)</mdui-menu-item>
+							<mdui-menu-item value="40">Team 40 - Syncentralen</mdui-menu-item>
 						</mdui-select>
 					</div>
 				</div><!-- .grid -->
@@ -440,7 +441,9 @@
 								<div class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-individartikel" disabled></mdui-switch>
+								<mdui-switch id="switch-individartikel"
+									name="individartikel"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -452,7 +455,9 @@
 								<div id="serienummer-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-serienummer" disabled></mdui-switch>
+								<mdui-switch id="switch-serienummer"
+									name="serienummer"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -464,7 +469,9 @@
 								<div class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-haraldrigkomp" disabled></mdui-switch>
+								<mdui-switch id="switch-haraldrigkomp"
+									name="haraldrigkomp"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -476,7 +483,9 @@
 								<div class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-dtm" disabled></mdui-switch>
+								<mdui-switch id="switch-dtm"
+									name="dtm"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -498,7 +507,8 @@
 								<div class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-wspub"></mdui-switch>
+								<mdui-switch id="switch-wspub"
+									name="wspub"></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -510,7 +520,8 @@
 								<div id="wssort-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-wssort"></mdui-switch>
+								<mdui-switch id="switch-wssort"
+									name="wssort"></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -522,7 +533,8 @@
 								<div id="wsbb-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-wsbb"></mdui-switch>
+								<mdui-switch id="switch-wsbb"
+									name="wsbb"></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -534,7 +546,9 @@
 								<div id="wskomp-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-wskomp" disabled></mdui-switch>
+								<mdui-switch id="switch-wskomp"
+									name="wskomp"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -655,7 +669,9 @@
 								<div id="switch-kk-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
-								<mdui-switch id="switch-kk" disabled></mdui-switch>
+								<mdui-switch id="switch-kk"
+									name="kk"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
