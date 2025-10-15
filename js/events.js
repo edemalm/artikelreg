@@ -275,6 +275,7 @@ $(document).ready(function() {
 		setSwitch('individartikel', 'disabled', 'off', helper_individartikel);
 		setSwitch('serienummer', 'disabled', 'off', helper_serienummer);
 		setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);
+		setSwitch('dtm', 'disabled', 'off', helper_dtm);
 
 		setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
 		setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
@@ -340,7 +341,7 @@ $(document).ready(function() {
 		setRadio('avskrivningstid','disabled','',helper_avskrivningstid_off);
 		setSwitch('serienummer','disabled','off',helper_serienummer);
 		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
-		setSwitch('dtm','enabled','off',helper_haraldrigkomp);
+		setSwitch('dtm','disabled','off',helper_dtm);
 		setSelect('servicegrad', 'disabled', '', '');
 		setSelect('besiktningsintervall', 'disabled', '', '');
 		setSelect('fuintervall', 'disabled', '', '');
@@ -381,7 +382,6 @@ $(document).ready(function() {
 		inventarium = (this.checked === true) ? "Ja" : "Nej";
 		switch (inventarium) {
 			case 'Ja':
-				// $('#label-inventarium .switch-helper').html(helper_inventarium_on);
 				setSwitch('inventarium','enabled','on',helper_inventarium_on);
 			break;
 			case 'Nej':
@@ -393,11 +393,8 @@ $(document).ready(function() {
 						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
 						headline: "Ej tillåtet"
 					});
-					// $('#switch-inventarium').attr('checked', true); // re-checked
-					// inventarium = 'Ja';
 					setSwitch('inventarium','enabled','on',helper_inventarium_on);
 				} else {
-					// $('#label-inventarium .switch-helper').html(helper_inventarium_off);
 					setSwitch('inventarium','enabled','off',helper_inventarium_off);
 				}
 			break;
@@ -443,6 +440,7 @@ $(document).ready(function() {
 					setSwitch('individartikel','enabled','off',helper_individartikel_off);
 					setSwitch('serienummer','disabled','off',helper_serienummer);
 					setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
+					setSwitch('dtm','disabled','off',helper_dtm);
 				}
 			break;
 		}
