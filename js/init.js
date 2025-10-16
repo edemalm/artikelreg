@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-16';	// Last commit date
+	window.update = '2025-10-17';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
