@@ -224,7 +224,15 @@ function createArtikeldata() {
 	}
 
 	// Leverantör, lev. art.nr. och mallartikel
-	artikeldata += "\nLeverantör:  " + leverantor + "\nLev. art.nr:  " + levartnr + "\n";
+	let lev = leverantor.split(' ')[0].toLowerCase();
+	artikeldata += "\nLeverantör:  ";
+	switch (lev) {
+		case 'etac':		artikeldata += "Etac Sverige AB (251)"; break;
+		case 'invacare':	artikeldata += "Invacare Sweden AB (211)"; break;	
+		default:			artikeldata += leverantor;
+	}
+	artikeldata += "\n";
+	artikeldata += "Lev. art.nr:  " + levartnr + "\n";
 	artikeldata += "Mallartikel:  " + avd.substring(0,1) + artikeltyp + "\n";
 
 	// ARTIKEL
