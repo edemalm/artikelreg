@@ -61,7 +61,7 @@ let helper_wskomp_off = "Artikeln kan inte beställas som komponent till ett hj�
 let helper_wsinfo = "Vid behov, ange extra artikelinformation som visas för artikeln i webSesam";
 
 // 7. Lagerhållning
-let helper_inkopshantering = "Ange en rekommenderad inköpshantering. Denna kan ändras i framtiden beroende på inköpsbehov.";
+let helper_inkopshantering = "Ange en rekommenderad inköpshantering";
 let helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker då behov finns.";
 let helper_inkopshantering_n = "Artikeln är lagerlagd. Inköp sker till lager.";
 let helper_liggplats ="Ange en liggplats om den är känd i förväg";

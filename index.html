@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
-	<!-- meta name="renderer" content="webkit"/ -->
 	<meta name="robots" content="noindex, nofollow">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -12,16 +11,15 @@
 	<link rel="manifest" href="app.webmanifest" crossorigin="anonymous">
 	<style>.hidden { display: none; }</style>
 
-	<!-- CSS served from CDNs online -->
+	<!-- CSS from CDNs -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap">
-	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
 
-	<!-- Load CSS from local file system -->
+	<!-- CSS from local file system -->
 	<link rel="stylesheet" href="css/mdui-2.1.4.css">
 	<!--
 	<link rel="stylesheet" href="css/webfonts/roboto.css">
@@ -34,21 +32,11 @@
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/app.css">
 
-	<!-- Load JS from local file system -->
+	<!-- JS from local file system -->
 	<script src="js/mdui-2.1.4.hack.js"></script>
 	<script src="js/jquery-3.7.1.min.js"></script>
 
 	<title>Artikelregistreringsunderlag</title>
-
-	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-D0EQ18178Y"></script> -->
-	<script>
-	/*
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-D0EQ18178Y');
-	*/
-	</script>
 </head>
 <body>
 
@@ -96,9 +84,10 @@
 						rounded>Externa länkar<mdui-icon id="menu-group2-arrow" slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
 					</mdui-list-item>
 					<div style="margin-left: 2.5rem">
-						<mdui-list-item href="https://www.hjalpmedelstjansten.se/" rel="external" target="_blank" end-icon="open_in_new--outlined" rounded>Hjälpmedelstjänsten</mdui-list-item>
-						<mdui-list-item href="https://vismawebsesam.ltdalarna.se/" rel="external" target="_blank" end-icon="open_in_new--outlined" rounded>Visma webSesam</mdui-list-item>
-						<mdui-list-item href="https://websesam.ltdalarna.se/" rel="external" target="_blank" end-icon="open_in_new--outlined" rounded>Gamla webSesam</mdui-list-item>
+						<mdui-list-item href="https://www.hjalpmedelstjansten.se/" rel="external noreferrer" target="_blank" end-icon="open_in_new" rounded>Hjälpmedelstjänsten</mdui-list-item>
+						<mdui-list-item href="https://vismawebsesam.ltdalarna.se/" rel="external noreferrer" target="_blank" end-icon="open_in_new" rounded>Visma webSesam</mdui-list-item>
+						<mdui-list-item href="https://websesam.ltdalarna.se/" rel="external noreferrer" target="_blank" end-icon="open_in_new" rounded>Gamla webSesam</mdui-list-item>
+						<mdui-list-item href="https://varuforsorjningen.se/" rel="external noreferrer" target="_blank" end-icon="open_in_new" rounded>Varuförsörjningen</mdui-list-item>
 					</div>
 				</mdui-collapse-item>
 
@@ -143,10 +132,12 @@
 				<div class="s12">
 					<div id="viewport">
 						<span id="viewport-size"></span>
-						<span class="bp bp-s"> / Grid class: S (0-640)</span>
-						<span class="bp bp-m"> / Grid class: M (641-1024)</span>
-						<span class="bp bp-l"> / Grid class: L (1025-1280)</span>
-						<span class="bp bp-xl"> / Grid class: XL (1281-)</span>
+						<span class="bp bp-xs"> / Breakpoint: XS (0-599)</span>
+						<span class="bp bp-sm"> / Breakpoint: SM (600-839)</span>
+						<span class="bp bp-md"> / Breakpoint: MD (840-1079)</span>
+						<span class="bp bp-lg"> / Breakpoint: LG (1080-1439)</span>
+						<span class="bp bp-xl"> / Breakpoint: XL (1440-1919)</span>
+						<span class="bp bp-xxl"> / Breakpoint: XXL (1920-)</span>
 					</div>
 					<div class="form-title">
 						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
@@ -587,12 +578,12 @@
 							name="huvudlager"
 							end-icon="arrow_drop_down"
 							required>
-							<mdui-menu-item value="200">200 - Västermalmsvägen Falun</mdui-menu-item>
-							<mdui-menu-item value="400">400 - Syncentralen Skomakargatan</mdui-menu-item>
-							<mdui-menu-item value="688">688 - Taklyftar LOGFAB Borlänge</mdui-menu-item>
+							<mdui-menu-item value="200">200 - Västermalmsvägen, Falun</mdui-menu-item>
+							<mdui-menu-item value="400">400 - Syncentralen Skomakargatan, Borlänge</mdui-menu-item>
+							<mdui-menu-item value="688">688 - Taklyftar LOGFAB, Borlänge</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m8">
+					<div class="s12 m7 l12 xl7">
 						<!-- INKÖPSHANTERING -->
 						<mdui-select id="select-inkopshantering"
 							variant="outlined"
@@ -604,7 +595,7 @@
 							<mdui-menu-item value="Nettobehov">Nettobehov</mdui-menu-item>
 						</mdui-select>
 					</div>
-					<div class="s12 m4">
+					<div class="s12 m5 l12 xl5">
 						<!-- LIGGPLATS -->
 						<mdui-text-field id="text-liggplats"
 							autocomplete="off"
@@ -843,7 +834,7 @@
 			<div class="control-right">
 				<mdui-button id="button-dialog-copy-artikeldata"
 					icon="content_copy"
-					variant="filled">Kopiera underlag</mdui-button>
+					variant="filled">Kopiera artikeluppgifter</mdui-button>
 			</div>
 
 		</div><!-- .controls -->
