@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-20';	// Last commit date
+	window.update = '2025-10-21';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	window.buffertlager = '';
 	window.debiteringsform = '';
 	window.dev = '';
-	window.dtm = '';
+	window.dm = '';
 	window.forbrukning = '';
 	window.forbrukning_msg = '';
 	window.fuintervall = '';
@@ -67,7 +67,7 @@ $(document).ready(function() {
 	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);		// OK
 	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);			// OK
 	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);		// OK
-	setSwitch('dtm', 'disabled', 'off', helper_dtm);							// OK
+	setSwitch('dm', 'disabled', 'off', helper_dm);							// OK
 
 	// 6. Visma webSesam
 	setSwitch('wspub', 'enabled', 'off', helper_wspub_off);						// OK

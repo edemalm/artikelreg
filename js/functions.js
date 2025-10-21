@@ -179,7 +179,7 @@ function createArtikeldata() {
 	besiktningsintervall = $('#select-besiktningsintervall').val();
 	buffertlager = $('#text-buffertlager').val();
 	debiteringsform = $('#select-debiteringsform').val();
-	dtm = ($('#switch-dtm').prop("checked") ? "Ja" : "Nej");
+	dm = ($('#switch-dm').prop("checked") ? "Ja" : "Nej");
 	forbrukning = $('#slider-forbrukning').val();
 	fuintervall = $('#select-fuintervall').val();
 	gmi = $('#text-gmi').val();
@@ -352,8 +352,8 @@ function createArtikeldata() {
 	}
 
 	// Drifttidsmätare
-	if (individartikel == 'Ja' && dtm == 'Ja') {
-		artikeldata += "Drifttidsmätare:  " + dtm + " (enhet: timmar) 👈\n";
+	if (individartikel == 'Ja' && dm == 'Ja') {
+		artikeldata += "Drifttidsmätare:  " + dm + " (enhet: timmar) 👈\n";
 	}
 
 	// Kvalitetskontroll

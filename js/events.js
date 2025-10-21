@@ -275,7 +275,7 @@ $(document).ready(function() {
 		setSwitch('individartikel', 'disabled', 'off', helper_individartikel);
 		setSwitch('serienummer', 'disabled', 'off', helper_serienummer);
 		setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);
-		setSwitch('dtm', 'disabled', 'off', helper_dtm);
+		setSwitch('dm', 'disabled', 'off', helper_dm);
 
 		setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
 		setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
@@ -341,7 +341,7 @@ $(document).ready(function() {
 		setRadio('avskrivningstid','disabled','',helper_avskrivningstid_off);
 		setSwitch('serienummer','disabled','off',helper_serienummer);
 		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
-		setSwitch('dtm','disabled','off',helper_dtm);
+		setSwitch('dm','disabled','off',helper_dm);
 		setSelect('servicegrad', 'disabled', '', '');
 		setSelect('besiktningsintervall', 'disabled', '', '');
 		setSelect('fuintervall', 'disabled', '', '');
@@ -356,10 +356,10 @@ $(document).ready(function() {
 					setSwitch('individartikel','enabled','on',helper_individartikel_on);
 					setSwitch('serienummer','enabled','on',helper_serienummer_on);
 					setSwitch('haraldrigkomp','enabled','off',helper_haraldrigkomp_off);
-					setSwitch('dtm','enabled','off',helper_dtm_off);
 					setSelect('servicegrad', 'enabled', '', '');
 					setSelect('besiktningsintervall', 'enabled', '', '');
 					setSelect('fuintervall', 'enabled', '', '');
+					if (team == '07') setSwitch('dm','enabled','off',helper_dm_off);
 					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
 				}
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'T') {
@@ -420,7 +420,7 @@ $(document).ready(function() {
 				setSwitch('individartikel','enabled','on',helper_individartikel_on);
 				setSwitch('serienummer','enabled','on',helper_serienummer_on);
 				setSwitch('haraldrigkomp','enabled','off',helper_haraldrigkomp_off);
-				setSwitch('dtm','enabled','off',helper_dtm_off);
+				setSwitch('dm','enabled','off',helper_dm_off);
 			break;
 			case 'Nej':
 				if (artikeltyp == 'H' && debiteringsform == 'M') {
@@ -440,7 +440,7 @@ $(document).ready(function() {
 					setSwitch('individartikel','enabled','off',helper_individartikel_off);
 					setSwitch('serienummer','disabled','off',helper_serienummer);
 					setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
-					setSwitch('dtm','disabled','off',helper_dtm);
+					setSwitch('dm','disabled','off',helper_dm);
 				}
 			break;
 		}
@@ -705,15 +705,15 @@ $(document).ready(function() {
 
 	// 10. Service and underhåll
 
-	// mdui-switch #switch-dtm changes
-	$('#switch-dtm').on('change', function() {
-		console.debug('<mdui-switch #switch-dtm> changed');
-		if ($('#switch-dtm').prop("checked")) {
+	// mdui-switch #switch-dm changes
+	$('#switch-dm').on('change', function() {
+		console.debug('<mdui-switch #switch-dm> changed');
+		if ($('#switch-dm').prop("checked")) {
 			// on
-			setSwitch('dtm','enabled','on',helper_dtm_on);
+			setSwitch('dm','enabled','on',helper_dm_on);
 		} else {
 			// off
-			setSwitch('dtm','enabled','off',helper_dtm_off);
+			setSwitch('dm','enabled','off',helper_dm_off);
 		}
 	});
 

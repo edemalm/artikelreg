@@ -44,9 +44,9 @@ let helper_serienummer_off = "Hjälpmedlet saknar serienummer";
 let helper_haraldrigkomp = "Parametern gäller endast individartiklar";
 let helper_haraldrigkomp_on = "Komponenter kan aldrig kopplas till detta hjälpmedel";
 let helper_haraldrigkomp_off = "Komponenter kan kopplas till detta hjälpmedel";
-let helper_dtm = "Parametern gäller endast individartiklar";
-let helper_dtm_on = "Hjälpmedlet har drifttidsmätare i Sesam (enhet timmar)";
-let helper_dtm_off = "Hjälpmedlet har ej drifttidsmätare i Sesam";
+let helper_dm = "Parametern gäller endast individartiklar hos PMB";
+let helper_dm_on = "Hjälpmedlet har driftsmätare på individkortet (enhet timmar)";
+let helper_dm_off = "Hjälpmedlet har ej driftsmätare";
 
 // 6. Visma webSesam
 let helper_wspub_on = "Artikeln visas och är sökbar";
