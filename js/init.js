@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-21';	// Last commit date
+	window.update = '2025-10-21-2';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -176,13 +176,17 @@ $(document).ready(function() {
 	});
 
 	// Set date in version
-	$('#version').html( 'Version ' + update );
+	$('#version').html('Version ' + update);
 
 	// Update site links
-	var deploy1 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLnBhZ2VzLmRldg==');
-	var deploy2 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLm5ldGxpZnkuYXBw');
+	let deploy1 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLnBhZ2VzLmRldg==');
+	let deploy2 = atob('aHR0cHM6Ly9hcnRpa2VscmVnLm5ldGxpZnkuYXBw');
 	$('#main-site').html('<a href="' + deploy1 + '/">' + deploy1 + '</a>');
 	$('#backup-site').html('<a href="' + deploy2 + '/">' + deploy2 + '</a>');
+
+	// Set current year in copyright
+	let currentYear = new Date().getFullYear();
+	$('#current-year').html('-' + currentYear);
 
 	// Include HTML from files
 	// Note: The load function is not included in the slim verion of jQuery

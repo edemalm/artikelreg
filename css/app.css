@@ -268,10 +268,6 @@ pre {
 	margin: .5rem 0; /* align with input fields */
 }
 
-#content-to-copy {
-	user-select: text;
-}
-
 .switch-wrapper,
 .radio-wrapper {
 	display: flex;

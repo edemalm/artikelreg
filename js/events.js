@@ -238,7 +238,7 @@ $(document).ready(function() {
 					closeOnEsc: true,
 					closeOnOverlayClick: true,
 					confirmText: "Jag förstår",
-					description: "Artiklar som ingår i retursortimentet säljs till ett rabatterat pris. Kunden förväntas returnera hjälpmedlet när behovet upphör. Nya och rekonditionerade exemplar förekommer. Service och underhåll utförs normalt inte, i stället ska ett nytt hjälpmedel beställas. Endast ofta förekommande hjälpmedel bör klassas som retursortiment.",
+					description: "Artiklar som ingår i retursortimentet säljs till ett rabatterat pris. Kunden förväntas returnera hjälpmedlet när behovet upphör. Nya och rekonditionerade exemplar förekommer. Service och underhåll utförs inte hos kund, i stället ska ett nytt hjälpmedel beställas. Endast frekventa hjälpmedel bör klassas som retursortiment.",
 					headline: "Retursortiment"
 				});
 				$('#artikeltyp-menu-item-r').attr('disabled', true); // disable option 'R' (Reservdel)
@@ -341,7 +341,7 @@ $(document).ready(function() {
 		setRadio('avskrivningstid','disabled','',helper_avskrivningstid_off);
 		setSwitch('serienummer','disabled','off',helper_serienummer);
 		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
-		setSwitch('dm','disabled','off',helper_dm);
+		setSwitch('dm', 'disabled', 'off', helper_dm);
 		setSelect('servicegrad', 'disabled', '', '');
 		setSelect('besiktningsintervall', 'disabled', '', '');
 		setSelect('fuintervall', 'disabled', '', '');
@@ -359,7 +359,7 @@ $(document).ready(function() {
 					setSelect('servicegrad', 'enabled', '', '');
 					setSelect('besiktningsintervall', 'enabled', '', '');
 					setSelect('fuintervall', 'enabled', '', '');
-					if (team == '07') setSwitch('dm','enabled','off',helper_dm_off);
+					if (team == '07') setSwitch('dm', 'enabled', 'off', helper_dm_off);
 					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
 				}
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'T') {
@@ -417,10 +417,10 @@ $(document).ready(function() {
 		switch (individartikel) {
 			case 'Ja':
 				// $('#label-individartikel .switch-helper').html(helper_individartikel_on);
-				setSwitch('individartikel','enabled','on',helper_individartikel_on);
-				setSwitch('serienummer','enabled','on',helper_serienummer_on);
-				setSwitch('haraldrigkomp','enabled','off',helper_haraldrigkomp_off);
-				setSwitch('dm','enabled','off',helper_dm_off);
+				setSwitch('individartikel', 'enabled', 'on',helper_individartikel_on);
+				setSwitch('serienummer', 'enabled', 'on', helper_serienummer_on);
+				setSwitch('haraldrigkomp', 'enabled', 'off', helper_haraldrigkomp_off);
+				if (team == '07') setSwitch('dm', 'enabled', 'off', helper_dm_off);
 			break;
 			case 'Nej':
 				if (artikeltyp == 'H' && debiteringsform == 'M') {
@@ -431,16 +431,12 @@ $(document).ready(function() {
 						description: "Ett huvudhjälpmedel för uthyrning måste vara klassat som individartikel och inventarium",
 						headline: "Ej tillåtet"
 					});
-					// $('#switch-individartikel').attr('checked', true); // re-checked
-					// $('#label-individartikel .switch-helper').html(helper_individartikel_on);
-					// individartikel = 'Ja';
-					setSwitch('individartikel','enabled','on',helper_individartikel_on);
+					setSwitch('individartikel', 'enabled', 'on', helper_individartikel_on);
 				} else {
-					// $('#label-individartikel .switch-helper').html(helper_individartikel_off);
-					setSwitch('individartikel','enabled','off',helper_individartikel_off);
-					setSwitch('serienummer','disabled','off',helper_serienummer);
-					setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
-					setSwitch('dm','disabled','off',helper_dm);
+					setSwitch('individartikel', 'enabled', 'off', helper_individartikel_off);
+					setSwitch('serienummer', 'disabled', 'off', helper_serienummer);
+					setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);
+					setSwitch('dm', 'disabled', 'off', helper_dm);
 				}
 			break;
 		}
@@ -710,10 +706,10 @@ $(document).ready(function() {
 		console.debug('<mdui-switch #switch-dm> changed');
 		if ($('#switch-dm').prop("checked")) {
 			// on
-			setSwitch('dm','enabled','on',helper_dm_on);
+			setSwitch('dm', 'enabled', 'on', helper_dm_on);
 		} else {
 			// off
-			setSwitch('dm','enabled','off',helper_dm_off);
+			setSwitch('dm', 'enabled', 'off', helper_dm_off);
 		}
 	});
 
