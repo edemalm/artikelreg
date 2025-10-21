@@ -158,7 +158,7 @@
 						clearable counter required></mdui-text-field>
 				</div>
 				<div id="div-produkt" class="s12 m6 standardprodukt">
-					<!-- PRODUKT -->
+					<!-- STANDARDPRODUKT -->
 					<mdui-text-field id="text-standardprodukt"
 						autocomplete="off"
 						autocorrect="off"
@@ -260,20 +260,11 @@
 							<mdui-checkbox id="checkbox-upphandlad"
 								name="upphandlad">Artikeln är upphandlad</mdui-checkbox>
 						</div>
-					</div>
-					<div id="ejht-pris" class="s12 m4 l12 xl4 hidden">
-						<!-- INKÖPSPRIS -->
-						<mdui-text-field id="text-pris"
-							autocomplete="off"
-							autocorrect="off"
-							enterkeyhint="done"
-							inputmode="decimal"
-							label="Inköpspris"
-							name="pris"
-							suffix="&nbsp;kr"
-							type="text"
-							variant="outlined"
-							clearable disabled end-aligned></mdui-text-field>
+						<!-- VARUFÖRSÖRJNINGEN -->
+						<div>
+							<mdui-checkbox id="checkbox-vf"
+								name="vf">Artikeln är upphandlad hos Varuförsörjningen</mdui-checkbox>
+						</div>
 					</div>
 					<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
 						<!-- ISO-KOD -->
@@ -289,6 +280,20 @@
 							type="number"
 							variant="outlined"
 							clearable disabled></mdui-text-field>
+					</div>
+					<div id="ejht-pris" class="s12 m4 l12 xl4 hidden">
+						<!-- INKÖPSPRIS -->
+						<mdui-text-field id="text-pris"
+							autocomplete="off"
+							autocorrect="off"
+							enterkeyhint="done"
+							inputmode="decimal"
+							label="Inköpspris"
+							name="pris"
+							suffix="&nbsp;kr"
+							type="text"
+							variant="outlined"
+							clearable disabled end-aligned></mdui-text-field>
 					</div>
 					<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
 						<!-- GARANTITID -->

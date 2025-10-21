@@ -24,11 +24,11 @@ let helper_artikelbenamning_array = [
 // 4. Ekonomi
 let helper_artikeltyp = "Välj artikeltyp hos DHC. Denna kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten.";
 let helper_artikeltyp_h = "Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel";
-let helper_artikeltyp_t = "Tillbehör ger extra funktionalitet hos ett huvudhjälpmedel";
-let helper_artikeltyp_r = "Reservdelar används för reparation och underhåll av huvudhjälpmedel och tillbehör";
+let helper_artikeltyp_t = "Ett tillbehör ger extra funktionalitet hos ett huvudhjälpmedel";
+let helper_artikeltyp_r = "En reservdel används för att laga och underhålla huvudhjälpmedel och tillbehör";
 let helper_debiteringsform = "Välj hur DHC tar betalt för denna artikel";
 let helper_debiteringsform_m = "Kunden betalar en löpande månadshyra under hela hyresperioden";
-let helper_debiteringsform_a = "Kunden betalar hela försäljningspriset en gång och äger sedan artikeln";
+let helper_debiteringsform_a = "Kunden betalar hela försäljningspriset och äger sedan artikeln";
 let helper_inventarium_on = "Artikeln är ett hyreshjälpmedel vars anskaffningskostnad fördelas under dess avskrivningstid";
 let helper_inventarium_off = "Gäller endast huvudhjälpmedel för uthyrning";
 let helper_avskrivningstid_on = "Välj inventariens avskrivningstid";

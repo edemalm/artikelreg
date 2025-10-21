@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-21-2';	// Last commit date
+	window.update = '2025-10-22';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -19,19 +19,23 @@ $(document).ready(function() {
 	window.forbrukning = '';
 	window.forbrukning_msg = '';
 	window.fuintervall = '';
+	window.garanti = '';
 	window.gmi = '';
+	window.ht = '';
 	window.iki = '';
 	window.iri = '';
 	window.individartikel = '';
 	window.inkopshantering = '';
 	window.inventarium = '';
 	window.ipi = '';
+	window.isokod = '';
 	window.kk = '';
 	window.kkb = '';
 	window.leverantor = '';
 	window.liggplats = '';
 	window.haraldrigkomp = '';
 	window.huvudlager = '';
+	window.pris = '';
 	window.produkt2 = '';
 	window.produkt3 = '';
 	window.produkt4 = '';
@@ -43,6 +47,7 @@ $(document).ready(function() {
 	window.theme = '';
 	window.upphandlad = '';
 	window.upplysningar = '';
+	window.vf = '';
 	window.wsbb = '';
 	window.wspub = '';
 	window.wsinfo = '';

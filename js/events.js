@@ -179,7 +179,7 @@ $(document).ready(function() {
 	$('#checkbox-ht').on('change', function() {
 		console.debug('<mdui-checkbox #checkbox-ht> changed');
 		if ($('#checkbox-ht').prop("checked")) {
-			// on
+			// Finns i Hjälpmedelstjänsten - dölj manuella uppgifter
 			$('#ejht-pris').addClass('hidden');
 			$('#ejht-garanti').addClass('hidden');
 			$('#ejht-isokod').addClass('hidden');
@@ -187,22 +187,65 @@ $(document).ready(function() {
 			$('#text-garanti').val('').attr('disabled', true);
 			$('#text-isokod').val('').attr('disabled', true);
 		} else {
-			// off
-			$('#text-pris').attr('disabled', false);
-			$('#text-garanti').attr('disabled', false);
-			$('#text-isokod').attr('disabled', false);
-			$('#ejht-pris').removeClass('hidden');
-			$('#ejht-garanti').removeClass('hidden');
-			$('#ejht-isokod').removeClass('hidden');
+			// Saknas i Hjälpmedelstjänsten
+			if ($('#checkbox-vf').prop("checked")) {
+				// Men finns hos Varuförsörjningen - dölj manuella uppgifter
+				$('#ejht-pris').addClass('hidden');
+				$('#ejht-garanti').addClass('hidden');
+				$('#ejht-isokod').addClass('hidden');
+				$('#text-pris').val('').attr('disabled', true);
+				$('#text-garanti').val('').attr('disabled', true);
+				$('#text-isokod').val('').attr('disabled', true);
+			} else {
+				// Och saknas hos Varuförsörjningen - visa manuella uppgifter
+				$('#text-pris').attr('disabled', false);
+				$('#text-garanti').attr('disabled', false);
+				$('#text-isokod').attr('disabled', false);
+				$('#ejht-pris').removeClass('hidden');
+				$('#ejht-garanti').removeClass('hidden');
+				$('#ejht-isokod').removeClass('hidden');
+			}
 		}
-
 	});
 
 	// mdui-checkbox #checkbox-upphandlad changes
 	$('#checkbox-upphandlad').on('change', function() {
 		console.debug('<mdui-checkbox #checkbox-upphandlad> changed');
 		upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
-		console.info(' * upphandlad = ' + upphandlad);
+		console.info('upphandlad = "' + upphandlad + '"');
+	});
+
+	// mdui-checkbox #checkbox-vf changes
+	$('#checkbox-vf').on('change', function() {
+		console.debug('<mdui-checkbox #checkbox-vf> changed');
+		if ($('#checkbox-vf').prop("checked")) {
+			// Finns hos Varuförsörjningen - dölj manuella uppgifter
+			$('#ejht-pris').addClass('hidden');
+			$('#ejht-garanti').addClass('hidden');
+			$('#ejht-isokod').addClass('hidden');
+			$('#text-pris').val('').attr('disabled', true);
+			$('#text-garanti').val('').attr('disabled', true);
+			$('#text-isokod').val('').attr('disabled', true);
+		} else {
+			// Saknas hos Varuförsörjningen
+			if ($('#checkbox-ht').prop("checked")) {
+				// Men finns i Hjälpmedelstjänsten - dölj manuella uppgifter
+				$('#ejht-pris').addClass('hidden');
+				$('#ejht-garanti').addClass('hidden');
+				$('#ejht-isokod').addClass('hidden');
+				$('#text-pris').val('').attr('disabled', true);
+				$('#text-garanti').val('').attr('disabled', true);
+				$('#text-isokod').val('').attr('disabled', true);
+			} else {
+				// Och saknas i Hjälpmedelstjänsten - visa manuella uppgifter
+				$('#text-pris').attr('disabled', false);
+				$('#text-garanti').attr('disabled', false);
+				$('#text-isokod').attr('disabled', false);
+				$('#ejht-pris').removeClass('hidden');
+				$('#ejht-garanti').removeClass('hidden');
+				$('#ejht-isokod').removeClass('hidden');
+			}
+		}
 	});
 
 	// 3. Ekonomi

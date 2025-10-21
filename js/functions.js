@@ -182,13 +182,16 @@ function createArtikeldata() {
 	dm = ($('#switch-dm').prop("checked") ? "Ja" : "Nej");
 	forbrukning = $('#slider-forbrukning').val();
 	fuintervall = $('#select-fuintervall').val();
+	garanti = $('#text-garanti').val();
 	gmi = $('#text-gmi').val();
 	haraldrigkomp = ($('#switch-har-aldrig-komp').prop("checked") ? "Ja" : "Nej");
+	ht = ($('#checkbox-ht').prop("checked") ? "Ja" : "Nej");
 	huvudlager = $('#select-huvudlager').val();
 	standardprodukt = $('#text-standardprodukt').val();
 	iki = $('#text-iki').val();
 	ipi = $('#text-ipi').val();
 	iri = $('#text-iri').val();
+	isokod = $('#text-isokod').val();
 	individartikel = ($('#switch-individartikel').prop("checked") ? "Ja" : "Nej");
 	inkopshantering = $('#select-inkopshantering').val();
 	inventarium = ($('#switch-inventarium').prop("checked") ? "Ja" : "Nej");
@@ -197,6 +200,7 @@ function createArtikeldata() {
 	liggplats = $('#text-liggplats').val();
 	leverantor = $('#text-leverantor').val();
 	levartnr = $('#text-levartnr').val();
+	pris = $('#text-pris').val();
 	produkt2 = $('#text-produkt2').val();
 	produkt3 = $('#text-produkt3').val();
 	produkt4 = $('#text-produkt4').val();
@@ -205,6 +209,7 @@ function createArtikeldata() {
 	team = $('#select-team').val();
 	upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
 	upplysningar = $('#text-upplysningar').val();
+	vf = ($('#checkbox-vf').prop("checked") ? "Ja" : "Nej");
 	ws_bb = ($('#switch-wsbb').prop("checked") ? "Beställningsbar" : "Ej beställningsbar");
 	ws_info = $('#text-wsinfo').val();
 	ws_komp = ($('#switch-wskomp').prop("checked") ? "Ja" : "Nej");
@@ -212,16 +217,14 @@ function createArtikeldata() {
 	ws_sort = ($('#switch-wssort').prop("checked") ? "Ja" : "Nej");
 
 	// Skapa artikeldata
-	artikeldata = "Hej!\n\nJag önskar att följande artikel registreras i Sesam.";
+	artikeldata = "Hej!\n\nJag önskar att följande artikel registreras i Sesam.\n";
 
 	// Hjälpmedelstjänsten, avtal
-	if ($('#checkbox-ht').attr('checked')) {
-		artikeldata += " Artikeln finns i Hjälpmedelstjänsten";
-		artikeldata += (upphandlad == 'Ja' ? " och är upphandlad.\n" : ".\n" );
-	} else {
-		artikeldata += " Artikeln saknas i Hjälpmedelstjänsten";
-		artikeldata += (upphandlad == 'Ja' ? ", men är upphandlad.\n" : ".\n" );
-	}
+	if (ht == 'Ja' && upphandlad == 'Ja') artikeldata += "\nArtikeln är upphandlad och finns i Hjälpmedelstjänsten.\n";
+	if (ht == 'Ja' && upphandlad == 'Nej') artikeldata += "\nArtikeln är inte upphandlad, men finns i Hjälpmedelstjänsten på GP.\n";
+	if (ht == 'Nej' && upphandlad == 'Ja') artikeldata += "\nArtikeln är upphandlad, men saknas i Hjälpmedelstjänsten. Artikeln måste skapas manuellt om detta inte kan åtgärdas.\n";
+	if (ht == 'Nej' && upphandlad == 'Nej') artikeldata += "\nArtikeln är inte upphandlad och saknas i Hjälpmedelstjänsten. Artikeln måste skapas manuellt om detta inte kan åtgärdas.\n";
+	if (vf == 'Ja') artikeldata += "\nArtikeln är upphandlad hos Varuförsörjningen. Artikeln måste skapas manuellt.\n";
 
 	// Leverantör, lev. art.nr. och mallartikel
 	let lev = leverantor.toLowerCase();
@@ -354,12 +357,20 @@ function createArtikeldata() {
 
 	artikeldata += "\nLeverantör:  " + leverantor + "\n";
 	artikeldata += "Lev. art.nr:  " + levartnr + "\n";
-	artikeldata += "Mallartikel:  " + avd.substring(0,1) + artikeltyp;
-	if (artikeltyp == 'H' && inventarium == 'Ja')  artikeldata += " (hyra " + avskrivningstid + " år)";
-	if (artikeltyp == 'H' && inventarium == 'Nej') artikeldata += " (köp)";
-	if (artikeltyp == 'T' && debiteringsform == 'M') artikeldata += " (hyra)";
-	if (artikeltyp == 'T' && debiteringsform == 'A') artikeldata += " (köp)";
-	artikeldata += "\n";
+
+	if (ht == 'Ja') {
+		artikeldata += "\nMallartikel:  " + avd.substring(0,1) + artikeltyp;
+		if (artikeltyp == 'H' && inventarium == 'Ja')  artikeldata += " (hyra " + avskrivningstid + " år)";
+		if (artikeltyp == 'H' && inventarium == 'Nej') artikeldata += " (köp)";
+		if (artikeltyp == 'T' && debiteringsform == 'M') artikeldata += " (hyra)";
+		if (artikeltyp == 'T' && debiteringsform == 'A') artikeldata += " (köp)";
+		artikeldata += "\n";
+	} else {
+		artikeldata += "\n";
+		artikeldata += (isokod.length > 0 ? "Angiven ISO-kod:  " + isokod : "ISO-kod saknas") + "\n";
+		artikeldata += (pris.length > 0 ? "Angivet inköpspris:  " + pris + " kr" : "Inköpspris saknas") + "\n";
+		artikeldata += (garanti.length > 0 ? "Angiven garantitid:  " + garanti + " dagar" : "Garantitid saknas") + "\n";
+	}
 
 	// ARTIKEL
 	artikeldata += "\nARTIKEL\n\n"
