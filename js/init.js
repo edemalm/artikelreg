@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-22';	// Last commit date
+	window.update = '2025-10-23';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	window.artikelansvar = '';
@@ -45,7 +45,6 @@ $(document).ready(function() {
 	window.standardprodukt = '';
 	window.team = '';
 	window.theme = '';
-	window.upphandlad = '';
 	window.upplysningar = '';
 	window.vf = '';
 	window.wsbb = '';
@@ -72,14 +71,14 @@ $(document).ready(function() {
 	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);		// OK
 	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);			// OK
 	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);		// OK
-	setSwitch('dm', 'disabled', 'off', helper_dm);							// OK
+	setSwitch('dm', 'disabled', 'off', helper_dm);								// OK
 
 	// 6. Visma webSesam
-	setSwitch('wspub', 'enabled', 'off', helper_wspub_off);						// OK
-	setSwitch('wssort', 'enabled', 'off', helper_wssort_off);					// OK
-	setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);						// OK
+	setSwitch('wspub', 'disabled', 'off', helper_wspub_off);					// OK
+	setSwitch('wssort', 'disabled', 'off', helper_wssort);						// OK
+	setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);						// OK
 	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
-	setTextField('wsinfo', 'disabled', '', helper_wsinfo);
+	setTextField('wsinfo', 'disabled', '', helper_wsinfo);						// OK
 
 	// 7. Lagerhållning
 	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);		// OK

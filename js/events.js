@@ -208,13 +208,6 @@ $(document).ready(function() {
 		}
 	});
 
-	// mdui-checkbox #checkbox-upphandlad changes
-	$('#checkbox-upphandlad').on('change', function() {
-		console.debug('<mdui-checkbox #checkbox-upphandlad> changed');
-		upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
-		console.info('upphandlad = "' + upphandlad + '"');
-	});
-
 	// mdui-checkbox #checkbox-vf changes
 	$('#checkbox-vf').on('change', function() {
 		console.debug('<mdui-checkbox #checkbox-vf> changed');
@@ -321,9 +314,10 @@ $(document).ready(function() {
 		setSwitch('dm', 'disabled', 'off', helper_dm);
 
 		setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
-		setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
-		setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);
-		setSwitch('wskomp','disabled','off',helper_wskomp);
+		setSwitch('wssort', 'disabled', 'off', helper_wssort);
+		setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);
+		setSwitch('wskomp','disabled', 'off', helper_wskomp);
+		setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 
 		setSwitch('kk', 'disabled', 'off', helper_kk_off);
 		setTextField('kkb', 'disabled', '', helper_kkb);
@@ -351,8 +345,7 @@ $(document).ready(function() {
 			case 'T':
 				setSelect('artikeltyp', 'enabled', 'T', helper_artikeltyp_t);
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
-				setSwitch('wskomp','enabled','on',helper_wskomp_on);
-
+				setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
 				if (team == "05") {
 					setTextField('iri', 'enabled', placeholder_iri_05, helper_iri_on);
 				} else if (team == "07") {
@@ -537,30 +530,30 @@ $(document).ready(function() {
 					closeOnEsc: true,
 					closeOnOverlayClick: true,
 					confirmText: "Jag förstår",
-					description: "Reservdelar används internt av DHC-personal för reparationer och underhåll. Reservdelar bör inte publiceras i Visma webSesam.",
+					description: "Reservdelar används i huvudsak internt för att laga och underhålla huvudhjälpmedel och tillbehör. Reservdelar bör inte publiceras i Visma webSesam.",
 					headline: "Observera!"
 				});
 			}
-			setSwitch('wspub','enabled','on',helper_wspub_on);
-			if (upphandlad == 'Ja') setSwitch('wssort', 'enabled', 'on', helper_wssort_on);
+			setSwitch('wspub', 'enabled', 'on', helper_wspub_on);
+			setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
+			setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);
+			if (artikeltyp == 'T') {
+				setSwitch('wskomp', 'enabled', 'off', helper_wskomp_off);
+			} else {
+				setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
+			}
 			setTextField('wsinfo', 'enabled', '', helper_wsinfo);
 		} else {
 			// off
-			setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
 			setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
-			$('#text-wsinfo').val('').attr('disabled', true); // clear and disable
-		}
-	});
-
-	// mdui-switch #switch-wsbb changes
-	$('#switch-wsbb').on('change', function() {
-		console.debug('<mdui-switch #switch-wsbb> changed');
-		if ($('#switch-wsbb').prop("checked")) {
-			// on
-			setSwitch('wsbb','enabled','on',helper_wsbb_on);
-		} else {
-			// off
-			setSwitch('wsbb','enabled','off',helper_wsbb_off);
+			setSwitch('wssort', 'disabled', 'off', helper_wssort);
+			setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);
+			if (artikeltyp == 'T') {
+				setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
+			} else {
+				setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
+			}
+			setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 		}
 	});
 
@@ -573,6 +566,18 @@ $(document).ready(function() {
 		} else {
 			// off
 			setSwitch('wssort','enabled','off',helper_wssort_off);
+		}
+	});
+
+	// mdui-switch #switch-wsbb changes
+	$('#switch-wsbb').on('change', function() {
+		console.debug('<mdui-switch #switch-wsbb> changed');
+		if ($('#switch-wsbb').prop("checked")) {
+			// on
+			setSwitch('wsbb','enabled','on',helper_wsbb_on);
+		} else {
+			// off
+			setSwitch('wsbb','enabled','off',helper_wsbb_off);
 		}
 	});
 

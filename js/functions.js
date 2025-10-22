@@ -207,7 +207,6 @@ function createArtikeldata() {
 	serienummer = ($('#switch-serienummer').prop("checked") ? "Ja" : "Nej");
 	servicegrad = $('#select-servicegrad').val();
 	team = $('#select-team').val();
-	upphandlad = ($('#checkbox-upphandlad').prop("checked") ? "Ja" : "Nej");
 	upplysningar = $('#text-upplysningar').val();
 	vf = ($('#checkbox-vf').prop("checked") ? "Ja" : "Nej");
 	ws_bb = ($('#switch-wsbb').prop("checked") ? "Beställningsbar" : "Ej beställningsbar");
@@ -219,12 +218,9 @@ function createArtikeldata() {
 	// Skapa artikeldata
 	artikeldata = "Hej!\n\nJag önskar att följande artikel registreras i Sesam.\n";
 
-	// Hjälpmedelstjänsten, avtal
-	if (ht == 'Ja' && upphandlad == 'Ja') artikeldata += "\nArtikeln är upphandlad och finns i Hjälpmedelstjänsten.\n";
-	if (ht == 'Ja' && upphandlad == 'Nej') artikeldata += "\nArtikeln är inte upphandlad, men finns i Hjälpmedelstjänsten på GP.\n";
-	if (ht == 'Nej' && upphandlad == 'Ja') artikeldata += "\nArtikeln är upphandlad, men saknas i Hjälpmedelstjänsten. Artikeln måste skapas manuellt om detta inte kan åtgärdas.\n";
-	if (ht == 'Nej' && upphandlad == 'Nej') artikeldata += "\nArtikeln är inte upphandlad och saknas i Hjälpmedelstjänsten. Artikeln måste skapas manuellt om detta inte kan åtgärdas.\n";
-	if (vf == 'Ja') artikeldata += "\nArtikeln är upphandlad hos Varuförsörjningen. Artikeln måste skapas manuellt.\n";
+	// Hjälpmedelstjänsten, Varuförsörjningen
+	if (ht == 'Ja') artikeldata += "\nArtikeln finns i Hjälpmedelstjänsten.\n";
+	if (vf == 'Ja') artikeldata += "\nArtikeln finns hos Varuförsörjningen. Artikeln måste skapas manuellt.\n";
 
 	// Leverantör, lev. art.nr. och mallartikel
 	let lev = leverantor.toLowerCase();
@@ -515,10 +511,10 @@ function createArtikeldata() {
 	artikeldata += "\nVISMA WEBSESAM\n\n";
 
 	// Publicera
-	artikeldata += "Publicera:  " + ws_pub + "\n";
+	artikeldata += "Publicera i webSesam:  " + ws_pub + "\n";
 
 	// Beställningsbar
-	artikeldata += "Beställningsbar:  " + ws_bb + "\n";
+	artikeldata += "Beställningsbar i webSesam:  " + ws_bb + "\n";
 
 	// Kan vara komponent
 	if (artikeltyp == 'T') {
@@ -529,8 +525,8 @@ function createArtikeldata() {
 	// Extra artikelinformation
 	if (ws_info.length > 0) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
 
-	// PRODUKT
-	artikeldata += "\nPRODUKT\n\n";
+	// PRODUKTER
+	artikeldata += "\nPRODUKTER\n\n";
 	artikeldata += "Standardprodukt:  " + standardprodukt + "\n";
 	if (produkt2.length > 0) artikeldata += "Extra produkt:  " + produkt2 + "\n";
 	if (produkt3.length > 0) artikeldata += "Extra produkt:  " + produkt3 + "\n";
