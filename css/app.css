@@ -208,17 +208,12 @@ div.right-container div.form-section:last-child {
 	}
 }
 
-div.controls-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: right;
-}
-
-div.control-right {
-	flex-grow: 0;
+div.buttons-container {
 	line-height: 0;
-	padding: 0 0 0 var(--gap-auto-1x);
 	text-align: right;
+}
+div.buttom-container mdui-button:not(:first-child) {
+	margin-left: .5rem; /* match spacing of mdui dialog buttons */
 }
 
 #viewport {
