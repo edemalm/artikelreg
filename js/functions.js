@@ -1,6 +1,125 @@
 console.debug('Loading functions.js');
 
 /**
+ * Reset form
+ */
+function formInit() {
+	console.debug('formInit()');
+
+	// Global variables
+	window.artikelansvar = '';
+	window.artikelbenamning = '';
+	window.artikeldata = '';
+	window.artikeltyp = '';
+	window.avd = '';
+	window.avdelning = '';
+	window.avskrivningstid = '';
+	window.buffertlager = '';
+	window.debiteringsform = '';
+	window.dev = '';
+	window.dm = '';
+	window.forbrukning = '';
+	window.forbrukning_msg = '';
+	window.fuintervall = '';
+	window.garanti = '';
+	window.gmi = '';
+	window.ht = '';
+	window.iki = '';
+	window.iri = '';
+	window.individartikel = '';
+	window.inkopshantering = '';
+	window.inventarium = '';
+	window.ipi = '';
+	window.isokod = '';
+	window.kk = '';
+	window.kkb = '';
+	window.leverantor = '';
+	window.liggplats = '';
+	window.haraldrigkomp = '';
+	window.huvudlager = '';
+	window.pris = '';
+	window.produkt2 = '';
+	window.produkt3 = '';
+	window.produkt4 = '';
+	window.serienummer = '';
+	window.servicegrad = '';
+	window.sortimentsartikel = '';
+	window.standardprodukt = '';
+	window.team = '';
+	window.theme = '';
+	window.upplysningar = '';
+	window.vf = '';
+	window.wsbb = '';
+	window.wspub = '';
+	window.wsinfo = '';
+	window.wskomp = '';
+	window.wssort = '';
+
+	// 1. Artikelbenämning och produkt
+	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);	// OK
+	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);		// OK
+
+	// 2. Leverantör
+
+	// 3. Ansvarigt team
+
+	// 4. Ekonomi
+	setSelect('artikeltyp', 'disabled', '', helper_artikeltyp);					// OK
+	setSelect('debiteringsform', 'disabled', '', helper_debiteringsform);		// OK
+	setSwitch('inventarium', 'disabled', 'off', helper_inventarium_off);		// OK
+	setRadio('avskrivningstid', 'disabled', '', helper_avskrivningstid_off);	// OK
+
+	// 5. Individinställningar
+	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);		// OK
+	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);			// OK
+	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);		// OK
+	setSwitch('dm', 'disabled', 'off', helper_dm);								// OK
+
+	// 6. Visma webSesam
+	setSwitch('wspub', 'disabled', 'off', helper_wspub_off);					// OK
+	setSwitch('wssort', 'disabled', 'off', helper_wssort);						// OK
+	setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);						// OK
+	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
+	setTextField('wsinfo', 'disabled', '', helper_wsinfo);						// OK
+
+	// 7. Lagerhållning
+	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);		// OK
+	setTextField('liggplats', 'enabled', '', helper_liggplats);					// OK
+	setTextField('buffertlager', 'enabled', placeholder_buffertlager, helper_buffertlager);	// OK
+
+	// 8. Hantering vid ankomst
+	setTextField('gmi', 'enabled', placeholder_gmi, helper_gmi);				// OK
+	setSwitch('kk', 'disabled', 'off', helper_kk_off);							// OK
+	setTextField('kkb', 'disabled', placeholder_kkb, helper_kkb);				// OK
+
+	// 9. Service och underhåll
+
+	// 10. Informationstexter
+	setTextField('iki', 'enabled', placeholder_iki, helper_iki);				// OK
+	setTextField('ipi', 'enabled', placeholder_ipi, helper_ipi);				// OK
+	setTextField('iri', 'disabled', placeholder_iri, helper_iri_off);			// OK
+
+	// 11. Övriga upplysningar
+	setTextField('upplysningar', 'enabled', placeholder_upplysningar, helper_upplysningar);	// OK
+
+	// Reset "Fler produkter" option
+	$('#div-fler-produkter').show();
+	$('#text-standardprodukt').attr('label', 'Produkt');
+	$('#text-standardprodukt').removeAttr('helper');
+	$('.standardprodukt').removeClass('xl3');
+	$('.extraprodukt').hide();
+
+	// Hide
+	$('#ejht-pris').addClass('hidden');
+	$('#ejht-garanti').addClass('hidden');
+	$('#ejht-isokod').addClass('hidden');
+	setTextField('pris', 'disabled', '', '');
+	setTextField('garanti', 'disabled', '', '');
+	setTextField('isokod', 'disabled', '', '');
+
+}
+
+/**
  * Add a search parameter to current URL
  * @param {string} key		- Name of search key (i.e. "theme").
  * @param {string} value	- Value of search key (i.e. "dark").

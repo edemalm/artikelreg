@@ -22,6 +22,8 @@ $(document).ready(function() {
 			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 			theme = 'light';
 		}
+		// Set theme cookie
+		document.cookie = 'theme=' + theme + '; expires=Tue, 19 Jan 2038 04:14:07 GMT; path=/';
 	});
 
 	// Open "about" dialog
@@ -146,6 +148,22 @@ $(document).ready(function() {
 
 	// FORM EVENTS
 	//
+
+	// Prevent form submission
+	$('#form-formular').on('submit', function(event) {
+		console.log('Form submission prevented');
+		event.preventDefault();
+	});
+
+	// Prevent 'enter' keypress in text inputs
+	$('mdui-text-field').on('keydown', function(event) {
+		if (event.keyCode === 13) {
+			console.debug('Enter keypress ignored. Adding newline character to text field.');
+			event.preventDefault();
+			var s = $(this).val();
+			$(this).val(s + "\n");
+		}
+	});
 
 	// 1. Artikelbenämning och produkt
 	// -------------------------------
@@ -737,9 +755,14 @@ $(document).ready(function() {
 
 	$('#button-reset-form').click(function() {
 		console.debug('<mdui-button #button-reset-form> clicked');
+		/*
 		setURLParam('theme', theme);
 		setURLParam('reload', 1);
 		location.reload();
+		*/
+		formInit();
+		$('#form-formular')[0].reset();
+		mdui.snackbar({ message: 'Formuläret är rensat' });
 	});
 
 	$('.button-close-dialog').click(function() {

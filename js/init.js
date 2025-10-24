@@ -2,105 +2,14 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-23';	// Last commit date
+	window.update = '2025-10-24';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
-	window.artikelansvar = '';
-	window.artikelbenamning = '';
-	window.artikeldata = '';
-	window.artikeltyp = '';
-	window.avd = '';
-	window.avdelning = '';
-	window.avskrivningstid = '';
-	window.buffertlager = '';
-	window.debiteringsform = '';
-	window.dev = '';
-	window.dm = '';
-	window.forbrukning = '';
-	window.forbrukning_msg = '';
-	window.fuintervall = '';
-	window.garanti = '';
-	window.gmi = '';
-	window.ht = '';
-	window.iki = '';
-	window.iri = '';
-	window.individartikel = '';
-	window.inkopshantering = '';
-	window.inventarium = '';
-	window.ipi = '';
-	window.isokod = '';
-	window.kk = '';
-	window.kkb = '';
-	window.leverantor = '';
-	window.liggplats = '';
-	window.haraldrigkomp = '';
-	window.huvudlager = '';
-	window.pris = '';
-	window.produkt2 = '';
-	window.produkt3 = '';
-	window.produkt4 = '';
-	window.serienummer = '';
-	window.servicegrad = '';
-	window.sortimentsartikel = '';
-	window.standardprodukt = '';
-	window.team = '';
-	window.theme = '';
-	window.upplysningar = '';
-	window.vf = '';
-	window.wsbb = '';
-	window.wspub = '';
-	window.wsinfo = '';
-	window.wskomp = '';
-	window.wssort = '';
-
-	// 1. Artikelbenämning och produkt
-	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);	// OK
-	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);		// OK
-
-	// 2. Leverantör
-
-	// 3. Ansvarigt team
-
-	// 4. Ekonomi
-	setSelect('artikeltyp', 'disabled', '', helper_artikeltyp);					// OK
-	setSelect('debiteringsform', 'disabled', '', helper_debiteringsform);		// OK
-	setSwitch('inventarium', 'disabled', 'off', helper_inventarium_off);		// OK
-	setRadio('avskrivningstid', 'disabled', '', helper_avskrivningstid_off);	// OK
-
-	// 5. Individinställningar
-	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);		// OK
-	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);			// OK
-	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);		// OK
-	setSwitch('dm', 'disabled', 'off', helper_dm);								// OK
-
-	// 6. Visma webSesam
-	setSwitch('wspub', 'disabled', 'off', helper_wspub_off);					// OK
-	setSwitch('wssort', 'disabled', 'off', helper_wssort);						// OK
-	setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);						// OK
-	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
-	setTextField('wsinfo', 'disabled', '', helper_wsinfo);						// OK
-
-	// 7. Lagerhållning
-	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);		// OK
-	setTextField('liggplats', 'enabled', '', helper_liggplats);					// OK
-	setTextField('buffertlager', 'enabled', placeholder_buffertlager, helper_buffertlager);	// OK
-
-	// 8. Hantering vid ankomst
-	setTextField('gmi', 'enabled', placeholder_gmi, helper_gmi);				// OK
-	setSwitch('kk', 'disabled', 'off', helper_kk_off);							// OK
-	setTextField('kkb', 'disabled', placeholder_kkb, helper_kkb);				// OK
-
-	// 9. Service och underhåll
-
-	// 10. Informationstexter
-	setTextField('iki', 'enabled', placeholder_iki, helper_iki);				// OK
-	setTextField('ipi', 'enabled', placeholder_ipi, helper_ipi);				// OK
-	setTextField('iri', 'disabled', placeholder_iri, helper_iri_off);			// OK
-
-	// 11. Övriga upplysningar
-	setTextField('upplysningar', 'enabled', placeholder_upplysningar, helper_upplysningar);	// OK
+	// Initialize form
+	formInit();
 
 	// Check for 'theme' parameter in URL
+	/*
 	let params = new URLSearchParams(window.location.search);
 	if (params.get('theme') == 'dark') {
 		theme = 'dark';
@@ -117,6 +26,25 @@ $(document).ready(function() {
 		}
 		console.debug('System preferred theme: ' + theme);
 	}
+	*/
+
+	// Read theme cookie
+	var cookietheme = document.cookie.split('; ').filter(row => row.startsWith('theme=')).map(c=>c.split('=')[1])[0];
+
+	if (cookietheme.length > 0) {
+		console.log('Found cookie: theme=' + cookietheme);
+		// Use theme stored in cookie
+		theme = cookietheme;
+	} else {
+		// Detect system theme
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			console.log('System prefers dark theme');
+			theme = 'dark';
+		} else {
+			console.log('System prefers light theme');
+			theme = 'light';
+		}
+	}
 
 	// Set theme class
 	if (theme == 'dark') {
@@ -126,6 +54,9 @@ $(document).ready(function() {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	}
+
+	// Set theme cookie
+	document.cookie = 'theme=' + theme + '; expires=Tue, 19 Jan 2038 04:14:07 GMT; path=/';
 
 	// Set background image class
 	const d = new Date();
