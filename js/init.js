@@ -2,13 +2,14 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-24';	// Last commit date
+	window.update = '2025-10-24-2';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
 	formInit();
 
 	// Check for 'theme' parameter in URL
+	/*
 	let params = new URLSearchParams(window.location.search);
 	if (params.get('theme') == 'dark') {
 		theme = 'dark';
@@ -25,17 +26,17 @@ $(document).ready(function() {
 		}
 		console.debug('System preferred theme: ' + theme);
 	}
+	*/
 
-	// Read theme cookie
-	/*
-	var cookietheme = '';
-	cookietheme = document.cookie.split('; ').filter(row => row.startsWith('theme=')).map(c=>c.split('=')[1])[0];
+	// Read theme cookie from device
+	var cookietheme = getCookie('theme');
 
-	if (cookietheme.length > 0) {
+	if (cookietheme != null) {
 		console.log('Found cookie: theme=' + cookietheme);
 		// Use theme stored in cookie
 		theme = cookietheme;
 	} else {
+		console.log('No theme cookie found');
 		// Detect system theme
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			console.log('System prefers dark theme');
@@ -45,9 +46,11 @@ $(document).ready(function() {
 			theme = 'light';
 		}
 	}
-	*/
 
-	// Set theme class
+	// Set cookie with preferred theme on device
+	setCookie('theme', theme, 365);
+
+	// Set theme class to html element
 	if (theme == 'dark') {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
@@ -55,9 +58,6 @@ $(document).ready(function() {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	}
-
-	// Set theme cookie
-	document.cookie = 'theme=' + theme + '; expires=Tue, 19 Jan 2038 04:14:07 GMT; path=/';
 
 	// Set background image class
 	const d = new Date();

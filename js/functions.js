@@ -118,6 +118,37 @@ function formInit() {
 	setTextField('isokod', 'disabled', '', '');
 
 }
+/**
+ * Set cookie
+ * @param {string} name		- Cookie name 
+ * @param {string} value	- Cookie value
+ * @param {int} days		- Number of days valid
+ */
+function setCookie(name, value, days) {
+	console.log('setCookie("' + name + '", "' + value + '", ' + days + ')');
+	var d = new Date;
+	d.setTime(d.getTime() + 24*60*60*1000*days);
+	document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+}
+
+/**
+ * Get cookie
+ * @param {string} name		- Cookie name
+ */
+function getCookie(name) {
+	console.log('getCookie("' + name + '")');
+	var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+	return v ? v[2] : null;
+}
+
+/**
+ * Delete cookie
+ * @param {string} name		- Cookie name
+ */
+function deleteCookie(name) {
+	console.log('deleteCookie("' + name + '")');
+	setCookie(name, '', -1);
+}
 
 /**
  * Add a search parameter to current URL

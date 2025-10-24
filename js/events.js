@@ -22,8 +22,8 @@ $(document).ready(function() {
 			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 			theme = 'light';
 		}
-		// Set theme cookie
-		document.cookie = 'theme=' + theme + '; expires=Tue, 19 Jan 2038 04:14:07 GMT; path=/';
+		// Set cookie with preferred theme on device
+		setCookie('theme', theme, 365);
 	});
 
 	// Open "about" dialog
