@@ -9,7 +9,6 @@ $(document).ready(function() {
 	formInit();
 
 	// Check for 'theme' parameter in URL
-	/*
 	let params = new URLSearchParams(window.location.search);
 	if (params.get('theme') == 'dark') {
 		theme = 'dark';
@@ -26,10 +25,11 @@ $(document).ready(function() {
 		}
 		console.debug('System preferred theme: ' + theme);
 	}
-	*/
 
 	// Read theme cookie
-	var cookietheme = document.cookie.split('; ').filter(row => row.startsWith('theme=')).map(c=>c.split('=')[1])[0];
+	/*
+	var cookietheme = '';
+	cookietheme = document.cookie.split('; ').filter(row => row.startsWith('theme=')).map(c=>c.split('=')[1])[0];
 
 	if (cookietheme.length > 0) {
 		console.log('Found cookie: theme=' + cookietheme);
@@ -45,6 +45,7 @@ $(document).ready(function() {
 			theme = 'light';
 		}
 	}
+	*/
 
 	// Set theme class
 	if (theme == 'dark') {
