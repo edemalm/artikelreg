@@ -1,3 +1,5 @@
+"use strict";
+
 console.debug('Loading strings.js');
 
 // 1. Artikelbenämning och produkt
@@ -67,29 +69,37 @@ let helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker d
 let helper_inkopshantering_n = "Artikeln är lagerlagd. Inköp sker till lager.";
 let helper_liggplats ="Ange en liggplats om den är känd i förväg";
 let helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret";
-let placeholder_buffertlager = "Exempel: Lager 220, 3 st, 31-A-123";
+let placeholder_buffertlager = "Lager 220, 3 st, 31-A-123";
 
 // 8. Hantering vid ankomst
-let helper_gmi = "Ange en kortfattad text som visas för lagerpersonalen vid godsmottagning";
-let placeholder_gmi = "Exempel: Placera individetiketten på vänster sida. Skruva fast nackstödet.";
+let helper_gmi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid godsmottagning";
+let placeholder_gmi = "Placera individetiketten på vänster sida. Skruva fast nackstödet.";
 let helper_kk_on = "Artikeln ska kontrolleras och godkännas";
 let helper_kk_off = "Artikeln har ej kvalitetskontroll";
 let helper_kkb = "Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på kvalitetskontrollsunderlaget.";
-let placeholder_kkb = "Exempel: Till SST-tekniker för kontroll av svetsfogar";
+let placeholder_kkb = "Till SST-tekniker för kontroll av svetsfogar";
 
 // 9. Service och underhåll
 
 // 10. Informationstexter
-let helper_iki = "Vid behov ange en kortfattad text som visas för orderhandläggaren vid registrering av orderrad";
-let placeholder_iki ="Exempel: Skall alltid handläggas av konsulent";
-let helper_ipi = "Vid behov ange en kortfattad text som visas för lagerpersonalen vid plockning";
-let placeholder_ipi = "Exempel: Hjälpmedlet behöver laddas före utleverans";
-let helper_iri_on = "Vid behov ange en kortfattad text som visas för returpersonalen vid returtagning. Det är möjligt att formattera texten med avvikande färg och layout för ökad tydlighet. Se exempel i hjälpavsnittet.";
+let helper_iki = "Vid behov kan en kortfattad text anges som visas för orderhandläggaren vid registrering av orderrad";
+let placeholder_iki = "Beställning ska alltid handläggas av konsulent";
+let placeholder_iki_02 = "Beställning ska alltid handläggas av konsulent i Elrullstolsteamet";
+let placeholder_iki_03 = "Beställning ska alltid handläggas av konsulent i Habteamet";
+let placeholder_iki_05 = "Beställning ska alltid handläggas av konsulent i KLOK-teamet";
+let placeholder_iki_07 = "Beställning ska alltid handläggas av konsulent i PMB-teamet";
+let placeholder_iki_08 = "Beställning ska alltid handläggas av konsulent i SST-teamet";
+let placeholder_iki_09 = "Beställning ska alltid handläggas av konsulent i ADL-teamet";
+let placeholder_iki_10 = placeholder_iki_09;
+let placeholder_iki_11 = placeholder_iki_08;
+let helper_ipi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid plockning";
+let placeholder_ipi = "Hjälpmedlet behöver laddas före utleverans";
+let helper_iri_on = "Vid behov kan en kortfattad text anges som visas för returpersonalen vid returtagning.";
 let helper_iri_off = "Gäller endast huvudhjälpmedel och tillbehör";
-let placeholder_iri ="Exempel: Ska bedömas av tekniker före eventuell rekonditionering.";
-let placeholder_iri_05 ="Exempel: Retur till lager 612. Rekonditioneras av KLOK.";
-let placeholder_iri_07 ="Exempel: Retur till lager 613. Rekonditioneras av PMB.";
+let placeholder_iri ="Ska bedömas av tekniker före eventuell rekonditionering.";
+let placeholder_iri_05 ="Retur till lager 612. Rekonditioneras av KLOK.";
+let placeholder_iri_07 ="Retur till lager 613. Rekonditioneras av PMB.";
 
 // 11. Övriga upplysningar
 let helper_upplysningar = "Vid behov ange övrig information till inköpspersonalen";
-let placeholder_upplysningar = "Exempel: Artikeln ska ingå i ersättningsgrupp med ...";
+let placeholder_upplysningar = "Artikeln ska ingå i ersättningsgrupp med ...";

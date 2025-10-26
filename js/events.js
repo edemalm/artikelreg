@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {
 	console.debug('Loading events.js');
 
@@ -151,7 +153,7 @@ $(document).ready(function() {
 
 	// Prevent form submission
 	$('#form-formular').on('submit', function(event) {
-		console.log('Form submission prevented');
+		console.debug('Form submission prevented');
 		event.preventDefault();
 	});
 
@@ -259,7 +261,119 @@ $(document).ready(function() {
 		}
 	});
 
-	// 3. Ekonomi
+	// 3. Ansvarigt team
+
+	// mdui-select #select-team changes
+	$('#select-team').on('change', function() {
+		console.debug('<mdui-select #select-team> changed');
+		team = this.value;
+		console.info('team = "' + team + '"');
+
+		// Reset artikelansvar
+		$('#artikelansvar-L').removeAttr('disabled'); // enable option 'L' (Reigion eller kommun)
+		$('#artikelansvar-R').removeAttr('disabled'); // enable option 'R' (Retursortiment)
+		$('#artikelansvar-E').removeAttr('disabled'); // enable option 'E' (Egenansvar)
+		$('#artikelansvar-S').removeAttr('disabled'); // enable option 'S' (Syncentralen)
+		setSelect('artikelansvar', 'enabled', '', '')
+
+		// Reset huvudlager
+		$('#huvudlager-200').removeAttr('disabled'); // enable option '400' (Syncentralen)
+		$('#huvudlager-400').removeAttr('disabled'); // enable option '400' (Syncentralen)
+		$('#huvudlager-688').removeAttr('disabled'); // enable option '688' (LOGFAB)
+
+		setSelect('huvudlager', 'enabled', '', '');
+		switch (team) {
+			case '02':
+				avd = "R";
+				avdelning = "Rörelse";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_02, helper_iki);
+			break;
+			case '03':
+				avd = "R";
+				avdelning = "Rörelse";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_03, helper_iki);
+			break;
+			case '05':
+				avd = "K";
+				avdelning = "KLOK";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_05, helper_iki);
+			break;
+			case '07':
+				avd = "PMB";
+				avdelning = "PMB";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_07, helper_iki);
+			break;
+			case '08':
+				avd = "R";
+				avdelning = "Rörelse";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_08, helper_iki);
+			break;
+			case '09':
+				avd = "R";
+				avdelning = "Rörelse";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_09, helper_iki);
+			break;
+			case '10':
+				avd = "R";
+				avdelning = "Rörelse";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_10, helper_iki);
+			break;
+			case '11':
+				avd = "R";
+				avdelning = "Rörelse";
+				$('#artikelansvar-S').attr('disabled', true); // disable option 'S' (Syncentralen)
+				$('#huvudlager-400').attr('disabled', true); // disable option '400' (Syncentralen)
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '200', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki_11, helper_iki);
+			break;
+			case '40':
+				avd = "S";
+				avdelning = "Syncentralen";
+				$('#artikelansvar-L').attr('disabled', true); // disable option 'L' (Reigion eller kommun)
+				$('#artikelansvar-R').attr('disabled', true); // disable option 'R' (Retursortiment)
+				$('#artikelansvar-E').attr('disabled', true); // disable option 'E' (Egenansvar)
+				setSelect('artikelansvar', 'enabled', 'S', '')
+				$('#huvudlager-688').attr('disabled', true); // disable option '688' (LOGFAB)
+				setSelect('huvudlager', 'enabled', '400', '');
+				setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki, helper_iki);
+			break;
+			default:
+				avd = "";
+				avdelning = "";
+		}
+		console.info('avd = "' + avd + '"');
+		console.info('avdelning = "' + avdelning + '"');
+	});
+
+	// 4. Ekonomi
 
 	// mdui-select #select-artikelansvar changes
 	$('#select-artikelansvar').on('change', function() {
@@ -284,7 +398,7 @@ $(document).ready(function() {
 		switch (artikelansvar) {
 			case 'L':
 				// Region eller kommun
-				$('#select-huvudlager').val('200');
+				setSelect('huvudlager', 'enabled', '200', '');
 			break;
 			case 'R':
 				// Retursortiment
@@ -296,27 +410,27 @@ $(document).ready(function() {
 					headline: "Retursortiment"
 				});
 				$('#artikeltyp-menu-item-r').attr('disabled', true); // disable option 'R' (Reservdel)
-				$('#select-huvudlager').val('200');
+				setSelect('huvudlager', 'enabled', '200', '');
 			break;
 			case 'E':
 				// Egenansvar
 				$('#artikeltyp-menu-item-r').attr('disabled', true); // disable option 'R' (Reservdel)
-				$('#select-huvudlager').val('200');
+				setSelect('huvudlager', 'enabled', '200', '');
 			break;
 			case 'S':
 				// Syncentralen
-				$('#select-team').val('40');
-				$('#select-huvudlager').val('400');
+				setSelect('team', 'enabled', '40', '');
+				setSelect('huvudlager', 'enabled', '400', '');
 			break;
 		}
-		console.info(' * artikelansvar = "' + artikelansvar + '"');
+		console.info('artikelansvar = "' + artikelansvar + '"');
 	});
 
 	// mdui-select #select-artikeltyp changes
 	$('#select-artikeltyp').on('change', function() {
 		console.debug('<mdui-select #select-artikeltyp> changed');
 		artikeltyp = this.value;
-		console.info('Artikeltyp = ' + artikeltyp );
+		console.info('artikeltyp = "' + artikeltyp + '"');
 
 		// reset
 		$('#debiteringsform-menu-item-m').attr('disabled', false); // re-enable option 'M' (månadshyra)
@@ -339,6 +453,7 @@ $(document).ready(function() {
 
 		setSwitch('kk', 'disabled', 'off', helper_kk_off);
 		setTextField('kkb', 'disabled', '', helper_kkb);
+
 		setTextField('iri', 'disabled', '', helper_iri_off);
 
 		switch (artikeltyp) {
@@ -346,14 +461,7 @@ $(document).ready(function() {
 				setSelect('artikeltyp', 'enabled', 'H', helper_artikeltyp_h);
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
 				setSwitch('kk', 'enabled', 'off', helper_kk_off);
-
-				if (team == "05") {
-					setTextField('iri', 'enabled', placeholder_iri_05, helper_iri_on);
-				} else if (team == "07") {
-					setTextField('iri', 'enabled', placeholder_iri_07, helper_iri_on);
-				} else {
-					setTextField('iri', 'enabled', placeholder_iri, helper_iri_on);
-				}
+				setTextField('iri', 'enabled', 'Exempel: ' + placeholder_iri, helper_iri_on);
 
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
@@ -364,13 +472,7 @@ $(document).ready(function() {
 				setSelect('artikeltyp', 'enabled', 'T', helper_artikeltyp_t);
 				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform);
 				setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
-				if (team == "05") {
-					setTextField('iri', 'enabled', placeholder_iri_05, helper_iri_on);
-				} else if (team == "07") {
-					setTextField('iri', 'enabled', placeholder_iri_07, helper_iri_on);
-				} else {
-					setTextField('iri', 'enabled', placeholder_iri, helper_iri_on);
-				}
+				setTextField('iri', 'enabled', 'Exempel: ' + placeholder_iri, helper_iri_on);
 
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
@@ -379,7 +481,7 @@ $(document).ready(function() {
 			break;
 			case 'R':
 				setSelect('artikeltyp', 'enabled', 'R', helper_artikeltyp_r);
-				setSelect('debiteringsform', 'enabled', '', helper_debiteringsform_a);
+				setSelect('debiteringsform', 'enabled', 'A', helper_debiteringsform_a);
 				$('#select-debiteringsform').val('A'); // select 'A' (köp)
 				$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (månadshyra)
 			break;
@@ -390,7 +492,7 @@ $(document).ready(function() {
 	$('#select-debiteringsform').on('change', function() {
 		console.debug('<mdui-select #select-debiteringsform> changed');
 		debiteringsform = this.value;
-		console.info(' * debiteringsform = ' + debiteringsform );
+		console.info('debiteringsform = "' + debiteringsform + '"');
 		setSwitch('inventarium','disabled','off',helper_inventarium_off);
 		setRadio('avskrivningstid','disabled','',helper_avskrivningstid_off);
 		setSwitch('serienummer','disabled','off',helper_serienummer);
@@ -399,6 +501,7 @@ $(document).ready(function() {
 		setSelect('servicegrad', 'disabled', '', '');
 		setSelect('besiktningsintervall', 'disabled', '', '');
 		setSelect('fuintervall', 'disabled', '', '');
+		$('#text-iri').val('');
 
 		switch (debiteringsform) {
 			case 'M':
@@ -410,14 +513,23 @@ $(document).ready(function() {
 					setSwitch('individartikel','enabled','on',helper_individartikel_on);
 					setSwitch('serienummer','enabled','on',helper_serienummer_on);
 					setSwitch('haraldrigkomp','enabled','off',helper_haraldrigkomp_off);
+					$('#sg-00, #sg-10, #sg-11, #sg-12, #sg-13, #sg-20, #sg-30, #sg-33').removeAttr('disabled');
+					$('#sg-44').attr('disabled', true);
 					setSelect('servicegrad', 'enabled', '', '');
 					setSelect('besiktningsintervall', 'enabled', '', '');
 					setSelect('fuintervall', 'enabled', '', '');
-					if (team == '07') setSwitch('dm', 'enabled', 'off', helper_dm_off);
-					$('#servicegrad-menu-item-44').attr('disabled', true); // disable option '44'
 				}
 				if ((artikelansvar == 'L' || artikelansvar == 'S') && artikeltyp == 'T') {
-					$('#select-servicegrad').val('44').attr('disabled', false).attr('readonly', true); // reset and enable
+					$('#sg-00, #sg-10, #sg-11, #sg-12, #sg-13, #sg-20, #sg-30, #sg-33').attr('disabled', true);
+					$('#sg-44').removeAttr('disabled');
+					setSelect('servicegrad', 'enabled', '44', '');
+				}
+				if (artikelansvar == 'L' && artikeltyp == 'H' && team == '05') {
+					$('#text-iri').val(placeholder_iri_05);
+				}
+				if (artikelansvar == 'L' && artikeltyp == 'H' && team == '07') {
+					$('#text-iri').val(placeholder_iri_07);
+					setSwitch('dm', 'enabled', 'off', helper_dm_off);
 				}
 			break;
 			case 'A':
@@ -459,7 +571,7 @@ $(document).ready(function() {
 	$('#radio-avskrivningstid').on('change', function() {
 		console.debug('<mdui-radio #radio-avskrivningstid> changed');
 		avskrivningstid = this.value;
-		console.info(' * avskrivningstid: ' + avskrivningstid );
+		console.info('avskrivningstid = "' + avskrivningstid + '"');
 	});
 
 	// 5. Individinställningar
@@ -614,32 +726,6 @@ $(document).ready(function() {
 	// 6. Informationstexter
 	// no events
 
-	// 7. Ansvarigt team
-
-	// mdui-select #select-team changes
-	$('#select-team').on('change', function() {
-		console.debug('<mdui-select #select-team> changed');
-		team = this.value;
-		console.info(' * team: ' + team );
-		if ( team == '02' || team == '03' || team == '08' || team == '09' || team == '10' || team == '11' ) {
-			avd = "R";
-			avdelning = "Rörelse";
-		} else if ( team == '05' ) {
-			avd = "K";
-			avdelning = "KLOK";
-		} else if ( team == '07' ) {
-			avd = "PMB";
-			avdelning = "PMB";
-		} else if ( team == '40' ) {
-			avd = "S";
-			avdelning = "Syncentralen";
-		} else {
-			avd = "(avd saknas)";
-			avdelning = "(avdelning saknas)";
-		}
-		console.info(' * avd = ' + avd);
-		console.info(' * avdelning = ' + avdelning);
-	});
 
 	// 8. Lagerhållning
 
@@ -647,7 +733,7 @@ $(document).ready(function() {
 	$('#select-huvudlager').on('change', function() {
 		console.debug('<mdui-select #select-huvudlager> changed');
 		huvudlager = this.value;
-		console.info(' * huvudlager = ' + huvudlager );
+		console.info('huvudlager = "' + huvudlager + '"');
 		switch( huvudlager) {
 		case '200':
 			$('#text-liggplats').attr('placeholder', 'P?-01-?-???');
@@ -665,7 +751,7 @@ $(document).ready(function() {
 	$('#select-inkopshantering').on('change', function() {
 		console.debug('<mdui-select #select-inkopshantering> changed');
 		inkopshantering = this.value;
-		console.info(' * inkopshantering: ' + inkopshantering );
+		console.info('inkopshantering = "' + inkopshantering + '"');
 		switch( inkopshantering) {
 		case 'Kundorder':
 			setSelect('inkopshantering', 'enabled', 'Kundorder', helper_inkopshantering_k);
@@ -727,7 +813,7 @@ $(document).ready(function() {
 			}
 	});
 
-	// 9. Hantering vid ankomst
+	// 8. Hantering vid ankomst
 
 	// mdui-switch #switch-kvalitetskontroll changes
 	$('#switch-kk').on('change', function() {
@@ -741,12 +827,22 @@ $(document).ready(function() {
 				headline: "Kvalitetskontroll i Sesam"
 			});
 			setSwitch('kk', 'enabled', 'on', helper_kk_on);
-			setTextField('kkb', 'enabled', placeholder_kkb, helper_kkb);
+			setTextField('kkb', 'enabled', 'Exempel: ' + placeholder_kkb, helper_kkb);
 		} else {
 			setSwitch('kk', 'enabled', 'off', helper_kk_off);
 			setTextField('kkb', 'disabled', '', helper_kkb);
 		}
 	});
+
+	// 9. Service och underhåll
+
+	// mdui-select #select-servicegrad changes
+	$('#select-servicegrad').on('change', function() {
+		console.debug('<mdui-select #select-servicegrad> changed');
+		servicegrad = this.value;
+		console.info('servicegrad = "' + servicegrad + '"');
+	});
+
 
 	$('#button-reset-form-warning').click(function() {
 		console.debug('<mdui-button #button-reset-form-warning> clicked');
@@ -786,7 +882,6 @@ $(document).ready(function() {
 
 	$('#button-dialog-copy-artikeldata').click(function() {
 		console.debug('<mdui-button #button-dialog-copy-artikeldata> clicked');
-
 		if ( validate_input == 'Yes' ) {
 			console.info('Input validation enabled');
 
@@ -802,18 +897,9 @@ $(document).ready(function() {
 			console.info('Input validation disabled');
 			mdui.snackbar({ message: 'Kontroll av obligatoriska uppgifter inaktiverat' });
 		}
-
 		createArtikeldata();
-
 		navigator.clipboard.writeText(artikeldata);
-
 		$('#dialog-copy-artikeldata').attr('open', true);
-	});
-
-	/* Visa artikeldata */
-	$('#button-dialog-artikeldata').click(function() {
-		console.debug('<mdui-button #button-dialog-artikeldata> clicked');
-		$('#dialog-artikeldata').attr('open', true);
 	});
 
 	$('.button-back-to-form').click(function() {

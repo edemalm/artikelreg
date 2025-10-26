@@ -263,7 +263,7 @@
 								name="vf">Artikeln finns hos Varuförsörjningen</mdui-checkbox>
 						</div>
 					</div>
-					<div id="ejht-isokod" class="s6 m4 l6 xl4 hidden">
+					<div id="ejht-isokod" class="s12 m4 l12 xl4 hidden">
 						<!-- ISO-KOD -->
 						<mdui-text-field id="text-isokod"
 							autocomplete="off"
@@ -292,7 +292,7 @@
 							variant="outlined"
 							clearable disabled end-aligned></mdui-text-field>
 					</div>
-					<div id="ejht-garanti" class="s6 m4 l6 xl4 hidden">
+					<div id="ejht-garanti" class="s12 m4 l12 xl4 hidden">
 						<!-- GARANTITID -->
 						<mdui-text-field id="text-garanti"
 							autocomplete="off"
@@ -354,10 +354,10 @@
 							name="artikelansvar"
 							variant="outlined"
 							required>
-							<mdui-menu-item value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
-							<mdui-menu-item value="R" icon="recycling">Retursortiment</mdui-menu-item>
-							<mdui-menu-item value="E" icon="payment">Egenansvar</mdui-menu-item>
-							<mdui-menu-item value="S" icon="blind">Syncentralen</mdui-menu-item>
+							<mdui-menu-item id="artikelansvar-L" value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
+							<mdui-menu-item id="artikelansvar-R" value="R" icon="recycling">Retursortiment</mdui-menu-item>
+							<mdui-menu-item id="artikelansvar-E" value="E" icon="payment">Egenansvar</mdui-menu-item>
+							<mdui-menu-item id="artikelansvar-S" value="S" icon="blind">Syncentralen</mdui-menu-item>
 						</mdui-select>
 					</div>
 					<div class="s12">
@@ -580,9 +580,9 @@
 							name="huvudlager"
 							end-icon="arrow_drop_down"
 							required>
-							<mdui-menu-item value="200">200 - Västermalmsvägen, Falun</mdui-menu-item>
-							<mdui-menu-item value="400">400 - Syncentralen Skomakargatan, Borlänge</mdui-menu-item>
-							<mdui-menu-item value="688">688 - Taklyftar LOGFAB, Borlänge</mdui-menu-item>
+							<mdui-menu-item id="huvudlager-200" value="200">200 - Västermalmsvägen, Falun</mdui-menu-item>
+							<mdui-menu-item id="huvudlager-400" value="400">400 - Syncentralen Skomakargatan, Borlänge</mdui-menu-item>
+							<mdui-menu-item id="huvudlager-688" value="688">688 - Taklyftar LOGFAB, Borlänge</mdui-menu-item>
 						</mdui-select>
 					</div>
 					<div class="s12 m7 l12 xl7">
@@ -700,15 +700,15 @@
 							name="servicegrad"
 							variant="outlined"
 							disabled required>
-							<mdui-menu-item value="00">00 - Inget AU, inget FU</mdui-menu-item>
-							<mdui-menu-item value="10">10 - AU hos brukare, inget FU</mdui-menu-item>
-							<mdui-menu-item value="11">11 - AU hos brukare, FU hos brukare</mdui-menu-item>
-							<mdui-menu-item value="12">12 - AU hos brukare, FU på närverkstad</mdui-menu-item>
-							<mdui-menu-item value="13">13 - AU hos brukare, FU på central verkstad</mdui-menu-item>
-							<mdui-menu-item value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
-							<mdui-menu-item value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
-							<mdui-menu-item value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
-							<mdui-menu-item id="servicegrad-menu-item-44" value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
+							<mdui-menu-item id="sg-00" value="00">00 - Inget AU, inget FU</mdui-menu-item>
+							<mdui-menu-item id="sg-10" value="10">10 - AU hos brukare, inget FU</mdui-menu-item>
+							<mdui-menu-item id="sg-11" value="11">11 - AU hos brukare, FU hos brukare</mdui-menu-item>
+							<mdui-menu-item id="sg-12" value="12">12 - AU hos brukare, FU på närverkstad</mdui-menu-item>
+							<mdui-menu-item id="sg-13" value="13">13 - AU hos brukare, FU på central verkstad</mdui-menu-item>
+							<mdui-menu-item id="sg-20" value="20">20 - AU på närverkstad, inget FU</mdui-menu-item>
+							<mdui-menu-item id="sg-30" value="30">30 - AU på central verkstad, inget FU</mdui-menu-item>
+							<mdui-menu-item id="sg-33" value="33">33 - AU på central verkstad, FU på central verkstad</mdui-menu-item>
+							<mdui-menu-item id="sg-44" value="44">44 - Lika som den individ komponenten är monterad på</mdui-menu-item>
 						</mdui-select>
 					</div>
 					<div class="s12 m6 l12 xl6">

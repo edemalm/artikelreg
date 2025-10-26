@@ -1,3 +1,5 @@
+"use strict";
+
 console.debug('Loading functions.js');
 
 /**
@@ -33,10 +35,12 @@ function formInit() {
 	window.isokod = '';
 	window.kk = '';
 	window.kkb = '';
+	window.levartnr = '';
 	window.leverantor = '';
 	window.liggplats = '';
 	window.haraldrigkomp = '';
 	window.huvudlager = '';
+	window.pg = '';
 	window.pris = '';
 	window.produkt2 = '';
 	window.produkt3 = '';
@@ -85,22 +89,22 @@ function formInit() {
 	// 7. Lagerhållning
 	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);		// OK
 	setTextField('liggplats', 'enabled', '', helper_liggplats);					// OK
-	setTextField('buffertlager', 'enabled', placeholder_buffertlager, helper_buffertlager);	// OK
+	setTextField('buffertlager', 'enabled', 'Exempel: ' + placeholder_buffertlager, helper_buffertlager);	// OK
 
 	// 8. Hantering vid ankomst
-	setTextField('gmi', 'enabled', placeholder_gmi, helper_gmi);				// OK
+	setTextField('gmi', 'enabled', 'Exempel: ' + placeholder_gmi, helper_gmi);				// OK
 	setSwitch('kk', 'disabled', 'off', helper_kk_off);							// OK
-	setTextField('kkb', 'disabled', placeholder_kkb, helper_kkb);				// OK
+	setTextField('kkb', 'disabled', 'Exempel: ' + placeholder_kkb, helper_kkb);				// OK
 
 	// 9. Service och underhåll
 
 	// 10. Informationstexter
-	setTextField('iki', 'enabled', placeholder_iki, helper_iki);				// OK
-	setTextField('ipi', 'enabled', placeholder_ipi, helper_ipi);				// OK
-	setTextField('iri', 'disabled', placeholder_iri, helper_iri_off);			// OK
+	setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki, helper_iki);				// OK
+	setTextField('ipi', 'enabled', 'Exempel: ' + placeholder_ipi, helper_ipi);				// OK
+	setTextField('iri', 'disabled', 'Exempel: ' + placeholder_iri, helper_iri_off);			// OK
 
 	// 11. Övriga upplysningar
-	setTextField('upplysningar', 'enabled', placeholder_upplysningar, helper_upplysningar);	// OK
+	setTextField('upplysningar', 'enabled', 'Exempel: ' + placeholder_upplysningar, helper_upplysningar);	// OK
 
 	// Reset "Fler produkter" option
 	$('#div-fler-produkter').show();
@@ -125,7 +129,7 @@ function formInit() {
  * @param {int} days		- Number of days valid
  */
 function setCookie(name, value, days) {
-	console.log('setCookie("' + name + '", "' + value + '", ' + days + ')');
+	console.debug('setCookie("' + name + '", "' + value + '", ' + days + ')');
 	var d = new Date;
 	d.setTime(d.getTime() + 24*60*60*1000*days);
 	document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
@@ -136,7 +140,7 @@ function setCookie(name, value, days) {
  * @param {string} name		- Cookie name
  */
 function getCookie(name) {
-	console.log('getCookie("' + name + '")');
+	console.debug('getCookie("' + name + '")');
 	var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
 	return v ? v[2] : null;
 }
@@ -146,7 +150,7 @@ function getCookie(name) {
  * @param {string} name		- Cookie name
  */
 function deleteCookie(name) {
-	console.log('deleteCookie("' + name + '")');
+	console.debug('deleteCookie("' + name + '")');
 	setCookie(name, '', -1);
 }
 
@@ -192,10 +196,10 @@ function setTextField(paramId, mode, placeholder, helper) {
 	} else {
 		$('#text-' + paramId).attr('disabled', true);
 	}
-	if (placeholder.length > 0) $('#text-' + paramId).attr('placeholder', placeholder);
+	if (placeholder.length > 0) $('#text-' + paramId).attr('placeholder', 	placeholder);
 	if (helper.length > 0) $('#text-' + paramId).attr('helper', helper);
 	window[paramId] = $('#text-' + paramId).val();
-	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
+	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 /**
@@ -206,16 +210,20 @@ function setTextField(paramId, mode, placeholder, helper) {
  * @param {string} helper	- Helper text.
  */
 function setSelect(paramId, mode, value, helper) {
-	console.debug('setSelect("' + paramId + '","' + mode + '","' + value + '","' + helper + '")');
+	console.debug('setSelect("' + paramId + '", "' + mode + '", "' + ', ' + value + '", "' + helper + '")');
 	if (mode == 'enabled') {
-		$('#select-' + paramId).attr('disabled', false);
+		$('#select-' + paramId).removeAttr('disabled');
 	} else {
 		$('#select-' + paramId).attr('disabled', true);
 	}
 	$('#select-' + paramId).val(value);
-	if (helper.length > 0) $('#select-' + paramId).attr('helper', helper);
+	if (helper.length > 0) {
+		$('#select-' + paramId).attr('helper', helper);
+	} else {
+		$('#select-' + paramId).removeAttr('helper');
+	}
 	window[paramId] = $('#select-' + paramId).val();
-	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
+	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 /**
@@ -242,7 +250,7 @@ function setSwitch(paramId, mode, state, helper) {
 		$('#switch-' + paramId).attr('checked', false);
 	}
 	window[paramId] = ($('#switch-' + paramId).prop("checked") ? "Ja" : "Nej");
-	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
+	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
 }
 
 /**
@@ -265,32 +273,8 @@ function setRadio(paramId, mode, selected, helper) {
 	}
 	if (helper.length > 0) $('#label-' + paramId + ' .radio-helper').html(helper);
 	window[paramId] = $('#radio-' + paramId).val();
-	console.info(paramId + ' = ' + '"' + window[paramId] + '"');
+	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
 }
-
-/*
-function enableSelectArtikeltyp() {
-	console.log(' -- enableSelectArtikeltyp()');
-	$('#select-artikeltyp').val('').attr('disabled', false); // unselect and enable
-}
-function disableSelectArtikeltyp() {
-	console.log(' -- disableSelectArtikeltyp()');
-	$('#artikeltyp-menu-item-r').attr('disabled', false); // re-enable option 'R'
-	$('#select-artikeltyp').val('').attr('disabled', true); // unselect and disable
-}
-
-function enableSelectDebiteringsform() {
-	console.log(' -- enableSelectDebiteringsform()');
-	$('#select-debiteringsform').val('').attr('disabled', false); // unselect and enable
-}
-function disableSelectDebiteringsform() {
-	console.log(' -- disableSelectDebiteringsform()');
-	$('#debiteringsform-menu-item-m').attr('disabled', false); // re-enable option 'M' (månadshyra)
-	$('#debiteringsform-menu-item-a').attr('disabled', false); // re-enable option 'A' (köp)
-	$('#select-debiteringsform').val('').attr('disabled', true); // unselect and disable
-}
-*/
-
 
 
 function enableTextReturtagningsinformation() {
@@ -359,11 +343,11 @@ function createArtikeldata() {
 	team = $('#select-team').val();
 	upplysningar = $('#text-upplysningar').val();
 	vf = ($('#checkbox-vf').prop("checked") ? "Ja" : "Nej");
-	ws_bb = ($('#switch-wsbb').prop("checked") ? "Beställningsbar" : "Ej beställningsbar");
-	ws_info = $('#text-wsinfo').val();
-	ws_komp = ($('#switch-wskomp').prop("checked") ? "Ja" : "Nej");
-	ws_pub = ($('#switch-wspub').prop("checked") ? "Ja" : "Nej");
-	ws_sort = ($('#switch-wssort').prop("checked") ? "Ja" : "Nej");
+	wsbb = ($('#switch-wsbb').prop("checked") ? "Beställningsbar" : "Ej beställningsbar");
+	wsinfo = $('#text-wsinfo').val();
+	wskomp = ($('#switch-wskomp').prop("checked") ? "Ja" : "Nej");
+	wspub = ($('#switch-wspub').prop("checked") ? "Ja" : "Nej");
+	wssort = ($('#switch-wssort').prop("checked") ? "Ja" : "Nej");
 
 	// Skapa artikeldata
 	artikeldata = "Hej!\n\nJag önskar att följande artikel registreras i Sesam.\n";
@@ -611,8 +595,8 @@ function createArtikeldata() {
 	}
 
 	// Sortimentsartikel
-	artikeldata += "Ingår i sortimentet:  " + ws_sort;
-	artikeldata += (ws_sort == 'Nej' ? " 👈\n" : "\n");
+	artikeldata += "Ingår i sortimentet:  " + wssort;
+	artikeldata += (wssort == 'Ja' ? " 👈\n" : "\n");
 
 	// Individartikel
 	if (artikeltyp == 'H') {
@@ -634,9 +618,9 @@ function createArtikeldata() {
 		artikeldata += "Har aldrig komponenter:  " + haraldrigkomp + " 👈\n";
 	}
 
-	// Drifttidsmätare
+	// Driftsmätare
 	if (individartikel == 'Ja' && dm == 'Ja') {
-		artikeldata += "Drifttidsmätare:  " + dm + " (enhet: timmar) 👈\n";
+		artikeldata += "Drifsmätare:  " + dm + " (enhet: timmar) 👈\n";
 	}
 
 	// Kvalitetskontroll
@@ -654,26 +638,38 @@ function createArtikeldata() {
 		if (kkb.length > 0) artikeldata += "Kvalitetskontroll, beskrivning:  " + kkb + "\n";
 		if (iki.length > 0) artikeldata += "Intern kundorderinformation:  " + iki + "\n";
 		if (ipi.length > 0) artikeldata += "Intern plockinformation:  " + ipi + "\n";
-		if (iri.length > 0) artikeldata += "Intern returtagningsinformation:  " + iri + "\n";
+		if (iri.length > 0) {
+			artikeldata += "Intern returtagningsinformation:  ";
+			if (iri.match(/retur/i) && iri.match(/612/) && iri.match(/rekond/i) && iri.match(/KLOK/i)) {
+				artikeldata += '<strong style="color: red; font-size: large">Retur till lager 612. Rekonditioneras av KLOK.</strong>';
+			}
+			else if (iri.match(/retur/i) && iri.match(/613/) && iri.match(/rekond/i) && iri.match(/PMB/i)) {
+				artikeldata += '<strong style="color: blue; font-size: large">Retur till lager 613. Rekonditioneras av PMB.</strong>';
+			}
+			else {
+				artikeldata += iri;
+			}
+			artikeldata += "\n";
+		}
 	}
 
 	// VISMA WEBSESAM
 	artikeldata += "\nVISMA WEBSESAM\n\n";
 
 	// Publicera
-	artikeldata += "Publicera i webSesam:  " + ws_pub + "\n";
+	artikeldata += "Publicera i webSesam:  " + wspub + "\n";
 
 	// Beställningsbar
-	artikeldata += "Beställningsbar i webSesam:  " + ws_bb + "\n";
+	artikeldata += "Beställningsbar i webSesam:  " + wsbb + "\n";
 
 	// Kan vara komponent
 	if (artikeltyp == 'T') {
-		artikeldata += "Kan vara komponent:  " + ws_komp;
-		artikeldata += (ws_komp == 'Nej' ? " 👈\n" : "\n");
+		artikeldata += "Kan vara komponent:  " + wskomp;
+		artikeldata += (wskomp == 'Nej' ? " 👈\n" : "\n");
 	}
 
 	// Extra artikelinformation
-	if (ws_info.length > 0) artikeldata += "Extra artikelinformation:  " + ws_info + "\n";
+	if (wsinfo.length > 0) artikeldata += "Extra artikelinformation:  " + wsinfo + "\n";
 
 	// PRODUKTER
 	artikeldata += "\nPRODUKTER\n\n";
@@ -696,7 +692,6 @@ function createArtikeldata() {
 	}
 
 	// Prisgrupp
-	let pg = '';
 	switch (team) {
 		case '02':
 			pg = "RERST för elrullstolar, R för övriga artiklar";

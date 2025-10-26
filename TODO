@@ -1,6 +1,7 @@
 Utvecklingsförslag
 
-* Automatiska leverantörsnummer i skapad artikeldata
 * Möjlighet att välja standardiserade informationstexter
-* En ny funktion för initiering/återställning av formuläret, kan användas för att slippa ladda om sidan
-* Drifttidsmätare endast vid team=07 ?
+
+* Klart: Automatiska leverantörsnummer i skapad artikeldata
+* Klart: En ny funktion för initiering/återställning av formuläret, kan användas för att slippa ladda om sidan
+* Klart: Drifttidsmätare endast vid team 07

@@ -1,8 +1,10 @@
+"use strict";
+
 $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-24-2';	// Last commit date
+	window.update = '2025-10-26';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -32,17 +34,17 @@ $(document).ready(function() {
 	var cookietheme = getCookie('theme');
 
 	if (cookietheme != null) {
-		console.log('Found cookie: theme=' + cookietheme);
+		console.info('Found cookie: theme=' + cookietheme);
 		// Use theme stored in cookie
 		theme = cookietheme;
 	} else {
-		console.log('No theme cookie found');
+		console.info('No theme cookie found');
 		// Detect system theme
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			console.log('System prefers dark theme');
+			console.info('System prefers dark theme');
 			theme = 'dark';
 		} else {
-			console.log('System prefers light theme');
+			console.info('System prefers light theme');
 			theme = 'light';
 		}
 	}
