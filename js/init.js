@@ -1,10 +1,9 @@
-"use strict";
-
 $(document).ready(function() {
+	"use strict";
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-26';	// Last commit date
+	window.update = '2025-10-30';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form

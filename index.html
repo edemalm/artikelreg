@@ -2,7 +2,7 @@
 <html class="mdui-theme-auto" lang="sv" translate="no">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<meta name="robots" content="noindex, nofollow">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -151,7 +151,6 @@
 					<mdui-text-field id="text-artikelbenamning"
 						autocomplete="off"
 						autocorrect="off"
-						enterkeyhint="done"
 						inputmode="text"
 						label="Artikelbenämning"
 						maxlength="255"
@@ -164,7 +163,6 @@
 					<mdui-text-field id="text-standardprodukt"
 						autocomplete="off"
 						autocorrect="off"
-						enterkeyhint="done"
 						inputmode="text"
 						label="Produkt"
 						name="standardprodukt"
@@ -182,7 +180,6 @@
 					<mdui-text-field id="text-produkt2"
 						autocomplete="off"
 						autocorrect="off"
-						enterkeyhint="done"
 						inputmode="text"
 						label="Extra produkt"
 						name="produkt2"
@@ -194,7 +191,6 @@
 					<mdui-text-field id="text-produkt3"
 						autocomplete="off"
 						autocorrect="off"
-						enterkeyhint="done"
 						inputmode="text"
 						label="Extra produkt"
 						name="produkt3"
@@ -206,7 +202,6 @@
 					<mdui-text-field id="text-produkt4"
 						autocomplete="off"
 						autocorrect="off"
-						enterkeyhint="done"
 						inputmode="text"
 						label="Extra produkt"
 						name="produkt4"
@@ -231,7 +226,6 @@
 						<mdui-text-field id="text-leverantor"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="done"
 							inputmode="text"
 							label="Leverantörens namn"
 							name="leverantor"
@@ -243,7 +237,6 @@
 						<mdui-text-field id="text-levartnr"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="done"
 							inputmode="text"
 							label="Leverantörens art.nr."
 							name="levartnr"
@@ -268,7 +261,6 @@
 						<mdui-text-field id="text-isokod"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="done"
 							inputmode="numeric"
 							label="ISO-kod"
 							maxlength="6"
@@ -283,7 +275,6 @@
 						<mdui-text-field id="text-pris"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="done"
 							inputmode="decimal"
 							label="Inköpspris"
 							name="pris"
@@ -297,7 +288,6 @@
 						<mdui-text-field id="text-garanti"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="done"
 							inputmode="numeric"
 							label="Garantitid"
 							name="garanti"
@@ -320,9 +310,9 @@
 						<!-- TEAM -->
 						<mdui-select id="select-team"
 							end-icon="arrow_drop_down"
-							helper="Detta val kallas Sektor i Sesam"
 							label="Team"
 							name="team"
+							placement="bottom"
 							variant="outlined"
 							required>
 							<mdui-menu-item value="02" icon="electric_moped">Team 02 - Elrullstolar</mdui-menu-item>
@@ -352,8 +342,9 @@
 							end-icon="arrow_drop_down"
 							label="Artikelansvar"
 							name="artikelansvar"
+							placement="bottom"
 							variant="outlined"
-							required>
+							disabled required>
 							<mdui-menu-item id="artikelansvar-L" value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
 							<mdui-menu-item id="artikelansvar-R" value="R" icon="recycling">Retursortiment</mdui-menu-item>
 							<mdui-menu-item id="artikelansvar-E" value="E" icon="payment">Egenansvar</mdui-menu-item>
@@ -366,6 +357,7 @@
 							end-icon="arrow_drop_down"
 							label="Artikeltyp"
 							name="artikeltyp"
+							placement="bottom"
 							variant="outlined"
 							disabled required>
 							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
@@ -379,6 +371,7 @@
 							end-icon="arrow_drop_down"
 							label="Debiteringsform"
 							name="debiteringsform"
+							placement="bottom"
 							variant="outlined"
 							disabled required>
 							<mdui-menu-item id="debiteringsform-menu-item-m" value="M">Månadshyra</mdui-menu-item>
@@ -495,39 +488,42 @@
 					<div class="s12">
 						<!-- PUBLICERAD WEBSESAM -->
 						<div class="switch-wrapper">
-							<div id="label-wspub" class="text">
+							<div id="label-wspub" class="text disabled">
 								<div class="switch-label">Publicerad i webSesam</div>
 								<div class="switch-helper"></div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-wspub"
-									name="wspub"></mdui-switch>
+									name="wspub"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
 					<div class="s12">
 						<!-- INGÅR I SORTIMENT -->
 						<div class="switch-wrapper">
-							<div id="label-wssort" class="text">
+							<div id="label-wssort" class="text disabled">
 								<div class="switch-label">Sortimentsartikel</div>
 								<div id="wssort-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-wssort"
-									name="wssort"></mdui-switch>
+									name="wssort"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
 					<div class="s12">
 						<!-- BESTÄLLNINGSBAR WEBSESAM -->
 						<div class="switch-wrapper">
-							<div id="label-wsbb" class="text">
+							<div id="label-wsbb" class="text disabled">
 								<div class="switch-label">Beställningsbar i webSesam</div>
 								<div id="wsbb-helper" class="switch-helper"></div>
 							</div>
 							<div class="switch">
 								<mdui-switch id="switch-wsbb"
-									name="wsbb"></mdui-switch>
+									name="wsbb"
+									disabled></mdui-switch>
 							</div>
 						</div>
 					</div>
@@ -550,7 +546,6 @@
 						<mdui-text-field id="text-wsinfo"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Extra artikelinformation"
 							maxlength="255"
@@ -575,10 +570,11 @@
 					<div class="s12">
 						<!-- HUVUDLAGER -->
 						<mdui-select id="select-huvudlager"
+							end-icon="arrow_drop_down"
 							variant="outlined"
 							label="Huvudlager"
 							name="huvudlager"
-							end-icon="arrow_drop_down"
+							placement="bottom"
 							required>
 							<mdui-menu-item id="huvudlager-200" value="200">200 - Västermalmsvägen, Falun</mdui-menu-item>
 							<mdui-menu-item id="huvudlager-400" value="400">400 - Syncentralen Skomakargatan, Borlänge</mdui-menu-item>
@@ -588,10 +584,10 @@
 					<div class="s12 m7 l12 xl7">
 						<!-- INKÖPSHANTERING -->
 						<mdui-select id="select-inkopshantering"
+							end-icon="arrow_drop_down"
 							variant="outlined"
 							label="Inköpshantering"
 							name="inkopshantering"
-							end-icon="arrow_drop_down"
 							required>
 							<mdui-menu-item value="Kundorder">Kundorder</mdui-menu-item>
 							<mdui-menu-item value="Nettobehov">Nettobehov</mdui-menu-item>
@@ -602,7 +598,6 @@
 						<mdui-text-field id="text-liggplats"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="done"
 							name="liggplats"
 							variant="outlined"
 							inputmode="text"
@@ -622,7 +617,6 @@
 						<mdui-text-field id="text-buffertlager"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Eventuella buffertlager"
 							name="buffertlager"
@@ -645,7 +639,6 @@
 						<mdui-text-field id="text-gmi"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							variant="outlined"
 							rows="2"
 							inputmode="text"
@@ -673,7 +666,6 @@
 						<mdui-text-field id="text-kkb"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Kvalitetskontroll, beskrivning"
 							maxlength="255"
@@ -698,6 +690,7 @@
 							end-icon="arrow_drop_down"
 							label="Servicegrad"
 							name="servicegrad"
+							placement="bottom"
 							variant="outlined"
 							disabled required>
 							<mdui-menu-item id="sg-00" value="00">00 - Inget AU, inget FU</mdui-menu-item>
@@ -717,6 +710,7 @@
 							end-icon="arrow_drop_down"
 							label="Besiktningsintervall"
 							name="besiktningsintervall"
+							placement="bottom"
 							variant="outlined"
 							disabled>
 							<mdui-menu-item value="90 dagar">90 dagar</mdui-menu-item>
@@ -733,6 +727,7 @@
 							end-icon="arrow_drop_down"
 							label="FU-intervall"
 							name="fuintervall"
+							placement="bottom"
 							variant="outlined"
 							disabled>
 							<mdui-menu-item value="360 dagar">360 dagar</mdui-menu-item>
@@ -764,7 +759,6 @@
 						<mdui-text-field id="text-iki"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Intern kundorderinformation"
 							maxlength="255"
@@ -778,7 +772,6 @@
 						<mdui-text-field id="text-ipi"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Intern plockinformation"
 							maxlength="255"
@@ -792,7 +785,6 @@
 						<mdui-text-field id="text-iri"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Returtagningsinformation"
 							maxlength="255"
@@ -816,7 +808,6 @@
 						<mdui-text-field id="text-upplysningar"
 							autocomplete="off"
 							autocorrect="off"
-							enterkeyhint="enter"
 							inputmode="text"
 							label="Övriga upplysningar"
 							name="upplysningar"
@@ -1016,9 +1007,9 @@
 </mdui-dialog>
 
 </body>
-<script src="js/jquery.inactivity.min.js"></script>
 <script src="js/strings.js"></script>
+<script src="js/jquery.inactivity.min.js"></script>
 <script src="js/functions.js"></script>
-<script src="js/init.js"></script>
 <script src="js/events.js"></script>
+<script src="js/init.js"></script>
 </html>

@@ -81,10 +81,17 @@ mdui-top-app-bar {
 	position: fixed !important;
 }
 
-@media only screen and (min-width: 993px)  {
+@media only screen and (min-width: 840px)  {
+	#text-artikelbenamning {
+		--mdui-typescale-body-large-size: 1.5rem !important;
+		--mdui-typescale-body-large-line-height: 2.25rem !important;
+	}
+}
+@media only screen and (min-width: 1080px)  {
 	#text-artikelbenamning {
 		--mdui-typescale-body-large-size: 2rem !important;
 		--mdui-typescale-body-large-line-height: 3rem !important;
+
 	}
 }
 

@@ -3,7 +3,7 @@
 console.debug('Loading functions.js');
 
 /**
- * Reset form
+ * Initialize form
  */
 function formInit() {
 	console.debug('formInit()');
@@ -16,6 +16,7 @@ function formInit() {
 	window.avd = '';
 	window.avdelning = '';
 	window.avskrivningstid = '';
+	window.besiktningsintervall = '';
 	window.buffertlager = '';
 	window.debiteringsform = '';
 	window.dev = '';
@@ -60,66 +61,53 @@ function formInit() {
 	window.wssort = '';
 
 	// 1. Artikelbenämning och produkt
-	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);	// OK
-	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);		// OK
+	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);
+	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);
 
 	// 2. Leverantör
 
 	// 3. Ansvarigt team
+	setSelect('team', 'enabled', '', helper_team);
 
 	// 4. Ekonomi
-	setSelect('artikeltyp', 'disabled', '', helper_artikeltyp);					// OK
-	setSelect('debiteringsform', 'disabled', '', helper_debiteringsform);		// OK
-	setSwitch('inventarium', 'disabled', 'off', helper_inventarium_off);		// OK
-	setRadio('avskrivningstid', 'disabled', '', helper_avskrivningstid_off);	// OK
+	setSelect('artikelansvar', 'disabled', '', '');
+	setSelect('artikeltyp', 'disabled', '', helper_artikeltyp);
+	setSelect('debiteringsform', 'disabled', '', helper_debiteringsform);
+	setSwitch('inventarium', 'disabled', 'off', helper_inventarium_off);
+	setRadio('avskrivningstid', 'disabled', '', helper_avskrivningstid_off);
 
 	// 5. Individinställningar
-	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);		// OK
-	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);			// OK
-	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);		// OK
-	setSwitch('dm', 'disabled', 'off', helper_dm);								// OK
+	setSwitch('individartikel', 'disabled', 'off', helper_individartikel);
+	setSwitch('serienummer', 'disabled', 'off', helper_serienummer);
+	setSwitch('haraldrigkomp', 'disabled', 'off', helper_haraldrigkomp);
+	setSwitch('dm', 'disabled', 'off', helper_dm);
 
 	// 6. Visma webSesam
-	setSwitch('wspub', 'disabled', 'off', helper_wspub_off);					// OK
-	setSwitch('wssort', 'disabled', 'off', helper_wssort);						// OK
-	setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);						// OK
-	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);						// OK
-	setTextField('wsinfo', 'disabled', '', helper_wsinfo);						// OK
+	setSwitch('wspub', 'disabled', 'off', helper_wspub_off);
+	setSwitch('wssort', 'disabled', 'off', helper_wssort);
+	setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);
+	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
+	setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 
 	// 7. Lagerhållning
-	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);		// OK
-	setTextField('liggplats', 'enabled', '', helper_liggplats);					// OK
-	setTextField('buffertlager', 'enabled', 'Exempel: ' + placeholder_buffertlager, helper_buffertlager);	// OK
+	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);
+	setTextField('liggplats', 'enabled', '', helper_liggplats);
+	setTextField('buffertlager', 'enabled', 'Exempel: ' + placeholder_buffertlager, helper_buffertlager);
 
 	// 8. Hantering vid ankomst
-	setTextField('gmi', 'enabled', 'Exempel: ' + placeholder_gmi, helper_gmi);				// OK
-	setSwitch('kk', 'disabled', 'off', helper_kk_off);							// OK
-	setTextField('kkb', 'disabled', 'Exempel: ' + placeholder_kkb, helper_kkb);				// OK
+	setTextField('gmi', 'enabled', 'Exempel: ' + placeholder_gmi, helper_gmi);
+	setSwitch('kk', 'disabled', 'off', helper_kk_off);
+	setTextField('kkb', 'disabled', 'Exempel: ' + placeholder_kkb, helper_kkb);
 
 	// 9. Service och underhåll
 
 	// 10. Informationstexter
-	setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki, helper_iki);				// OK
-	setTextField('ipi', 'enabled', 'Exempel: ' + placeholder_ipi, helper_ipi);				// OK
-	setTextField('iri', 'disabled', 'Exempel: ' + placeholder_iri, helper_iri_off);			// OK
+	setTextField('iki', 'enabled', 'Exempel: ' + placeholder_iki, helper_iki);
+	setTextField('ipi', 'enabled', 'Exempel: ' + placeholder_ipi, helper_ipi);
+	setTextField('iri', 'disabled', 'Exempel: ' + placeholder_iri, helper_iri_off);
 
 	// 11. Övriga upplysningar
-	setTextField('upplysningar', 'enabled', 'Exempel: ' + placeholder_upplysningar, helper_upplysningar);	// OK
-
-	// Reset "Fler produkter" option
-	$('#div-fler-produkter').show();
-	$('#text-standardprodukt').attr('label', 'Produkt');
-	$('#text-standardprodukt').removeAttr('helper');
-	$('.standardprodukt').removeClass('xl3');
-	$('.extraprodukt').hide();
-
-	// Hide
-	$('#ejht-pris').addClass('hidden');
-	$('#ejht-garanti').addClass('hidden');
-	$('#ejht-isokod').addClass('hidden');
-	setTextField('pris', 'disabled', '', '');
-	setTextField('garanti', 'disabled', '', '');
-	setTextField('isokod', 'disabled', '', '');
+	setTextField('upplysningar', 'enabled', 'Exempel: ' + placeholder_upplysningar, helper_upplysningar);
 
 }
 /**
@@ -183,6 +171,32 @@ function changeContent(contentId, menuItemId) {
 }
 
 /**
+ * Enable and show 'isokod', 'pris' and 'garanti' text fields
+ */
+function showManualPrice() {
+	console.debug('showManualPrice()');
+	$('#text-isokod').attr('disabled', false);
+	$('#text-pris').attr('disabled', false);
+	$('#text-garanti').attr('disabled', false);
+	$('#ejht-isokod').removeClass('hidden');
+	$('#ejht-pris').removeClass('hidden');
+	$('#ejht-garanti').removeClass('hidden');
+}
+
+/**
+ * Disable, clear and hide 'isokod', 'pris' and 'garanti' text fields
+ */
+function hideManualPrice() {
+	console.debug('hideManualPrice()');
+	$('#text-isokod').val('').attr('disabled', true);
+	$('#text-pris').val('').attr('disabled', true);
+	$('#text-garanti').val('').attr('disabled', true);
+	$('#ejht-isokod').addClass('hidden');
+	$('#ejht-pris').addClass('hidden');
+	$('#ejht-garanti').addClass('hidden');
+}
+
+/**
  * Set mode of a text field and its palceholder and label
  * @param {string} paramId		- Text field element ID part (i.e. foo in #text-foo).
  * @param {string} mode			- Set "enabled" or "disabled".
@@ -191,15 +205,28 @@ function changeContent(contentId, menuItemId) {
  */
 function setTextField(paramId, mode, placeholder, helper) {
 	console.debug('setTextField("' + paramId + '","' + mode + '","' + placeholder + '","' + helper + '")');
-	if (mode == 'enabled') {
-		$('#text-' + paramId).attr('disabled', false);
-	} else {
+	if (mode == 'disabled') {
 		$('#text-' + paramId).attr('disabled', true);
+	} else {
+		$('#text-' + paramId).removeAttr('disabled');
 	}
-	if (placeholder.length > 0) $('#text-' + paramId).attr('placeholder', 	placeholder);
-	if (helper.length > 0) $('#text-' + paramId).attr('helper', helper);
-	window[paramId] = $('#text-' + paramId).val();
-	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
+	if (placeholder.length > 0) {
+		$('#text-' + paramId).attr('placeholder', placeholder);
+	} else {
+		$('#text-' + paramId).removeAttr('placeholder');
+	}
+	if (helper.length > 0) {
+		$('#text-' + paramId).attr('helper', helper);
+	} else {
+		$('#text-' + paramId).removeAttr('helper');
+	}
+	// TODO: add value to function?
+	let oval = window[paramId];
+	let nval = $('#text-' + paramId).val();
+	if (oval !== nval) {
+		window[paramId] = nval;
+		console.info(paramId + ': "' + oval + '" => "' + window[paramId] + '"');
+	}
 }
 
 /**
@@ -210,11 +237,11 @@ function setTextField(paramId, mode, placeholder, helper) {
  * @param {string} helper	- Helper text.
  */
 function setSelect(paramId, mode, value, helper) {
-	console.debug('setSelect("' + paramId + '", "' + mode + '", "' + ', ' + value + '", "' + helper + '")');
-	if (mode == 'enabled') {
-		$('#select-' + paramId).removeAttr('disabled');
-	} else {
+	console.debug('setSelect("' + paramId + '", "' + mode + '", "' + '", "' + value + '", "' + helper + '")');
+	if (mode == 'disabled') {
 		$('#select-' + paramId).attr('disabled', true);
+	} else {
+		$('#select-' + paramId).removeAttr('disabled');
 	}
 	$('#select-' + paramId).val(value);
 	if (helper.length > 0) {
@@ -222,8 +249,12 @@ function setSelect(paramId, mode, value, helper) {
 	} else {
 		$('#select-' + paramId).removeAttr('helper');
 	}
-	window[paramId] = $('#select-' + paramId).val();
-	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
+	let oval = window[paramId];
+	let nval = $('#select-' + paramId).val();
+	if (oval !== nval) {
+		window[paramId] = nval;
+		console.info(paramId + ': "' + oval + '" => "' + window[paramId] + '"');
+	}
 }
 
 /**
@@ -235,12 +266,12 @@ function setSelect(paramId, mode, value, helper) {
  */
 function setSwitch(paramId, mode, state, helper) {
 	console.debug('setSwitch("' + paramId + '","' + mode + '","' + state + '","' + helper + '")');
-	if (mode == "enabled") {
-		$('#label-' + paramId).removeClass('disabled');
-		$('#switch-' + paramId).attr('disabled', false);
-	} else {
+	if (mode == "disabled") {
 		$('#label-' + paramId).addClass('disabled');
 		$('#switch-' + paramId).attr('disabled', true);
+	} else {
+		$('#label-' + paramId).removeClass('disabled');
+		$('#switch-' + paramId).removeAttr('disabled');
 	}
 	if (state == 'on') {
 		if (helper.length > 0) $('#label-' + paramId + ' .switch-helper').html(helper);
@@ -249,8 +280,12 @@ function setSwitch(paramId, mode, state, helper) {
 		if (helper.length > 0) $('#label-' + paramId + ' .switch-helper').html(helper);
 		$('#switch-' + paramId).attr('checked', false);
 	}
-	window[paramId] = ($('#switch-' + paramId).prop("checked") ? "Ja" : "Nej");
-	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
+	let oval = window[paramId];
+	let nval = ($('#switch-' + paramId).prop("checked") ? "Ja" : "Nej");
+	if (oval !== nval) {
+		window[paramId] = nval;
+		console.info(paramId + ': "' + oval + '" => "' + window[paramId] + '"');
+	}
 }
 
 /**
@@ -258,22 +293,30 @@ function setSwitch(paramId, mode, state, helper) {
  * @param {string} paramId	- Element ID part (i.e. foo in #label-foo and #radio-foo).
  * @param {string} mode		- "enabled" or "disabled".
  * @param {string} selected	- selected radio button, or '' to reset.
- * @param {string} helper	- Helper text
+ * @param {string} helper	- Helper text, or '' to clear
  */
 function setRadio(paramId, mode, selected, helper) {
 	console.debug('setRadio("' + paramId + '","' + mode + '","' + selected + '","' + helper + '")');
-	if (mode == "enabled") {
+	if (mode == "disabled") {
+		$('#label-' + paramId).addClass('disabled');
+		$('#radio-' + paramId).val('');
+		$('#radio-' + paramId).attr('disabled', true);
+	} else {
 		$('#label-' + paramId).removeClass('disabled');
 		$('#radio-' + paramId).val(selected);
-		$('#radio-' + paramId).attr('disabled', false); // enable
-	} else {
-		$('#label-' + paramId).addClass('disabled');
-		$('#radio-' + paramId).val(''); // clear
-		$('#radio-' + paramId).attr('disabled', true); // disable
+		$('#radio-' + paramId).removeAttr('disabled');
 	}
-	if (helper.length > 0) $('#label-' + paramId + ' .radio-helper').html(helper);
-	window[paramId] = $('#radio-' + paramId).val();
-	console.debug(paramId + ' = ' + '"' + window[paramId] + '"');
+	if (helper.length > 0) {
+		$('#label-' + paramId + ' .radio-helper').html(helper);
+	} else {
+		$('#label-' + paramId + ' .radio-helper').html('');
+	}
+	let oval = window[paramId];
+	let nval = $('#radio-' + paramId).val();
+	if (oval !== nval) {
+		window[paramId] = nval;
+		console.info(paramId + ': "' + oval + '" => "' + window[paramId] + '"');
+	}
 }
 
 

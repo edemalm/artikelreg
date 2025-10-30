@@ -3,9 +3,9 @@
 console.debug('Loading strings.js');
 
 // 1. Artikelbenämning och produkt
-let helper_artikelbenamning = "Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information.";
-let helper_standardprodukt = "Se hjälpavsnitt för mer information";
-let helper_artikelbenamning_array = [
+var helper_artikelbenamning = "Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information.";
+var helper_standardprodukt = "Se hjälpavsnitt för mer information";
+var helper_artikelbenamning_array = [
 	'Rullstol SpeedKing sb45 sd50 silver inkl arm- o benstöd',
 	'Arbetsstol Ergomax h/s h45-65 trögrullande hjul blå',
 	'Hjullyft HaulMaster exkl lyftbygel 250kg',
@@ -22,84 +22,85 @@ let helper_artikelbenamning_array = [
 // 2. Leverantör
 
 // 3. Ansvarigt team
+var helper_team = "Detta val kallas Sektor i Sesam";
 
 // 4. Ekonomi
-let helper_artikeltyp = "Välj artikeltyp hos DHC. Denna kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten.";
-let helper_artikeltyp_h = "Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel";
-let helper_artikeltyp_t = "Ett tillbehör ger extra funktionalitet hos ett huvudhjälpmedel";
-let helper_artikeltyp_r = "En reservdel används för att laga och underhålla huvudhjälpmedel och tillbehör";
-let helper_debiteringsform = "Välj hur DHC tar betalt för denna artikel";
-let helper_debiteringsform_m = "Kunden betalar en löpande månadshyra under hela hyresperioden";
-let helper_debiteringsform_a = "Kunden betalar hela försäljningspriset och äger sedan artikeln";
-let helper_inventarium_on = "Artikeln är ett hyreshjälpmedel vars anskaffningskostnad fördelas under dess avskrivningstid";
-let helper_inventarium_off = "Gäller endast huvudhjälpmedel för uthyrning";
-let helper_avskrivningstid_on = "Välj inventariens avskrivningstid";
-let helper_avskrivningstid_off = "Gäller endast inventarier";
+var helper_artikeltyp = "Välj artikeltyp hos DHC. Denna kan avvika från leverantörens artikeltyp i Hjälpmedelstjänsten.";
+var helper_artikeltyp_h = "Ett huvudhjälpmedel är ett komplett fungerande hjälpmedel";
+var helper_artikeltyp_t = "Ett tillbehör ger extra funktionalitet hos ett huvudhjälpmedel";
+var helper_artikeltyp_r = "En reservdel används för att laga och underhålla huvudhjälpmedel och tillbehör";
+var helper_debiteringsform = "Välj hur DHC tar betalt för denna artikel";
+var helper_debiteringsform_m = "Kunden betalar en löpande månadshyra under hela hyresperioden";
+var helper_debiteringsform_a = "Kunden betalar hela försäljningspriset och äger sedan artikeln";
+var helper_inventarium_on = "Artikeln är ett hyreshjälpmedel vars anskaffningskostnad fördelas under dess avskrivningstid";
+var helper_inventarium_off = "Gäller endast huvudhjälpmedel för uthyrning";
+var helper_avskrivningstid_on = "Välj inventariens avskrivningstid";
+var helper_avskrivningstid_off = "Gäller endast inventarier";
 
 // 5. Individinställningar
-let helper_individartikel = "Gäller endast huvudhjälpmedel";
-let helper_individartikel_on = "Hjälpmedlet är individmärkt och spårbart med en egen transaktionshistorik";
-let helper_individartikel_off = "Hjälpmedlet är inte individmärkt och därmed ej spårbart";
-let helper_serienummer = "Gäller endast individartiklar";
-let helper_serienummer_on = "Serienummer måste anges vid registrering av individ";
-let helper_serienummer_off = "Hjälpmedlet saknar serienummer";
-let helper_haraldrigkomp = "Gäller endast individartiklar";
-let helper_haraldrigkomp_on = "Komponenter kan aldrig kopplas till detta hjälpmedel";
-let helper_haraldrigkomp_off = "Komponenter kan kopplas till detta hjälpmedel";
-let helper_dm = "Gäller endast individartiklar hos PMB";
-let helper_dm_on = "Hjälpmedlet har driftsmätare på individkortet (enhet timmar)";
-let helper_dm_off = "Hjälpmedlet har ej driftsmätare";
+var helper_individartikel = "Gäller endast huvudhjälpmedel";
+var helper_individartikel_on = "Hjälpmedlet är individmärkt och spårbart med en egen transaktionshistorik";
+var helper_individartikel_off = "Hjälpmedlet är inte individmärkt och därmed ej spårbart";
+var helper_serienummer = "Gäller endast individartiklar";
+var helper_serienummer_on = "Serienummer måste anges vid registrering av individ";
+var helper_serienummer_off = "Hjälpmedlet saknar serienummer";
+var helper_haraldrigkomp = "Gäller endast individartiklar";
+var helper_haraldrigkomp_on = "Komponenter kan aldrig kopplas till detta hjälpmedel";
+var helper_haraldrigkomp_off = "Komponenter kan kopplas till detta hjälpmedel";
+var helper_dm = "Gäller endast individartiklar hos PMB";
+var helper_dm_on = "Hjälpmedlet har driftsmätare på individkortet (enhet timmar)";
+var helper_dm_off = "Hjälpmedlet har ej driftsmätare";
 
 // 6. Visma webSesam
-let helper_wspub_on = "Artikeln visas och är sökbar";
-let helper_wspub_off = "Artikeln visas inte";
-let helper_wsbb_on = "Artikeln kan beställas. Uttag från eget kundlager kan registreras.";
-let helper_wsbb_off = "Artikeln kan inte beställas. Uttag från eget kundlager kan inte registreras.";
-let helper_wssort =	"Gäller endast publicerade artiklar";
-let helper_wssort_on =	"Artikeln tillhör ordinarie sortiment";
-let helper_wssort_off = "Artikeln tillhör övrigt sortiment";
-let helper_wskomp = "Gäller endast tillbehör";
-let helper_wskomp_on = "Artikeln kan beställas som komponent till ett hjälpmedel";
-let helper_wskomp_off = "Artikeln kan inte beställas som komponent till ett hjälpmedel";
-let helper_wsinfo = "Vid behov ange extra artikelinformation som visas för artikeln i webSesam";
+var helper_wspub_on = "Artikeln visas och är sökbar";
+var helper_wspub_off = "Artikeln visas inte";
+var helper_wsbb_on = "Artikeln kan beställas. Uttag från eget kundlager kan registreras.";
+var helper_wsbb_off = "Artikeln kan inte beställas. Uttag från eget kundlager kan inte registreras.";
+var helper_wssort =	"Gäller endast publicerade artiklar";
+var helper_wssort_on =	"Artikeln tillhör ordinarie sortiment";
+var helper_wssort_off = "Artikeln tillhör övrigt sortiment";
+var helper_wskomp = "Gäller endast tillbehör";
+var helper_wskomp_on = "Artikeln kan beställas som komponent till ett hjälpmedel";
+var helper_wskomp_off = "Artikeln kan inte beställas som komponent till ett hjälpmedel";
+var helper_wsinfo = "Vid behov ange extra artikelinformation som visas för artikeln i webSesam";
 
 // 7. Lagerhållning
-let helper_inkopshantering = "Ange en rekommenderad inköpshantering";
-let helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker då behov finns.";
-let helper_inkopshantering_n = "Artikeln är lagerlagd. Inköp sker till lager.";
-let helper_liggplats ="Ange en liggplats om den är känd i förväg";
-let helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret";
-let placeholder_buffertlager = "Lager 220, 3 st, 31-A-123";
+var helper_inkopshantering = "Välj en rekommenderad inköpshantering";
+var helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker då behov finns.";
+var helper_inkopshantering_n = "Artikeln är lagerlagd. Inköp sker till lager.";
+var helper_liggplats ="Ange en liggplats om den är känd i förväg";
+var helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret";
+var placeholder_buffertlager = "Lager 220, 3 st, 31-A-123";
 
 // 8. Hantering vid ankomst
-let helper_gmi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid godsmottagning";
-let placeholder_gmi = "Placera individetiketten på vänster sida. Skruva fast nackstödet.";
-let helper_kk_on = "Artikeln ska kontrolleras och godkännas";
-let helper_kk_off = "Artikeln har ej kvalitetskontroll";
-let helper_kkb = "Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på kvalitetskontrollsunderlaget.";
-let placeholder_kkb = "Till SST-tekniker för kontroll av svetsfogar";
+var helper_gmi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid godsmottagning";
+var placeholder_gmi = "Placera individetiketten på vänster sida. Skruva fast nackstödet.";
+var helper_kk_on = "Artikeln ska kontrolleras och godkännas";
+var helper_kk_off = "Artikeln har ej kvalitetskontroll";
+var helper_kkb = "Beskriv kortfattat vad som skall kontrolleras och av vem. Texten skrivs ut på kvalitetskontrollsunderlaget.";
+var placeholder_kkb = "Till SST-tekniker för kontroll av svetsfogar";
 
 // 9. Service och underhåll
 
 // 10. Informationstexter
-let helper_iki = "Vid behov kan en kortfattad text anges som visas för orderhandläggaren vid registrering av orderrad";
-let placeholder_iki = "Beställning ska alltid handläggas av konsulent";
-let placeholder_iki_02 = "Beställning ska alltid handläggas av konsulent i Elrullstolsteamet";
-let placeholder_iki_03 = "Beställning ska alltid handläggas av konsulent i Habteamet";
-let placeholder_iki_05 = "Beställning ska alltid handläggas av konsulent i KLOK-teamet";
-let placeholder_iki_07 = "Beställning ska alltid handläggas av konsulent i PMB-teamet";
-let placeholder_iki_08 = "Beställning ska alltid handläggas av konsulent i SST-teamet";
-let placeholder_iki_09 = "Beställning ska alltid handläggas av konsulent i ADL-teamet";
-let placeholder_iki_10 = placeholder_iki_09;
-let placeholder_iki_11 = placeholder_iki_08;
-let helper_ipi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid plockning";
-let placeholder_ipi = "Hjälpmedlet behöver laddas före utleverans";
-let helper_iri_on = "Vid behov kan en kortfattad text anges som visas för returpersonalen vid returtagning.";
-let helper_iri_off = "Gäller endast huvudhjälpmedel och tillbehör";
-let placeholder_iri ="Ska bedömas av tekniker före eventuell rekonditionering.";
-let placeholder_iri_05 ="Retur till lager 612. Rekonditioneras av KLOK.";
-let placeholder_iri_07 ="Retur till lager 613. Rekonditioneras av PMB.";
+var helper_iki = "Vid behov kan en kortfattad text anges som visas för orderhandläggaren vid registrering av orderrad";
+var placeholder_iki = "Beställning ska alltid handläggas av konsulent";
+var placeholder_iki_02 = "Beställning ska alltid handläggas av konsulent i Elrullstolsteamet";
+var placeholder_iki_03 = "Beställning ska alltid handläggas av konsulent i Habteamet";
+var placeholder_iki_05 = "Beställning ska alltid handläggas av konsulent i KLOK-teamet";
+var placeholder_iki_07 = "Beställning ska alltid handläggas av konsulent i PMB-teamet";
+var placeholder_iki_08 = "Beställning ska alltid handläggas av konsulent i SST-teamet";
+var placeholder_iki_09 = "Beställning ska alltid handläggas av konsulent i ADL-teamet";
+var placeholder_iki_10 = placeholder_iki_09;
+var placeholder_iki_11 = placeholder_iki_08;
+var helper_ipi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid plockning";
+var placeholder_ipi = "Hjälpmedvar behöver laddas före utleverans";
+var helper_iri_on = "Vid behov kan en kortfattad text anges som visas för returpersonalen vid returtagning";
+var helper_iri_off = "Gäller endast huvudhjälpmedel";
+var placeholder_iri ="Ska bedömas av tekniker före eventuell rekonditionering";
+var placeholder_iri_05 ="Retur till lager 612. Rekonditioneras av KLOK.";
+var placeholder_iri_07 ="Retur till lager 613. Rekonditioneras av PMB.";
 
 // 11. Övriga upplysningar
-let helper_upplysningar = "Vid behov ange övrig information till inköpspersonalen";
-let placeholder_upplysningar = "Artikeln ska ingå i ersättningsgrupp med ...";
+var helper_upplysningar = "Vid behov ange övrig information till inköpspersonalen";
+var placeholder_upplysningar = "Artikeln ska ingå i ersättningsgrupp med ...";
