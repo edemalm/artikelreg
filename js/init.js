@@ -115,14 +115,14 @@ $(document).ready(function() {
 
 	// Inactivity plugin
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 10000 });
+	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
 		console.debug('Activity detected');
 		$('#photo-layer').fadeOut(200);
 	});
 	$(document).on("inactivity", function() {
 		console.debug('Inactivity detected');
-		$('#photo-layer').fadeIn(1200);
+		$('#photo-layer').fadeIn(800);
 	});
 
 	// Set date in version
