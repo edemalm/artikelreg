@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-10-30';	// Last commit date
+	window.update = '2025-11-02';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -28,6 +28,19 @@ $(document).ready(function() {
 		console.debug('System preferred theme: ' + theme);
 	}
 	*/
+
+	// Read palette cookie from device
+	var c_palette = getCookie('palette');
+	if (c_palette != null) {
+		console.info('Found cookie: palette=' + c_palette);
+		$('html').addClass(c_palette);
+		$('.palette-item[value=' + c_palette + ']').attr('selected', true);
+		setCookie('palette', c_palette, 365);
+	} else {
+		console.info('No palette cookie found');
+		$('html').addClass('navy');
+		$('.palette-item[value=navy]').attr('selected', true);
+	}
 
 	// Read theme cookie from device
 	var cookietheme = getCookie('theme');
@@ -54,10 +67,10 @@ $(document).ready(function() {
 	// Set theme class to html element
 	if (theme == 'dark') {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
-		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
+		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 	} else {
 		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
-		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
+		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
 	}
 
 	// Set background image class
@@ -69,47 +82,47 @@ $(document).ready(function() {
 		console.debug("I believe it's winter");
 		const bgclasses = ['winter-0','winter-1','winter-2','winter-3','winter-4','winter-5','winter-6','winter-7','winter-8'];
 		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		$('#photo-layer').addClass(bgclasses[random]);
 	}
 	if ( month == 3 || month == 4 ) {
 		// Apr, May
 		console.debug("I believe it's spring");
 		const bgclasses = ['spring-0','spring-1','spring-2','spring-3','spring-4','spring-5','spring-6', 'spring-7'];
 		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		$('#photo-layer').addClass(bgclasses[random]);
 	}
 	if ( month == 5 || month == 6 || month == 7 ) {
 		// Jun, Jul, Aug
 		console.debug("I believe it's summer");
 		const bgclasses = ['summer-0','summer-1','summer-2','summer-3','summer-4','summer-5','summer-6','summer-7','summer-8','summer-9','summer-10','summer-11','summer-12','summer-13','summer-14','summer-15','summer-16'];
 		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		$('#photo-layer').addClass(bgclasses[random]);
 	}
 	if ( month == 8 || month == 9 || month == 10 ) {
 		// Sep, Oct, Nov
 		console.debug("I believe it's fall");
 		const bgclasses = ['fall-0','fall-1','fall-2','fall-3','fall-4','fall-5','fall-6','fall-7','fall-8','fall-9','fall-10','fall-11','fall-12','fall-13','fall-14','fall-15','fall-16','fall-17','fall-18','fall-19','fall-20','fall-21'];
 		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		$('#photo-layer').addClass(bgclasses[random]);
 	}
 	if ( month == 11 ) {
 		// Dec
 		console.debug("I believe it's christmas");
 		const bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
 		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		$('#photo-layer').addClass(bgclasses[random]);
 	}
 
 	// Inactivity plugin
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 30000 });
+	$(document).inactivity( { timeout: 10000 });
 	$(document).on("activity", function() {
 		console.debug('Activity detected');
-		$('#filter-layer, mdui-layout-main, mdui-dialog').removeClass('inactive');
+		$('#photo-layer').fadeOut(200);
 	});
 	$(document).on("inactivity", function() {
 		console.debug('Inactivity detected');
-		$('#filter-layer, mdui-layout-main, mdui-dialog').addClass('inactive');
+		$('#photo-layer').fadeIn(1200);
 	});
 
 	// Set date in version

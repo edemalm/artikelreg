@@ -16,15 +16,25 @@ $(document).ready(function() {
 		console.debug('<mdui-button #button-toggle-theme> clicked');
 		if ( $('html').hasClass('mdui-theme-light') ) {
 			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
-			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
+			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
 			theme = 'dark';
 		} else {
 			$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
-			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
+			$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
 			theme = 'light';
 		}
 		// Set cookie with preferred theme on device
 		setCookie('theme', theme, 365);
+	});
+
+	$('.palette-item').click(function() {
+		console.info('<mdui-menu-item .palette-item> clicked');
+		let palette = $(this).attr('value');
+		console.info('selected palette: ' + palette);
+		$('#dropdown-palette').removeAttr('open');
+		$('html').removeClass('navy purple maroon olive green teal');
+		$('html').addClass(palette);
+		setCookie('palette', palette, 365);
 	});
 
 	// Open "about" dialog

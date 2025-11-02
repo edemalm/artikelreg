@@ -40,8 +40,6 @@
 </head>
 <body>
 
-<div id="filter-layer" class="hidden"></div>
-
 <mdui-layout>
 
 <!-- MENU ------------------------------------------------------------------ -->
@@ -116,6 +114,22 @@
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
 	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto--outlined"></mdui-button-icon>
+	<mdui-dropdown id="dropdown-palette">
+		<mdui-button-icon id="button-toggle-palette"
+			icon="palette--outlined"
+			placement="bottom-end"
+			slot="trigger"
+			trigger="click"></mdui-button-icon>
+		<mdui-menu id="menu-palette"
+			selects="single">
+			<mdui-menu-item class="palette-item" value="navy"><span class="palette-color navy"></span></mdui-menu-item>
+			<mdui-menu-item class="palette-item" value="purple"><span class="palette-color purple"></span></mdui-menu-item>
+			<mdui-menu-item class="palette-item" value="maroon"><span class="palette-color maroon"></span></mdui-menu-item>
+			<mdui-menu-item class="palette-item" value="olive"><span class="palette-color olive"></span></mdui-menu-item>
+			<mdui-menu-item class="palette-item" value="green"><span class="palette-color green"></span></mdui-menu-item>
+			<mdui-menu-item class="palette-item" value="teal"><span class="palette-color teal"></span></mdui-menu-item>
+		</mdui-menu>
+	</mdui-dropdown>
 	<mdui-button-icon id="button-about" icon="info--outlined"></mdui-button-icon>
 </mdui-top-app-bar>
 
@@ -155,7 +169,7 @@
 						label="Artikelbenämning"
 						maxlength="255"
 						name="artikelbenamning"
-						variant="outlined"
+						variant="filled"
 						clearable counter required></mdui-text-field>
 				</div>
 				<div id="div-produkt" class="s12 m6 standardprodukt">
@@ -166,7 +180,7 @@
 						inputmode="text"
 						label="Produkt"
 						name="standardprodukt"
-						variant="outlined"
+						variant="filled"
 						clearable required></mdui-text-field>
 				</div>
 					<!-- FLER PRODUKTER -->
@@ -183,7 +197,7 @@
 						inputmode="text"
 						label="Extra produkt"
 						name="produkt2"
-						variant="outlined"
+						variant="filled"
 						clearable></mdui-text-field>
 				</div>
 				<div class="s12 m6 xl3 hidden extraprodukt">
@@ -194,7 +208,7 @@
 						inputmode="text"
 						label="Extra produkt"
 						name="produkt3"
-						variant="outlined"
+						variant="filled"
 						clearable></mdui-text-field>
 				</div>
 				<div class="s12 m6 xl3 hidden extraprodukt">
@@ -205,7 +219,7 @@
 						inputmode="text"
 						label="Extra produkt"
 						name="produkt4"
-						variant="outlined"
+						variant="filled"
 						clearable></mdui-text-field>
 				</div>
 			</div><!-- .grid -->
@@ -229,7 +243,7 @@
 							inputmode="text"
 							label="Leverantörens namn"
 							name="leverantor"
-							variant="outlined"
+							variant="filled"
 							clearable required></mdui-text-field>
 					</div>
 					<div class="s12 m6">
@@ -240,7 +254,7 @@
 							inputmode="text"
 							label="Leverantörens art.nr."
 							name="levartnr"
-							variant="outlined"
+							variant="filled"
 							clearable required></mdui-text-field>
 					</div>
 					<div class="s12">
@@ -267,7 +281,7 @@
 							minlength="6"
 							name="isokod"
 							type="number"
-							variant="outlined"
+							variant="filled"
 							clearable disabled></mdui-text-field>
 					</div>
 					<div id="ejht-pris" class="s12 m4 l12 xl4 hidden">
@@ -280,7 +294,7 @@
 							name="pris"
 							suffix="&nbsp;kr"
 							type="text"
-							variant="outlined"
+							variant="filled"
 							clearable disabled end-aligned></mdui-text-field>
 					</div>
 					<div id="ejht-garanti" class="s12 m4 l12 xl4 hidden">
@@ -293,7 +307,7 @@
 							name="garanti"
 							suffix="&nbsp;dagar"
 							type="number"
-							variant="outlined"
+							variant="filled"
 							clearable disabled end-aligned></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
@@ -313,7 +327,7 @@
 							label="Team"
 							name="team"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							required>
 							<mdui-menu-item value="02" icon="electric_moped">Team 02 - Elrullstolar</mdui-menu-item>
 							<mdui-menu-item value="03" icon="child_care">Team 03 - Habteamet</mdui-menu-item>
@@ -343,7 +357,7 @@
 							label="Artikelansvar"
 							name="artikelansvar"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							disabled required>
 							<mdui-menu-item id="artikelansvar-L" value="L" icon="local_hospital">Region eller kommun</mdui-menu-item>
 							<mdui-menu-item id="artikelansvar-R" value="R" icon="recycling">Retursortiment</mdui-menu-item>
@@ -358,7 +372,7 @@
 							label="Artikeltyp"
 							name="artikeltyp"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							disabled required>
 							<mdui-menu-item value="H" icon="accessible">Huvudhjälpmedel</mdui-menu-item>
 							<mdui-menu-item value="T" icon="add_circle">Tillbehör</mdui-menu-item>
@@ -372,7 +386,7 @@
 							label="Debiteringsform"
 							name="debiteringsform"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							disabled required>
 							<mdui-menu-item id="debiteringsform-menu-item-m" value="M">Månadshyra</mdui-menu-item>
 							<mdui-menu-item id="debiteringsform-menu-item-a" value="A">Köp</mdui-menu-item>
@@ -552,7 +566,7 @@
 							name="wsinfo"
 							rows="2"
 							type="text"
-							variant="outlined"
+							variant="filled"
 							autosize clearable counter disabled></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
@@ -571,7 +585,7 @@
 						<!-- HUVUDLAGER -->
 						<mdui-select id="select-huvudlager"
 							end-icon="arrow_drop_down"
-							variant="outlined"
+							variant="filled"
 							label="Huvudlager"
 							name="huvudlager"
 							placement="bottom"
@@ -585,7 +599,7 @@
 						<!-- INKÖPSHANTERING -->
 						<mdui-select id="select-inkopshantering"
 							end-icon="arrow_drop_down"
-							variant="outlined"
+							variant="filled"
 							label="Inköpshantering"
 							name="inkopshantering"
 							required>
@@ -599,7 +613,7 @@
 							autocomplete="off"
 							autocorrect="off"
 							name="liggplats"
-							variant="outlined"
+							variant="filled"
 							inputmode="text"
 							label="Liggplats"></mdui-text-field>
 					</div>
@@ -621,7 +635,7 @@
 							label="Eventuella buffertlager"
 							name="buffertlager"
 							rows="2"
-							variant="outlined"
+							variant="filled"
 							autosize clearable></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
@@ -639,7 +653,7 @@
 						<mdui-text-field id="text-gmi"
 							autocomplete="off"
 							autocorrect="off"
-							variant="outlined"
+							variant="filled"
 							rows="2"
 							inputmode="text"
 							label="Godsmottagningsinstruktion"
@@ -671,7 +685,7 @@
 							maxlength="255"
 							name="kkb"
 							rows="2"
-							variant="outlined"
+							variant="filled"
 							autosize clearable counter disabled required></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
@@ -691,7 +705,7 @@
 							label="Servicegrad"
 							name="servicegrad"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							disabled required>
 							<mdui-menu-item id="sg-00" value="00">00 - Inget AU, inget FU</mdui-menu-item>
 							<mdui-menu-item id="sg-10" value="10">10 - AU hos brukare, inget FU</mdui-menu-item>
@@ -711,7 +725,7 @@
 							label="Besiktningsintervall"
 							name="besiktningsintervall"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							disabled>
 							<mdui-menu-item value="90 dagar">90 dagar</mdui-menu-item>
 							<mdui-menu-item value="185 dagar">185 dagar</mdui-menu-item>
@@ -728,7 +742,7 @@
 							label="FU-intervall"
 							name="fuintervall"
 							placement="bottom"
-							variant="outlined"
+							variant="filled"
 							disabled>
 							<mdui-menu-item value="360 dagar">360 dagar</mdui-menu-item>
 							<mdui-menu-item value="365 dagar (1 år)">365 dagar (1 år)</mdui-menu-item>
@@ -764,7 +778,7 @@
 							maxlength="255"
 							name="iki"
 							rows="2"
-							variant="outlined"
+							variant="filled"
 							autosize clearable counter></mdui-text-field>
 					</div>
 					<div class="s12">
@@ -777,7 +791,7 @@
 							maxlength="255"
 							name="ipi"
 							rows="2"
-							variant="outlined"
+							variant="filled"
 							autosize clearable counter></mdui-text-field>
 					</div>
 					<div class="s12">
@@ -790,7 +804,7 @@
 							maxlength="255"
 							name="iri"
 							rows="2"
-							variant="outlined"
+							variant="filled"
 							autosize clearable counter disabled></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
@@ -812,22 +826,21 @@
 							label="Övriga upplysningar"
 							name="upplysningar"
 							rows="2"
-							variant="outlined"
+							variant="filled"
 							autosize clearable></mdui-text-field>
 					</div>
 				</div><!-- .grid -->
 			</div>
 		</div><!-- .right-container -->
 	</div><!-- .flex-container -->
-	<div class="buttom-container">
-		<div class="buttons-container">
-				<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
-				<mdui-button id="button-dialog-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-
 </form>
+<div class="buttons-container">
+	<mdui-button id="button-reset-form-warning" variant="text">Rensa formuläret</mdui-button>
+	<mdui-button id="button-dialog-copy-artikeldata" icon="content_copy" variant="filled">Kopiera artikeluppgifter</mdui-button>
+</div>
+
 </div><!-- .content-container -->
+
 
 <!-- Hjälp artikelbenämning -->
 
@@ -1005,6 +1018,8 @@
 		slot="action"
 		variant="filled">Skapa e-postmeddelande</mdui-button>
 </mdui-dialog>
+
+<div id="photo-layer" class="hidden"></div>
 
 </body>
 <script src="js/strings.js"></script>

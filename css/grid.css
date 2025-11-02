@@ -16,6 +16,8 @@
 	--gap-80: 5rem;		/* 80px */
 	--gap-96: 6rem;		/* 96px */
 	--gap-120: 7.5rem;	/* 120px */
+	--gap-128: 8rem;	/* 128px */
+	--gap-160: 10rem;	/* 160px */
 }
 
 /* --mdui-breakpoint-sm 0-600px */
@@ -46,7 +48,7 @@
 		--gap-auto-5x: var(--gap-80);	}
 }
 @media only screen and (min-width: 1080px ) {
-	/* --mdui-breakpoint-lg 1080-1441px */
+	/* --mdui-breakpoint-lg 1080-1439px */
 	:root {
 		--gap-auto-1x: var(--gap-24);
 		--gap-auto-2x: var(--gap-48);
