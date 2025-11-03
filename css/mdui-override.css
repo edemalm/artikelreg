@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root, .navy {
 --mdui-color-primary-light: 63,95,144;
 --mdui-color-surface-tint-color-light: 63,95,144;
@@ -609,6 +611,10 @@ mdui-top-app-bar {
 	position: fixed !important;
 }
 
+mdui-layout-main {
+	z-index: 2;
+}
+
 @media only screen and (min-width: 840px)  {
 	#text-artikelbenamning {
 		--mdui-typescale-body-large-size: 1.5rem !important;
@@ -647,7 +653,6 @@ mdui-text-field[variant=outlined],
 mdui-select[variant=outlined] {
 	--mdui-color-background: var(--mdui-color-surface-container-lowest);
 }
-
 
 /* Hack: change background color of filled text fields */
 mdui-text-field[variant=filled],

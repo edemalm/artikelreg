@@ -33,8 +33,8 @@
 	<link rel="stylesheet" href="css/app.css">
 
 	<!-- JS from local file system -->
-	<script src="js/mdui-2.1.4.hack.js"></script>
-	<script src="js/jquery-3.7.1.min.js"></script>
+	<script src="js/mdui-2.1.4.hack.js" charset="UTF-8"></script>
+	<script src="js/jquery-3.7.1.min.js" charset="UTF-8"></script>
 
 	<title>Artikelregistreringsunderlag</title>
 </head>
@@ -113,24 +113,32 @@
 	<mdui-button-icon id="button-open-menu" icon="menu--oulined"></mdui-button-icon>
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
-	<mdui-button-icon id="button-toggle-theme" icon="brightness_auto--outlined"></mdui-button-icon>
-	<mdui-dropdown id="dropdown-palette">
-		<mdui-button-icon id="button-toggle-palette"
-			icon="palette--outlined"
-			placement="bottom-end"
-			slot="trigger"
-			trigger="click"></mdui-button-icon>
-		<mdui-menu id="menu-palette"
-			selects="single">
-			<mdui-menu-item class="palette-item" value="navy"><span class="palette-color navy"></span></mdui-menu-item>
-			<mdui-menu-item class="palette-item" value="purple"><span class="palette-color purple"></span></mdui-menu-item>
-			<mdui-menu-item class="palette-item" value="maroon"><span class="palette-color maroon"></span></mdui-menu-item>
-			<mdui-menu-item class="palette-item" value="olive"><span class="palette-color olive"></span></mdui-menu-item>
-			<mdui-menu-item class="palette-item" value="green"><span class="palette-color green"></span></mdui-menu-item>
-			<mdui-menu-item class="palette-item" value="teal"><span class="palette-color teal"></span></mdui-menu-item>
-		</mdui-menu>
-	</mdui-dropdown>
-	<mdui-button-icon id="button-about" icon="info--outlined"></mdui-button-icon>
+	<mdui-tooltip content="Tema">
+		<mdui-button-icon id="button-toggle-theme" icon="brightness_auto--outlined"></mdui-button-icon>
+	</mdui-tooltip>
+	<mdui-tooltip content="Färgschema">
+		<span>
+			<mdui-dropdown id="dropdown-palette">
+				<mdui-button-icon id="button-toggle-palette"
+					icon="palette--outlined"
+					placement="bottom-end"
+					slot="trigger"
+					trigger="click"></mdui-button-icon>
+				<mdui-menu id="menu-palette"
+					selects="single">
+					<mdui-menu-item class="palette-item" value="navy"><span class="palette-color navy"></span></mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="purple"><span class="palette-color purple"></span></mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="maroon"><span class="palette-color maroon"></span></mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="olive"><span class="palette-color olive"></span></mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="green"><span class="palette-color green"></span></mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="teal"><span class="palette-color teal"></span></mdui-menu-item>
+				</mdui-menu>
+			</mdui-dropdown>
+		</span>
+	</mdui-tooltip>
+	<mdui-tooltip content="Om verktyget">
+		<mdui-button-icon id="button-about" icon="info--outlined"></mdui-button-icon>
+	</mdui-tooltip>
 </mdui-top-app-bar>
 
 <!-- PAGE CONTENT ---------------------------------------------------------- -->
@@ -1019,12 +1027,10 @@
 		variant="filled">Skapa e-postmeddelande</mdui-button>
 </mdui-dialog>
 
-<div id="photo-layer" class="hidden"></div>
-
 </body>
-<script src="js/strings.js"></script>
-<script src="js/jquery.inactivity.min.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/events.js"></script>
-<script src="js/init.js"></script>
+<script src="js/strings.js" charset="UTF-8"></script>
+<script src="js/jquery.inactivity.min.js" charset="UTF-8"></script>
+<script src="js/functions.js" charset="UTF-8"></script>
+<script src="js/events.js" charset="UTF-8"></script>
+<script src="js/init.js" charset="UTF-8"></script>
 </html>

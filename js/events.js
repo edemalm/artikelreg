@@ -11,6 +11,53 @@ $(document).ready(function() {
 		$('#navigation-drawer').attr('open', true);
 	});
 
+	// <mdui-button #button-toggle-theme> hover
+	$('#button-toggle-theme').hover(function() {
+		if ($('html').hasClass('mdui-theme-light')) {
+			$(this).attr('icon', 'light_mode');
+		} else {
+			$(this).attr('icon', 'dark_mode');
+		}
+	}, function() {
+		if ($('html').hasClass('mdui-theme-light')) {
+			$(this).attr('icon', 'light_mode--outlined');
+		} else {
+			$(this).attr('icon', 'dark_mode--outlined');
+		}
+	});
+
+/*
+	$('mdui-button-icon[icon="light_mode--outlined"]').hover(function() {
+		$(this).attr('icon', 'light_mode');
+	}, function() {
+		$(this).attr('icon', 'light_mode--outlined');
+	});
+
+	$('mdui-button-icon[icon="dark_mode--outlined"]').hover(function() {
+		$(this).attr('icon', 'dark_mode');
+	}, function() {
+		$(this).attr('icon', 'dark_mode--outlined');
+	});
+*/
+
+	$('mdui-button-icon[icon="palette--outlined"]').hover(function() {
+		$(this).attr('icon', 'palette');
+	}, function() {
+		$(this).attr('icon', 'palette--outlined');
+	});
+
+
+	$('mdui-button-icon[icon="info--outlined"]').hover(function() {
+		$(this).attr('icon', 'info');
+	}, function() {
+		$(this).attr('icon', 'info--outlined');
+	});
+
+
+
+
+
+
 	// Toggle theme
 	$('#button-toggle-theme').click(function() {
 		console.debug('<mdui-button #button-toggle-theme> clicked');
