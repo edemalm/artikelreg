@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-04';	// Last commit date
+	window.update = '2025-11-04-2';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -115,10 +115,10 @@ $(document).ready(function() {
 
 	// Inactivity plugin
 	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 20000 });
+	$(document).inactivity( { timeout: 30000 });
 	$(document).on("activity", function() {
 		console.debug('Activity detected');
-		$('mdui-layout-main').fadeIn();
+		$('mdui-layout-main').fadeIn('fast');
 	});
 	$(document).on("inactivity", function() {
 		console.debug('Inactivity detected');

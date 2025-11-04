@@ -65,6 +65,8 @@ function formInit() {
 	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);
 
 	// 2. Leverantör
+	$('#checkbox-ht').attr('checked', true);
+	ht = 'Ja';
 
 	// 3. Ansvarigt team
 	setSelect('team', 'enabled', '', helper_team);
@@ -181,6 +183,7 @@ function showManualPrice() {
 	$('#ejht-isokod').removeClass('hidden');
 	$('#ejht-pris').removeClass('hidden');
 	$('#ejht-garanti').removeClass('hidden');
+	$('#ejht-label').removeClass('hidden');
 }
 
 /**
@@ -194,6 +197,7 @@ function hideManualPrice() {
 	$('#ejht-isokod').addClass('hidden');
 	$('#ejht-pris').addClass('hidden');
 	$('#ejht-garanti').addClass('hidden');
+	$('#ejht-label').addClass('hidden');
 }
 
 /**
