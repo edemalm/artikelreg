@@ -21,6 +21,8 @@ $(document).ready(function() {
 
 	// Get palette cookie
 	var c_palette = getCookie('palette');
+	$('html').removeClass('blue purple amber green');
+
 	if (c_palette != null) {
 		console.info('Found cookie: palette=' + c_palette);
 		$('html').addClass(c_palette);
@@ -28,8 +30,8 @@ $(document).ready(function() {
 		setCookie('palette', c_palette, 365);
 	} else {
 		console.info('No palette cookie found');
-		$('html').addClass('navy');
-		$('.palette-item[value=navy]').attr('selected', true);
+		$('html').addClass('blue');
+		$('.palette-item[value=blue]').attr('selected', true);
 	}
 
 	// Set background image class
@@ -63,22 +65,6 @@ $(document).ready(function() {
 	}
 	const random = Math.floor(Math.random() * bgclasses.length);
 	$('body').addClass(bgclasses[random]);
-
-	// Inactivity plugin
-	// https://github.com/kaparelos/jquery.inactivity
-	$(document).inactivity( { timeout: 30000 });
-	$(document).on("activity", function() {
-		console.debug('Activity detected');
-		$('mdui-layout-main').fadeIn('fast');
-	});
-	$(document).on("inactivity", function() {
-		console.debug('Inactivity detected');
-		if ( $('mdui-navigation-drawer').attr('open') || $('mdui-dialog').attr('open')) {
-			console.log('action calcelled');
-			return;
-		}
-		$('mdui-layout-main').fadeOut();
-	});
 
 	// Set date in version
 	$('#version').html('Version ' + update);
@@ -114,6 +100,7 @@ $(document).ready(function() {
 	$('#inc-plockomrade').load('inc/plockomraden.html');
 
 	// Page was reloaded
+	/*
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	if (urlParams.has('reload')) {
@@ -122,5 +109,30 @@ $(document).ready(function() {
 		window.history.pushState(null, '', url);
 		mdui.snackbar({ message: 'Formuläret är rensat' });
 	}
+	*/
 
+	if ($(window).width() >= 1080) {
+		console.debug('Window width ' + $(window).width() + ' >= 1080')
+		console.debug('Starting inactivity timer');
+
+		// Inactivity plugin
+		// https://github.com/kaparelos/jquery.inactivity
+		$(document).inactivity( { timeout: 30000 });
+		$(document).on("activity", function() {
+			console.debug('Activity detected');
+			$('mdui-layout-main').fadeIn('fast');
+		});
+		$(document).on("inactivity", function() {
+			console.debug('Inactivity detected');
+			if ( $('mdui-navigation-drawer').attr('open') || $('mdui-dialog').attr('open')) {
+				console.log('action calcelled');
+				return;
+			}
+			$('mdui-layout-main').fadeOut();
+		});
+
+	} else {
+		console.debug('Window width ' + $(window).width() + ' < 1080')
+		console.debug('Inactivity timer disabled');
+	}
 });

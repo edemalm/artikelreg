@@ -63,10 +63,16 @@ function formInit() {
 	// 1. Artikelbenämning och produkt
 	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);
 	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);
+	$('.extraprodukt').hide();
+	$('.standardprodukt').removeClass('xl3');
+	$('#text-standardprodukt').attr('label', 'Produkt');
+	$('#div-fler-produkter').show();
 
 	// 2. Leverantör
 	$('#checkbox-ht').attr('checked', true);
 	ht = 'Ja';
+	$('#text-isokod, #text-pris, #text-garanti').attr('disabled', true);
+	$('#ejht-isokod, #ejht-pris, #ejht-garanti, #ejht-label').addClass('hidden');
 
 	// 3. Ansvarigt team
 	setSelect('team', 'enabled', '', helper_team);
@@ -94,6 +100,7 @@ function formInit() {
 	// 7. Lagerhållning
 	setSelect('inkopshantering', 'enabled', '', helper_inkopshantering);
 	setTextField('liggplats', 'enabled', '', helper_liggplats);
+	disableSliderForbrukning();
 	setTextField('buffertlager', 'enabled', 'Exempel: ' + placeholder_buffertlager, helper_buffertlager);
 
 	// 8. Hantering vid ankomst
@@ -172,14 +179,15 @@ function setTheme(theme) {
 			$('html').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 			$('#button-theme-menu').attr('icon', 'light_mode--outlined');
 			$('.theme-item[value=light]').attr('selected', true);
+			setCookie('theme', 'light', 365);
 		break;
 		case 'dark':
 			$('html').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
 			$('#button-theme-menu').attr('icon', 'dark_mode--outlined');
 			$('.theme-item[value=dark]').attr('selected', true);
+			setCookie('theme', 'dark', 365);
 		break;
 	}
-	setCookie('theme', theme, 365);
 }
 
 /**
@@ -202,8 +210,8 @@ function setURLParam(key, value) {
 function changeContent(contentId, menuItemId) {
 	console.debug('changeContent("' + contentId + '","' + menuItemId + '")');
 	if ($(contentId).css('display') == 'none') {
-		$('.content-container').fadeOut(400); /* hide all content */
-		$(contentId).delay(400).fadeIn(400);
+		$('.content-container').fadeOut(); /* hide all content */
+		$(contentId).delay(400).fadeIn();
 		$('mdui-list-item').removeAttr('active');
 		$(menuItemId).attr('active','');
 	}

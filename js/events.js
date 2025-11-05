@@ -58,7 +58,7 @@ $(document).ready(function() {
 		let palette = $(this).attr('value');
 		console.info('selected palette: ' + palette);
 		$('#dropdown-palette').removeAttr('open');
-		$('html').removeClass('navy purple maroon olive green teal');
+		$('html').removeClass('blue purple amber green');
 		$('html').addClass(palette);
 		setCookie('palette', palette, 365);
 	});
@@ -1016,12 +1016,17 @@ $(document).ready(function() {
 
 	$('#button-reset-form').click(function() {
 		console.debug('<mdui-button #button-reset-form> clicked');
+		/*
 		setURLParam('theme', theme);
 		setURLParam('reload', 1);
 		location.reload();
-		// $('#form-formular').trigger("reset");
-		// formInit();
-		// mdui.snackbar({ message: 'Formuläret är rensat' });
+		*/
+		$('.content-container').fadeOut(); /* hide all content */
+		$('#form-formular').trigger('reset');
+		formInit();
+		$('#content-formular').delay(400).fadeIn();
+
+		mdui.snackbar({ message: 'Formuläret är rensat' });
 	});
 
 	$('.button-close-dialog').click(function() {

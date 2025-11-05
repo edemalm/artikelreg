@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="" lang="sv" translate="no">
+<html lang="sv" translate="no">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -115,12 +115,11 @@
 	<div style="flex-grow: 1"></div>
 
 
-	<mdui-tooltip content="Tema">
+	<mdui-tooltip content="Tema" placement="bottom">
 		<span>
 			<mdui-dropdown id="dropdown-theme">
 				<mdui-button-icon id="button-theme-menu"
 					icon="light_mode--outlined"
-					placement="bottom-end"
 					slot="trigger"
 					trigger="click"></mdui-button-icon>
 				<mdui-menu id="menu-theme"
@@ -135,27 +134,24 @@
 	</mdui-tooltip>
 
 
-	<mdui-tooltip content="Färgschema">
+	<mdui-tooltip content="Färgschema" placement="bottom">
 		<span>
 			<mdui-dropdown id="dropdown-palette">
-				<mdui-button-icon id="button-toggle-palette"
+				<mdui-button-icon id="button-palette-menu"
 					icon="palette--outlined"
-					placement="bottom-end"
 					slot="trigger"
 					trigger="click"></mdui-button-icon>
 				<mdui-menu id="menu-palette"
 					selects="single">
-					<mdui-menu-item class="palette-item" value="navy"><span class="palette-color navy"></span></mdui-menu-item>
-					<mdui-menu-item class="palette-item" value="purple"><span class="palette-color purple"></span></mdui-menu-item>
-					<mdui-menu-item class="palette-item" value="maroon"><span class="palette-color maroon"></span></mdui-menu-item>
-					<mdui-menu-item class="palette-item" value="olive"><span class="palette-color olive"></span></mdui-menu-item>
-					<mdui-menu-item class="palette-item" value="green"><span class="palette-color green"></span></mdui-menu-item>
-					<mdui-menu-item class="palette-item" value="teal"><span class="palette-color teal"></span></mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="blue"><span class="palette-color blue"></span>Blått</mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="purple"><span class="palette-color purple"></span>Lila</mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="amber"><span class="palette-color amber"></span>Orange</mdui-menu-item>
+					<mdui-menu-item class="palette-item" value="green"><span class="palette-color green"></span>Grönt</mdui-menu-item>
 				</mdui-menu>
 			</mdui-dropdown>
 		</span>
 	</mdui-tooltip>
-	<mdui-tooltip content="Om verktyget">
+	<mdui-tooltip content="Om&nbsp;verktyget" placement="bottom-left">
 		<mdui-button-icon id="button-about" icon="info--outlined"></mdui-button-icon>
 	</mdui-tooltip>
 </mdui-top-app-bar>
@@ -316,7 +312,7 @@
 							autocomplete="off"
 							autocorrect="off"
 							inputmode="decimal"
-							label="Inköpspris"
+							label="Pris exkl. moms"
 							name="pris"
 							suffix="&nbsp;kr"
 							type="text"
@@ -336,7 +332,7 @@
 							variant="filled"
 							clearable disabled end-aligned></mdui-text-field>
 					</div>
-					<div id="ejht-label" class="s12 hidden">Vi behöver uppgifterna ovan för att skapa en artikel helt manuellt. Fyll i så mycket som möjligt.</div>
+					<div id="ejht-label" class="s12 hidden">Uppgifterna ovan är nödvändiga för att skapa en artikel manuellt. Fyll i så mycket som möjligt.</div>
 				</div><!-- .grid -->
 			</div>
 			<div class="form-section">
