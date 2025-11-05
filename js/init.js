@@ -9,25 +9,15 @@ $(document).ready(function() {
 	// Initialize form
 	formInit();
 
-	// Check for 'theme' parameter in URL
-	/*
-	let params = new URLSearchParams(window.location.search);
-	if (params.get('theme') == 'dark') {
-		theme = 'dark';
-		console.debug('Requested theme: ' + theme);
-	} else if (params.get('theme') == 'light') {
-		theme = 'light';
-		console.debug('Requested theme: ' + theme);
+	// Read theme cookie from device
+	var c_theme = getCookie('theme');
+	if (c_theme != null) {
+		console.info('Found cookie: theme=' + c_theme);
+		setTheme(c_theme);
 	} else {
-		console.debug('No theme requested in URL parameter');
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			theme = 'dark';
-		} else {
-			theme = 'light';
-		}
-		console.debug('System preferred theme: ' + theme);
+		console.info('No theme cookie found, using system preferred theme');
+		setSystemTheme();
 	}
-	*/
 
 	// Read palette cookie from device
 	var c_palette = getCookie('palette');
@@ -42,76 +32,37 @@ $(document).ready(function() {
 		$('.palette-item[value=navy]').attr('selected', true);
 	}
 
-	// Read theme cookie from device
-	var cookietheme = getCookie('theme');
-
-	if (cookietheme != null) {
-		console.info('Found cookie: theme=' + cookietheme);
-		// Use theme stored in cookie
-		theme = cookietheme;
-	} else {
-		console.info('No theme cookie found');
-		// Detect system theme
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			console.info('System prefers dark theme');
-			theme = 'dark';
-		} else {
-			console.info('System prefers light theme');
-			theme = 'light';
-		}
-	}
-
-	// Set cookie with preferred theme on device
-	setCookie('theme', theme, 365);
-
-	// Set theme class to html element
-	if (theme == 'dark') {
-		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
-		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'dark_mode--outlined');
-	} else {
-		$('html').removeClass('mdui-theme-auto').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
-		$('#button-toggle-theme').removeAttr('icon').attr('icon', 'light_mode--outlined');
-	}
-
 	// Set background image class
 	const d = new Date();
 	let month = d.getMonth();
-
+	let bgclasses = [];
 	if ( month == 0 || month == 1 || month == 2 ) {
 		// Jan, Feb, Mar
 		console.debug("I believe it's winter");
-		const bgclasses = ['winter-0','winter-1','winter-2','winter-3','winter-4','winter-5','winter-6','winter-7','winter-8'];
-		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		bgclasses = ['winter-0','winter-1','winter-2','winter-3','winter-4','winter-5','winter-6','winter-7','winter-8'];
 	}
 	if ( month == 3 || month == 4 ) {
 		// Apr, May
 		console.debug("I believe it's spring");
-		const bgclasses = ['spring-0','spring-1','spring-2','spring-3','spring-4','spring-5','spring-6', 'spring-7'];
-		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		bgclasses = ['spring-0','spring-1','spring-2','spring-3','spring-4','spring-5','spring-6', 'spring-7'];
 	}
 	if ( month == 5 || month == 6 || month == 7 ) {
 		// Jun, Jul, Aug
 		console.debug("I believe it's summer");
-		const bgclasses = ['summer-0','summer-1','summer-2','summer-3','summer-4','summer-5','summer-6','summer-7','summer-8','summer-9','summer-10','summer-11','summer-12','summer-13','summer-14','summer-15','summer-16'];
-		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		bgclasses = ['summer-0','summer-1','summer-2','summer-3','summer-4','summer-5','summer-6','summer-7','summer-8','summer-9','summer-10','summer-11','summer-12','summer-13','summer-14','summer-15','summer-16'];
 	}
 	if ( month == 8 || month == 9 || month == 10 ) {
 		// Sep, Oct, Nov
 		console.debug("I believe it's fall");
-		const bgclasses = ['fall-0','fall-1','fall-2','fall-3','fall-4','fall-5','fall-6','fall-7','fall-8','fall-9','fall-10','fall-11','fall-12','fall-13','fall-14','fall-15','fall-16','fall-17','fall-18','fall-19','fall-20','fall-21'];
-		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		bgclasses = ['fall-0','fall-1','fall-2','fall-3','fall-4','fall-5','fall-6','fall-7','fall-8','fall-9','fall-10','fall-11','fall-12','fall-13','fall-14','fall-15','fall-16','fall-17','fall-18','fall-19','fall-20','fall-21'];
 	}
 	if ( month == 11 ) {
 		// Dec
 		console.debug("I believe it's christmas");
-		const bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
-		const random = Math.floor(Math.random() * bgclasses.length);
-		$('body').addClass(bgclasses[random]);
+		bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
 	}
+	const random = Math.floor(Math.random() * bgclasses.length);
+	$('body').addClass(bgclasses[random]);
 
 	// Inactivity plugin
 	// https://github.com/kaparelos/jquery.inactivity

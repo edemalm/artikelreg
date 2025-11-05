@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="mdui-theme-auto" lang="sv" translate="no">
+<html class="" lang="sv" translate="no">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -113,9 +113,28 @@
 	<mdui-button-icon id="button-open-menu" icon="menu--oulined"></mdui-button-icon>
 	<mdui-top-app-bar-title>Artikelregistreringsunderlag</mdui-top-app-bar-title>
 	<div style="flex-grow: 1"></div>
+
+
 	<mdui-tooltip content="Tema">
-		<mdui-button-icon id="button-toggle-theme" icon="brightness_auto--outlined"></mdui-button-icon>
+		<span>
+			<mdui-dropdown id="dropdown-theme">
+				<mdui-button-icon id="button-theme-menu"
+					icon="light_mode--outlined"
+					placement="bottom-end"
+					slot="trigger"
+					trigger="click"></mdui-button-icon>
+				<mdui-menu id="menu-theme"
+					selects="single">
+					<mdui-menu-item class="theme-item" value="light">Ljust</mdui-menu-item>
+					<mdui-menu-item class="theme-item" value="dark">Mörkt</mdui-menu-item>
+					<mdui-divider></mdui-divider>
+					<mdui-menu-item class="theme-item" value="system">System</mdui-menu-item>
+				</mdui-menu>
+			</mdui-dropdown>
+		</span>
 	</mdui-tooltip>
+
+
 	<mdui-tooltip content="Färgschema">
 		<span>
 			<mdui-dropdown id="dropdown-palette">

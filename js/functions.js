@@ -145,6 +145,44 @@ function deleteCookie(name) {
 }
 
 /**
+ * Detect and set system preferred theme
+ */
+function setSystemTheme() {
+	console.debug('setSystemTheme()');
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+		console.info('System prefers light theme');
+		$('html').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
+		$('#button-theme-menu').attr('icon', 'light_mode--outlined');
+	} else {
+		console.info('System prefers dark theme');
+		$('html').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
+		$('#button-theme-menu').attr('icon', 'dark_mode--outlined');
+	}
+	$('.theme-item[value=system]').attr('selected', true);
+}
+
+/**
+ * Set theme
+ * @param {string} theme	- Set "light" or "dark"
+ */
+function setTheme(theme) {
+	console.debug('setTheme(' + theme + ')');
+	switch (theme) {
+		case 'light':
+			$('html').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
+			$('#button-theme-menu').attr('icon', 'light_mode--outlined');
+			$('.theme-item[value=light]').attr('selected', true);
+		break;
+		case 'dark':
+			$('html').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
+			$('#button-theme-menu').attr('icon', 'dark_mode--outlined');
+			$('.theme-item[value=dark]').attr('selected', true);
+		break;
+	}
+	setCookie('theme', theme, 365);
+}
+
+/**
  * Add a search parameter to current URL
  * @param {string} key		- Name of search key (i.e. "theme").
  * @param {string} value	- Value of search key (i.e. "dark").

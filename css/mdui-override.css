@@ -631,13 +631,13 @@ mdui-layout-main {
 
 /*
 #text-artikelbenamning::part(input) {
-	font-family: "Roboto Mono", monospace;
+	font-family: "Roboto Mono",monospace;
 }
 */
 
 /* Temprary fix for mdui 2.1.4: Input counter doesn't change color when inactive */
 mdui-text-field[disabled]::part(counter) {
-	color: rgba(var(--mdui-color-on-surface), 38%);
+	color: rgba(var(--mdui-color-on-surface),38%);
 }
 
 mdui-checkbox::part(label) {

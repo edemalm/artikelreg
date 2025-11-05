@@ -11,8 +11,8 @@ $(document).ready(function() {
 		$('#navigation-drawer').attr('open', true);
 	});
 
-	// <mdui-button #button-toggle-theme> hover
-	$('#button-toggle-theme').hover(function() {
+	// <mdui-button #button-theme-menu> hover
+	$('#button-theme-menu').hover(function() {
 		if ($('html').hasClass('mdui-theme-light')) {
 			$(this).attr('icon', 'light_mode');
 		} else {
@@ -26,39 +26,22 @@ $(document).ready(function() {
 		}
 	});
 
-/*
-	$('mdui-button-icon[icon="light_mode--outlined"]').hover(function() {
-		$(this).attr('icon', 'light_mode');
-	}, function() {
-		$(this).attr('icon', 'light_mode--outlined');
-	});
-
-	$('mdui-button-icon[icon="dark_mode--outlined"]').hover(function() {
-		$(this).attr('icon', 'dark_mode');
-	}, function() {
-		$(this).attr('icon', 'dark_mode--outlined');
-	});
-*/
-
 	$('mdui-button-icon[icon="palette--outlined"]').hover(function() {
+		console.info(this + ' hover');
 		$(this).attr('icon', 'palette');
 	}, function() {
 		$(this).attr('icon', 'palette--outlined');
 	});
 
-
 	$('mdui-button-icon[icon="info--outlined"]').hover(function() {
+		console.info(this + ' hover');
 		$(this).attr('icon', 'info');
 	}, function() {
 		$(this).attr('icon', 'info--outlined');
 	});
 
-
-
-
-
-
 	// Toggle theme
+	/*
 	$('#button-toggle-theme').click(function() {
 		console.debug('<mdui-button #button-toggle-theme> clicked');
 		if ( $('html').hasClass('mdui-theme-light') ) {
@@ -72,6 +55,20 @@ $(document).ready(function() {
 		}
 		// Set cookie with preferred theme on device
 		setCookie('theme', theme, 365);
+	});
+	*/
+
+	$('.theme-item').click(function() {
+		console.info('<mdui-menu-item .theme-item> clicked');
+		let theme = $(this).attr('value');
+		console.info('selected theme: ' + theme);
+		$('#dropdown-theme').removeAttr('open');
+		$('html').removeClass('mdui-theme-light mdui-theme-dark');
+		if (theme == 'light' || theme == 'dark') {
+			setTheme(theme);
+		} else {
+			setSystemTheme();
+		}
 	});
 
 	$('.palette-item').click(function() {
