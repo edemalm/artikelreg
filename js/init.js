@@ -3,13 +3,13 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-04-2';	// Last commit date
+	window.update = '2025-11-05';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
 	formInit();
 
-	// Read theme cookie from device
+	// Get theme cookie
 	var c_theme = getCookie('theme');
 	if (c_theme != null) {
 		console.info('Found cookie: theme=' + c_theme);
@@ -19,7 +19,7 @@ $(document).ready(function() {
 		setSystemTheme();
 	}
 
-	// Read palette cookie from device
+	// Get palette cookie
 	var c_palette = getCookie('palette');
 	if (c_palette != null) {
 		console.info('Found cookie: palette=' + c_palette);
