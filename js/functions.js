@@ -179,13 +179,11 @@ function setTheme(theme) {
 			$('html').removeClass('mdui-theme-dark').addClass('mdui-theme-light');
 			$('#button-theme-menu').attr('icon', 'light_mode--outlined');
 			$('.theme-item[value=light]').attr('selected', true);
-			setCookie('theme', 'light', 365);
 		break;
 		case 'dark':
 			$('html').removeClass('mdui-theme-light').addClass('mdui-theme-dark');
 			$('#button-theme-menu').attr('icon', 'dark_mode--outlined');
 			$('.theme-item[value=dark]').attr('selected', true);
-			setCookie('theme', 'dark', 365);
 		break;
 	}
 }

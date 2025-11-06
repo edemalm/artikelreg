@@ -39,14 +39,16 @@ $(document).ready(function() {
 	});
 
 	$('.theme-item').click(function() {
-		console.info('<mdui-menu-item .theme-item> clicked');
+		console.debug('<mdui-menu-item .theme-item> clicked');
 		let theme = $(this).attr('value');
 		console.info('selected theme: ' + theme);
 		$('#dropdown-theme').removeAttr('open');
 		$('html').removeClass('mdui-theme-light mdui-theme-dark');
 		if (theme == 'light' || theme == 'dark') {
+			setCookie('theme', theme, 365);
 			setTheme(theme);
 		} else {
+			setCookie('theme', 'system', 365);
 			setSystemTheme();
 		}
 	});

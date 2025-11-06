@@ -13,11 +13,21 @@ $(document).ready(function() {
 	var c_theme = getCookie('theme');
 	if (c_theme != null) {
 		console.debug('Found cookie: theme=' + c_theme);
-		if (c_theme == 'light' || c_theme == 'dark' ) {
-			setTheme(c_theme);
-		} else {
-			console.info('Invalid theme cookie found, using system preferred theme');
-			setSystemTheme();
+		switch (c_theme) {
+			case 'light':
+				setCookie('theme', 'light', 365);
+				setTheme('light');
+			break;
+			case 'dark':
+				setCookie('theme', 'dark', 365);
+				setTheme('dark');
+			break;
+			case 'system':
+				setCookie('theme', 'system', 365);
+				setSystemTheme();
+			break;
+			default:
+				setSystemTheme();
 		}
 	} else {
 		console.info('No theme cookie found, using system preferred theme');
