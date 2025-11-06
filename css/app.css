@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 body {
+	background-attachment: fixed;
 	background-color: rgb(var(--mdui-color-surface-dim));
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 100vw auto;
 	box-sizing: border-box;
 	font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	margin: 0;
 	min-height: 100vh;
 	padding: 0;
 	user-select: none;
-	background-attachment: fixed;
-	background-position: left center;
-	background-repeat: no-repeat;
-	background-size: 100vw auto;
 	-webkit-tap-highlight-color: transparent;
 }
 mdui-layout-main {
@@ -99,17 +99,11 @@ div.content-container {
 
 @media only screen and (min-width: 1280px) {
 	div.content-container {
-		/* border: 1px solid rgb(var(--mdui-color-surface-container)); */
 		border-radius: var(--mdui-shape-corner-extra-large);
 		box-shadow: var(--mdui-elevation-level1);
 		margin: var(--gap-auto-1x) auto !important;
 		overflow: hidden;
 	}
-	/*
-	.mdui-theme-dark div.content-container {
-		padding: 4px;
-	}
-	*/
 }
 
 div.fullpage-content {
@@ -174,12 +168,6 @@ div.right-container .form-section:last-child {
 		flex-grow: 1;
 	}
 }
-@media only screen and (min-width: 1280px) {
-	div.upper-container .form-section {
-		border-top-left-radius: var(--mdui-shape-corner-extra-large);
-		border-top-right-radius: var(--mdui-shape-corner-extra-large);
-	}
-}
 
 #form-formular {
 	margin: 0 !important; /* override .mdui-prose */
@@ -206,9 +194,6 @@ div.buttom-container mdui-button:not(:first-child) {
 }
 
 #viewport {
-	background-color: rgb(var(--mdui-color-surface));
-	color: rgb(var(--mdui-color-on-surface));
-	display: none;
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
 	letter-spacing: var(--mdui-typescale-body-small-tracking);
@@ -317,19 +302,6 @@ div.radio-helper,
 div.slider-helper,
 #ejht-label {
 	color: rgb(var(--mdui-color-on-surface-variant));
-	font-size: var(--mdui-typescale-body-small-size);
-	font-weight: var(--mdui-typescale-body-small-weight);
-	letter-spacing: var(--mdui-typescale-body-small-tracking);
-	line-height: var(--mdui-typescale-body-small-line-height);
-}
-
-.center-aligned { text-align: center; }
-.right-aligned { text-align: right; }
-
-.float-left { float: left; }
-.float-right { float: right; }
-
-.x-small {
 	font-size: var(--mdui-typescale-body-small-size);
 	font-weight: var(--mdui-typescale-body-small-weight);
 	letter-spacing: var(--mdui-typescale-body-small-tracking);

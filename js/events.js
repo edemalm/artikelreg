@@ -26,6 +26,13 @@ $(document).ready(function() {
 		}
 	});
 
+	// <mdui-button #button-theme-menu> clicked
+	// <mdui-button #button-palette-menu> clicked
+	$('#button-theme-menu, #button-palette-menu').click(function() {
+		// Instantly close tooltip when menus opened
+		$('mdui-tooltip').attr('open', false);
+	});
+
 	$('mdui-button-icon[icon="palette--outlined"]').hover(function() {
 		$(this).attr('icon', 'palette');
 	}, function() {
@@ -99,36 +106,16 @@ $(document).ready(function() {
 		$('#navigation-drawer').removeAttr('open');
 	});
 
-	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group1>
-	$('#menu-collapse-group1').on('open', function() {
-		console.debug('The open event fired on #menu-collapse-group1');
-		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_up')
+	// Change icon of opened mdui-collapse-item
+	$('mdui-collapse-item').on('open', function() {
+		$(this).children('mdui-list-item').children('mdui-icon').attr('name', 'keyboard_arrow_up');
 	});
-	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group2>
-	$('#menu-collapse-group2').on('open', function() {
-		console.debug('The open event fired on #menu-collapse-group2');
-		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_up')
+
+	// Change icon of closed mdui-collapse-item
+	$('mdui-collapse-item').on('close', function() {
+		$(this).children('mdui-list-item').children('mdui-icon').attr('name', 'keyboard_arrow_down');
 	});
-	// Catch the "open" event of <mdui-collapse-item #menu-collapse-group3>
-	$('#menu-collapse-group3').on('open', function() {
-		console.debug('The open event fired on #menu-collapse-group3');
-		$('#menu-group3-arrow').attr('name', 'keyboard_arrow_up')
-	});
-	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group1>
-	$('#menu-collapse-group1').on('close', function() {
-		console.debug('The close event fired on #menu-collapse-group1');
-		$('#menu-group1-arrow').attr('name', 'keyboard_arrow_down')
-	});
-	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group2>
-	$('#menu-collapse-group2').on('close', function() {
-		console.debug('The close event fired on #menu-collapse-group2');
-		$('#menu-group2-arrow').attr('name', 'keyboard_arrow_down')
-	});
-	// Catch the "close" event of <mdui-collapse-item #menu-collapse-group3>
-	$('#menu-collapse-group3').on('close', function() {
-		console.debug('The close event fired on #menu-collapse-group3');
-		$('#menu-group3-arrow').attr('name', 'keyboard_arrow_down')
-	});
+
 
 	$('#menu-formular').click(function() {
 		console.debug('<mdui-button #menu-formular> clicked');
