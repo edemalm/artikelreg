@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-06';	// Last commit date
+	window.update = '2025-11-06-2';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -12,8 +12,13 @@ $(document).ready(function() {
 	// Get theme cookie
 	var c_theme = getCookie('theme');
 	if (c_theme != null) {
-		console.info('Found cookie: theme=' + c_theme);
-		setTheme(c_theme);
+		console.debug('Found cookie: theme=' + c_theme);
+		if (c_theme == 'light' || c_theme == 'dark' ) {
+			setTheme(c_theme);
+		} else {
+			console.info('Invalid theme cookie found, using system preferred theme');
+			setSystemTheme();
+		}
 	} else {
 		console.info('No theme cookie found, using system preferred theme');
 		setSystemTheme();
@@ -22,14 +27,19 @@ $(document).ready(function() {
 	// Get palette cookie
 	var c_palette = getCookie('palette');
 	$('html').removeClass('blue purple amber green');
-
 	if (c_palette != null) {
-		console.info('Found cookie: palette=' + c_palette);
-		$('html').addClass(c_palette);
-		$('.palette-item[value=' + c_palette + ']').attr('selected', true);
-		setCookie('palette', c_palette, 365);
+		console.debug('Found cookie: palette=' + c_palette);
+		if (c_palette == 'blue' || c_palette == 'purple' || c_palette == 'amber' || c_palette == 'green' ) {
+			$('html').addClass(c_palette);
+			$('.palette-item[value=' + c_palette + ']').attr('selected', true);
+			setCookie('palette', c_palette, 365);
+		} else {
+			console.info('Invalid palette cookie found, using default palette');
+			$('html').addClass('blue');
+			$('.palette-item[value=blue]').attr('selected', true);
+		}
 	} else {
-		console.info('No palette cookie found');
+		console.info('No palette cookie found, using default palette');
 		$('html').addClass('blue');
 		$('.palette-item[value=blue]').attr('selected', true);
 	}
@@ -125,10 +135,10 @@ $(document).ready(function() {
 		$(document).on("inactivity", function() {
 			console.debug('Inactivity detected');
 			if ( $('mdui-navigation-drawer').attr('open') || $('mdui-dialog').attr('open')) {
-				console.log('action calcelled');
-				return;
+				console.debug('Action calcelled');
+			} else {
+				$('mdui-layout-main').fadeOut();
 			}
-			$('mdui-layout-main').fadeOut();
 		});
 
 	} else {

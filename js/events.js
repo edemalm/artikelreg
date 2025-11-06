@@ -27,14 +27,12 @@ $(document).ready(function() {
 	});
 
 	$('mdui-button-icon[icon="palette--outlined"]').hover(function() {
-		console.info(this + ' hover');
 		$(this).attr('icon', 'palette');
 	}, function() {
 		$(this).attr('icon', 'palette--outlined');
 	});
 
 	$('mdui-button-icon[icon="info--outlined"]').hover(function() {
-		console.info(this + ' hover');
 		$(this).attr('icon', 'info');
 	}, function() {
 		$(this).attr('icon', 'info--outlined');
