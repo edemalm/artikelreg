@@ -15,7 +15,8 @@ body {
 	-webkit-tap-highlight-color: transparent;
 }
 mdui-layout-main {
-	background-color: rgb(var(--mdui-color-surface-dim));
+	backdrop-filter: blur(1rem);
+	background-color: rgba(var(--mdui-color-surface-dim),0.75);
 	min-height: 100vh;
 }
 
@@ -99,7 +100,7 @@ div.content-container {
 
 @media only screen and (min-width: 1280px) {
 	div.content-container {
-		border-radius: var(--mdui-shape-corner-extra-large);
+		border-radius: var(--mdui-shape-corner-small);
 		box-shadow: var(--mdui-elevation-level1);
 		margin: var(--gap-auto-1x) auto !important;
 		overflow: hidden;
@@ -116,14 +117,6 @@ div.fullpage-content {
 		padding: var(--gap-auto-2x) var(--gap-auto-2x);
 	}
 }
-@media only screen and (min-width: 1280px) {
-	div.fullpage-content {
-		border-top-left-radius: var(--mdui-shape-corner-extra-large);
-		border-top-right-radius: var(--mdui-shape-corner-extra-large);
-	}
-}
-
-
 
 div.flex-container {
 	display: flex;
