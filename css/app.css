@@ -14,11 +14,25 @@ body {
 	user-select: none;
 	-webkit-tap-highlight-color: transparent;
 }
+body::after {
+	backdrop-filter: blur(20px);
+	background-color: rgba(var(--mdui-color-surface-dim),0.5);
+	content: '';
+	inset: 0;
+	position: fixed;
+	transition: all .6s;
+}
+body.inactive::after {
+	backdrop-filter: none;
+	background-color: transparent;
+
+}
 
 mdui-layout-main {
-	/* backdrop-filter: blur(10px); BREAKS PAGE! */
-	background-color: rgb(var(--mdui-color-surface-dim));
-	min-height: 100vh;
+	transition: opacity .6s;
+}
+mdui-layout-main.inactive {
+	opacity: 0;
 }
 
 @media screen and (min-width: 1080px) {

@@ -208,8 +208,8 @@ function setURLParam(key, value) {
 function changeContent(contentId, menuItemId) {
 	console.debug('changeContent("' + contentId + '","' + menuItemId + '")');
 	if ($(contentId).css('display') == 'none') {
-		$('.content-container').fadeOut(); /* hide all content */
-		$(contentId).delay(400).fadeIn();
+		$('.content-container').fadeOut(400); /* hide all content */
+		$(contentId).delay(400).fadeIn(400);
 		$('mdui-list-item').removeAttr('active');
 		$(menuItemId).attr('active','');
 	}

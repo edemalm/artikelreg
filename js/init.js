@@ -133,21 +133,22 @@ $(document).ready(function() {
 
 	if ($(window).width() >= 1080) {
 		console.debug('Window width ' + $(window).width() + ' >= 1080')
-		console.debug('Starting inactivity timer');
 
 		// Inactivity plugin
 		// https://github.com/kaparelos/jquery.inactivity
-		$(document).inactivity( { timeout: 30000 });
+		$(document).inactivity( { timeout: 20000 });
+		console.debug('Starting inactivity timer');
+
 		$(document).on("activity", function() {
 			console.debug('Activity detected');
-			$('mdui-layout-main').fadeIn('fast');
+			$('body, mdui-layout-main').removeClass('inactive');
 		});
 		$(document).on("inactivity", function() {
 			console.debug('Inactivity detected');
 			if ( $('mdui-navigation-drawer').attr('open') || $('mdui-dialog').attr('open')) {
-				console.debug('Action calcelled');
+				console.debug('Inactivity action calcelled');
 			} else {
-				$('mdui-layout-main').fadeOut();
+				$('body, mdui-layout-main').addClass('inactive');
 			}
 		});
 
