@@ -26,10 +26,8 @@ $(document).ready(function() {
 		}
 	});
 
-	// <mdui-button #button-theme-menu> clicked
-	// <mdui-button #button-palette-menu> clicked
+	// Instantly close tooltip when menus opens
 	$('#button-theme-menu, #button-palette-menu').click(function() {
-		// Instantly close tooltip when menus opened
 		$('mdui-tooltip').attr('open', false);
 	});
 
@@ -1030,7 +1028,7 @@ $(document).ready(function() {
 			for (const el of $('[required]')) {
 				if (!el.reportValidity()) {
 					// https://www.mdui.org/en/docs/2/functions/snackbar
-					mdui.snackbar({ message: 'En obligatorisk uppgift saknas' });
+					mdui.snackbar({ message: 'En viktig uppgift saknas' });
 					return;
 				}
 			}
