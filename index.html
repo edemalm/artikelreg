@@ -12,7 +12,6 @@
 	<style>.hidden { display: none; }</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!-- CSS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,7 +21,6 @@
 	<link rel="stylesheet" href="css/mdui-typography.css">
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/app.css">
-	<!-- JS -->
 	<script src="js/mdui-2.1.4.hack.js" charset="UTF-8"></script>
 	<script src="js/jquery-3.7.1.min.js" charset="UTF-8"></script>
 	<title>Artikelregistreringsunderlag</title>
@@ -42,7 +40,7 @@
 		<mdui-button-icon id="button-close-menu" icon="menu_open"></mdui-button-icon>
 		<div id="dhc-logo"></div>
 		<mdui-list>
-			<mdui-list-item id="menu-formular" icon="edit" rounded active>Formulär</mdui-list-item>
+			<mdui-list-item id="list-item-formular" icon="edit" rounded active>Formulär</mdui-list-item>
 		</mdui-list>
 
 		<mdui-list>
@@ -55,12 +53,12 @@
 						rounded>Hjälpavsnitt<mdui-icon id="menu-group1-arrow" slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
 					</mdui-list-item>
 					<div style="margin-left: 2.5rem">
-						<mdui-list-item id="menu-help-artikelbenamning" rounded>Artikelbenämning</mdui-list-item>
-						<mdui-list-item id="menu-help-produkt" rounded>Produkt</mdui-list-item>
-						<mdui-list-item id="menu-help-infotext" rounded>Färgade informationstexter</mdui-list-item>
-						<mdui-list-item id="menu-help-iso-koder" rounded>ISO-koder</mdui-list-item>
-						<mdui-list-item id="menu-help-liggplats" rounded>Liggplatser</mdui-list-item>
-						<mdui-list-item id="menu-help-plockomrade" rounded>Plockområden</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/artikelbenamning.html" rounded>Artikelbenämning</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/produkt.html" rounded>Produkt</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/infotext.html" rounded>Färgade informationstexter</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/iso-koder.html" rounded>ISO-koder</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/liggplats.html" rounded>Liggplats</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/plockomraden.html" rounded>Plockområden</mdui-list-item>
 					</div>
 				</mdui-collapse-item>
 
@@ -85,8 +83,8 @@
 						rounded>Dev<mdui-icon id="menu-group3-arrow" slot="end-icon" name="keyboard_arrow_down"></mdui-icon>
 					</mdui-list-item>
 					<div style="margin-left: 2.5rem">
-						<mdui-list-item id="menu-dev-colors" rounded>Colors</mdui-list-item>
-						<mdui-list-item id="menu-dev-typography" rounded>Typography</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/colors.html" rounded>Colors</mdui-list-item>
+						<mdui-list-item class="include" data-href="inc/typography.html" rounded>Typography</mdui-list-item>
 					</div>
 				</mdui-collapse-item>
 
@@ -152,11 +150,11 @@
 
 <!-- PAGE CONTENT ---------------------------------------------------------- -->
 
-<mdui-layout-main class="mdui-prose">
+<mdui-layout-main>
 
 <!-- FORMULÄR -->
 
-<div id="content-formular" class="content-container">
+<div id="content-formular" class="content-container mdui-prose">
 <form id="form-formular">
 
 	<div class="upper-container">
@@ -174,7 +172,7 @@
 					</div>
 					<div class="form-title">
 						<div class="form-title-icon"><mdui-icon name="edit"></mdui-icon></div>
-						<div class="form-title-text"><h2 id="scrolltarget">1. Artikelbenämning och produkter</h2></div>
+						<div class="form-title-text"><h3>1. Artikelbenämning och produkter</h3></div>
 					</div>
 				</div>
 				<div class="s12">
@@ -249,7 +247,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="factory"></mdui-icon></div>
-							<div class="form-title-text"><h2>2. Leverantör</h2></div>
+							<div class="form-title-text"><h3>2. Leverantör</h3></div>
 						</div>
 					</div>
 					<div class="s12 m6">
@@ -334,7 +332,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="people"></mdui-icon></div>
-							<div class="form-title-text"><h2>3. Ansvarigt team</h2></div>
+							<div class="form-title-text"><h3>3. Ansvarigt team</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -364,7 +362,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="payments"></mdui-icon></div>
-							<div class="form-title-text"><h2>4. Ekonomi</h2></div>
+							<div class="form-title-text"><h3>4. Ekonomi</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -447,7 +445,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="settings"></mdui-icon></div>
-							<div class="form-title-text"><h2>5. Individinställningar</h2></div>
+							<div class="form-title-text"><h3>5. Individinställningar</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -513,7 +511,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="shopping_cart"></mdui-icon></div>
-							<div class="form-title-text"><h2>6. Visma webSesam</h2></div>
+							<div class="form-title-text"><h3>6. Visma webSesam</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -595,7 +593,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
-							<div class="form-title-text"><h2>7. Lagerhållning</h2></div>
+							<div class="form-title-text"><h3>7. Lagerhållning</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -662,7 +660,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="check_circle"></mdui-icon></div>
-							<div class="form-title-text"><h2>8. Hantering vid ankomst</h2></div>
+							<div class="form-title-text"><h3>8. Hantering vid ankomst</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -712,7 +710,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="build"></mdui-icon></div>
-							<div class="form-title-text"><h2>9. Service och underhåll</h2></div>
+							<div class="form-title-text"><h3>9. Service och underhåll</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -782,7 +780,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="info"></mdui-icon></div>
-							<div class="form-title-text"><h2>10. Informationstexter</h2></div>
+							<div class="form-title-text"><h3>10. Informationstexter</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -831,7 +829,7 @@
 					<div class="s12">
 						<div class="form-title">
 							<div class="form-title-icon"><mdui-icon name="chat"></mdui-icon></div>
-							<div class="form-title-text"><h2>11. Övriga upplysningar</h2></div>
+							<div class="form-title-text"><h3>11. Övriga upplysningar</h3></div>
 						</div>
 					</div>
 					<div class="s12">
@@ -859,100 +857,11 @@
 </div><!-- .content-container -->
 
 
-<!-- Hjälp artikelbenämning -->
+<!-- Inkluderat innehåll -->
 
-<div id="content-help-artikelbenamning" class="content-container hidden">
+<div id="content-dynamic" class="content-container mdui-prose hidden">
 	<div class="fullpage-content">
-		<div id="inc-artikelbenamning"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<!-- Hjälp produkt -->
-
-<div id="content-help-produkt" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-produkt"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<!-- Hjälp färgade informationstexter -->
-
-<div id="content-help-infotext" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-infotext"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<!-- Hjälp ISO-koder -->
-
-<div id="content-help-iso-koder" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-iso-koder"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<!-- Hjälp liggplats -->
-
-<div id="content-help-liggplats" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-liggplats"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<!-- Hjälp plockområde -->
-
-<div id="content-help-plockomrade" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-plockomrade"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<!-- Dev -->
-
-<div id="content-dev-colors" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-colors"></div>
-	</div>
-	<div class="buttom-container">
-		<div class="buttons-container">
-			<mdui-button class="button-back-to-form" variant="filled">Åter till formuläret</mdui-button>
-		</div>
-	</div><!-- .buttom-container -->
-</div><!-- .content-container -->
-
-<div id="content-dev-typography" class="content-container hidden">
-	<div class="fullpage-content">
-		<div id="inc-typography"></div>
+		<div id="inc-dynamic"></div>
 	</div>
 	<div class="buttom-container">
 		<div class="buttons-container">
@@ -969,8 +878,7 @@
 <!-- DIALOGS                                                                 -->
 <!-- ----------------------------------------------------------------------- -->
 
-
-<mdui-dialog id="dialog-about" class="body-medium"
+<mdui-dialog id="dialog-about" class="body-medium mdui-prose"
 	close-on-esc
 	close-on-overlay-click
 	headline="Om verktyget"
@@ -1005,7 +913,7 @@
 	<mdui-button id="button-close-about" variant="text" slot="action">Stäng</mdui-button>
 </mdui-dialog>
 
-<mdui-dialog id="dialog-reset-warning"
+<mdui-dialog id="dialog-reset-warning mdui-prose"
 	close-on-esc
 	close-on-overlay-click
 	headline="Bekräfta rensning"
@@ -1018,7 +926,7 @@
 		variant="filled">Rensa</mdui-button>
 </mdui-dialog>
 
-<mdui-dialog id="dialog-copy-artikeldata"
+<mdui-dialog id="dialog-copy-artikeldata mdui-prose"
 	close-on-esc
 	close-on-overlay-click
 	headline="Artikeluppgifter kopierade"

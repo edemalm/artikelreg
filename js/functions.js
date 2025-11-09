@@ -201,22 +201,6 @@ function setURLParam(key, value) {
 }
 
 /**
- * Change visible page content
- * @param {string} contentId	- Element ID of page content (i.e. #content-formular).
- * @param {string} menuItemId	- Element ID of active menu item (i.e. #menu-formular).
- */
-function changeContent(contentId, menuItemId) {
-	console.debug('changeContent("' + contentId + '","' + menuItemId + '")');
-	if ($(contentId).css('display') == 'none') {
-		$('.content-container').fadeOut(400); /* hide all content */
-		$(contentId).delay(400).fadeIn(400);
-		$('mdui-list-item').removeAttr('active');
-		$(menuItemId).attr('active','');
-	}
-	$('#navigation-drawer').removeAttr('open'); /* close menu */
-}
-
-/**
  * Enable and show 'isokod', 'pris' and 'garanti' text fields
  */
 function showManualPrice() {

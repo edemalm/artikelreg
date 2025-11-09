@@ -21,7 +21,6 @@
 	letter-spacing: var(--mdui-typescale-display-small-tracking) !important;
 	line-height: var(--mdui-typescale-display-small-line-height) !important;
 }
-
 .headline-large {
 	font-size: var(--mdui-typescale-headline-large-size) !important;
 	font-weight: var(--mdui-typescale-headline-large-weight) !important;
@@ -40,29 +39,24 @@
 	letter-spacing: var(--mdui-typescale-headline-small-tracking) !important;
 	line-height: var(--mdui-typescale-headline-small-line-height) !important;
 }
-
-h2,
 .title-large {
 	font-size: var(--mdui-typescale-title-large-size) !important;
 	font-weight: var(--mdui-typescale-title-large-weight) !important;
 	letter-spacing: var(--mdui-typescale-title-large-tracking) !important;
 	line-height: var(--mdui-typescale-title-large-line-height) !important;
 }
-h3,
 .title-medium {
 	font-size: var(--mdui-typescale-title-medium-size) !important;
 	font-weight: var(--mdui-typescale-title-medium-weight) !important;
 	letter-spacing: var(--mdui-typescale-title-medium-tracking) !important;
 	line-height: var(--mdui-typescale-title-medium-line-height) !important;
 }
-h4,
 .title-small {
 	font-size: var(--mdui-typescale-title-small-size) !important;
 	font-weight: var(--mdui-typescale-title-small-weight) !important;
 	letter-spacing: var(--mdui-typescale-title-small-tracking) !important;
 	line-height: var(--mdui-typescale-title-small-line-height) !important;
 }
-
 .label-large {
 	font-size: var(--mdui-typescale-label-large-size) !important;
 	font-weight: var(--mdui-typescale-label-large-weight) !important;
@@ -81,8 +75,6 @@ h4,
 	letter-spacing: var(--mdui-typescale-label-small-tracking) !important;
 	line-height: var(--mdui-typescale-label-small-line-height) !important;
 }
-
-
 .body-large {
 	font-size: var(--mdui-typescale-body-large-size) !important;
 	font-weight: var(--mdui-typescale-body-large-weight) !important;

@@ -86,13 +86,6 @@ $(document).ready(function() {
 		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		});
-
-		console.debug('Loading inc/colors.html');
-		$('#inc-colors').load('inc/colors.html'); 
-
-		console.debug('Loading inc/typography.html');
-		$('#inc-typography').load('inc/typography.html'); 
-
 	});
 
 	// NAVIGATION DRAWER EVENTS
@@ -114,50 +107,35 @@ $(document).ready(function() {
 		$(this).children('mdui-list-item').children('mdui-icon').attr('name', 'keyboard_arrow_down');
 	});
 
-
-	$('#menu-formular').click(function() {
-		console.debug('<mdui-button #menu-formular> clicked');
-		changeContent('#content-formular', '#menu-formular');
+	$('#list-item-formular').click(function() {
+		console.debug('<mdui-list-item #list-item-formular> clicked');
+		$('mdui-list-item').removeAttr('active');
+		$(this).attr('active','');
+		$('#navigation-drawer').removeAttr('open');
+		if ($('#content-formular').css('display') == 'none') {
+			$('.content-container').fadeOut().promise().done(function() { /* hide all content */
+				$('#content-formular').fadeIn();
+			});
+		}
 	});
 
-	$('#menu-help-artikelbenamning').click(function() {
-		console.debug('<mdui-list-item #menu-help-artikelbenamning> clicked');
-		changeContent('#content-help-artikelbenamning', '#menu-help-artikelbenamning');
-	});
-
-	$('#menu-help-produkt').click(function() {
-		console.debug('<mdui-list-item #menu-help-produkt> clicked');
-		changeContent('#content-help-produkt', '#menu-help-produkt');
-	});
-
-	$('#menu-help-infotext').click(function() {
-		console.debug('<mdui-list-item #menu-help-infotext> clicked');
-		changeContent('#content-help-infotext', '#menu-help-infotext');
-	});
-
-	$('#menu-help-iso-koder').click(function() {
-		console.debug('<mdui-list-item #menu-help-iso-koder> clicked');
-		changeContent('#content-help-iso-koder', '#menu-help-iso-koder');
-	});
-
-	$('#menu-help-liggplats').click(function() {
-		console.debug('<mdui-list-item #menu-help-liggplats> clicked');
-		changeContent('#content-help-liggplats', '#menu-help-liggplats');
-	});
-
-	$('#menu-help-plockomrade').click(function() {
-		console.debug('<mdui-list-item #menu-help-plockomrade> clicked');
-		changeContent('#content-help-plockomrade', '#menu-help-plockomrade');
-	});
-
-	$('#menu-dev-colors').click(function() {
-		console.debug('<mdui-list-item #menu-dev-colors> clicked');
-		changeContent('#content-dev-colors', '#menu-dev-colors');
-	});
-
-	$('#menu-dev-typography').click(function() {
-		console.debug('<mdui-list-item #menu-dev-typography> clicked');
-		changeContent('#content-dev-typography', '#menu-dev-typography');
+	$('mdui-list-item.include').click(function() {
+		console.debug('<mdui-list-item .include> clicked');
+		let include = $(this).attr('data-href');
+		$('mdui-list-item').removeAttr('active');
+		$(this).attr('active','');
+		$('#navigation-drawer').removeAttr('open');
+		$('.content-container').fadeOut().promise().done(function() { /* hide all content */
+			console.debug('Loading "' + include + '" into #inc-dynamic');
+			$('#inc-dynamic').load(include, function(response, status, xhr) {
+				if (status == "error") {
+					$('#inc-dynamic').html('<h1>' + xhr.status + ' ' + xhr.statusText
+						+ '</h1><p>Error loading "' + include + '": ' + response + '</p>');
+				}
+			}).promise().done(function () {
+				$('#content-dynamic').fadeIn();
+			});
+		});
 	});
 
 	// DIALOG EVENTS
@@ -1043,7 +1021,11 @@ $(document).ready(function() {
 
 	$('.button-back-to-form').click(function() {
 		console.debug('<mdui-button .button-back-to-form> clicked');
-		changeContent('#content-formular', '#menu-formular');
+		$('mdui-list-item').removeAttr('active');
+		$('#list-item-formular').attr('active','');
+		$('.content-container').fadeOut().promise().done(function() { /* hide all content */
+			$('#content-formular').fadeIn();
+		});
 	});
 
 });

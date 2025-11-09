@@ -370,3 +370,7 @@ mdui-text-field[variant=filled],
 mdui-select[variant=filled] {
 	--mdui-color-surface-container-highest: var(--mdui-color-surface-container-low);
 }
+
+mdui-divider {
+	margin: 1rem 0;
+}
