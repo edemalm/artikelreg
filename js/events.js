@@ -167,19 +167,6 @@ $(document).ready(function() {
 
 	// 1. Artikelbenämning och produkter
 
-	// mdui-text-field #text-artikelbenamning gains focus or being cleared
-	$('#text-artikelbenamning').on('focus clear', function() {
-		console.debug('<mdui-text-field #text-artikelbenamning> focus/clear')
-		var random = Math.floor(Math.random()*helper_artikelbenamning_array.length);
-		$('#text-artikelbenamning').attr('helper', 'Exempel: ' + helper_artikelbenamning_array[random]);
-	});
-
-	// mdui-text-field #text-artikelbenamning loses focus
-	$('#text-artikelbenamning').on('blur', function() {
-		console.debug('<mdui-text-field #text-artikelbenamning> blur')
-		$('#text-artikelbenamning').attr('helper', helper_artikelbenamning);
-	});
-
 	// mdui-button #button-fler-produkter clicked
 	$('#button-fler-produkter').click(function() {
 		console.debug('<mdui-button #button-fler-produkter> clicked');

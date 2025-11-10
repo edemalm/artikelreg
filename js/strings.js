@@ -3,21 +3,8 @@
 console.debug('Loading strings.js');
 
 // 1. Artikelbenämning och produkt
-var helper_artikelbenamning = "Följ beslutad struktur för artikelbenämning. Se hjälpavsnitt för mer information.";
+var helper_artikelbenamning = "Följ beslutad struktur. Se hjälpavsnitt för mer information.";
 var helper_standardprodukt = "Se hjälpavsnitt för mer information";
-var helper_artikelbenamning_array = [
-	'Rullstol SpeedKing sb45 sd50 silver inkl arm- o benstöd',
-	'Arbetsstol Ergomax h/s h45-65 trögrullande hjul blå',
-	'Hjullyft HaulMaster exkl lyftbygel 250kg',
-	'Kryckkäpp GåLätt h85-125 inkl isdubb',
-	'Hygienstol PoopEasy tb55 inkl stänkskydd 130kg',
-	'Sittdyna SuperSoft 45x45 inkl hygienöverdrag',
-	'Inhalator AirMan portabel 12V/220V',
-	'Kalender HandyPad 24 timmar talande inkl batteriladdare',
-	'Rollator SpeedStepper b62 fyra stora hjul exkl korg',
-	'Kontaktlins ClearVision flergångs 10-pack',
-	'Madrass UltraComfy 90x200x12 m bomullsöverdrag'
-];
 
 // 2. Leverantör
 
