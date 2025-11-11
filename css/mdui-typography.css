@@ -4,92 +4,92 @@
 /* https://www.mdui.org/en/docs/2/styles/design-tokens#typescale */
 
 .display-large {
-	font-size: var(--mdui-typescale-display-large-size) !important;
-	font-weight: var(--mdui-typescale-display-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-display-large-tracking) !important;
-	line-height: var(--mdui-typescale-display-large-line-height) !important;
+	font-size: var(--mdui-typescale-display-large-size);
+	font-weight: var(--mdui-typescale-display-large-weight);
+	letter-spacing: var(--mdui-typescale-display-large-tracking);
+	line-height: var(--mdui-typescale-display-large-line-height);
 }
 .display-medium {
-	font-size: var(--mdui-typescale-display-medium-size) !important;
-	font-weight: var(--mdui-typescale-display-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-display-medium-tracking) !important;
-	line-height: var(--mdui-typescale-display-medium-line-height) !important;
+	font-size: var(--mdui-typescale-display-medium-size);
+	font-weight: var(--mdui-typescale-display-medium-weight);
+	letter-spacing: var(--mdui-typescale-display-medium-tracking);
+	line-height: var(--mdui-typescale-display-medium-line-height);
 }
 .display-small {
-	font-size: var(--mdui-typescale-display-small-size) !important;
-	font-weight: var(--mdui-typescale-display-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-display-small-tracking) !important;
-	line-height: var(--mdui-typescale-display-small-line-height) !important;
+	font-size: var(--mdui-typescale-display-small-size);
+	font-weight: var(--mdui-typescale-display-small-weight);
+	letter-spacing: var(--mdui-typescale-display-small-tracking);
+	line-height: var(--mdui-typescale-display-small-line-height);
 }
 .headline-large {
-	font-size: var(--mdui-typescale-headline-large-size) !important;
-	font-weight: var(--mdui-typescale-headline-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-headline-large-tracking) !important;
-	line-height: var(--mdui-typescale-headline-large-line-height) !important;
+	font-size: var(--mdui-typescale-headline-large-size);
+	font-weight: var(--mdui-typescale-headline-large-weight);
+	letter-spacing: var(--mdui-typescale-headline-large-tracking);
+	line-height: var(--mdui-typescale-headline-large-line-height);
 }
 .headline-medium {
-	font-size: var(--mdui-typescale-headline-medium-size) !important;
-	font-weight: var(--mdui-typescale-headline-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-headline-medium-tracking) !important;
-	line-height: var(--mdui-typescale-headline-medium-line-height) !important;
+	font-size: var(--mdui-typescale-headline-medium-size);
+	font-weight: var(--mdui-typescale-headline-medium-weight);
+	letter-spacing: var(--mdui-typescale-headline-medium-tracking);
+	line-height: var(--mdui-typescale-headline-medium-line-height);
 }
 .headline-small {
-	font-size: var(--mdui-typescale-headline-small-size) !important;
-	font-weight: var(--mdui-typescale-headline-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-headline-small-tracking) !important;
-	line-height: var(--mdui-typescale-headline-small-line-height) !important;
+	font-size: var(--mdui-typescale-headline-small-size);
+	font-weight: var(--mdui-typescale-headline-small-weight);
+	letter-spacing: var(--mdui-typescale-headline-small-tracking);
+	line-height: var(--mdui-typescale-headline-small-line-height);
 }
 .title-large {
-	font-size: var(--mdui-typescale-title-large-size) !important;
-	font-weight: var(--mdui-typescale-title-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-title-large-tracking) !important;
-	line-height: var(--mdui-typescale-title-large-line-height) !important;
+	font-size: var(--mdui-typescale-title-large-size);
+	font-weight: var(--mdui-typescale-title-large-weight);
+	letter-spacing: var(--mdui-typescale-title-large-tracking);
+	line-height: var(--mdui-typescale-title-large-line-height);
 }
 .title-medium {
-	font-size: var(--mdui-typescale-title-medium-size) !important;
-	font-weight: var(--mdui-typescale-title-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-title-medium-tracking) !important;
-	line-height: var(--mdui-typescale-title-medium-line-height) !important;
+	font-size: var(--mdui-typescale-title-medium-size);
+	font-weight: var(--mdui-typescale-title-medium-weight);
+	letter-spacing: var(--mdui-typescale-title-medium-tracking);
+	line-height: var(--mdui-typescale-title-medium-line-height);
 }
 .title-small {
-	font-size: var(--mdui-typescale-title-small-size) !important;
-	font-weight: var(--mdui-typescale-title-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-title-small-tracking) !important;
-	line-height: var(--mdui-typescale-title-small-line-height) !important;
+	font-size: var(--mdui-typescale-title-small-size);
+	font-weight: var(--mdui-typescale-title-small-weight);
+	letter-spacing: var(--mdui-typescale-title-small-tracking);
+	line-height: var(--mdui-typescale-title-small-line-height);
 }
 .label-large {
-	font-size: var(--mdui-typescale-label-large-size) !important;
-	font-weight: var(--mdui-typescale-label-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-label-large-tracking) !important;
-	line-height: var(--mdui-typescale-label-large-line-height) !important;
+	font-size: var(--mdui-typescale-label-large-size);
+	font-weight: var(--mdui-typescale-label-large-weight);
+	letter-spacing: var(--mdui-typescale-label-large-tracking);
+	line-height: var(--mdui-typescale-label-large-line-height);
 }
 .label-medium {
-	font-size: var(--mdui-typescale-label-medium-size) !important;
-	font-weight: var(--mdui-typescale-label-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-label-medium-tracking) !important;
-	line-height: var(--mdui-typescale-label-medium-line-height) !important;
+	font-size: var(--mdui-typescale-label-medium-size);
+	font-weight: var(--mdui-typescale-label-medium-weight);
+	letter-spacing: var(--mdui-typescale-label-medium-tracking);
+	line-height: var(--mdui-typescale-label-medium-line-height);
 }
 .label-small {
-	font-size: var(--mdui-typescale-label-small-size) !important;
-	font-weight: var(--mdui-typescale-label-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-label-small-tracking) !important;
-	line-height: var(--mdui-typescale-label-small-line-height) !important;
+	font-size: var(--mdui-typescale-label-small-size);
+	font-weight: var(--mdui-typescale-label-small-weight);
+	letter-spacing: var(--mdui-typescale-label-small-tracking);
+	line-height: var(--mdui-typescale-label-small-line-height);
 }
 .body-large {
-	font-size: var(--mdui-typescale-body-large-size) !important;
-	font-weight: var(--mdui-typescale-body-large-weight) !important;
-	letter-spacing: var(--mdui-typescale-body-large-tracking) !important;
-	line-height: var(--mdui-typescale-body-large-line-height) !important;
+	font-size: var(--mdui-typescale-body-large-size);
+	font-weight: var(--mdui-typescale-body-large-weight);
+	letter-spacing: var(--mdui-typescale-body-large-tracking);
+	line-height: var(--mdui-typescale-body-large-line-height);
 }
 .body-medium {
-	font-size: var(--mdui-typescale-body-medium-size) !important;
-	font-weight: var(--mdui-typescale-body-medium-weight) !important;
-	letter-spacing: var(--mdui-typescale-body-medium-tracking) !important;
-	line-height: var(--mdui-typescale-body-medium-line-height) !important;
+	font-size: var(--mdui-typescale-body-medium-size);
+	font-weight: var(--mdui-typescale-body-medium-weight);
+	letter-spacing: var(--mdui-typescale-body-medium-tracking);
+	line-height: var(--mdui-typescale-body-medium-line-height);
 }
 .body-small {
-	font-size: var(--mdui-typescale-body-small-size) !important;
-	font-weight: var(--mdui-typescale-body-small-weight) !important;
-	letter-spacing: var(--mdui-typescale-body-small-tracking) !important;
-	line-height: var(--mdui-typescale-body-small-line-height) !important;
+	font-size: var(--mdui-typescale-body-small-size);
+	font-weight: var(--mdui-typescale-body-small-weight);
+	letter-spacing: var(--mdui-typescale-body-small-tracking);
+	line-height: var(--mdui-typescale-body-small-line-height);
 }

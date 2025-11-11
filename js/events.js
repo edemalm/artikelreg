@@ -75,17 +75,17 @@ $(document).ready(function() {
 	});
 
 	// Dev activation
-	$('#activate-dev').click(function() {
+	$('#activate-dev').click(function(event) {
+		event.preventDefault;
 		console.debug('Dev mode activated');
-		dev = "Yes";
 		$('#activate-dev').css('opacity','1');
 		$('.dev').removeClass('hidden');
-
 		$('#viewport').show();
 		$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		$(window).resize(function() {
 			$('#viewport-size').html( 'Viewport size: ' + $(window).width() + 'x' + $(window).height() );
 		});
+		$('#activate-dev').remove();
 	});
 
 	// NAVIGATION DRAWER EVENTS

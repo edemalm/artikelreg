@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-10';	// Last commit date
+	window.update = '2025-11-11';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -98,28 +98,6 @@ $(document).ready(function() {
 	// Set current year in copyright
 	let currentYear = new Date().getFullYear();
 	$('#current-year').html('-' + currentYear);
-
-	// Include HTML from files
-	// Note: The load function is not included in the slim verion of jQuery
-	/*
-	console.debug('Loading inc/artikelbenamning.html');
-	$('#inc-artikelbenamning').load('inc/artikelbenamning.html'); 
-
-	console.debug('Loading inc/produkt.html');
-	$('#inc-produkt').load('inc/produkt.html'); 
-
-	console.debug('Loading inc/infotext.html');
-	$('#inc-infotext').load('inc/infotext.html'); 
-
-	console.debug('Loading inc/iso-koder.html');
-	$('#inc-iso-koder').load('inc/iso-koder.html'); 
-
-	console.debug('Loading inc/liggplats.html');
-	$('#inc-liggplats').load('inc/liggplats.html');
-
-	console.debug('Loading inc/plockomraden.html');
-	$('#inc-plockomrade').load('inc/plockomraden.html');
-	*/
 
 	// Page was reloaded
 	/*

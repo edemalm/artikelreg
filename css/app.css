@@ -384,7 +384,8 @@ div.form-title-text {
 	align-self: center;
 	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
 }
-div.form-title-text h2 {
+div.form-title-text h4 {
+	line-height: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -403,10 +404,10 @@ mdui-slider {
 }
 
 #activate-dev {
+	cursor: default;
+	margin: .5rem;
 	opacity: 0;
-}
-#activate-dev:hover {
-	cursor: pointer;
+	padding: 1.25rem 1.75rem;
 }
 
 .sesam {
@@ -448,18 +449,32 @@ mdui-slider {
 table.compact {
 	font-family: "Roboto Condensed", sans-serif;
 }
-
 table.compact th {
 	background-color: rgb(var(--mdui-color-primary-container));
 	color: rgb(var(--mdui-color-on-primary-container));
 }
-
-table.compact tr:hover {
-	background-color: rgb(var(--mdui-color-surface-container-low));
-}
-
 table.compact th,
 table.compact td {
-	border: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
+	padding: .5rem .25rem;
+}
+table th,
+table td {
+	border: 1px solid rgb(var(--mdui-color-outline)) !important;
 	padding: .125rem .25rem;
+}
+table th {
+	font-weight: 700;
+}
+table th.iso-two-digits {
+	font-weight: 700;
+	background-color: rgb(var(--mdui-color-primary-container));
+	color: rgb(var(--mdui-color-on-primary-container));
+}
+table th.iso-four-digits {
+	background-color: rgb(var(--mdui-color-surface-container-low));
+	font-weight: 700;
+}
+
+table tr:hover {
+	background-color: rgb(var(--mdui-color-surface-container));
 }
