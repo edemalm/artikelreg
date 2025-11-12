@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-11';	// Last commit date
+	window.update = '2025-11-12';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -22,11 +22,8 @@ $(document).ready(function() {
 				setCookie('theme', 'dark', 365);
 				setTheme('dark');
 			break;
-			case 'system':
-				setCookie('theme', 'system', 365);
-				setSystemTheme();
-			break;
 			default:
+				setCookie('theme', 'system', 365);
 				setSystemTheme();
 		}
 	} else {
@@ -36,7 +33,7 @@ $(document).ready(function() {
 
 	// Get palette cookie
 	var c_palette = getCookie('palette');
-	$('html').removeClass('blue purple amber green');
+	$('html').removeClass();
 	if (c_palette != null) {
 		console.debug('Found cookie: palette=' + c_palette);
 		if (c_palette == 'blue' || c_palette == 'purple' || c_palette == 'amber' || c_palette == 'green' ) {
@@ -55,7 +52,7 @@ $(document).ready(function() {
 	}
 
 	// Set background image class
-	const d = new Date();
+	let d = new Date();
 	let month = d.getMonth();
 	let bgclasses = [];
 	if ( month == 0 || month == 1 || month == 2 ) {
@@ -83,7 +80,7 @@ $(document).ready(function() {
 		console.debug("I believe it's christmas");
 		bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
 	}
-	const random = Math.floor(Math.random() * bgclasses.length);
+	let random = Math.floor(Math.random() * bgclasses.length);
 	$('body').addClass(bgclasses[random]);
 
 	// Set date in version
