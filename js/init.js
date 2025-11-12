@@ -33,7 +33,6 @@ $(document).ready(function() {
 
 	// Get palette cookie
 	var c_palette = getCookie('palette');
-	$('html').removeClass();
 	if (c_palette != null) {
 		console.debug('Found cookie: palette=' + c_palette);
 		if (c_palette == 'blue' || c_palette == 'purple' || c_palette == 'amber' || c_palette == 'green' ) {

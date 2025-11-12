@@ -197,7 +197,7 @@ div.buttons-container {
 	}
 }
 
-div.buttom-container mdui-button:not(:first-child) {
+mdui-button:not(:first-child) {
 	margin-left: .5rem; /* match spacing of mdui dialog buttons */
 }
 
@@ -446,6 +446,34 @@ mdui-slider {
 .mdui-theme-dark .palette-color.amber { background-color: rgb(234,193,108); }
 .mdui-theme-dark .palette-color.green { background-color: rgb(162,211,152); }
 
+/* All !important declarations below overrides .mdui-prose */
+table {
+	border: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
+	border-collapse: separate !important;
+	overflow: hidden;
+}
+table th {
+	border: none !important;
+	border-right: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
+	border-bottom: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
+	box-shadow: none !important;
+	font-weight: 700 !important;
+	padding: .5rem 1rem !important;
+}
+table th:last-child,
+table td:last-child {
+	border-right: none !important;
+}
+table td {
+	border: none !important;
+	border-right: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
+	border-bottom: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
+	padding: .5rem 1rem !important;
+}
+table tr:last-child td {
+	border-bottom: none !important;
+}
+
 table.compact {
 	font-family: "Roboto Condensed", sans-serif;
 }
@@ -455,26 +483,13 @@ table.compact th {
 }
 table.compact th,
 table.compact td {
-	padding: .5rem .25rem;
+	padding: .25rem .5rem !important;
 }
-table th,
-table td {
-	border: 1px solid rgb(var(--mdui-color-outline)) !important;
-	padding: .125rem .25rem;
-}
-table th {
-	font-weight: 700;
-}
+
 table th.iso-two-digits {
-	font-weight: 700;
 	background-color: rgb(var(--mdui-color-primary-container));
 	color: rgb(var(--mdui-color-on-primary-container));
 }
 table th.iso-four-digits {
 	background-color: rgb(var(--mdui-color-surface-container-low));
-	font-weight: 700;
-}
-
-table tr:hover {
-	background-color: rgb(var(--mdui-color-surface-container));
 }
