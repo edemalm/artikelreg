@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-12';	// Last commit date
+	window.update = '2025-11-14';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -50,6 +50,7 @@ $(document).ready(function() {
 		$('.palette-item[value=blue]').attr('selected', true);
 	}
 
+	/*
 	// Set background image class
 	let d = new Date();
 	let month = d.getMonth();
@@ -81,6 +82,7 @@ $(document).ready(function() {
 	}
 	let random = Math.floor(Math.random() * bgclasses.length);
 	$('body').addClass(bgclasses[random]);
+	*/
 
 	// Set date in version
 	$('#version').html('Version ' + update);
@@ -107,6 +109,7 @@ $(document).ready(function() {
 	}
 	*/
 
+	/*
 	if ($(window).width() >= 1080) {
 		console.debug('Window width ' + $(window).width() + ' >= 1080')
 
@@ -132,4 +135,5 @@ $(document).ready(function() {
 		console.debug('Window width ' + $(window).width() + ' < 1080')
 		console.debug('Inactivity timer disabled');
 	}
+	*/
 });

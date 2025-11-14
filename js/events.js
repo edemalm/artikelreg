@@ -170,11 +170,13 @@ $(document).ready(function() {
 	// mdui-button #button-fler-produkter clicked
 	$('#button-fler-produkter').click(function() {
 		console.debug('<mdui-button #button-fler-produkter> clicked');
-		$('#div-fler-produkter').hide();
-		$('#text-standardprodukt').attr('label', 'Standardprodukt');
-		$('#text-standardprodukt').attr('helper', 'Endast standardprodukt visas i sökresultat');
-		$('.standardprodukt').addClass('xl3');
-		$('.extraprodukt').show();
+		$('#div-fler-produkter').fadeOut().promise().done(function() {
+			$('.standardprodukt').addClass('xl3');
+			$('.extraprodukt').fadeIn().promise().done(function() {
+				$('#text-standardprodukt').attr('label', 'Standardprodukt');
+				$('#text-standardprodukt').attr('helper', 'Endast standardprodukt visas i sökresultat');
+			});
+		});
 	});
 
 	// 2. Leverantör
