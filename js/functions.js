@@ -488,6 +488,7 @@ function createArtikeldata() {
 		case findLev('hck'):			leverantor = "HCK Produkter AB (10147)"; break;
 		case findLev('hd rehab'):		leverantor = "HD Rehab AB (7817)"; break;
 		case findLev('hea'):			leverantor = "HEA Medical AB (7666)"; break;
+		case findLev('hmn'):			leverantor = "HMN A/S (112)"; break;
 		case findLev('intersurgical'):	leverantor = "Intersurgical AB (10025)"; break;
 		case findLev('invacare'):		leverantor = "Invacare AB (211)"; break;
 		case findLev('iris'):			leverantor = "Iris Hjälpmedel AB (6940)"; break;
