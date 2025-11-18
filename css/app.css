@@ -452,44 +452,31 @@ mdui-slider {
 .mdui-theme-dark .palette-color.amber { background-color: rgb(234,193,108); }
 .mdui-theme-dark .palette-color.green { background-color: rgb(162,211,152); }
 
-/* All !important declarations below overrides .mdui-prose */
 table {
-	border: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
-	border-collapse: separate !important;
-	overflow: hidden;
+	border: 1px solid rgb(var(--mdui-color-outline-variant));
+	border-collapse: collapse;
+	margin-top: 1.25em; /* match .mdui-prose */
+	margin-bottom: 1.25em;  /* match .mdui-prose */
 }
 table th {
-	border: none !important;
-	border-right: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
-	border-bottom: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
-	box-shadow: none !important;
-	font-weight: 700 !important;
-	padding: .5rem 1rem !important;
-}
-table th:last-child,
-table td:last-child {
-	border-right: none !important;
+	background-color: rgb(var(--mdui-color-primary-container));
+	color: rgb(var(--mdui-color-on-primary-container));
+	border: 1px solid rgb(var(--mdui-color-outline-variant));
+	font-weight: 700;
+	padding: 1rem;
+	text-align: left;
 }
 table td {
-	border: none !important;
-	border-right: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
-	border-bottom: 1px solid rgb(var(--mdui-color-outline-variant)) !important;
-	padding: .5rem 1rem !important;
-}
-table tr:last-child td {
-	border-bottom: none !important;
+	border: 1px solid rgb(var(--mdui-color-outline-variant));
+	padding: 1rem;
 }
 
 table.compact {
 	font-family: "Roboto Condensed", sans-serif;
 }
-table.compact th {
-	background-color: rgb(var(--mdui-color-primary-container));
-	color: rgb(var(--mdui-color-on-primary-container));
-}
 table.compact th,
 table.compact td {
-	padding: .25rem .5rem !important;
+	padding: .25rem;
 }
 
 table th.iso-two-digits {
