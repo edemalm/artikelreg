@@ -104,6 +104,10 @@ mdui-layout-main.inactive {
 	.christmas-3 { background-image: url('../img/bg/christmas/lydia-matzal-9LfcAIYcl9o-unsplash.jpg') }
 }
 
+.navigation-container {
+	padding: 0.75rem 0.5rem;
+}
+
 #button-theme-menu,
 #button-palette-menu {
 	margin-right: 0.5rem;
