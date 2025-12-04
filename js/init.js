@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-11-27';	// Last commit date
+	window.update = '2025-12-04';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form
@@ -50,40 +50,6 @@ $(document).ready(function() {
 		$('.palette-item[value=blue]').attr('selected', true);
 	}
 
-	/*
-	// Set background image class
-	let d = new Date();
-	let month = d.getMonth();
-	let bgclasses = [];
-	if ( month == 0 || month == 1 || month == 2 ) {
-		// Jan, Feb, Mar
-		console.debug("I believe it's winter");
-		bgclasses = ['winter-0','winter-1','winter-2','winter-3','winter-4','winter-5','winter-6','winter-7','winter-8'];
-	}
-	if ( month == 3 || month == 4 ) {
-		// Apr, May
-		console.debug("I believe it's spring");
-		bgclasses = ['spring-0','spring-1','spring-2','spring-3','spring-4','spring-5','spring-6', 'spring-7'];
-	}
-	if ( month == 5 || month == 6 || month == 7 ) {
-		// Jun, Jul, Aug
-		console.debug("I believe it's summer");
-		bgclasses = ['summer-0','summer-1','summer-2','summer-3','summer-4','summer-5','summer-6','summer-7','summer-8','summer-9','summer-10','summer-11','summer-12','summer-13','summer-14','summer-15','summer-16'];
-	}
-	if ( month == 8 || month == 9 || month == 10 ) {
-		// Sep, Oct, Nov
-		console.debug("I believe it's fall");
-		bgclasses = ['fall-0','fall-1','fall-2','fall-3','fall-4','fall-5','fall-6','fall-7','fall-8','fall-9','fall-10','fall-11','fall-12','fall-13','fall-14','fall-15','fall-16','fall-17','fall-18','fall-19','fall-20','fall-21'];
-	}
-	if ( month == 11 ) {
-		// Dec
-		console.debug("I believe it's christmas");
-		bgclasses = ['christmas-0','christmas-1','christmas-2','christmas-3'];
-	}
-	let random = Math.floor(Math.random() * bgclasses.length);
-	$('body').addClass(bgclasses[random]);
-	*/
-
 	// Set date in version
 	$('#version').html('Version ' + update);
 
@@ -109,31 +75,4 @@ $(document).ready(function() {
 	}
 	*/
 
-	/*
-	if ($(window).width() >= 1080) {
-		console.debug('Window width ' + $(window).width() + ' >= 1080')
-
-		// Inactivity plugin
-		// https://github.com/kaparelos/jquery.inactivity
-		$(document).inactivity( { timeout: 30000 });
-		console.debug('Starting inactivity timer');
-
-		$(document).on("activity", function() {
-			console.debug('Activity detected');
-			$('body, mdui-layout-main').removeClass('inactive');
-		});
-		$(document).on("inactivity", function() {
-			console.debug('Inactivity detected');
-			if ( $('mdui-navigation-drawer').attr('open') || $('mdui-dialog').attr('open')) {
-				console.debug('Inactivity action calcelled');
-			} else {
-				$('body, mdui-layout-main').addClass('inactive');
-			}
-		});
-
-	} else {
-		console.debug('Window width ' + $(window).width() + ' < 1080')
-		console.debug('Inactivity timer disabled');
-	}
-	*/
 });
