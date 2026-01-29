@@ -57,7 +57,7 @@ function formInit() {
 	window.wsbb = '';
 	window.wspub = '';
 	window.wsinfo = '';
-	window.wskomp = '';
+	// window.wskomp = '';
 	window.wssort = '';
 
 	// 1. Artikelbenämning och produkt
@@ -92,9 +92,9 @@ function formInit() {
 
 	// 6. Visma webSesam
 	setSwitch('wspub', 'disabled', 'off', helper_wspub_off);
-	setSwitch('wssort', 'disabled', 'off', helper_wssort);
 	setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);
-	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
+	setSwitch('wssort', 'disabled', 'off', helper_wssort);
+	// setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
 	setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 
 	// 7. Lagerhållning
@@ -199,6 +199,15 @@ function setURLParam(key, value) {
 	url.searchParams.set(key, value);
 	history.pushState(null, '', url);
 }
+
+/**
+ * Remove hash from URL
+ */
+function removeURLHash() {
+	console.debug('removeURLHash()');
+	history.pushState("", document.title, window.location.pathname + window.location.search);
+}
+
 
 /**
  * Enable and show 'isokod', 'pris' and 'garanti' text fields
@@ -420,7 +429,7 @@ function createArtikeldata() {
 	vf = ($('#checkbox-vf').prop("checked") ? "Ja" : "Nej");
 	wsbb = ($('#switch-wsbb').prop("checked") ? "Beställningsbar" : "Ej beställningsbar");
 	wsinfo = $('#text-wsinfo').val();
-	wskomp = ($('#switch-wskomp').prop("checked") ? "Ja" : "Nej");
+	// wskomp = ($('#switch-wskomp').prop("checked") ? "Ja" : "Nej");
 	wspub = ($('#switch-wspub').prop("checked") ? "Ja" : "Nej");
 	wssort = ($('#switch-wssort').prop("checked") ? "Ja" : "Nej");
 
@@ -739,10 +748,10 @@ function createArtikeldata() {
 	artikeldata += "Beställningsbar i webSesam:  " + wsbb + "\n";
 
 	// Kan vara komponent
-	if (artikeltyp == 'T') {
-		artikeldata += "Kan vara komponent:  " + wskomp;
-		artikeldata += (wskomp == 'Nej' ? " 👈\n" : "\n");
-	}
+	// if (artikeltyp == 'T') {
+	//	artikeldata += "Kan vara komponent:  " + wskomp;
+	//	artikeldata += (wskomp == 'Nej' ? " 👈\n" : "\n");
+	// }
 
 	// Extra artikelinformation
 	if (wsinfo.length > 0) artikeldata += "Extra artikelinformation:  " + wsinfo + "\n";

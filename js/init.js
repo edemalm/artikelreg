@@ -3,7 +3,7 @@ $(document).ready(function() {
 	console.debug('Loading init.js');
 
 	// Global variables
-	window.update = '2025-12-25';	// Last commit date
+	window.update = '2026-01-29';	// Last commit date
 	window.validate_input = 'Yes';	// "Yes" to enable
 
 	// Initialize form

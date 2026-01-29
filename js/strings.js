@@ -46,9 +46,9 @@ var helper_wsbb_off = "Artikeln kan inte beställas. Uttag från eget kundlager 
 var helper_wssort =	"Gäller endast publicerade artiklar";
 var helper_wssort_on =	"Artikeln tillhör ordinarie sortiment";
 var helper_wssort_off = "Artikeln tillhör övrigt sortiment";
-var helper_wskomp = "Gäller endast tillbehör";
-var helper_wskomp_on = "Artikeln kan beställas som komponent till ett hjälpmedel";
-var helper_wskomp_off = "Artikeln kan inte beställas som komponent till ett hjälpmedel";
+// var helper_wskomp = "Gäller endast tillbehör";
+// var helper_wskomp_on = "Artikeln kan beställas som komponent till ett hjälpmedel";
+// var helper_wskomp_off = "Artikeln kan inte beställas som komponent till ett hjälpmedel";
 var helper_wsinfo = "Vid behov ange extra artikelinformation som visas för artikeln i webSesam";
 
 // 7. Lagerhållning

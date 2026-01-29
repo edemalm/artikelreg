@@ -117,6 +117,7 @@ $(document).ready(function() {
 				$('#content-formular').fadeIn();
 			});
 		}
+		removeURLHash();
 	});
 
 	$('mdui-list-item.include').click(function() {
@@ -136,6 +137,7 @@ $(document).ready(function() {
 				$('#content-dynamic').fadeIn();
 			});
 		});
+		removeURLHash();
 	});
 
 	// DIALOG EVENTS
@@ -364,7 +366,6 @@ $(document).ready(function() {
 		}
 
 		// reset everything
-
 		setSelect('artikeltyp', 'enabled', '', helper_artikeltyp);
 		$('#artikeltyp-menu-item-r').attr('disabled', false); // re-enable option 'R' (Reservdel)
 		setSelect('debiteringsform', 'disabled', '', helper_debiteringsform)
@@ -373,7 +374,7 @@ $(document).ready(function() {
 		setSwitch('individartikel','disabled','off',helper_individartikel);
 		setSwitch('serienummer','disabled','off',helper_serienummer);
 		setSwitch('haraldrigkomp','disabled','off',helper_haraldrigkomp);
-		setSwitch('wskomp','disabled','off',helper_wskomp);
+		// setSwitch('wskomp','disabled','off',helper_wskomp);
 
 		switch (artikelansvar) {
 			case 'L':
@@ -428,9 +429,9 @@ $(document).ready(function() {
 		setSwitch('dm', 'disabled', 'off', helper_dm);
 
 		setSwitch('wspub', 'enabled', 'off', helper_wspub_off);
-		setSwitch('wssort', 'disabled', 'off', helper_wssort);
 		setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);
-		setSwitch('wskomp','disabled', 'off', helper_wskomp);
+		setSwitch('wssort', 'disabled', 'off', helper_wssort);
+		// setSwitch('wskomp','disabled', 'off', helper_wskomp);
 		setTextField('wsinfo', 'disabled', '', helper_wsinfo);
 
 		setSwitch('kk', 'disabled', 'off', helper_kk_off);
@@ -453,7 +454,7 @@ $(document).ready(function() {
 			break;
 			case 'T':
 				$('#select-artikeltyp').attr('helper', helper_artikeltyp_t);
-				setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
+				// setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
 
 				if (artikelansvar == 'R' || artikelansvar == 'E') {
 					$('#debiteringsform-menu-item-m').attr('disabled', true); // disable option 'M' (Månadshyra)
@@ -727,44 +728,25 @@ $(document).ready(function() {
 					});
 				}
 				$('#label-wspub .switch-helper').html(helper_wspub_on);
-				setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
 				setSwitch('wsbb', 'enabled', 'off', helper_wsbb_off);
-				if (artikeltyp == 'T') {
-					setSwitch('wskomp', 'enabled', 'off', helper_wskomp_off);
-				} else {
-					setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
-				}
+				setSwitch('wssort', 'enabled', 'off', helper_wssort_off);
+				// if (artikeltyp == 'T') {
+				//	setSwitch('wskomp', 'enabled', 'off', helper_wskomp_off);
+				// } else {
+				//	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
+				// }
 				setTextField('wsinfo', 'enabled', '', helper_wsinfo);
 			break;
 			case 'Nej':
 				$('#label-wspub .switch-helper').html(helper_wspub_off);
-				setSwitch('wssort', 'disabled', 'off', helper_wssort);
 				setSwitch('wsbb', 'disabled', 'off', helper_wsbb_off);
-				if (artikeltyp == 'T') {
-					setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
-				} else {
-					setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
-				}
+				setSwitch('wssort', 'disabled', 'off', helper_wssort);
+				// if (artikeltyp == 'T') {
+				//	setSwitch('wskomp', 'disabled', 'off', helper_wskomp_off);
+				// } else {
+				//	setSwitch('wskomp', 'disabled', 'off', helper_wskomp);
+				// }
 				setTextField('wsinfo', 'disabled', '', helper_wsinfo);
-			break;
-		}
-	});
-
-	// mdui-switch #switch-wssort changes
-	$('#switch-wssort').on('change', function() {
-		console.debug('<mdui-switch #switch-wssort> changed');
-		let oval = wssort;
-		let nval = ((this.checked === true) ? "Ja" : "Nej");
-		if (oval !== nval) {
-			wssort = nval;
-			console.info('wssort: "' + oval + '" => "' + wssort + '"');
-		}
-		switch (wssort) {
-			case 'Ja':
-				$('#label-wssort .switch-helper').html(helper_wssort_on);
-			break;
-			case 'Nej':
-				$('#label-wssort .switch-helper').html(helper_wssort_off);
 			break;
 		}
 	});
@@ -788,24 +770,43 @@ $(document).ready(function() {
 		}
 	});
 
-	// mdui-switch #switch-wskomp changes
-	$('#switch-wskomp').on('change', function() {
-		console.debug('<mdui-switch #switch-wskomp> changed');
-		let oval = wskomp;
+	// mdui-switch #switch-wssort changes
+	$('#switch-wssort').on('change', function() {
+		console.debug('<mdui-switch #switch-wssort> changed');
+		let oval = wssort;
 		let nval = ((this.checked === true) ? "Ja" : "Nej");
 		if (oval !== nval) {
-			wskomp = nval;
-			console.info('wskomp: "' + oval + '" => "' + wskomp + '"');
+			wssort = nval;
+			console.info('wssort: "' + oval + '" => "' + wssort + '"');
 		}
-		switch (wskomp) {
+		switch (wssort) {
 			case 'Ja':
-				$('#label-wskomp .switch-helper').html(helper_wskomp_on);
+				$('#label-wssort .switch-helper').html(helper_wssort_on);
 			break;
 			case 'Nej':
-				$('#label-wskomp .switch-helper').html(helper_wskomp_off);
+				$('#label-wssort .switch-helper').html(helper_wssort_off);
 			break;
 		}
 	});
+
+	// mdui-switch #switch-wskomp changes
+	// $('#switch-wskomp').on('change', function() {
+	//	console.debug('<mdui-switch #switch-wskomp> changed');
+	//	let oval = wskomp;
+	//	let nval = ((this.checked === true) ? "Ja" : "Nej");
+	//	if (oval !== nval) {
+	//		wskomp = nval;
+	//		console.info('wskomp: "' + oval + '" => "' + wskomp + '"');
+	//	}
+	//	switch (wskomp) {
+	//		case 'Ja':
+	//			$('#label-wskomp .switch-helper').html(helper_wskomp_on);
+	//		break;
+	//		case 'Nej':
+	//			$('#label-wskomp .switch-helper').html(helper_wskomp_off);
+	//		break;
+	//	}
+	// });
 
 	// 7. Lagerhållning
 
@@ -1015,6 +1016,7 @@ $(document).ready(function() {
 		$('.content-container').fadeOut().promise().done(function() { /* hide all content */
 			$('#content-formular').fadeIn();
 		});
+		removeURLHash();
 	});
 
 });
