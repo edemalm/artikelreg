@@ -2,8 +2,9 @@
 
 console.debug('Loading strings.js');
 
-// 1. Artikelbenämning och produkt
+// 1. Artikelbenämning, beskrivning och produkt
 var helper_artikelbenamning = "Följ beslutad struktur. Se hjälpavsnitt för mer information.";
+var helper_beskrivning = "Du kan ange en längre artikelbeskrivning som mer utförligt beskriver hjälpmedlets funktion, konfiguration eller andra egenskaper. Om detta utelämnas kan leverantörens beskrivning i Hjälpmedelstjänsten användas.";
 var helper_standardprodukt = "Se hjälpavsnitt för mer information";
 
 // 2. Leverantör

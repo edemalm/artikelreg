@@ -11,6 +11,7 @@ function formInit() {
 	// Global variables
 	window.artikelansvar = '';
 	window.artikelbenamning = '';
+	window.beskrivning = '';
 	window.artikeldata = '';
 	window.artikeltyp = '';
 	window.avd = '';
@@ -60,8 +61,9 @@ function formInit() {
 	// window.wskomp = '';
 	window.wssort = '';
 
-	// 1. Artikelbenämning och produkt
+	// 1. Artikelbenämning, beskrivning och produkt
 	setTextField('artikelbenamning', 'enabled', '', helper_artikelbenamning);
+	setTextField('beskrivning', 'enabled', '', helper_beskrivning);
 	setTextField('standardprodukt', 'enabled', '', helper_standardprodukt);
 	$('.extraprodukt').hide();
 	$('.standardprodukt').removeClass('xl3');
@@ -392,6 +394,7 @@ function createArtikeldata() {
 	// Collect data
 	artikelansvar = $('#select-artikelansvar').val();
 	artikelbenamning = $('#text-artikelbenamning').val();
+	beskrivning = $('#text-beskrivning').val();
 	artikeltyp = $('#select-artikeltyp').val();
 	avskrivningstid = $('#radio-avskrivningstid').val();
 	besiktningsintervall = $('#select-besiktningsintervall').val();
@@ -590,6 +593,7 @@ function createArtikeldata() {
 	// ARTIKEL
 	artikeldata += "\nARTIKEL\n\n"
 	artikeldata += "Artikelbenämning:  " + artikelbenamning + "\n";
+	artikeldata += "Beskrivning:  " + beskrivning + "\n";
 
 	// KLASSIFICERING
 	artikeldata += "\nKLASSIFICERING\n\n";
