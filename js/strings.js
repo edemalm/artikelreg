@@ -53,11 +53,11 @@ var helper_wssort_off = "Artikeln tillhör övrigt sortiment";
 var helper_wsinfo = "Vid behov ange extra artikelinformation som visas för artikeln i webSesam";
 
 // 7. Lagerhållning
-var helper_inkopshantering = "Välj en rekommenderad inköpshantering";
-var helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker då behov finns.";
+var helper_inkopshantering = "Välj en rekommenderad inköpshantering på valt huvudlager";
+var helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker då kundorder finns.";
 var helper_inkopshantering_n = "Artikeln är lagerlagd. Inköp sker till lager.";
-var helper_liggplats ="Ange en liggplats om den är känd i förväg";
-var helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret";
+var helper_liggplats ="Ange en liggplats på valt huvudlager om den är känd i förväg";
+var helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret. Bufferlagret försörjs av huvudlagret med hjälp av automatisk lagerpåfyllnad.";
 var placeholder_buffertlager = "Lager 220, 3 st, 31-A-123";
 
 // 8. Hantering vid ankomst
