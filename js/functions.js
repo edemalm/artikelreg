@@ -1031,7 +1031,7 @@ function createArtikeldata() {
 	let mailrec = atob('aW5rb3BzcGVyc29uYWxpbnRlcm50LmhqYWxwbWVkZWxzY2VudGVyQHJlZ2lvbmRhbGFybmEuc2U=');
 	let artikelbenamning_firstword = (artikelbenamning.length > 0 ? artikelbenamning.match(/\s*([^\s]+)/)[1] : '(uppgift saknas)');
 	let mailsub = "";
-	let mailbody = "(Radera denna rad. Tryck sedan Ctrl+V för att klista in artikeluppgifter.)\n";
+	let mailbody = "[Radera denna rad. Tryck sedan Ctrl+V för att klistra in artikeluppgifterna.]\n";
 	if (artikeltyp.length > 0) {
 		if (artikeltyp == 'H') mailsub += "Nytt huvudhjälpmedel";
 		if (artikeltyp == 'T') mailsub += "Nytt tillbehör";
