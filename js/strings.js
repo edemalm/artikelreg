@@ -57,8 +57,8 @@ var helper_inkopshantering = "Välj en rekommenderad inköpshantering på valt h
 var helper_inkopshantering_k = "Artikeln är en beställningsvara. Inköp sker då kundorder finns.";
 var helper_inkopshantering_n = "Artikeln är lagerlagd. Inköp sker till lager.";
 var helper_liggplats ="Ange en liggplats på valt huvudlager om den är känd i förväg";
-var helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret. Buffertlagret försörjs av huvudlagret med hjälp av automatisk lagerpåfyllnad.";
-var placeholder_buffertlager = "Lager 220, 3 st, 31-A-123";
+var helper_buffertlager = "Ange buffertlager, säkerhetslager och eventuell liggplats på buffertlagret.";
+var placeholder_buffertlager = "Lager 220, säkerhetslager 3 st, liggplats 31-A-123";
 
 // 8. Hantering vid ankomst
 var helper_gmi = "Vid behov kan en kortfattad text anges som visas för lagerpersonalen vid godsmottagning";

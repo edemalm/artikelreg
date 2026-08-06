@@ -298,7 +298,6 @@ div.form-title-text {
 	min-width: 0; /* https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container */
 }
 div.form-title-text h4 {
-	line-height: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -388,3 +387,12 @@ table.compact th,
 table.compact td {
 	padding: .875rem .5rem;
 }
+
+p.info-text {
+	color: rgb(var(--mdui-color-on-surface-variant));
+	font-size: var(--mdui-typescale-body-small-size);
+	font-weight: var(--mdui-typescale-body-small-weight);
+	letter-spacing: var(--mdui-typescale-body-small-tracking);
+	line-height: var(--mdui-typescale-body-small-line-height);
+}
+

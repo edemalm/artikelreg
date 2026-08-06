@@ -612,6 +612,9 @@
 							<div class="form-title-icon"><mdui-icon name="warehouse"></mdui-icon></div>
 							<div class="form-title-text"><h4>7. Lagerhållning</h4></div>
 						</div>
+                        <h4>Huvudlager</h4>
+                        <p class="info-text">På DHC finns tre huvudlager. Det är endast till huvudlager som inköp
+                        sker.</p>
 					</div>
 					<div class="s12">
 						<!-- HUVUDLAGER -->
@@ -657,9 +660,13 @@
 							max="500"
 							step="25" disabled></mdui-slider>
 						<div class="slider-helper disabled"><strong><span id="slider-msg">Endast relevant för inköpshantering Nettobehov</span></strong></div>
-					</div>
-					<div class="s12">
 						<!-- BUFFERTLAGER -->
+                        <hr>
+                        <h4>Buffertlager</h4>
+                        <p class="info-text">Ett buffertlager är ett lager som försörjs via ett huvudlager. Exempel på buffertlager är obemannade förråd, filialteknikers förråd, olika utprovninglager samt PMBs lager på Skomakargatan.</p>
+                        <p class="info-text">Ett buffertlager kan ha automatisk lagerpåfyllnad. Detta kräver att ett
+                        säkerhetslager är angivet på buffertlagret. Vid behov av påfyllning skapar Sesam en automatisk
+                        lagerflyttsorder. Artikeln måste inte vara lagerförd på huvudlagret.</p>
 						<mdui-text-field id="text-buffertlager"
 							autocomplete="off"
 							autocorrect="off"
@@ -857,7 +864,7 @@
 							inputmode="text"
 							label="Övriga upplysningar"
 							name="upplysningar"
-							rows="5"
+							rows="2"
 							variant="filled"
 							autosize clearable></mdui-text-field>
 					</div>
